@@ -92,6 +92,7 @@
 		<Unit filename="inc\30010_io.h" />
 		<Unit filename="inc\ansi.h" />
 		<Unit filename="inc\charset.h" />
+		<Unit filename="inc\draw_objects.h" />
 		<Unit filename="inc\hardware_control.h" />
 		<Unit filename="inc\lut-sin.h" />
 		<Unit filename="inc\stm32f30x.h" />
@@ -191,6 +192,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\ansi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\draw_objects.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src\hardware_control.c">
