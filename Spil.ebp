@@ -89,9 +89,15 @@
 		<Unit filename="cmsis\core_cm4_simd.h" />
 		<Unit filename="cmsis\core_cmFunc.h" />
 		<Unit filename="cmsis\core_cmInstr.h" />
+		<Unit filename="inc\30010_io.h" />
+		<Unit filename="inc\ansi.h" />
+		<Unit filename="inc\charset.h" />
+		<Unit filename="inc\hardware_control.h" />
+		<Unit filename="inc\lut-sin.h" />
 		<Unit filename="inc\stm32f30x.h" />
 		<Unit filename="inc\stm32f30x_conf.h" />
 		<Unit filename="inc\system_stm32f30x.h" />
+		<Unit filename="inc\vectors.h" />
 		<Unit filename="readme.txt" />
 		<Unit filename="SPL\inc\stm32f30x_adc.h" />
 		<Unit filename="SPL\inc\stm32f30x_can.h" />
@@ -181,6 +187,18 @@
 		<Unit filename="SPL\src\stm32f30x_wwdg.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\30010_io.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\ansi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\hardware_control.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src\lut-sin.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="src\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -190,12 +208,15 @@
 		<Unit filename="src\system_stm32f30x.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src\vectors.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="stm32f302r8_flash.ld" />
 		<Unit filename="stm32f302r8_sram.ld" />
 		<Extensions>
 			<code_completion />
 			<debugger>
-				<target_debugging_settings target="Debug" active_interface="ST-link">
+				<target_debugging_settings target="Release" active_interface="ST-link">
 					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
@@ -212,7 +233,7 @@
 						</family_options>
 					</debug_interface>
 				</target_debugging_settings>
-				<target_debugging_settings target="Release" active_interface="ST-link">
+				<target_debugging_settings target="Debug" active_interface="ST-link">
 					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBITZ}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics" gdb_before_conn="" gdb_after_conn="">
 						<family_options family_id="STMicroelectronics">
 							<option opt_id="ID_JTAG_SWD" opt_value="swd" />

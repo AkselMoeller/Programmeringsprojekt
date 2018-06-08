@@ -16,6 +16,7 @@
 #include "hardware_control.h"
 
 int main(void) {
-
+    //Test i Xcode
+    
     while(1) {}
 }
