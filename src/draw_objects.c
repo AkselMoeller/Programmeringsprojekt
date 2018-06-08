@@ -32,13 +32,13 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
         lBorder = 4 + 176;
         rBorder = 3 + 192;
     }
-    
+
     //Drawing bottom horizontal side (without corners)
     for (int i = x1 + 1; i < x2; i++) {
         gotoxy(i, y2);
         printf("%c", hSide);
     }
-    
+
     //Drawing vertical sides (without corners)
     for (int i = y1 + 1; i < y2; i++) {
         gotoxy(x1, i);
@@ -46,7 +46,7 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
         gotoxy(x2, i);
         printf("%c", vSide);
     }
-    
+
     //Drawing corners
     gotoxy(x1,y1);
     printf("%c", lt);
@@ -56,14 +56,14 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
     printf("%c", lb);
     gotoxy(x2,y2);
     printf("%c", rb);
-    
+
     //Drawing title (if a title is given)
     if (title[0] != '\0') {
         gotoxy(x1 + 1,y1);
         printf("%c", lBorder);
         gotoxy(x2 - 1,y1);
         printf("%c", rBorder);
-        
+
         bgcolor(4);
         for (int i = x1 + 2; i <= x2 - 2; i++) {
             gotoxy(i, y1);
@@ -92,4 +92,15 @@ void drawBall(ball_t * ball_p) {
 void updateBallPos(ball_t * ball_p, int k) {
     (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
     (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
+}
+
+void drawStriker (striker_t * striker_p) {
+  fgcolor(0)
+  for (int i = (*striker_p).x ; i < (*striker_p).x + length; i++) {
+      gotoxy((*striker_p).x + i, (*striker_p).y);
+      printf(" ");
+}
+
+void updateStrikerPos (striker_t * striker_p) {
+  
 }
