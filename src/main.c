@@ -4,11 +4,8 @@
 #include "draw_objects.h"
 #include "vectors.h"
 
-void gedeost(int tal);
-
 int main(void) {
-    printf("Dette er i main");
-
-    //comment
+    init_usb_uart(115200);
+    
     while(1) {}
 }
