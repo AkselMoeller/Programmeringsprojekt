@@ -11,12 +11,21 @@
 			<Cursor1 position="2372" topLine="60" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="src\hardware_control.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\main.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="src\draw_objects.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3009" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="src\main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 527138504108510f8859aabf2098ea29e19119a9
 		<Cursor>
 			<Cursor1 position="437" topLine="0" />
 		</Cursor>
