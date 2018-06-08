@@ -95,12 +95,20 @@ void updateBallPos(ball_t * ball_p, int k) {
 }
 
 void drawStriker (striker_t * striker_p) {
-  fgcolor(0)
+  fgcolor(0);
   for (int i = (*striker_p).x ; i < (*striker_p).x + length; i++) {
       gotoxy((*striker_p).x + i, (*striker_p).y);
       printf(" ");
 }
 
-void updateStrikerPos (striker_t * striker_p) {
-  
+void updateStrikerPos (striker_t * striker_p, int joyStickState) {
+  if (joyStickState == 8) {
+    (*striker_p).x ++;
+  }
+  else if (joyStickState == 4) {
+      (*striker_p).x --;
+  }
+  else {
+    (*striker_p).x = (*striker_p).x;
+  }
 }

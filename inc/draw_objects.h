@@ -23,6 +23,6 @@ void drawBall(ball_t * ball_p);
 void updateBallPos(ball_t * ball_p, int k);
 
 void drawStriker (striker_t * striker_p);
-void updateStrikerPos (striker_t * striker_p)
+void updateStrikerPos (striker_t * striker_p, int joyStickState);
 
 #endif /* draw_objects_h */
