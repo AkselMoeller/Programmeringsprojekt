@@ -97,7 +97,7 @@ void updateBallPos(ball_t * ball_p, int k) {
 void drawStriker (striker_t * striker_p) {
 
   fgcolor(0);
-  for (int i = (*striker_p).x ; i < (*striker_p).x + length; i++) {
+  for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
       gotoxy((*striker_p).x + i, (*striker_p).y);
       printf(" ");
 }

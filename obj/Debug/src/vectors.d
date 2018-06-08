@@ -1,4 +1,4 @@
-obj\debug\src\main.o: src\main.c inc/stm32f30x_conf.h \
+obj\debug\src\vectors.o: src\vectors.c inc/stm32f30x_conf.h \
  SPL\inc/stm32f30x_adc.h inc/stm32f30x.h cmsis/core_cm4.h \
  cmsis/core_cmInstr.h cmsis/core_cmFunc.h cmsis/core_cm4_simd.h \
  inc/system_stm32f30x.h inc/stm32f30x_conf.h SPL\inc/stm32f30x_can.h \
@@ -11,4 +11,4 @@ obj\debug\src\main.o: src\main.c inc/stm32f30x_conf.h \
  SPL\inc/stm32f30x_rcc.h SPL\inc/stm32f30x_rtc.h SPL\inc/stm32f30x_spi.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/30010_io.h \
- inc/hardware_control.h inc/30010_io.h inc/draw_objects.h inc/vectors.h
+ inc/lut-sin.h inc/vectors.h
