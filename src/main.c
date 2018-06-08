@@ -20,7 +20,7 @@ int main(void) {
     while(1) {
         if (flag) {
             //Everything here is executed once every 1/20 second
-            
+
             flag = 0;
         }
     }
