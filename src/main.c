@@ -6,6 +6,6 @@
 
 int main(void) {
     init_usb_uart(115200);
-
+    
     while(1) {}
 }
