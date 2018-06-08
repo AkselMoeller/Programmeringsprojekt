@@ -7,6 +7,8 @@
 void gedeost(int tal);
 
 int main(void) {
-    
+    printf("Dette er i main");
+
+    //comment
     while(1) {}
 }
