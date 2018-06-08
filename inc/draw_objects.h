@@ -16,13 +16,17 @@ typedef struct {
 } ball_t;
 
 typedef struct {
-  int x, y, length; //(x, y) is startposition and length is the length of striker.
-} striker_t
+  int x, y, length; //(x, y) is start position and length is the length of striker.
+} striker_t;
 
 void drawBall(ball_t * ball_p);
 void updateBallPos(ball_t * ball_p, int k);
 
 void drawStriker (striker_t * striker_p);
+<<<<<<< HEAD
 void updateStrikerPos (striker_t * striker_p, int joyStickState);
+=======
+void updateStrikerPos (striker_t * striker_p);
+>>>>>>> 4ea89d93d788ae1d0c21b015520386bfacd16b53
 
 #endif /* draw_objects_h */
