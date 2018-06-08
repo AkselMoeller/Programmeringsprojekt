@@ -15,6 +15,8 @@ int main(void) {
     initJoyStick();
     initTimer();
 
+    //drawing initial game
+    window(x1, y1, x2, y2, "Breakout", 1);
 
 
     while(1) {
