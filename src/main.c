@@ -5,7 +5,10 @@
 #include "vectors.h"
 
 int main(void) {
-    //Allahu Akhbar
+    //kdaæfsfæ
+    //aædjkf
+
+    //Alexander er en ged
 
     while(1) {}
 }
