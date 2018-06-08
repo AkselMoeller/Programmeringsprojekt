@@ -12,6 +12,7 @@
 #include <string.h>
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style) {
+    clrscr();
     uint8_t hSide, vSide, lt, lb, rt, rb, lBorder, rBorder; //r/l = right/left, t/b = top/bottom, v/h = horizontal/vertical
     //Two different styles
     if (style) { //Wide style
@@ -104,9 +105,9 @@ void updateBallPos(ball_t * ball_p, uint8_t k) {
 void drawStriker (striker_t * striker_p) {
     //Draw striker from current position to length of striker
     fgcolor(15);
-    for (uint8_t i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+    for (uint8_t i = 0; i < (*striker_p).length; i++) {
         gotoxy((*striker_p).x + i, (*striker_p).y);
-        printf(" ");
+        printf("%c", 11 + 208);
     }
 }
 
@@ -133,8 +134,9 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
 
 void drawBox(box_t * box_p, uint8_t boxColor) {
     fgcolor(boxColor);
-    for (uint8_t i = (*box_p).x1; i < (*box_p).x2; i++) {
-        for (uint8_t i = (*box_p).y1; i < (*box_p).y2; i++) {
+    for (uint8_t i = 0; i < (*box_p).xSize; i++) {
+        for (uint8_t j = 0; j < (*box_p).ySize; j++) {
+            gotoxy((*box_p).x + i, (*box_p).y + j);
             printf("%c", 11 + 208);
         }
     }
