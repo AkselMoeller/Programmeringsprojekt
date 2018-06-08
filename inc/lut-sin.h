@@ -5,8 +5,8 @@
 //
 // =====================================================================
 
-#ifndef LUT-SIN_H
-#define LUT-SIN_H
+#ifndef LUT_SIN_H
+#define LUT_SIN_H
 
 // === LUT SIZES ===
 #define SIN_SIZE 512

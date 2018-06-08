@@ -1,6 +1,4 @@
-
 #include "hardware_control.h"
-
 
 void initJoyStick() {
     RCC->AHBENR |= RCC_AHBPeriph_GPIOA; // Enable clock for GPIO Port A
