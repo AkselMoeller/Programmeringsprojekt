@@ -19,5 +19,6 @@ int main(void)
   {
     printf("Hej");
     //Dette er en test
+    //Det er dette også
   }
 }
