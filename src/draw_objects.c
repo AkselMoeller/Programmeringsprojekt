@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "draw_objects.h"
 #include "ansi.h"
+#include <string.h>
 
 void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
     uint8_t hSide, vSide, lt, lb, rt, rb, lBorder, rBorder; //r/l = right/left, t/b = top/bottom, v/h = horizontal/vertical
@@ -85,14 +86,22 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
 }
 
 void drawBall(ball_t * ball_p) {
+    fgcolor(15);
     gotoxy((*ball_p).x, (*ball_p).y);
-    printf("%c", 15+96);
+    printf("%c", 15+96); // "o"
 }
 
+<<<<<<< HEAD
 void deletBall(ball_t * ball_p, int backgroundcolor) {
   fgcolor(backgroundcolor);
   gotoxy((*ball_p).x, (*ball_p).y);
   printf(" ");
+=======
+void deleteBall(ball_t * ball_p, int backgroundColor) {
+    fgcolor(backgroundColor);
+    gotoxy((*ball_p).x, (*ball_p).y);
+    printf(" ");
+>>>>>>> 3e624705c7310dd1264ee0036bbb65fc6a2acca9
 }
 
 void updateBallPos(ball_t * ball_p, int k) {
@@ -101,13 +110,15 @@ void updateBallPos(ball_t * ball_p, int k) {
 }
 
 void drawStriker (striker_t * striker_p) {
-  //Draw striker from current position to length of striker
-  fgcolor(0);
-  for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
-      gotoxy((*striker_p).x + i, (*striker_p).y);
-      printf(" ");
+    //Draw striker from current position to length of striker
+    fgcolor(15);
+    for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+        gotoxy((*striker_p).x + i, (*striker_p).y);
+        printf(" ");
+    }
 }
 
+<<<<<<< HEAD
 void deletStriker(striker_t * striker_p; int backgroundcolor) {
   //Delet previus striker befor new coordinates
   fgcolor(backgroundcolor);
@@ -128,5 +139,27 @@ void updateStrikerPos (striker_t * striker_p, int joyStickState) {
   else {
     (*striker_p).x = (*striker_p).x;
   }
+=======
+void deleteStriker(striker_t * striker_p, int backgroundColor) {
+    //Delet previous striker before new coordinates
+    fgcolor(backgroundColor);
+    for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+        gotoxy((*striker_p).x + i, (*striker_p).y);
+        printf(" ");
+    }
+}
+
+void updateStrikerPos (striker_t * striker_p, int joyStickState) {
+    //Updateing the striker position with joystick
+    if (joyStickState == 8) {
+        (*striker_p).x++;
+    }
+    else if (joyStickState == 4) {
+        (*striker_p).x--;
+    }
+    else {
+        (*striker_p).x = (*striker_p).x;
+    }
+>>>>>>> 3e624705c7310dd1264ee0036bbb65fc6a2acca9
 }
 }
