@@ -132,7 +132,10 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
 }
 
 void drawBox(box_t * box_p, uint8_t boxColor) {
+    fgcolor(boxColor);
     for (uint8_t i = (*box_p).x1; i < (*box_p).x2; i++) {
-
+        for (uint8_t i = (*box_p).y1; i < (*box_p).y2; i++) {
+            printf("%c", 11 + 208);
+        }
     }
 }

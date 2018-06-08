@@ -3472,8 +3472,8 @@ Discarded input sections
                 0x00000000       0x58 obj\debug\src\draw_objects.o
  .text.updateStrikerPos
                 0x00000000       0x54 obj\debug\src\draw_objects.o
- .text.drawBox  0x00000000       0x30 obj\debug\src\draw_objects.o
- .debug_info    0x00000000      0x44a obj\debug\src\draw_objects.o
+ .text.drawBox  0x00000000       0x54 obj\debug\src\draw_objects.o
+ .debug_info    0x00000000      0x460 obj\debug\src\draw_objects.o
  .debug_abbrev  0x00000000      0x10a obj\debug\src\draw_objects.o
  .debug_aranges
                 0x00000000       0x58 obj\debug\src\draw_objects.o
@@ -3539,10 +3539,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x89 obj\debug\src\draw_objects.o
  .debug_macro   0x00000000       0x16 obj\debug\src\draw_objects.o
  .debug_macro   0x00000000       0x35 obj\debug\src\draw_objects.o
- .debug_line    0x00000000      0x6ce obj\debug\src\draw_objects.o
+ .debug_line    0x00000000      0x6e1 obj\debug\src\draw_objects.o
  .debug_str     0x00000000    0x55f59 obj\debug\src\draw_objects.o
  .comment       0x00000000       0x6f obj\debug\src\draw_objects.o
- .debug_frame   0x00000000      0x140 obj\debug\src\draw_objects.o
+ .debug_frame   0x00000000      0x13c obj\debug\src\draw_objects.o
  .ARM.attributes
                 0x00000000       0x33 obj\debug\src\draw_objects.o
  .group         0x00000000        0x8 obj\debug\src\game_control.o
