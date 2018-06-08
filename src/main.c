@@ -5,6 +5,8 @@
 #include "vectors.h"
 
 int main(void) {
-    
+    printf("Dette er i main");
+
+    //comment
     while(1) {}
 }
