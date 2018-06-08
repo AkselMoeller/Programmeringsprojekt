@@ -86,7 +86,7 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
 
 void drawBall(ball_t * ball_p) {
     gotoxy((*ball_p).x, (*ball_p).y);
-    printf("%c", 15+96);
+    printf("%c", 15+96); // "o"
 }
 
 void deletBall(ball_t * ball_p, int backgroundcolor) {
