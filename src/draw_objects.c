@@ -11,7 +11,7 @@
 #include "ansi.h"
 #include <string.h>
 
-void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
+void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style) {
     uint8_t hSide, vSide, lt, lb, rt, rb, lBorder, rBorder; //r/l = right/left, t/b = top/bottom, v/h = horizontal/vertical
     //Two different styles
     if (style) { //Wide style
@@ -35,13 +35,13 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
     }
 
     //Drawing bottom horizontal side (without corners)
-    for (int i = x1 + 1; i < x2; i++) {
+    for (uint8_t i = x1 + 1; i < x2; i++) {
         gotoxy(i, y2);
         printf("%c", hSide);
     }
 
     //Drawing vertical sides (without corners)
-    for (int i = y1 + 1; i < y2; i++) {
+    for (uint8_t i = y1 + 1; i < y2; i++) {
         gotoxy(x1, i);
         printf("%c", vSide);
         gotoxy(x2, i);
@@ -66,7 +66,7 @@ void window(int x1, int y1, int x2, int y2, char * title, uint8_t style) {
         printf("%c", rBorder);
 
         bgcolor(4);
-        for (int i = x1 + 2; i <= x2 - 2; i++) {
+        for (uint8_t i = x1 + 2; i <= x2 - 2; i++) {
             gotoxy(i, y1);
             if (i == x1 + 2) {
                 printf(" ");
@@ -91,13 +91,12 @@ void drawBall(ball_t * ball_p) {
     printf("%c", 15+96); // "o"
 }
 
-void deleteBall(ball_t * ball_p, int backgroundColor) {
-    fgcolor(backgroundColor);
+void deleteBall(ball_t * ball_p) {
     gotoxy((*ball_p).x, (*ball_p).y);
     printf(" ");
 }
 
-void updateBallPos(ball_t * ball_p, int k) {
+void updateBallPos(ball_t * ball_p, uint8_t k) {
     (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
     (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
 }
@@ -105,23 +104,22 @@ void updateBallPos(ball_t * ball_p, int k) {
 void drawStriker (striker_t * striker_p) {
     //Draw striker from current position to length of striker
     fgcolor(15);
-    for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+    for (uint8_t i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
         gotoxy((*striker_p).x + i, (*striker_p).y);
         printf(" ");
     }
 }
 
-void deleteStriker(striker_t * striker_p, int backgroundColor) {
-    //Delet previous striker before new coordinates
-    fgcolor(backgroundColor);
-    for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+void deleteStriker(striker_t * striker_p) {
+    //Delete previous striker before new coordinates
+    for (uint8_t i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
         gotoxy((*striker_p).x + i, (*striker_p).y);
         printf(" ");
     }
 }
 
-void updateStrikerPos (striker_t * striker_p, int joyStickState) {
-    //Updateing the striker position with joystick
+void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
+    //Updating the striker position with joystick
     if (joyStickState == 8) {
         (*striker_p).x++;
     }
@@ -131,4 +129,8 @@ void updateStrikerPos (striker_t * striker_p, int joyStickState) {
     else {
         (*striker_p).x = (*striker_p).x;
     }
+}
+
+void drawBox(box_t * box_p, uint8_t boxColor) {
+    for (uint8_t i = (*box_p).x1; i < )
 }
