@@ -5,19 +5,6 @@
 #include "vectors.h"
 
 int main(void) {
-<<<<<<< HEAD
-
-=======
-
-    //kdaæfsfæ
-    //aædjkf
-
-    //Alexander er en ged
-
-    printf("Gedeost");
-
-
-
->>>>>>> f12b8bf07ddbd9bc560d50c8a1d82a842683c355
+    
     while(1) {}
 }
