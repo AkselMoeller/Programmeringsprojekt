@@ -90,12 +90,12 @@ void drawBall(ball_t * ball_p) {
 }
 
 void deletBall(ball_t * ball_p, int backgroundcolor) {
-  fgcolor(backgroundcolor)
+  fgcolor(backgroundcolor);
   gotoxy((*ball_p).x, (*ball_p).y);
   printf(" ");
 }
 
-void updateBallPos(ball_t * ball_p, int k, int backgroundcolor) {
+void updateBallPos(ball_t * ball_p, int k) {
     (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
     (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
 }
@@ -108,7 +108,7 @@ void drawStriker (striker_t * striker_p) {
       printf(" ");
 }
 
-void deletStriker(striker_t striker_p; int backgroundcolor) {
+void deletStriker(striker_t * striker_p; int backgroundcolor) {
   //Delet previus striker befor new coordinates
   fgcolor(backgroundcolor);
   for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
@@ -117,7 +117,7 @@ void deletStriker(striker_t striker_p; int backgroundcolor) {
   }
 }
 
-void updateStrikerPos (striker_t * striker_p, int joyStickState, int backgroundcolor) {
+void updateStrikerPos (striker_t * striker_p, int joyStickState) {
 //Updateing the striker position with joystick
   if (joyStickState == 8) {
     (*striker_p).x ++;
@@ -128,4 +128,5 @@ void updateStrikerPos (striker_t * striker_p, int joyStickState, int backgroundc
   else {
     (*striker_p).x = (*striker_p).x;
   }
+}
 }

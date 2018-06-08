@@ -192,7 +192,7 @@
 1528447707 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\30010_io.c
 	"30010_io.h"
 
-1528447707 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\30010_io.h
+1528466039 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\30010_io.h
 	"stm32f30x_conf.h"
 	<stdio.h>
 
@@ -215,12 +215,13 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528463840 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528467593 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"vectors.h"
+	"game_control.h"
 
 1528464796 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
@@ -236,4 +237,6 @@
 	"30010_io.h"
 	"lut-sin.h"
 	"vectors.h"
+
+1528467593 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\game_control.h
 
