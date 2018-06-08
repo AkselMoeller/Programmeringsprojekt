@@ -3461,6 +3461,7 @@ Discarded input sections
  .bss           0x00000000        0x0 obj\debug\src\draw_objects.o
  .text.window   0x00000000      0x204 obj\debug\src\draw_objects.o
  .text.drawBall
+<<<<<<< HEAD
                 0x00000000       0x30 obj\debug\src\draw_objects.o
  .text.deleteBall
                 0x00000000       0x28 obj\debug\src\draw_objects.o
@@ -3478,6 +3479,16 @@ Discarded input sections
  .debug_aranges
                 0x00000000       0x58 obj\debug\src\draw_objects.o
  .debug_ranges  0x00000000       0x48 obj\debug\src\draw_objects.o
+=======
+                0x00000000       0x2c obj\debug\src\draw_objects.o
+ .text.deletBall
+                0x00000000       0x30 obj\debug\src\draw_objects.o
+ .debug_info    0x00000000      0x321 obj\debug\src\draw_objects.o
+ .debug_abbrev  0x00000000      0x117 obj\debug\src\draw_objects.o
+ .debug_aranges
+                0x00000000       0x30 obj\debug\src\draw_objects.o
+ .debug_ranges  0x00000000       0x20 obj\debug\src\draw_objects.o
+>>>>>>> 39405fd4ea029d4549371b443fe379d6ce363752
  .debug_macro   0x00000000      0x2fd obj\debug\src\draw_objects.o
  .debug_macro   0x00000000      0x892 obj\debug\src\draw_objects.o
  .debug_macro   0x00000000       0x22 obj\debug\src\draw_objects.o
@@ -3539,10 +3550,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x89 obj\debug\src\draw_objects.o
  .debug_macro   0x00000000       0x16 obj\debug\src\draw_objects.o
  .debug_macro   0x00000000       0x35 obj\debug\src\draw_objects.o
+<<<<<<< HEAD
  .debug_line    0x00000000      0x6c1 obj\debug\src\draw_objects.o
  .debug_str     0x00000000    0x55f59 obj\debug\src\draw_objects.o
  .comment       0x00000000       0x6f obj\debug\src\draw_objects.o
  .debug_frame   0x00000000      0x140 obj\debug\src\draw_objects.o
+=======
+ .debug_line    0x00000000      0x635 obj\debug\src\draw_objects.o
+ .debug_str     0x00000000    0x55f10 obj\debug\src\draw_objects.o
+ .comment       0x00000000       0x6f obj\debug\src\draw_objects.o
+ .debug_frame   0x00000000       0x7c obj\debug\src\draw_objects.o
+>>>>>>> 39405fd4ea029d4549371b443fe379d6ce363752
  .ARM.attributes
                 0x00000000       0x33 obj\debug\src\draw_objects.o
  .group         0x00000000        0x8 obj\debug\src\game_control.o
@@ -4891,7 +4909,7 @@ OUTPUT(bin\Debug\Spil.elf elf32-littlearm)
  .debug_line    0x000022a7       0xbb obj\debug\src\startup_stm32f30x.o
  .debug_line    0x00002362      0x493 obj\debug\src\system_stm32f30x.o
 
-.debug_str      0x00000000    0x57a7c
+.debug_str      0x00000000    0x57a34
  .debug_str     0x00000000    0x52c16 obj\debug\spl\src\stm32f30x_rcc.o
                               0x52dd2 (size before relaxing)
  .debug_str     0x00052c16      0x81e obj\debug\spl\src\stm32f30x_usart.o
@@ -4900,9 +4918,9 @@ OUTPUT(bin\Debug\Spil.elf elf32-littlearm)
                               0x5650f (size before relaxing)
  .debug_str     0x00057395      0x5cf obj\debug\src\hardware_control.o
                               0x564e8 (size before relaxing)
- .debug_str     0x00057964       0x8c obj\debug\src\main.o
-                              0x55e90 (size before relaxing)
- .debug_str     0x000579f0       0x8c obj\debug\src\system_stm32f30x.o
+ .debug_str     0x00057964       0x44 obj\debug\src\main.o
+                              0x55e85 (size before relaxing)
+ .debug_str     0x000579a8       0x8c obj\debug\src\system_stm32f30x.o
                               0x52464 (size before relaxing)
 
 .debug_frame    0x00000000     0x16ac

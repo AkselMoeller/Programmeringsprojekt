@@ -91,10 +91,20 @@ void drawBall(ball_t * ball_p) {
     printf("%c", 15+96); // "o"
 }
 
+<<<<<<< HEAD
 void deleteBall(ball_t * ball_p) {
     gotoxy((*ball_p).x, (*ball_p).y);
     printf(" ");
 }
+=======
+
+void deletBall(ball_t * ball_p, int backgroundcolor) {
+  fgcolor(backgroundcolor);
+  gotoxy((*ball_p).x, (*ball_p).y);
+  printf(" ");
+
+
+>>>>>>> 39405fd4ea029d4549371b443fe379d6ce363752
 
 void updateBallPos(ball_t * ball_p, uint8_t k) {
     (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
@@ -110,9 +120,17 @@ void drawStriker (striker_t * striker_p) {
     }
 }
 
+<<<<<<< HEAD
 void deleteStriker(striker_t * striker_p) {
     //Delete previous striker before new coordinates
     for (uint8_t i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+=======
+
+void deleteStriker(striker_t * striker_p, int backgroundColor) {
+    //Delet previous striker before new coordinates
+    fgcolor(backgroundColor);
+    for (int i = (*striker_p).x ; i < (*striker_p).x + (*striker_p).length; i++) {
+>>>>>>> 39405fd4ea029d4549371b443fe379d6ce363752
         gotoxy((*striker_p).x + i, (*striker_p).y);
         printf(" ");
     }
@@ -129,6 +147,8 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
     else {
         (*striker_p).x = (*striker_p).x;
     }
+
+}
 }
 
 void drawBox(box_t * box_p, uint8_t boxColor) {

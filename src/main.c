@@ -15,12 +15,14 @@ int main(void) {
     initJoyStick();
     initTimer();
 
+    //drawing initial game
+    window(x1, y1, x2, y2, "Breakout", 1);
 
 
     while(1) {
         if (flag) {
             //Everything here is executed once every 1/20 second
-            
+
             flag = 0;
         }
     }
