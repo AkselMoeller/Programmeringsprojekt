@@ -5,7 +5,7 @@
 #include "vectors.h"
 
 int main(void) {
-//bimmelims
+    //Allahu Akhbar
 
     while(1) {}
 }
