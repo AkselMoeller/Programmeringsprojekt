@@ -4,6 +4,8 @@
 #include "draw_objects.h"
 #include "vectors.h"
 
+void gedeost(int tal);
+
 int main(void) {
     
     while(1) {}
