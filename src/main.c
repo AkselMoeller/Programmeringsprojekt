@@ -67,7 +67,7 @@ int main(void) {
             }
 
             //Making ball bounce on striker
-            if (ball.y - 5 >= striker.y && ball.x <= striker.x + striker.length && ball.x >= striker.x) {
+            if (ball.y == striker.y - 1 && ball.x <= striker.x + striker.length && ball.x >= striker.x) {
                 ball.vY = -ball.vY;
             }
 
@@ -85,7 +85,7 @@ int main(void) {
             case 4 : //Left
                 deleteStriker(&striker);
                 updateStrikerPos(&striker, 4); //Moving striker left
-                if (striker.x < x1 + 1) {
+                if (striker.x < x1 + 1) { //Keeping striker inside window
                     striker.x = x1 + 1;
                 }
                 drawStriker(&striker);
@@ -93,7 +93,7 @@ int main(void) {
             case 8 : //Right
                 deleteStriker(&striker);
                 updateStrikerPos(&striker, 8); //Moving striker right
-                if (striker.x + striker.length > x2 - 1) {
+                if (striker.x > x2 - striker.length) { //Keeping striker inside window
                     striker.x = x2 - striker.length;
                 }
                 drawStriker(&striker);
