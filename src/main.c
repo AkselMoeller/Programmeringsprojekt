@@ -46,7 +46,6 @@ int main(void) {
             drawBox(&boxMatrix[i][j], 7);
         }
     }
-    drawBox(&boxMatrix[5][3], 0);
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
@@ -63,7 +62,7 @@ int main(void) {
                 ball.vY = -ball.vY;
             }
             if (ball.y >= y2 - 1) { //Game over!!!
-                k = 0; //Stopping ball
+                k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
             }
 
             //Making ball bounce on striker
