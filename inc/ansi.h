@@ -3,11 +3,10 @@
 #ifndef ANSI_H_INCLUDED
 #define ANSI_H_INCLUDED
 
-void fgcolor(int foreground);
-void bgcolor(int background);
-void color(int foreground, int background);
+void fgcolor(uint8_t foreground);
+void bgcolor(uint8_t background);
+void color(uint8_t foreground, uint8_t background);
 void resetbgcolor();
-
 void clrscr();
 void clreol();
 void gotoxy(int x, int y);
