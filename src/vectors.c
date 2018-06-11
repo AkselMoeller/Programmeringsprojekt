@@ -28,14 +28,16 @@ int32_t cos(int x) {
     return sin(x + 128);
 }
 
-void rot(vector_t * v, int angle) {
-    (*v).x = (*v).x*cos(angle) - (*v).y*sin(angle);
-    (*v).y = (*v).x*sin(angle) + (*v).y*cos(angle);
+void rot(int32_t * x, int32_t * y, int angle) {
+    *x = (*x)*cos(angle) - (*y)*sin(angle);
+    *y = (*x)*sin(angle) + (*y)*cos(angle);
 
+    /*
     printf("(");
-    printFix(expand((*v).x));
+    printFix(expand(*x));
     printf(",");
-    printFix(expand((*v).y));
+    printFix(expand(*y));
     printf(")\n");
+    */
 }
 

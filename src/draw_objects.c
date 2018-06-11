@@ -88,12 +88,13 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
 
 void drawBall(ball_t * ball_p) {
     fgcolor(15);
-    gotoxy((*ball_p).x, (*ball_p).y);
+    //Below 0.5 (0x2000 in 2.14 fixed point format) is added to coordinates in order to properly round off the numbers
+    gotoxy(FIX14_right((*ball_p).x + 0x2000), FIX14_right((*ball_p).y + 0x2000)); //The coordinates are right-shifted 14 bits in order to draw the ball correctly
     printf("%c", 15+96); // "o"
 }
 
 void deleteBall(ball_t * ball_p) {
-    gotoxy((*ball_p).x, (*ball_p).y);
+    gotoxy(FIX14_right((*ball_p).x + 0x2000), FIX14_right((*ball_p).y + 0x2000));
     printf(" ");
 }
 
@@ -151,6 +152,6 @@ void drawBox(box_t * box_p) { //Set lives to 0 in order to delete boxes
 
 void drawScore(int score) {
     //Print score n'stuff
-    gotoxy(110, 3);
+    gotoxy(100, 2);
     printf("Score: %i", score);
 }

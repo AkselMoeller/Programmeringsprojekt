@@ -7,7 +7,7 @@
 
 int main(void) {
     //Variables
-    uint8_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
+    int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     uint8_t k = 1; //Controlling speed of ball
     uint8_t score = 0;
@@ -28,10 +28,11 @@ int main(void) {
 
     //Drawing ball
     ball_t ball;
-    ball.x = striker.x + striker.length/2;
-    ball.y = striker.y - 1;
-    ball.vX = -1;
-    ball.vY = -1;
+    //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers
+    ball.x = FIX14_left(striker.x + striker.length/2);
+    ball.y = FIX14_left(striker.y - 2);
+    ball.vX = 0xFFFFF000; //-0.25
+    ball.vY = 0xFFFFDA53; //-0.25
     drawBall(&ball);
 
     //Drawing boxes
@@ -61,23 +62,28 @@ int main(void) {
             drawBall(&ball);
 
             //Making ball bounce on walls
-            if (ball.x <= x1 + 1 || ball.x >= x2 - 1) {
+            if (ball.x <= FIX14_left(x1 + 1) || ball.x >= FIX14_left(x2 - 1)) {
                 ball.vX = -ball.vX;
             }
-            if (ball.y <= y1 + 1) {
+            if (ball.y <= FIX14_left(y1 + 1)) {
                 ball.vY = -ball.vY;
             }
-            if (ball.y >= y2 - 1) { //Game over!!!
+
+            if (ball.y >= FIX14_left(y2 - 1)) { //Game over!!!
                 k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
             }
 
             //Making ball bounce on striker
-            if (ball.y == striker.y - 1 && ball.x <= striker.x + striker.length && ball.x >= striker.x) {
-                ball.vY = -ball.vY;
+            if (FIX14_right(ball.y) == striker.y - 1
+                && FIX14_right(ball.x + 0x2000) <= striker.x + striker.length
+                && FIX14_right(ball.x + 0x2000) >= striker.x) {
                 for (int i = 0; i < striker.length; i++) {
-                    if (ball.x == striker.x + i) {
+                    if (FIX14_right(ball.x + 0x2000) == striker.x + i) {
                         //Do stuff
-
+                        if (ball.vY > 0) {
+                            ball.vY = -ball.vY;
+                        }
+                        //rot(&(ball.vX), &(ball.vY), 0);
                     }
                 }
             }
@@ -86,27 +92,58 @@ int main(void) {
             for (uint8_t i = 0; i < boxColumns; i++) {
                 for (uint8_t j = 0; j < boxRows; j++) {
                     if (boxMatrix[i][j].lives) { //Only executed if the box is "alive"
-                        //Checking if ball hits the vertical sides of the box
-                        if (ball.y >= boxMatrix[i][j].y && ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize
-                            && (ball.x == boxMatrix[i][j].x - 1 || ball.x == boxMatrix[i][j].x + boxMatrix[i][j].xSize)) {
-                            ball.vX = -ball.vX;
-                            boxMatrix[i][j].lives--;
-                            drawBox(&boxMatrix[i][j]);
-                            score ++;
-                            drawScore(score);
+                        //Checking if ball hits the LEFT side of the box
+                        if (ball.y >= FIX14_left(boxMatrix[i][j].y)
+                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                            && ball.x >= FIX14_left(boxMatrix[i][j].x)
+                            && ball.x < FIX14_left(boxMatrix[i][j].x + 1)
+                            && ball.vX > 0) {
+                                ball.vX = -ball.vX;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score ++;
+                                drawScore(score);
                         }
-                        //Checking if ball hits the horizontal sides of the box
-                        if (ball.x >= boxMatrix[i][j].x && ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize
-                            && (ball.y == boxMatrix[i][j].y - 1 || ball.y == boxMatrix[i][j].y + boxMatrix[i][j].ySize)) {
-                            ball.vY = -ball.vY;
-                            boxMatrix[i][j].lives--;
-                            drawBox(&boxMatrix[i][j]);
-                            score ++;
-                            drawScore(score);
+                        //Checking if ball hits the RIGHT side of the box
+                        if (ball.y >= FIX14_left(boxMatrix[i][j].y)
+                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                            && ball.x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                            && ball.x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize - 1)
+                            && ball.vX < 0) {
+                                ball.vX = -ball.vX;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score ++;
+                                drawScore(score);
+                        }
+                        //Checking if ball hits the TOP side of the box
+                        if (ball.x >= FIX14_left(boxMatrix[i][j].x)
+                            && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                            && ball.y >= FIX14_left(boxMatrix[i][j].y)
+                            && ball.y < FIX14_left(boxMatrix[i][j].y + 1)
+                            && ball.vY > 0) {
+                                ball.vY = -ball.vY;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score ++;
+                                drawScore(score);
+                        }
+                        //Checking if ball hits the BOTTOM sides of the box
+                        if (ball.x >= FIX14_left(boxMatrix[i][j].x)
+                            && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                            && ball.y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                            && ball.y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize - 1)
+                            && ball.vY < 0) {
+                                ball.vY = -ball.vY;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score ++;
+                                drawScore(score);
                         }
                     }
                 }
             }
+
             NVIC_EnableIRQ(TIM2_IRQn); //Enabling interrupts
             TIM2->CR1 = 0x0001;
             flag = 0;

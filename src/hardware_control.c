@@ -68,7 +68,7 @@ void initTimer() {
     RCC->APB1ENR |= RCC_APB1Periph_TIM2; //Enable clock for timer 2
     TIM2->CR1 = 0x0000; //Reset timer (disabling entire timer 2)
     TIM2->ARR = 999999; //Reload value (1/20 s period time, 20 Hz interrupt frequency)
-    TIM2->PSC = 1; //Prescale value
+    TIM2->PSC = 0; //Prescale value
     TIM2->DIER |= 0x0001;
     NVIC_SetPriority(TIM2_IRQn, 0);
     NVIC_EnableIRQ(TIM2_IRQn);

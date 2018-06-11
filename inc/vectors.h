@@ -11,7 +11,7 @@ typedef struct {
     int32_t x, y;
 } vector_t;
 
-void rot(vector_t * v, int angle);
+void rot(int32_t * x, int32_t * y, int angle);
 
 #endif
 /*VECTORS_H_INCLUDED*/
