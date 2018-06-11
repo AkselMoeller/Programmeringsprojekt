@@ -10,7 +10,7 @@ int main(void) {
     uint8_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     uint8_t k = 1; //Controlling speed of ball
-
+    uint8_t score = 0;
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
@@ -36,19 +36,25 @@ int main(void) {
 
     //Drawing boxes
     box_t boxMatrix[10][5];
-    for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
-        for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
+    uint8_t boxColumns = sizeof(boxMatrix) / sizeof(boxMatrix[0]);
+    uint8_t boxRows = sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]);
+    for (uint8_t i = 0; i < boxColumns; i++) {
+        for (uint8_t j = 0; j < boxRows; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
             boxMatrix[i][j].ySize = (y2 - y1)/20;
             boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
             boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
             boxMatrix[i][j].powerUp = 0;
-            drawBox(&boxMatrix[i][j], 7);
+            boxMatrix[i][j].lives = 2;
+            drawBox(&boxMatrix[i][j]);
         }
     }
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
+            TIM2->CR1 = 0x0000;
+            NVIC_DisableIRQ(TIM2_IRQn); //Disabling interrupts
+
             //Updating ball-position
             deleteBall(&ball);
             updateBallPos(&ball, k);
@@ -68,8 +74,41 @@ int main(void) {
             //Making ball bounce on striker
             if (ball.y == striker.y - 1 && ball.x <= striker.x + striker.length && ball.x >= striker.x) {
                 ball.vY = -ball.vY;
+                for (int i = 0; i < striker.length; i++) {
+                    if (ball.x == striker.x + i) {
+                        //Do stuff
+
+                    }
+                }
             }
 
+            //Making ball bounce on boxes
+            for (uint8_t i = 0; i < boxColumns; i++) {
+                for (uint8_t j = 0; j < boxRows; j++) {
+                    if (boxMatrix[i][j].lives) { //Only executed if the box is "alive"
+                        //Checking if ball hits the vertical sides of the box
+                        if (ball.y >= boxMatrix[i][j].y && ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize
+                            && (ball.x == boxMatrix[i][j].x - 1 || ball.x == boxMatrix[i][j].x + boxMatrix[i][j].xSize)) {
+                            ball.vX = -ball.vX;
+                            boxMatrix[i][j].lives--;
+                            drawBox(&boxMatrix[i][j]);
+                            score ++;
+                            drawScore(score);
+                        }
+                        //Checking if ball hits the horizontal sides of the box
+                        if (ball.x >= boxMatrix[i][j].x && ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize
+                            && (ball.y == boxMatrix[i][j].y - 1 || ball.y == boxMatrix[i][j].y + boxMatrix[i][j].ySize)) {
+                            ball.vY = -ball.vY;
+                            boxMatrix[i][j].lives--;
+                            drawBox(&boxMatrix[i][j]);
+                            score ++;
+                            drawScore(score);
+                        }
+                    }
+                }
+            }
+            NVIC_EnableIRQ(TIM2_IRQn); //Enabling interrupts
+            TIM2->CR1 = 0x0001;
             flag = 0;
         }
 

@@ -129,8 +129,17 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
     }
 }
 
-void drawBox(box_t * box_p, uint8_t boxColor) { //Set boxColor to 0 in order to delete boxes
-    bgcolor(boxColor); //0-7
+void drawBox(box_t * box_p) { //Set lives to 0 in order to delete boxes
+    switch ((*box_p).lives) {
+        case 0 : bgcolor(0);
+            break;
+        case 1 : bgcolor(3);
+            break;
+        case 2 : bgcolor(7);
+            break;
+        default :
+            break;
+    }
     for (uint8_t i = 0; i < (*box_p).xSize; i++) {
         for (uint8_t j = 0; j < (*box_p).ySize; j++) {
             gotoxy((*box_p).x + i, (*box_p).y + j);
@@ -138,4 +147,10 @@ void drawBox(box_t * box_p, uint8_t boxColor) { //Set boxColor to 0 in order to 
         }
     }
     resetbgcolor();
+}
+
+void drawScore(int score) {
+    //Print score n'stuff
+    gotoxy(110, 3);
+    printf("Score: %i", score);
 }

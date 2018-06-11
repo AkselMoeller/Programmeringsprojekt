@@ -27,8 +27,12 @@ void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 void deleteStriker(striker_t * striker_p);
 
 typedef struct {
-    uint8_t x, y, xSize, ySize, powerUp;
+    uint8_t x, y, xSize, ySize, powerUp, lives;
 } box_t;
-void drawBox(box_t * box_p, uint8_t boxColor);
+void drawBox(box_t * box_p);
+
+int score;
+int * highscoreList;
+void drawScore(int score);
 
 #endif /* draw_objects_h */
