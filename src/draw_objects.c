@@ -127,9 +127,6 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
     else if (joyStickState == 4) {
         (*striker_p).x--;
     }
-    else {
-        (*striker_p).x = (*striker_p).x;
-    }
 }
 
 void drawBox(box_t * box_p, uint8_t boxColor) { //Set boxColor to 0 in order to delete boxes
