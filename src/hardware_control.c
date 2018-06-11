@@ -77,6 +77,5 @@ void initTimer() {
 void TIM2_IRQHandler() {
     //The code below executes whenever an interrupt occurs
     flag = 1;
-
     TIM2->SR &= ~0x0001; //Clear interrupt bit
 }

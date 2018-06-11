@@ -2,7 +2,7 @@
 #define ESC 0x1B
 #include <string.h>
 
-void fgcolor(int foreground) {
+void fgcolor(uint8_t foreground) {
 /*  Value      foreground     Value     foreground
     ------------------------------------------------
       0        Black            8       Dark Gray
@@ -14,7 +14,7 @@ void fgcolor(int foreground) {
       6        Cyan            14       Light Cyan
       7        Light Gray      15       White
 */
-    int type = 22;             // normal text
+    uint8_t type = 22;             // normal text
 	if (foreground > 7) {
         type = 1;            // bold text
         foreground -= 8;
@@ -22,7 +22,7 @@ void fgcolor(int foreground) {
     printf("%c[%d;%dm", ESC, type, foreground+30);
 }
 
-void bgcolor(int background) {
+void bgcolor(uint8_t background) {
 /* IMPORTANT:   When you first use this function you cannot get back to true white background in HyperTerminal.
    Why is that? Because ANSI does not support true white background (ANSI white is gray to most human eyes).
                 The designers of HyperTerminal, however, preferred black text on white background, which is why
@@ -44,9 +44,9 @@ void bgcolor(int background) {
     printf("%c[%dm", ESC, background+40);
 }
 
-void color(int foreground, int background) {
+void color(uint8_t foreground, uint8_t background) {
 // combination of fgcolor() and bgcolor() - uses less bandwidth
-    int type = 22;            // normal text
+    uint8_t type = 22;            // normal text
     if (foreground > 7) {
         type = 1;             // bold text
         foreground -= 8;

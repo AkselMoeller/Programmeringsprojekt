@@ -439,15 +439,15 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528465683 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\ansi.c
+1528648383 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\ansi.c
 	"ansi.h"
 	<string.h>
 
-1528465026 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\ansi.h
+1528649445 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\ansi.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528451829 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+1528650236 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
 	"hardware_control.h"
 
 1528451828 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
@@ -476,7 +476,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528469743 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1528655516 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -484,7 +484,7 @@
 	"vectors.h"
 	"game_control.h"
 
-1528469465 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
+1528473079 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
 
 1528468097 24705c7310dd1264ee0036bbb65fc6a2acca9
 
@@ -619,4 +619,10 @@
 1528466182 c:\users\hunt4\documents\github\spil\inc\30010_io.h
 	"stm32f30x_conf.h"
 	<stdio.h>
+
+1528650812 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+	<stdio.h>
+	"draw_objects.h"
+	"ansi.h"
+	<string.h>
 
