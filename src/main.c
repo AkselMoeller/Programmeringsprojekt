@@ -5,12 +5,39 @@
 #include "vectors.h"
 #include "game_control.h"
 
+striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
+    //Drawing striker
+    striker_t striker;
+    striker.length = (x2 - x1)/10;
+    striker.x = (x1 + x2)/2 - striker.length/2;
+    striker.y = y2 - 1;
+    drawStriker(&striker);
+    return striker;
+}
+
+ball_t initBall(striker_t striker) {
+    //Drawing ball
+    ball_t ball;
+    //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers
+    ball.x = FIX14_left(striker.x + striker.length/2);
+    ball.y = FIX14_left(striker.y - 2);
+    ball.vX = 0xFFFFF000; //-0.25
+    ball.vY = 0xFFFFDA53;
+    drawBall(&ball);
+    return ball;
+}
+
 int main(void) {
     //Variables
     int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     uint8_t k = 1; //Controlling speed of ball
+    uint16_t strikerCounter = 0;
+    uint16_t strikerMaxCount = 5000; //Affects striker speed
+    uint8_t boxColumns = 10; //Number of boxes along the x-axis
+    uint8_t boxRows = 5; //Number of boxes along the y-axis
     uint8_t score = 0;
+
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
@@ -19,28 +46,16 @@ int main(void) {
     //Drawing window
     window(x1, y1, x2, y2, "Breakout", 1);
 
-    //Drawing striker
-    striker_t striker;
-    striker.length = (x2 - x1)/10;
-    striker.x = (x1 + x2)/2 - striker.length/2;
-    striker.y = y2 - 1;
-    drawStriker(&striker);
+    //Initializing and drawing striker
+    striker_t striker = initStriker(x1, x2, y2);
 
-    //Drawing ball
-    ball_t ball;
-    //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers
-    ball.x = FIX14_left(striker.x + striker.length/2);
-    ball.y = FIX14_left(striker.y - 2);
-    ball.vX = 0xFFFFF000; //-0.25
-    ball.vY = 0xFFFFDA53; //-0.25
-    drawBall(&ball);
+    //Initializing and drawing ball
+    ball_t ball = initBall(striker);
 
     //Drawing boxes
-    box_t boxMatrix[10][5];
-    uint8_t boxColumns = sizeof(boxMatrix) / sizeof(boxMatrix[0]);
-    uint8_t boxRows = sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]);
-    for (uint8_t i = 0; i < boxColumns; i++) {
-        for (uint8_t j = 0; j < boxRows; j++) {
+    box_t boxMatrix[boxColumns][boxRows];
+    for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
+        for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
             boxMatrix[i][j].ySize = (y2 - y1)/20;
             boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
@@ -68,7 +83,6 @@ int main(void) {
             if (ball.y <= FIX14_left(y1 + 1)) {
                 ball.vY = -ball.vY;
             }
-
             if (ball.y >= FIX14_left(y2 - 1)) { //Game over!!!
                 k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
             }
@@ -96,7 +110,7 @@ int main(void) {
                         if (ball.y >= FIX14_left(boxMatrix[i][j].y)
                             && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                             && ball.x >= FIX14_left(boxMatrix[i][j].x)
-                            && ball.x < FIX14_left(boxMatrix[i][j].x + 1)
+                            && ball.x < FIX14_left(boxMatrix[i][j].x) + 0x2000
                             && ball.vX > 0) {
                                 ball.vX = -ball.vX;
                                 boxMatrix[i][j].lives--;
@@ -108,7 +122,7 @@ int main(void) {
                         if (ball.y >= FIX14_left(boxMatrix[i][j].y)
                             && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                             && ball.x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
-                            && ball.x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize - 1)
+                            && ball.x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
                             && ball.vX < 0) {
                                 ball.vX = -ball.vX;
                                 boxMatrix[i][j].lives--;
@@ -120,7 +134,7 @@ int main(void) {
                         if (ball.x >= FIX14_left(boxMatrix[i][j].x)
                             && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                             && ball.y >= FIX14_left(boxMatrix[i][j].y)
-                            && ball.y < FIX14_left(boxMatrix[i][j].y + 1)
+                            && ball.y < FIX14_left(boxMatrix[i][j].y) + 0x2000
                             && ball.vY > 0) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
@@ -132,7 +146,7 @@ int main(void) {
                         if (ball.x >= FIX14_left(boxMatrix[i][j].x)
                             && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                             && ball.y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                            && ball.y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize - 1)
+                            && ball.y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
                             && ball.vY < 0) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
@@ -158,20 +172,18 @@ int main(void) {
                 //Other functions?
                 break;
             case 4 : //Left
-                deleteStriker(&striker);
-                updateStrikerPos(&striker, 4); //Moving striker left
-                if (striker.x < x1 + 1) { //Keeping striker inside window
-                    striker.x = x1 + 1;
+                strikerCounter++;
+                if (strikerCounter == strikerMaxCount && striker.x > x1 + 1) {
+                    strikerCounter = 0;
+                    updateStrikerPos(&striker, 4); //Moving striker left
                 }
-                drawStriker(&striker);
                 break;
             case 8 : //Right
-                deleteStriker(&striker);
-                updateStrikerPos(&striker, 8); //Moving striker right
-                if (striker.x > x2 - striker.length) { //Keeping striker inside window
-                    striker.x = x2 - striker.length;
+                strikerCounter++;
+                if (strikerCounter == strikerMaxCount && striker.x < x2 - striker.length) {
+                    strikerCounter = 0;
+                    updateStrikerPos(&striker, 8); //Moving striker right
                 }
-                drawStriker(&striker);
                 break;
             case 16 : //Center
                 TIM2->CR1 = 0x0001; //Start game

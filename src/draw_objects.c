@@ -120,13 +120,21 @@ void deleteStriker(striker_t * striker_p) {
     }
 }
 
-void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) {
-    //Updating the striker position with joystick
-    if (joyStickState == 8) {
-        (*striker_p).x++;
-    }
-    else if (joyStickState == 4) {
-        (*striker_p).x--;
+void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
+    if (joyStickState == 8) { //Move right
+        gotoxy((*striker_p).x, (*striker_p).y);
+        printf(" "); //Deleting leftmost element
+        (*striker_p).x++; //Moving striker one element right
+        gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y); //Placing a new rightmost element
+        fgcolor(7);
+        printf("%c", 11 + 208);
+    } else if (joyStickState == 4) { //Move left
+        gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y);
+        printf(" "); //Deleting rightmost element
+        (*striker_p).x--; //Moving striker one element left
+        gotoxy((*striker_p).x, (*striker_p).y); //Placing a new leftmost element
+        fgcolor(7);
+        printf("%c", 11 + 208);
     }
 }
 
