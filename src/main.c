@@ -61,6 +61,7 @@ int main(void) {
     uint8_t bossKey = 0;
     uint16_t score = 0;
     uint8_t level = 1;
+    uint8_t boxesAlive;
 
     //Initialization
     init_usb_uart(115200);
@@ -125,9 +126,11 @@ int main(void) {
             }
 
             //Making ball bounce on boxes
+            boxesAlive = 0;
             for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                 for (uint8_t j = 0; j < MAX_ROWS; j++) {
                     if (boxMatrix[i][j].lives > 0) { //Only executed if the box is "alive"
+                        boxesAlive++;
                         //Checking if ball hits the TOP side of the box
                         if (ball.x >= FIX14_left(boxMatrix[i][j].x)
                             && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
@@ -178,6 +181,10 @@ int main(void) {
                         }
                     }
                 }
+            }
+            if (boxesAlive == 0){
+                level++;
+                makeLevel(boxMatrix, x1, y1, x2, y2, level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
