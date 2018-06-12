@@ -4,9 +4,13 @@
 #include "draw_objects.h"
 #include "game_control.h"
 
+<<<<<<< HEAD
 void makeLevel() {
 
 }
+=======
+void makeLevel();
+>>>>>>> 0f650aebec3ae1273973c3ceffce7a305fcec23e
 
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
