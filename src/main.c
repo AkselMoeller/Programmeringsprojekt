@@ -16,20 +16,20 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
             boxMatrix[i][j].powerUp = 0;
 
             switch (level) {
-            case 1 :
-                if (j == 5 || j == 4 && i == 4){
-                    boxMatrix[i][j].lives = 1;
-                } else {
-                    boxMatrix[i][j].lives = 0;
-                }
-                break;
-            case 2 :
-                if (j < 4 && j%2 && (i+1)%2)
-                     boxMatrix[i][j].lives = 1;
-                } else {
-                    boxMatrix[i][j].lives = 0;
-                }
-                break;
+                case 1 :
+                    if (j == 5 || j == 4 && i == 4){
+                        boxMatrix[i][j].lives = 1;
+                    } else {
+                        boxMatrix[i][j].lives = 0;
+                    }
+                    break;
+                case 2 :
+                    if (j < 4 && j%2 && (i+1)%2) {
+                         boxMatrix[i][j].lives = 1;
+                    } else {
+                        boxMatrix[i][j].lives = 0;
+                    }
+                    break;
             }
             drawBox(&boxMatrix[i][j]);
         }
@@ -247,3 +247,4 @@ int main(void) {
         }
     }
 }
+
