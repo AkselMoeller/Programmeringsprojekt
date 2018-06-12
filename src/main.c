@@ -2,7 +2,6 @@
 #include "30010_io.h"
 #include "hardware_control.h"
 #include "draw_objects.h"
-#include "game_control.h"
 
 #define MAX_COLUMNS 10
 #define MAX_ROWS 10
@@ -82,20 +81,7 @@ int main(void) {
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
-    /*
-    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-        for (uint8_t j = 0; j < MAX_ROWS; j++) {
-            boxMatrix[i][j].xSize = (x2 - x1)/10;
-            boxMatrix[i][j].ySize = (y2 - y1)/20;
-            boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
-            boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
-            boxMatrix[i][j].powerUp = 0;
-            boxMatrix[i][j].lives = 1;
-            drawBox(&boxMatrix[i][j]);
-        }
-    }
-    */
-    makeLevel(boxMatrix, x1, y1, x2, y2, level);
+    makeLevel(boxMatrix, x1, y1, x2, y2, level); //Drawing boxes for level 1
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
@@ -141,31 +127,7 @@ int main(void) {
             //Making ball bounce on boxes
             for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                 for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                    if (boxMatrix[i][j].lives) { //Only executed if the box is "alive"
-                        //Checking if ball hits the LEFT side of the box
-                        if (ball.y >= FIX14_left(boxMatrix[i][j].y)
-                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                            && ball.x >= FIX14_left(boxMatrix[i][j].x)
-                            && ball.x < FIX14_left(boxMatrix[i][j].x) + 0x2000
-                            && ball.vX > 0) {
-                                ball.vX = -ball.vX;
-                                boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
-                                score ++;
-                                drawScore(score);
-                        }
-                        //Checking if ball hits the RIGHT side of the box
-                        if (ball.y >= FIX14_left(boxMatrix[i][j].y)
-                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                            && ball.x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
-                            && ball.x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
-                            && ball.vX < 0) {
-                                ball.vX = -ball.vX;
-                                boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
-                                score ++;
-                                drawScore(score);
-                        }
+                    if (boxMatrix[i][j].lives > 0) { //Only executed if the box is "alive"
                         //Checking if ball hits the TOP side of the box
                         if (ball.x >= FIX14_left(boxMatrix[i][j].x)
                             && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
@@ -175,11 +137,11 @@ int main(void) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
                                 drawBox(&boxMatrix[i][j]);
-                                score ++;
+                                score++;
                                 drawScore(score);
                         }
                         //Checking if ball hits the BOTTOM sides of the box
-                        if (ball.x >= FIX14_left(boxMatrix[i][j].x)
+                        else if (ball.x >= FIX14_left(boxMatrix[i][j].x)
                             && FIX14_left(ball.x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                             && ball.y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                             && ball.y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
@@ -187,7 +149,31 @@ int main(void) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
                                 drawBox(&boxMatrix[i][j]);
-                                score ++;
+                                score++;
+                                drawScore(score);
+                        }
+                        //Checking if ball hits the LEFT side of the box
+                        else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
+                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                            && ball.x >= FIX14_left(boxMatrix[i][j].x)
+                            && ball.x < FIX14_left(boxMatrix[i][j].x) + 0x2000
+                            && ball.vX > 0) {
+                                ball.vX = -ball.vX;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score++;
+                                drawScore(score);
+                        }
+                        //Checking if ball hits the RIGHT side of the box
+                        else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
+                            && FIX14_left(ball.y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                            && ball.x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                            && ball.x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
+                            && ball.vX < 0) {
+                                ball.vX = -ball.vX;
+                                boxMatrix[i][j].lives--;
+                                drawBox(&boxMatrix[i][j]);
+                                score++;
                                 drawScore(score);
                         }
                     }
