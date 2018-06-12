@@ -5,7 +5,7 @@
 #include "game_control.h"
 
 void makeLevel(box_t boxMatrix[10][], uint8_t level) {
-    if (level == 0){
+    if (level == 0) {
         for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
             for (uint8_t j = 0; j < 5); j++) {
                 boxMatrix[i][j].xSize = (x2 - x1)/10;
@@ -18,6 +18,7 @@ void makeLevel(box_t boxMatrix[10][], uint8_t level) {
             }
         }
     } else if (level == 1){
+
     }
 }
 
