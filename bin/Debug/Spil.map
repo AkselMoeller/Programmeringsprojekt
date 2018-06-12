@@ -4923,7 +4923,7 @@ OUTPUT(bin\Debug\Spil.elf elf32-littlearm)
  .debug_line    0x000032b6       0xbb obj\debug\src\startup_stm32f30x.o
  .debug_line    0x00003371      0x493 obj\debug\src\system_stm32f30x.o
 
-.debug_str      0x00000000    0x57ccf
+.debug_str      0x00000000    0x57d0c
  .debug_str     0x00000000    0x52c21 obj\debug\spl\src\stm32f30x_rcc.o
                               0x52ddd (size before relaxing)
  .debug_str     0x00052c21      0x81e obj\debug\spl\src\stm32f30x_usart.o
@@ -4932,13 +4932,13 @@ OUTPUT(bin\Debug\Spil.elf elf32-littlearm)
                               0x5651a (size before relaxing)
  .debug_str     0x000573a0       0x89 obj\debug\src\ansi.o
                               0x55ecd (size before relaxing)
- .debug_str     0x00057429      0x1c0 obj\debug\src\draw_objects.o
-                              0x5602f (size before relaxing)
- .debug_str     0x000575e9      0x5c1 obj\debug\src\hardware_control.o
+ .debug_str     0x00057429      0x1fd obj\debug\src\draw_objects.o
+                              0x56024 (size before relaxing)
+ .debug_str     0x00057626      0x5c1 obj\debug\src\hardware_control.o
                               0x564f3 (size before relaxing)
- .debug_str     0x00057baa       0x99 obj\debug\src\main.o
+ .debug_str     0x00057be7       0x99 obj\debug\src\main.o
                               0x5603b (size before relaxing)
- .debug_str     0x00057c43       0x8c obj\debug\src\system_stm32f30x.o
+ .debug_str     0x00057c80       0x8c obj\debug\src\system_stm32f30x.o
                               0x5246f (size before relaxing)
 
 .debug_frame    0x00000000     0x1d98
