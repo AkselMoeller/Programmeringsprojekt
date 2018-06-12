@@ -197,7 +197,7 @@ int main(void) {
                     }
                 }
             }
-            if (boxesAlive == 0){
+            if (!boxesAlive){
                 level++;
                 makeLevel(boxMatrix, x1, y1, x2, y2, level);
             }
