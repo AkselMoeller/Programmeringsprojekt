@@ -31,7 +31,8 @@ void deleteStriker(striker_t * striker_p);
 
 typedef struct {
     int32_t x, y;
-    uint8_t xSize, ySize, powerUp, lives;
+    uint8_t xSize, ySize, powerUp;
+    int8_t lives;
 } box_t;
 void drawBox(box_t * box_p);
 
