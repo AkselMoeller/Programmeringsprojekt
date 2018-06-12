@@ -11,9 +11,11 @@
 #include "ansi.h"
 #include <string.h>
 
-void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style) {
+void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset) {
     resetbgcolor();
-    clrscr();
+    if (reset) {
+        clrscr();
+    }
     uint8_t hSide, vSide, lt, lb, rt, rb, lBorder, rBorder; //r/l = right/left, t/b = top/bottom, v/h = horizontal/vertical
     //Two different styles
     if (style) { //Wide style
@@ -163,6 +165,29 @@ void drawScore(int score) {
     //Print score n'stuff
     gotoxy(100, 2);
     printf("Score: %i", score);
+}
+
+void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY) {
+    //Scoreboard label
+    gotoxy(scoreboardX , scoreboardY);
+    window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
+    gotoxy(scoreboardX + 1, scoreboardY + 1);
+    printf("Scoreboard");
+
+    //Help label
+    gotoxy(helpX, helpY);
+    window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
+    gotoxy(helpX + 4, helpY + 1);
+    printf("Help");
+}
+
+void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY) {
+    for (int i = 0; i <= 2; i++) {
+        gotoxy(scoreboardX, scoreboardY + i);
+        printf("            ");
+        gotoxy(helpX, helpY + i);
+        printf("            ");
+    }
 }
 
 void printBossKey() {

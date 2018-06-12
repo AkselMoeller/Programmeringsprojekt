@@ -44,7 +44,9 @@ int main(void) {
     initTimer();
 
     //Drawing window
-    window(x1, y1, x2, y2, "Breakout", 1);
+    window(x1, y1, x2, y2, "Breakout", 1, 1);
+
+    drawMenuLabels(10, 20, 40, 20);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -65,6 +67,8 @@ int main(void) {
             drawBox(&boxMatrix[i][j]);
         }
     }
+
+    deleteMenuLabels(10, 20, 40, 20);
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
@@ -196,7 +200,7 @@ int main(void) {
                 if (!bossKey) { //Start game
                     TIM2->CR1 = 0x0001;
                 } else { //Resume game
-                    window(x1, y1, x2, y2, "Breakout", 1);
+                    window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
                         for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
                             drawBox(&boxMatrix[i][j]);

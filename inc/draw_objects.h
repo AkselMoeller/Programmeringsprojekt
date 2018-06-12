@@ -12,7 +12,7 @@
 #define FIX14_right(x) (x >> 14)
 #define FIX14_left(x) (x << 14)
 
-void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style);
+void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset);
 
 typedef struct {
     int32_t x, y; //(x,y) is the position of the ball
@@ -39,5 +39,7 @@ int score;
 int * highscoreList;
 void drawScore(int score);
 void printBossKey();
+void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
+void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
 
 #endif /* draw_objects_h */
