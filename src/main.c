@@ -56,7 +56,7 @@ int main(void) {
     uint16_t strikerMaxCount = 8500; //Affects striker speed
     uint8_t bossKey = 0;
     uint16_t score = 0;
-    uint8_t level = 0;
+    uint8_t level = 1;
 
     //Initialization
     init_usb_uart(115200);
@@ -77,6 +77,7 @@ int main(void) {
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
+    /*
     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
@@ -88,6 +89,8 @@ int main(void) {
             drawBox(&boxMatrix[i][j]);
         }
     }
+    */
+    makeLevel(boxMatrix, x1, y1, x2, y2, level);
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
@@ -219,8 +222,8 @@ int main(void) {
                     TIM2->CR1 = 0x0001;
                 } else { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
-                    for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
-                        for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
+                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
                             drawBox(&boxMatrix[i][j]);
                         }
                     }
