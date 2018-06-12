@@ -24,7 +24,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
                     }
                     break;
                 case 2 :
-                    if (j < 4 && j%2 && (i+1)%2) {
+                    if (j < 4 && (j%2 && (i+1)%2) || ((j+1)%2 && i%2)) {
                          boxMatrix[i][j].lives = 1;
                     } else {
                         boxMatrix[i][j].lives = 0;
@@ -69,6 +69,7 @@ int main(void) {
     uint16_t score = 0;
     uint8_t level = 1;
     uint8_t boxesAlive;
+    uint8_t menuOpen = 1; //1 = YES, 0 = NO
 
     //Initialization
     init_usb_uart(115200);
