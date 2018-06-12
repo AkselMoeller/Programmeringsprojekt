@@ -4,8 +4,21 @@
 #include "draw_objects.h"
 #include "game_control.h"
 
-void makeLevel() {
-
+void makeLevel(box_t boxMatrix[10][], uint8_t level) {
+    if (level == 0){
+        for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
+            for (uint8_t j = 0; j < 5); j++) {
+                boxMatrix[i][j].xSize = (x2 - x1)/10;
+                boxMatrix[i][j].ySize = (y2 - y1)/20;
+                boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
+                boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
+                boxMatrix[i][j].powerUp = 0;
+                boxMatrix[i][j].lives = 1;
+                drawBox(&boxMatrix[i][j]);
+            }
+        }
+    } else if (level == 1){
+    }
 }
 
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
