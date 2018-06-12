@@ -279,7 +279,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t box = 208+11;
 
     //start coordinates for G
-    uint8_t xGs = xm - (2+5*5+4);
+    uint8_t xGs = xm - (2+(5*5));
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
