@@ -12,6 +12,7 @@
 #include <string.h>
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style) {
+    resetbgcolor();
     clrscr();
     uint8_t hSide, vSide, lt, lb, rt, rb, lBorder, rBorder; //r/l = right/left, t/b = top/bottom, v/h = horizontal/vertical
     //Two different styles
@@ -165,5 +166,6 @@ void drawScore(int score) {
 }
 
 void printBossKey() {
-
+    gotoxy(1,1);
+    printf(" ");
 }

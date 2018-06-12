@@ -29,15 +29,16 @@ int32_t cos(int x) {
 }
 
 void rot(int32_t * x, int32_t * y, int angle) {
-    *x = (*x)*cos(angle) - (*y)*sin(angle);
-    *y = (*x)*sin(angle) + (*y)*cos(angle);
+    *x = FIX14_right((*x)*cos(angle)) - FIX14_right((*y)*sin(angle));
+    *y = FIX14_right((*x)*sin(angle)) + FIX14_right((*y)*cos(angle));
 
-    /*
+    gotoxy(10, 2);
     printf("(");
     printFix(expand(*x));
     printf(",");
     printFix(expand(*y));
     printf(")\n");
-    */
+    gotoxy(10, 3);
+    printFix(expand(FIX14_right((*x) * (*x)) + FIX14_right((*y) * (*y))));
 }
 

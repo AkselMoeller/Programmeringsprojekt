@@ -1,6 +1,9 @@
 #ifndef VECTORS_H_INCLUDED
 #define VECTORS_H_INCLUDED
 
+#define FIX14_right(x) (x >> 14)
+#define FIX14_left(x) (x << 14)
+
 void printFix(int32_t i);
 int32_t expand(int32_t i);
 

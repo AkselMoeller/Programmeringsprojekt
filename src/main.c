@@ -2,7 +2,6 @@
 #include "30010_io.h"
 #include "hardware_control.h"
 #include "draw_objects.h"
-#include "vectors.h"
 #include "game_control.h"
 
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
@@ -21,8 +20,8 @@ ball_t initBall(striker_t striker) {
     //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers
     ball.x = FIX14_left(striker.x + striker.length/2);
     ball.y = FIX14_left(striker.y - 2);
-    ball.vX = 0xFFFFF000; //-0.25
-    ball.vY = 0xFFFFDA53;
+    ball.vX = 0x00000000;
+    ball.vY = 0xFFFFF000; //-0.25
     drawBall(&ball);
     return ball;
 }
@@ -33,10 +32,10 @@ int main(void) {
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
-    uint16_t strikerMaxCount = 5000; //Affects striker speed
+    uint16_t strikerMaxCount = 8500; //Affects striker speed
     uint8_t boxColumns = 10; //Number of boxes along the x-axis
     uint8_t boxRows = 5; //Number of boxes along the y-axis
-    uint8_t pause;
+    uint8_t bossKey = 0;
     uint8_t score = 0;
 
     //Initialization
@@ -96,8 +95,14 @@ int main(void) {
                         //Do stuff
                         if (ball.vY > 0) {
                             ball.vY = -ball.vY;
+                            ball.vX += -0x2000 + (0x2000 * 2)/(striker.length - 1) * i;
+                            if (ball.vX >= 0x2000) {
+                                ball.vX = 0x2000;
+                            }
+                            if (ball.vX <= -0x2000) {
+                                ball.vX = -0x2000;
+                            }
                         }
-                        //rot(&(ball.vX), &(ball.vY), 0);
                     }
                 }
             }
@@ -166,29 +171,29 @@ int main(void) {
             case 1 : //Up
                 break;
             case 2 : //Down
-                if (pause == 0) { //Pause game (boss key)
+                if (!bossKey) { //Pause game (boss key)
                     TIM2->CR1 = 0x0000;
                     clrscr();
                     printBossKey();
-                    pause = 1;
+                    bossKey = 1;
                 }
                 break;
             case 4 : //Left
                 strikerCounter++;
-                if (strikerCounter == strikerMaxCount && striker.x > x1 + 1 && !pause) {
+                if (strikerCounter == strikerMaxCount && striker.x > x1 + 1 && !bossKey) {
                     strikerCounter = 0;
                     updateStrikerPos(&striker, 4); //Moving striker left
                 }
                 break;
             case 8 : //Right
                 strikerCounter++;
-                if (strikerCounter == strikerMaxCount && striker.x < x2 - striker.length && !pause) {
+                if (strikerCounter == strikerMaxCount && striker.x < x2 - striker.length && !bossKey) {
                     strikerCounter = 0;
                     updateStrikerPos(&striker, 8); //Moving striker right
                 }
                 break;
             case 16 : //Center
-                if (!pause) { //Start game
+                if (!bossKey) { //Start game
                     TIM2->CR1 = 0x0001;
                 } else { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1);
@@ -201,7 +206,7 @@ int main(void) {
                     drawStriker(&striker);
                     drawBall(&ball);
                     TIM2->CR1 = 0x0001;
-                    pause = 0;
+                    bossKey = 0;
                 }
                 break;
             default : //When a button on the joystick is released
