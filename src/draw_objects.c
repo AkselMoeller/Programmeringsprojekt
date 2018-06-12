@@ -182,7 +182,7 @@ void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uin
 }
 
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY) {
-    for (int i = 0; i <= 2; i++) {
+    for (uint8_t i = 0; i <= 2; i++) {
         gotoxy(scoreboardX, scoreboardY + i);
         printf("            ");
         gotoxy(helpX, helpY + i);

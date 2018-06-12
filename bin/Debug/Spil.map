@@ -4948,7 +4948,7 @@ OUTPUT(bin\Debug\Spil.elf elf32-littlearm)
  .debug_str     0x000573a0       0xc6 obj\debug\src\ansi.o
                               0x55ec2 (size before relaxing)
  .debug_str     0x00057466      0x1ad obj\debug\src\draw_objects.o
-                              0x56011 (size before relaxing)
+                              0x5601c (size before relaxing)
  .debug_str     0x00057613      0x5c1 obj\debug\src\hardware_control.o
                               0x564f3 (size before relaxing)
  .debug_str     0x00057bd4       0x9c obj\debug\src\main.o
