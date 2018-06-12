@@ -182,7 +182,7 @@ void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uin
 }
 
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY) {
-    for (int i = 0; i <= 2; i++) {
+    for (uint8_t i = 0; i <= 2; i++) {
         gotoxy(scoreboardX, scoreboardY + i);
         printf("            ");
         gotoxy(helpX, helpY + i);
@@ -190,7 +190,81 @@ void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, u
     }
 }
 
-void printBossKey() {
+void printBossKey(uint16_t score) {
+    //Clear screen and move courser to (1,1)
+    clrscr();
     gotoxy(1,1);
-    printf(" ");
+
+    //fgcolor (2) Sets forground color Green and is used for "code text"
+    //fgcolor (8) Sets forground color dark gray and is used for "commentary text"
+
+    fgcolor (2);
+    printf (" #include \"stm32f30x_conf.h\"\n #include \"30010_io.h\"\n#include \"hardware_control.h\"\n#include \"draw_objects.h\"\n#include \"game_control.h\"");
+
+    //Prints striker code
+    printf("striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {\n");
+    fgcolor (8);
+    printf("    //Drawing striker\n" );
+    fgcolor (2);
+    printf("        striker_t striker;\n");
+    printf("        striker.length = (x2 - x1)/10;\n");
+    printf("        striker.x = (x1 + x2)/2 - striker.length/2;\n");
+    printf("        striker.y = y2 - 1;\n");
+    printf("        drawStriker(&striker);\n");
+    printf("        return striker;\n }\n");
+    printf(" \n");
+
+    //Prints initBall code
+    printf("ball_t initBall(striker_t striker) {\n");
+    fgcolor (8);
+    printf("    //Drawing Ball\n");
+    fgcolor (2);
+    printf("    ball_t ball;\n");
+    fgcolor (8);
+    printf("    //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers\n");
+    fgcolor (2);
+    printf("        ball.x = FIX14_left(striker.x + striker.length/2);\n");
+    printf("        ball.y = FIX14_left(striker.y - 2);\n");
+    printf("        ball.vX = 0x00000000;\n");
+    printf("ball.vY = 0xFFFFF000; //-0.25\n");
+    printf("drawBall(&ball);\n");
+    printf("return ball;\n}\n");
+    printf(" \n");
+
+    //Prints main() code ll. 29 - 40
+    printf(";int main(void) {");
+    fgcolor (8);
+    printf("    //Variables");
+    fgcolor (2);
+    printf("    int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45;");
+    fgcolor (8);
+    printf(" //Window size (current values will produce a 4 : 3 aspect ratio)\n");
+    fgcolor (2);
+    printf("    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1;");
+    fgcolor (8);
+    printf(" //Makes the width divisible by 10\n");
+    fgcolor (2);
+    printf("    uint8_t k = 1; \n");
+    fgcolor (8);
+    printf("    //Controlling speed of ball\n");
+    fgcolor (2);
+    printf("    uint16_t strikerCounter = 0;\n     uint16_t strikerMaxCount = 8500;");
+    fgcolor (8);
+    printf(" //Affects striker speed\n");
+    fgcolor (2);
+    printf("    uint8_t boxColumns = 10;");
+    fgcolor (8);
+    printf(" //Number of boxes along the x-axis\n");
+    fgcolor (2);
+    printf("uint8_t boxRows = 5");
+    fgcolor (8);
+    printf(" //Number of boxes along the y-axis\n");
+    fgcolor (2);
+    printf("uint8_t bossKey = ");
+    fgcolor(4);
+    printf("Key ACTIVE, press center to continue\n");
+    fgcolor (2);
+    printf("uint8_t score = ");
+    fgcolor(4);
+    printf("%i\n", score);
 }

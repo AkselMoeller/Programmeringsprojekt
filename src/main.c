@@ -53,7 +53,7 @@ int main(void) {
     uint8_t boxMaxColumns = 10; //Number of boxes along the x-axis
     uint8_t boxMaxRows = 10; //Number of boxes along the y-axis
     uint8_t bossKey = 0;
-    uint8_t score = 0;
+    uint16_t score = 0;
     uint8_t level = 0;
 
     //Initialization
@@ -65,7 +65,7 @@ int main(void) {
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
     //Drawing help and scoreboard labels
-    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4, 25);
+    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4 - 10, 25);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -194,7 +194,6 @@ int main(void) {
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
                     TIM2->CR1 = 0x0000;
-                    clrscr();
                     printBossKey(score);
                     bossKey = 1;
                 }
