@@ -163,3 +163,7 @@ void drawScore(int score) {
     gotoxy(100, 2);
     printf("Score: %i", score);
 }
+
+void printBossKey() {
+
+}

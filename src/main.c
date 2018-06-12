@@ -36,6 +36,7 @@ int main(void) {
     uint16_t strikerMaxCount = 5000; //Affects striker speed
     uint8_t boxColumns = 10; //Number of boxes along the x-axis
     uint8_t boxRows = 5; //Number of boxes along the y-axis
+    uint8_t pause;
     uint8_t score = 0;
 
     //Initialization
@@ -68,8 +69,7 @@ int main(void) {
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
-            TIM2->CR1 = 0x0000;
-            NVIC_DisableIRQ(TIM2_IRQn); //Disabling interrupts
+            TIM2->CR1 = 0x0000; //Disabling timer
 
             //Updating ball-position
             deleteBall(&ball);
@@ -157,36 +157,52 @@ int main(void) {
                     }
                 }
             }
-
-            NVIC_EnableIRQ(TIM2_IRQn); //Enabling interrupts
-            TIM2->CR1 = 0x0001;
+            TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
         }
 
         //Reading joystick input
         switch (readJoyStick()) {
             case 1 : //Up
-                //Other functions?
                 break;
             case 2 : //Down
-                //Other functions?
+                if (pause == 0) { //Pause game (boss key)
+                    TIM2->CR1 = 0x0000;
+                    clrscr();
+                    printBossKey();
+                    pause = 1;
+                }
                 break;
             case 4 : //Left
                 strikerCounter++;
-                if (strikerCounter == strikerMaxCount && striker.x > x1 + 1) {
+                if (strikerCounter == strikerMaxCount && striker.x > x1 + 1 && !pause) {
                     strikerCounter = 0;
                     updateStrikerPos(&striker, 4); //Moving striker left
                 }
                 break;
             case 8 : //Right
                 strikerCounter++;
-                if (strikerCounter == strikerMaxCount && striker.x < x2 - striker.length) {
+                if (strikerCounter == strikerMaxCount && striker.x < x2 - striker.length && !pause) {
                     strikerCounter = 0;
                     updateStrikerPos(&striker, 8); //Moving striker right
                 }
                 break;
             case 16 : //Center
-                TIM2->CR1 = 0x0001; //Start game
+                if (!pause) { //Start game
+                    TIM2->CR1 = 0x0001;
+                } else { //Resume game
+                    window(x1, y1, x2, y2, "Breakout", 1);
+                    for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
+                        for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
+                            drawBox(&boxMatrix[i][j]);
+                        }
+                    }
+                    drawScore(score);
+                    drawStriker(&striker);
+                    drawBall(&ball);
+                    TIM2->CR1 = 0x0001;
+                    pause = 0;
+                }
                 break;
             default : //When a button on the joystick is released
                 break;

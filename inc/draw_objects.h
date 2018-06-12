@@ -38,5 +38,6 @@ void drawBox(box_t * box_p);
 int score;
 int * highscoreList;
 void drawScore(int score);
+void printBossKey();
 
 #endif /* draw_objects_h */
