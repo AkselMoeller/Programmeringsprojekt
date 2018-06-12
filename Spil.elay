@@ -8,7 +8,7 @@
 	</File>
 	<File name="inc\draw_objects.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1054" topLine="0" />
+			<Cursor1 position="1470" topLine="13" />
 		</Cursor>
 	</File>
 	<File name="inc\stm32f30x.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -21,19 +21,19 @@
 			<Cursor1 position="125" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\ansi.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\ansi.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1659" topLine="21" />
+			<Cursor1 position="1659" topLine="12" />
 		</Cursor>
 	</File>
-	<File name="src\draw_objects.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\draw_objects.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8892" topLine="255" />
+			<Cursor1 position="368" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\hardware_control.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\hardware_control.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3308" topLine="36" />
+			<Cursor1 position="3308" topLine="44" />
 		</Cursor>
 	</File>
 	<File name="src\lut-sin.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -41,14 +41,14 @@
 			<Cursor1 position="497" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1118" topLine="0" />
+			<Cursor1 position="12820" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4298" topLine="158" />
+			<Cursor1 position="4170" topLine="158" />
 		</Cursor>
 	</File>
 	<File name="src\vectors.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
