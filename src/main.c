@@ -4,6 +4,8 @@
 #include "draw_objects.h"
 #include "game_control.h"
 
+void makeLevel()
+
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
     striker_t striker;
@@ -33,10 +35,11 @@ int main(void) {
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
     uint16_t strikerMaxCount = 8500; //Affects striker speed
-    uint8_t boxColumns = 10; //Number of boxes along the x-axis
-    uint8_t boxRows = 5; //Number of boxes along the y-axis
+    uint8_t boxMaxColumns = 10; //Number of boxes along the x-axis
+    uint8_t boxMaxRows = 10; //Number of boxes along the y-axis
     uint8_t bossKey = 0;
     uint8_t score = 0;
+    uint8_t level = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -55,7 +58,7 @@ int main(void) {
     ball_t ball = initBall(striker);
 
     //Drawing boxes
-    box_t boxMatrix[boxColumns][boxRows];
+    box_t boxMatrix[boxMaxColumns][boxMaxRows];
     for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
         for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
@@ -63,7 +66,7 @@ int main(void) {
             boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
             boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
             boxMatrix[i][j].powerUp = 0;
-            boxMatrix[i][j].lives = 2;
+            boxMatrix[i][j].lives = 1;
             drawBox(&boxMatrix[i][j]);
         }
     }
@@ -112,8 +115,8 @@ int main(void) {
             }
 
             //Making ball bounce on boxes
-            for (uint8_t i = 0; i < boxColumns; i++) {
-                for (uint8_t j = 0; j < boxRows; j++) {
+            for (uint8_t i = 0; i < boxMaxColumns; i++) {
+                for (uint8_t j = 0; j < boxMaxRows; j++) {
                     if (boxMatrix[i][j].lives) { //Only executed if the box is "alive"
                         //Checking if ball hits the LEFT side of the box
                         if (ball.y >= FIX14_left(boxMatrix[i][j].y)
@@ -178,7 +181,7 @@ int main(void) {
                 if (!bossKey) { //Pause game (boss key)
                     TIM2->CR1 = 0x0000;
                     clrscr();
-                    printBossKey();
+                    printBossKey(score);
                     bossKey = 1;
                 }
                 break;
