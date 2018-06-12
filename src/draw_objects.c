@@ -162,9 +162,13 @@ void drawBox(box_t * box_p) { //Set lives to 0 in order to delete boxes
 }
 
 void drawScore(int score) {
-    //Print score n'stuff
     gotoxy(100, 2);
     printf("Score: %i", score);
+}
+
+void drawLevel(int level) {
+    gotoxy(100, 3);
+    printf("Level: %i", level);
 }
 
 void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY) {

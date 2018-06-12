@@ -69,7 +69,7 @@ int main(void) {
     uint16_t score = 0;
     uint8_t level = 1;
     uint8_t boxesAlive;
-    uint8_t menuOpen = 1; //1 = YES, 0 = NO
+    uint8_t menuOpen = 0; //1 = YES, 0 = NO
     uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 25;
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 10, helpY = 25;
 
@@ -196,8 +196,7 @@ int main(void) {
             if (!boxesAlive){
                 level++;
                 makeLevel(boxMatrix, x1, y1, x2, y2, level);
-                gotoxy(2,2);
-                printf("%i; ", level);
+                drawLevel(level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;

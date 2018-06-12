@@ -39,6 +39,7 @@ void drawBox(box_t * box_p);
 int score;
 int * highscoreList;
 void drawScore(int score);
+void drawLevel(int level);
 void printBossKey(uint16_t score);
 void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
