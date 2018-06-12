@@ -69,6 +69,7 @@ int main(void) {
     uint16_t score = 0;
     uint8_t level = 1;
     uint8_t boxesAlive;
+    uint8_t menuOpen = 1; //1 = YES, 0 = NO
 
     //Initialization
     init_usb_uart(115200);
