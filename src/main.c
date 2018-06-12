@@ -16,7 +16,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
                 boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
                 boxMatrix[i][j].powerUp = 0;
 
-                if (j == 5 && i == 5){
+                if (j == 5 && i == 4){
                     boxMatrix[i][j].lives = 1;
                 } else {
                     boxMatrix[i][j].lives = 0;
