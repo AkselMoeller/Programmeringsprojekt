@@ -8,9 +8,9 @@
 #define MAX_ROWS 10
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
-    if (level == 0) {
+    if (level == 1) {
         for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-            for (uint8_t j = 0; j < MAX_ROWS/2; j++) {
+            for (uint8_t j = 0; j < 5; j++) {
                 boxMatrix[i][j].xSize = (x2 - x1)/10;
                 boxMatrix[i][j].ySize = (y2 - y1)/20;
                 boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
