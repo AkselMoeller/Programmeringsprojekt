@@ -198,9 +198,6 @@
 		<Unit filename="src\draw_objects.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src\game_control.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="src\hardware_control.c">
 			<Option compilerVar="CC" />
 		</Unit>
