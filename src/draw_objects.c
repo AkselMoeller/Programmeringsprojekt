@@ -279,7 +279,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t box = 208+11;
 
     //start coordinates for G
-    uint8_t xGs = xm - (2+5*5+3);
+    uint8_t xGs = xm - (2+5*5+4);
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
@@ -371,7 +371,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xOs, yOs + 2);
     printf("%c   %c\n", box, box);
     gotoxy(xOs, yOs + 3);
-    printf("%c   %c\n", box);
+    printf("%c   %c\n", box, box);
     gotoxy(xOs + 1, yOs + 4);
     printf("%c%c%c\n", box, box, box);
 
@@ -425,7 +425,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xRs, yRs);
     printf("%c%c%c%c\n", box, box, box, box);
     gotoxy(xRs, yRs + 1);
-    printf("%c   %c\n", box);
+    printf("%c   %c\n", box, box);
     gotoxy(xRs, yRs + 2);
     printf("%c %c%c\n", box, box, box);
     gotoxy(xRs, yRs + 3);
