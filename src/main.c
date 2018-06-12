@@ -17,7 +17,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
 
             switch (level) {
                 case 1 :
-                    if (j == 5 || j == 4 && i == 4){
+                    if ((j == 5 || j == 4) && i == 4){
                         boxMatrix[i][j].lives = 1;
                     } else {
                         boxMatrix[i][j].lives = 0;
