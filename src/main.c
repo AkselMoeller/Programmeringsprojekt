@@ -7,39 +7,31 @@
 #define MAX_ROWS 10
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
-    if (level == 1) {
-        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-            for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                boxMatrix[i][j].xSize = (x2 - x1)/10;
-                boxMatrix[i][j].ySize = (y2 - y1)/20;
-                boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
-                boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
-                boxMatrix[i][j].powerUp = 0;
+    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+        for (uint8_t j = 0; j < MAX_ROWS; j++) {
+            boxMatrix[i][j].xSize = (x2 - x1)/10;
+            boxMatrix[i][j].ySize = (y2 - y1)/20;
+            boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
+            boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
+            boxMatrix[i][j].powerUp = 0;
 
-                if (j == 5 && i == 4){
+            switch (level) {
+            case 1 :
+                if (j == 5 || j == 4 && i == 4){
                     boxMatrix[i][j].lives = 1;
                 } else {
                     boxMatrix[i][j].lives = 0;
                 }
-                drawBox(&boxMatrix[i][j]);
-            }
-        }
-    } else if (level == 2) {
-        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-            for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                boxMatrix[i][j].xSize = (x2 - x1)/10;
-                boxMatrix[i][j].ySize = (y2 - y1)/20;
-                boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
-                boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
-                boxMatrix[i][j].powerUp = 0;
-
-                if (j == 5){
-                    boxMatrix[i][j].lives = 1;
+                break;
+            case 2 :
+                if (j < 4 && j%2 && (i+1)%2)
+                     boxMatrix[i][j].lives = 1;
                 } else {
                     boxMatrix[i][j].lives = 0;
                 }
-                drawBox(&boxMatrix[i][j]);
+                break;
             }
+            drawBox(&boxMatrix[i][j]);
         }
     }
 }
