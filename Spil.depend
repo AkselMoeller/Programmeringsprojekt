@@ -196,15 +196,15 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528450941 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\ansi.c
+1528705066 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\ansi.c
 	"ansi.h"
 	<string.h>
 
-1528450941 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\ansi.h
+1528705065 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\ansi.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528450307 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"hardware_control.h"
 
 1528452076 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
@@ -215,24 +215,23 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528467593 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528806316 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
-	"vectors.h"
 	"game_control.h"
 
-1528468445 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528807333 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
-1528449105 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
+1528801079 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
 
 1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\startup_stm32f30x.s
 
 1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\system_stm32f30x.c
 	"stm32f30x.h"
 
-1528449105 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\vectors.c
+1528801079 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\vectors.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"lut-sin.h"
