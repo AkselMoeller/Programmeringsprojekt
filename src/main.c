@@ -200,6 +200,8 @@ int main(void) {
             if (!boxesAlive){
                 level++;
                 makeLevel(boxMatrix, x1, y1, x2, y2, level);
+                gotoxy(2,2);
+                printf("%i; ", level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
