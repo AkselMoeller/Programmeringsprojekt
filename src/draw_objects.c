@@ -264,7 +264,7 @@ void printBossKey(uint16_t score) {
     fgcolor(4);
     printf("Key ACTIVE, press center to continue\n");
     fgcolor (2);
-    printf("uint8_t score = %i");
+    printf("uint8_t score = ");
     fgcolor(4);
     printf("%i\n", score);
 }
