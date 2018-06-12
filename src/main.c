@@ -40,7 +40,7 @@ int main(void) {
     uint8_t boxMaxColumns = 10; //Number of boxes along the x-axis
     uint8_t boxMaxRows = 10; //Number of boxes along the y-axis
     uint8_t bossKey = 0;
-    uint8_t score = 0;
+    uint16_t score = 0;
     uint8_t level = 0;
 
     //Initialization
