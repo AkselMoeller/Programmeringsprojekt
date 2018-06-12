@@ -4,7 +4,9 @@
 #include "draw_objects.h"
 #include "game_control.h"
 
-void makeLevel()
+void makeLevel() {
+
+}
 
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
@@ -49,7 +51,8 @@ int main(void) {
     //Drawing window
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
-    drawMenuLabels(10, 20, 40, 20);
+    //Drawing help and scoreboard labels
+    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4, 25);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -70,8 +73,6 @@ int main(void) {
             drawBox(&boxMatrix[i][j]);
         }
     }
-
-    deleteMenuLabels(10, 20, 40, 20);
 
     while(1) {
         if (flag) { //Everything in this if-statement is executed once every 1/20 second
