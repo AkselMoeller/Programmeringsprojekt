@@ -115,8 +115,9 @@ int main(void) {
             if (ball.y <= FIX14_left(y1 + 1)) {
                 ball.vY = -ball.vY;
             }
-            if (ball.y >= FIX14_left(y2 - 1)) { //Game over!!!
+            if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
                 k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
+                gameOver(x1, x2, y1, y2);
             }
 
             //Making ball bounce on striker

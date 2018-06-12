@@ -280,21 +280,21 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
     //start coordinates for G
     uint8_t xGs = xm - (2+5*5+3);
-    uint8_t yGs = ys - 3;
+    uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
     fgcolor(6);
 
     //Drawing the G
-    gotxy(xGs + 1, yGs);
+    gotoxy(xGs + 1, yGs);
     printf("%c%c%c\n", box, box, box);
-    gotxy(xGs, yGs + 1);
+    gotoxy(xGs, yGs + 1);
     printf("%c\n", box);
-    gotxy(xGs, yGs + 2);
+    gotoxy(xGs, yGs + 2);
     printf("%c %c%c\n", box, box, box);
-    gotxy(xGs, yGs + 3);
+    gotoxy(xGs, yGs + 3);
     printf("%c   %c\n", box, box);
-    gotxy(xGs + 1, yGs + 4);
+    gotoxy(xGs + 1, yGs + 4);
     printf("%c%c%c\n", box, box, box);
 
     //start coordinates for A
@@ -305,15 +305,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the A
-    gotxy(xAs + 1, yAs);
+    gotoxy(xAs + 1, yAs);
     printf("%c%c%c\n", box, box, box);
-    gotxy(xAs, yAs + 1);
+    gotoxy(xAs, yAs + 1);
     printf("%c   %c\n", box, box);
-    gotxy(xAs, yAs + 2);
+    gotoxy(xAs, yAs + 2);
     printf(" %c%c%c \n", box, box, box);
-    gotxy(xAs, yAs + 3);
+    gotoxy(xAs, yAs + 3);
     printf("%c   %c\n", box, box);
-    gotxy(xAs, yAs + 4);
+    gotoxy(xAs, yAs + 4);
     printf("%c   %c\n", box, box);
 
     //start coordinates for M
@@ -324,15 +324,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the A
-    gotxy(xMs, yMs);
+    gotoxy(xMs, yMs);
     printf("%c   %c\n", box, box);
-    gotxy(xMs, yMs + 1);
+    gotoxy(xMs, yMs + 1);
     printf("%c%c %c%c\n", box, box, box, box);
-    gotxy(xMs, yMs + 2);
+    gotoxy(xMs, yMs + 2);
     printf("%c %c %c\n", box, box, box);
-    gotxy(xMs, yMs + 3);
+    gotoxy(xMs, yMs + 3);
     printf("%c   %c\n", box, box);
-    gotxy(xMs, yMs + 4);
+    gotoxy(xMs, yMs + 4);
     printf("%c   %c\n", box, box);
 
 
@@ -344,15 +344,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the E
-    gotxy(xEs, yEs);
+    gotoxy(xEs, yEs);
     printf("%c%c%c%c%c\n", box, box, box, box, box);
-    gotxy(xEs, yEs + 1);
+    gotoxy(xEs, yEs + 1);
     printf("%c\n", box);
-    gotxy(xEs, yEs + 2);
+    gotoxy(xEs, yEs + 2);
     printf("%c%c%c\n", box, box, box);
-    gotxy(xEs, yEs + 3);
+    gotoxy(xEs, yEs + 3);
     printf("%c\n", box);
-    gotxy(xEs, yEs + 4);
+    gotoxy(xEs, yEs + 4);
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
 
@@ -364,15 +364,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the O
-    gotxy(xOs + 1, yOs);
+    gotoxy(xOs + 1, yOs);
     printf(" %c%c%c \n", box, box, box);
-    gotxy(xOs, yOs + 1);
+    gotoxy(xOs, yOs + 1);
     printf("%c   %c\n", box, box);
-    gotxy(xOs, yOs + 2);
+    gotoxy(xOs, yOs + 2);
     printf("%c   %c\n", box, box);
-    gotxy(xOs, yOs + 3);
+    gotoxy(xOs, yOs + 3);
     printf("%c   %c\n", box);
-    gotxy(xOs + 1, yOs + 4);
+    gotoxy(xOs + 1, yOs + 4);
     printf("%c%c%c\n", box, box, box);
 
 
@@ -384,15 +384,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the V
-    gotxy(xVs, yVs);
+    gotoxy(xVs, yVs);
     printf("%c   %c\n", box, box);
-    gotxy(xVs, yVs + 1);
+    gotoxy(xVs, yVs + 1);
     printf("%c   %c\n", box, box);
-    gotxy(xVs + 1, yVs + 2);
+    gotoxy(xVs + 1, yVs + 2);
     printf("%c %c\n", box, box);
-    gotxy(xVs + 1, yVs + 3);
+    gotoxy(xVs + 1, yVs + 3);
     printf("%c %c\n", box, box);
-    gotxy(xVs + 2, yVs + 4);
+    gotoxy(xVs + 2, yVs + 4);
     printf("%c\n", box);
 
     //start coordinates for E2
@@ -403,15 +403,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the E2
-    gotxy(xE2s, yE2s);
+    gotoxy(xE2s, yE2s);
     printf("%c%c%c%c%c\n", box, box, box, box, box);
-    gotxy(xE2s, yE2s + 1);
+    gotoxy(xE2s, yE2s + 1);
     printf("%c\n", box);
-    gotxy(xE2s, yE2s + 2);
+    gotoxy(xE2s, yE2s + 2);
     printf("%c%c%c\n", box, box, box);
-    gotxy(xE2s, yE2s + 3);
+    gotoxy(xE2s, yE2s + 3);
     printf("%c\n", box);
-    gotxy(xE2s, yE2s + 4);
+    gotoxy(xE2s, yE2s + 4);
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
     //start coordinates for R
@@ -422,15 +422,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     fgcolor(6);
 
     //Drawing the R
-    gotxy(xRs, yRs);
+    gotoxy(xRs, yRs);
     printf("%c%c%c%c\n", box, box, box, box);
-    gotxy(xEs, yEs + 1);
+    gotoxy(xEs, yEs + 1);
     printf("%c   %c\n", box);
-    gotxy(xEs, yEs + 2);
+    gotoxy(xEs, yEs + 2);
     printf("%c %c%c\n", box, box, box);
-    gotxy(xEs, yEs + 3);
+    gotoxy(xEs, yEs + 3);
     printf("%c  %c\n", box, box);
-    gotxy(xEs, yEs + 4);
+    gotoxy(xEs, yEs + 4);
     printf("%c   %c\n", box, box, box, box, box);
 
 
