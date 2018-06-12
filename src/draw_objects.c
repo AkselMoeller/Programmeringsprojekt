@@ -365,7 +365,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
     //Drawing the O
     gotoxy(xOs + 1, yOs);
-    printf(" %c%c%c \n", box, box, box);
+    printf("%c%c%c\n", box, box, box);
     gotoxy(xOs, yOs + 1);
     printf("%c   %c\n", box, box);
     gotoxy(xOs, yOs + 2);
@@ -424,13 +424,13 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     //Drawing the R
     gotoxy(xRs, yRs);
     printf("%c%c%c%c\n", box, box, box, box);
-    gotoxy(xEs, yEs + 1);
+    gotoxy(xRs, yRs + 1);
     printf("%c   %c\n", box);
-    gotoxy(xEs, yEs + 2);
+    gotoxy(xRs, yRs + 2);
     printf("%c %c%c\n", box, box, box);
-    gotoxy(xEs, yEs + 3);
+    gotoxy(xRs, yRs + 3);
     printf("%c  %c\n", box, box);
-    gotoxy(xEs, yEs + 4);
+    gotoxy(xRs, yRs + 4);
     printf("%c   %c\n", box, box, box, box, box);
 
 
