@@ -4,10 +4,13 @@
 #include "draw_objects.h"
 #include "game_control.h"
 
-void makeLevel(box_t boxMatrix[10][], uint8_t level) {
+#define MAX_COLUMNS 10
+#define MAX_ROWS 10
+
+void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     if (level == 0) {
-        for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
-            for (uint8_t j = 0; j < 5); j++) {
+        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+            for (uint8_t j = 0; j < MAX_ROWS/2; j++) {
                 boxMatrix[i][j].xSize = (x2 - x1)/10;
                 boxMatrix[i][j].ySize = (y2 - y1)/20;
                 boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
@@ -17,7 +20,7 @@ void makeLevel(box_t boxMatrix[10][], uint8_t level) {
                 drawBox(&boxMatrix[i][j]);
             }
         }
-    } else if (level == 1){
+    } else if (level == 1) {
 
     }
 }
@@ -51,8 +54,6 @@ int main(void) {
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
     uint16_t strikerMaxCount = 8500; //Affects striker speed
-    uint8_t boxMaxColumns = 10; //Number of boxes along the x-axis
-    uint8_t boxMaxRows = 10; //Number of boxes along the y-axis
     uint8_t bossKey = 0;
     uint16_t score = 0;
     uint8_t level = 0;
@@ -75,9 +76,9 @@ int main(void) {
     ball_t ball = initBall(striker);
 
     //Drawing boxes
-    box_t boxMatrix[boxMaxColumns][boxMaxRows];
-    for (uint8_t i = 0; i < sizeof(boxMatrix) / sizeof(boxMatrix[0]); i++) {
-        for (uint8_t j = 0; j < sizeof(boxMatrix[0]) / sizeof(boxMatrix[0][0]); j++) {
+    box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
+    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+        for (uint8_t j = 0; j < MAX_ROWS; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
             boxMatrix[i][j].ySize = (y2 - y1)/20;
             boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
@@ -130,8 +131,8 @@ int main(void) {
             }
 
             //Making ball bounce on boxes
-            for (uint8_t i = 0; i < boxMaxColumns; i++) {
-                for (uint8_t j = 0; j < boxMaxRows; j++) {
+            for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                for (uint8_t j = 0; j < MAX_ROWS; j++) {
                     if (boxMatrix[i][j].lives) { //Only executed if the box is "alive"
                         //Checking if ball hits the LEFT side of the box
                         if (ball.y >= FIX14_left(boxMatrix[i][j].y)
