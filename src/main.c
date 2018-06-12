@@ -70,6 +70,8 @@ int main(void) {
     uint8_t level = 1;
     uint8_t boxesAlive;
     uint8_t menuOpen = 1; //1 = YES, 0 = NO
+    uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 25;
+    uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 10, helpY = 25;
 
     //Initialization
     init_usb_uart(115200);
@@ -80,7 +82,7 @@ int main(void) {
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
     //Drawing help and scoreboard labels
-    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4 - 10, 25);
+    drawMenuLabels(scoreboardX, scoreboardY, helpX, helpY);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -93,7 +95,7 @@ int main(void) {
     makeLevel(boxMatrix, x1, y1, x2, y2, level); //Drawing boxes for level 1
 
     while(1) {
-        if (flag) { //Everything in this if-statement is executed once every 1/20 second
+        if (flag && !menuOpen) { //Everything in this if-statement is executed once every 1/20 second
             TIM2->CR1 = 0x0000; //Disabling timer
 
             //Updating ball-position
@@ -199,6 +201,8 @@ int main(void) {
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
+        } else if (flag && menuOpen) {
+            //Check if ball hits help or score label -> if not, set menuOpen=0.
         }
 
         //Reading joystick input
