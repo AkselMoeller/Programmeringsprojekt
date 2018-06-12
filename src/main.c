@@ -52,7 +52,7 @@ int main(void) {
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
     //Drawing help and scoreboard labels
-    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4, 25);
+    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4 - 12, 25, (x1 + x2)/2 + (x1 + x2)/4, 25);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
