@@ -42,5 +42,7 @@ void drawScore(int score);
 void printBossKey(uint16_t score);
 void drawMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t helpX, uint8_t helpY);
+void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2);
+
 
 #endif /* draw_objects_h */

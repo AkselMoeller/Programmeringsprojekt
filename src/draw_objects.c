@@ -270,5 +270,168 @@ void printBossKey(uint16_t score) {
 }
 
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
-    gotoxy(1,1);
+
+    //coordinates for center of screen
+    uint8_t xm = (x2 - x1)/2;
+    uint8_t ym = (y2 - y1)/2;
+
+    //Sets filled box character
+    uint8_t box = 208+11;
+
+    //start coordinates for G
+    uint8_t xGs = xm - (2+5*5+3);
+    uint8_t yGs = ys - 3;
+
+    //Sets color for G (Cyan)
+    fgcolor(6);
+
+    //Drawing the G
+    gotxy(xGs + 1, yGs);
+    printf("%c%c%c\n", box, box, box);
+    gotxy(xGs, yGs + 1);
+    printf("%c\n", box);
+    gotxy(xGs, yGs + 2);
+    printf("%c %c%c\n", box, box, box);
+    gotxy(xGs, yGs + 3);
+    printf("%c   %c\n", box, box);
+    gotxy(xGs + 1, yGs + 4);
+    printf("%c%c%c\n", box, box, box);
+
+    //start coordinates for A
+    uint8_t xAs = xGs + 6;
+    uint8_t yAs = yGs;
+
+    //Sets color for A (Cyan)
+    fgcolor(6);
+
+    //Drawing the A
+    gotxy(xAs + 1, yAs);
+    printf("%c%c%c\n", box, box, box);
+    gotxy(xAs, yAs + 1);
+    printf("%c   %c\n", box, box);
+    gotxy(xAs, yAs + 2);
+    printf(" %c%c%c \n", box, box, box);
+    gotxy(xAs, yAs + 3);
+    printf("%c   %c\n", box, box);
+    gotxy(xAs, yAs + 4);
+    printf("%c   %c\n", box, box);
+
+    //start coordinates for M
+    uint8_t xMs = xAs + 6;
+    uint8_t yMs = yAs;
+
+    //Sets color for M (Cyan)
+    fgcolor(6);
+
+    //Drawing the A
+    gotxy(xMs, yMs);
+    printf("%c   %c\n", box, box);
+    gotxy(xMs, yMs + 1);
+    printf("%c%c %c%c\n", box, box, box, box);
+    gotxy(xMs, yMs + 2);
+    printf("%c %c %c\n", box, box, box);
+    gotxy(xMs, yMs + 3);
+    printf("%c   %c\n", box, box);
+    gotxy(xMs, yMs + 4);
+    printf("%c   %c\n", box, box);
+
+
+    //start coordinates for E
+    uint8_t xEs = xMs + 6;
+    uint8_t yEs = yMs;
+
+    //Sets color for E (Cyan)
+    fgcolor(6);
+
+    //Drawing the E
+    gotxy(xEs, yEs);
+    printf("%c%c%c%c%c\n", box, box, box, box, box);
+    gotxy(xEs, yEs + 1);
+    printf("%c\n", box);
+    gotxy(xEs, yEs + 2);
+    printf("%c%c%c\n", box, box, box);
+    gotxy(xEs, yEs + 3);
+    printf("%c\n", box);
+    gotxy(xEs, yEs + 4);
+    printf("%c%c%c%c%c\n", box, box, box, box, box);
+
+
+    //start coordinates for O
+    uint8_t xOs = xEs + 12;
+    uint8_t yOs = yEs;
+
+    //Sets color for O (Cyan)
+    fgcolor(6);
+
+    //Drawing the O
+    gotxy(xOs + 1, yOs);
+    printf(" %c%c%c \n", box, box, box);
+    gotxy(xOs, yOs + 1);
+    printf("%c   %c\n", box, box);
+    gotxy(xOs, yOs + 2);
+    printf("%c   %c\n", box, box);
+    gotxy(xOs, yOs + 3);
+    printf("%c   %c\n", box);
+    gotxy(xOs + 1, yOs + 4);
+    printf("%c%c%c\n", box, box, box);
+
+
+    //start coordinates for V
+    uint8_t xVs = xOs + 6;
+    uint8_t yVs = yOs;
+
+    //Sets color for V (Cyan)
+    fgcolor(6);
+
+    //Drawing the V
+    gotxy(xVs, yVs);
+    printf("%c   %c\n", box, box);
+    gotxy(xVs, yVs + 1);
+    printf("%c   %c\n", box, box);
+    gotxy(xVs + 1, yVs + 2);
+    printf("%c %c\n", box, box);
+    gotxy(xVs + 1, yVs + 3);
+    printf("%c %c\n", box, box);
+    gotxy(xVs + 2, yVs + 4);
+    printf("%c\n", box);
+
+    //start coordinates for E2
+    uint8_t xE2s = xVs + 6;
+    uint8_t yE2s = yVs;
+
+    //Sets color for E2 (Cyan)
+    fgcolor(6);
+
+    //Drawing the E2
+    gotxy(xE2s, yE2s);
+    printf("%c%c%c%c%c\n", box, box, box, box, box);
+    gotxy(xE2s, yE2s + 1);
+    printf("%c\n", box);
+    gotxy(xE2s, yE2s + 2);
+    printf("%c%c%c\n", box, box, box);
+    gotxy(xE2s, yE2s + 3);
+    printf("%c\n", box);
+    gotxy(xE2s, yE2s + 4);
+    printf("%c%c%c%c%c\n", box, box, box, box, box);
+
+    //start coordinates for R
+    uint8_t xRs = xE2s + 6;
+    uint8_t yRs = yE2s;
+
+    //Sets color for R (Cyan)
+    fgcolor(6);
+
+    //Drawing the R
+    gotxy(xRs, yRs);
+    printf("%c%c%c%c\n", box, box, box, box);
+    gotxy(xEs, yEs + 1);
+    printf("%c   %c\n", box);
+    gotxy(xEs, yEs + 2);
+    printf("%c %c%c\n", box, box, box);
+    gotxy(xEs, yEs + 3);
+    printf("%c  %c\n", box, box);
+    gotxy(xEs, yEs + 4);
+    printf("%c   %c\n", box, box, box, box, box);
+
+
 }
