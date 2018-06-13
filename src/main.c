@@ -31,7 +31,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
                     }
                     break;
             }
-            drawBox(&boxMatrix[i][j]);
+            drawBox(boxMatrix[i][j]);
         }
     }
 }
@@ -42,7 +42,7 @@ striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
     striker.length = (x2 - x1)/10;
     striker.x = (x1 + x2)/2 - striker.length/2;
     striker.y = y2 - 1;
-    drawStriker(&striker);
+    drawStriker(striker);
     return striker;
 }
 
@@ -54,7 +54,7 @@ ball_t initBall(striker_t striker) {
     ball.y = FIX14_left(striker.y - 2);
     ball.vX = 0x00000000;
     ball.vY = 0xFFFFF000; //-0.25
-    drawBall(&ball);
+    drawBall(ball);
     return ball;
 }
 
@@ -93,7 +93,7 @@ int main(void) {
 
     //Initializing and drawing ball
     ball_t ball = initBall(striker);
-    deleteBall(&ball); //Ball should not be visible yet
+    deleteBall(ball); //Ball should not be visible yet
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
@@ -104,9 +104,9 @@ int main(void) {
             TIM2->CR1 = 0x0000; //Disabling timer
 
             //Updating ball-position
-            deleteBall(&ball);
+            deleteBall(ball);
             updateBallPos(&ball, k);
-            drawBall(&ball);
+            drawBall(ball);
 
             //Making ball bounce on walls
             if (ball.x <= FIX14_left(x1 + 1) || ball.x >= FIX14_left(x2 - 1)) {
@@ -155,7 +155,7 @@ int main(void) {
                             && ball.vY > 0) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
+                                drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScore(score);
                         }
@@ -167,7 +167,7 @@ int main(void) {
                             && ball.vY < 0) {
                                 ball.vY = -ball.vY;
                                 boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
+                                drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScore(score);
                         }
@@ -179,7 +179,7 @@ int main(void) {
                             && ball.vX > 0) {
                                 ball.vX = -ball.vX;
                                 boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
+                                drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScore(score);
                         }
@@ -191,7 +191,7 @@ int main(void) {
                             && ball.vX < 0) {
                                 ball.vX = -ball.vX;
                                 boxMatrix[i][j].lives--;
-                                drawBox(&boxMatrix[i][j]);
+                                drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScore(score);
                         }
@@ -243,23 +243,23 @@ int main(void) {
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                         for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                            drawBox(&boxMatrix[i][j]);
+                            drawBox(boxMatrix[i][j]);
                         }
                     }
                     drawScore(score);
                     drawLevel(level);
-                    drawStriker(&striker);
-                    drawBall(&ball);
+                    drawStriker(striker);
+                    drawBall(ball);
                     TIM2->CR1 = 0x0001;
                     bossKey = 0;
                 } else if (bossKey && menuOpen) { //When the menu-page should be open
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                         for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                            drawBox(&boxMatrix[i][j]);
+                            drawBox(boxMatrix[i][j]);
                         }
                     }
-                    drawStriker(&striker);
+                    drawStriker(striker);
                     drawScoreboardLabel(scoreboardX, scoreboardY, 0);
                     drawStartLabel(startX, startY, 0);
                     drawHelpLabel(helpX, helpY, 0);
