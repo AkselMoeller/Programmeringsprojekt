@@ -171,6 +171,10 @@ void drawLevelLabel(uint8_t level) {
     printf("Level: %i", level);
 }
 
+void drawPlayerLives () {
+
+}
+
 void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
     gotoxy(scoreboardX , scoreboardY);
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
