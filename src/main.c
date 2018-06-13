@@ -132,17 +132,15 @@ int main(void) {
                 playerLives --; //Decrement player lives
                 drawPlayerLivesLable(playerLives); //Output player lives to putty
 
-                //Resets ball
+                //Resets ball and striker
+                deleteStriker(striker);
+                striker.x = (x1 + x2)/2 - striker.length/2;
+                striker.y = y2 - 1;
                 deleteBall(ball);
                 ball.vY = -ball.vY;
                 ball.x = FIX14_left(striker.x + striker.length/2);
                 ball.y = FIX14_left(striker.y - 2);
                 drawBall(ball);
-
-                //Resets striker
-                deleteStriker(striker);
-                striker.x = (x1 + x2)/2 - striker.length/2;
-                striker.y = y2 - 1;
                 drawStriker(striker);
 
                 if (!playerLives) {
