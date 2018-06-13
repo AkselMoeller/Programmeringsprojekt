@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
+84 
+
 84 B
-=======
+
+84 ====
+
 73 
->>>>>>> 101ed8c74e05887361a097c0b61a06ceb95dc2aa
+
+73 >>>> 101ed8c74e05887361a097c0b61a06ceb95dc2aa
 
 1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_adc.c
 	"stm32f30x_adc.h"
@@ -486,13 +490,13 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528903395 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1528904949 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 
-1528903103 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
+1528904949 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
 
 1528468097 24705c7310dd1264ee0036bbb65fc6a2acca9
 
@@ -628,7 +632,7 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528903611 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+1528904949 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
