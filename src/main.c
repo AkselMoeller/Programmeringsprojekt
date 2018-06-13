@@ -40,6 +40,14 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                         boxMatrix[i][j].lives = 0;
                     }
                     break;
+                case 3 :
+                    if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
+                        boxMatrix[i][j].lives = 1;
+                    } else if (j == 6) {
+                        boxMatrix[i][j].lives = 2;
+                    } else {
+                        boxMatrix[i][j].lives = 0;
+                    }
             }
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
@@ -52,7 +60,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY -= 0x2000; // (+0,5) - very fast for testing
+        case 2 : (*ball_p).vY -= 0x1000; // (+0,25) - very fast for testing
+        case 3 : (*ball_p).vY -= 0x2000; // (+0,5)
     }
 
 }
