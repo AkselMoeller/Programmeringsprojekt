@@ -76,6 +76,7 @@ int main(void) {
     uint8_t startX = (x1 + x2)/2 - 6, startY = 25;
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
+    uint8_t inGameStart = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -235,20 +236,21 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!bossKey && menuOpen) {
+                if (!bossKey && (menuOpen || inGameStart)) {
                     if (scoreboardSelected) { //Show scoreboard
-                        //
-                    }
-                    if (startSelected) { //Start game
+                        deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                        drawBackLabel(scoreboardX, scoreboardY, 0);
+                    } else if (startSelected || inGameStart) { //Start game
                         deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                         drawScoreLabel(score);
                         drawLevelLabel(level);
-                        menuOpen = 0;
+                        inGameStart = 0;
                         TIM2->CR1 = 0x0001;
+                    } else if (helpSelected) { //Show help page
+                        deleteMenuLabels(helpX, scoreboardY, startX, startY, helpX, helpY);
+                        drawBackLabel(helpX, helpY, 0);
                     }
-                    if (helpSelected) { //Show help page
-                        //
-                    }
+                    menuOpen = 0;
                 } else if (bossKey && !menuOpen) { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {

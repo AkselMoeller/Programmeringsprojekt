@@ -230,7 +230,7 @@ void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color) {
     window(backX, backY, backX + 11, backY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(backX + 1, backY + 1);
-    printf(" <-Back   ");
+    printf("   Back   ");
     resetbgcolor();
 }
 
