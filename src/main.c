@@ -290,6 +290,7 @@ int main(void) {
                     }
                     drawScoreLabel(score);
                     drawLevelLabel(level);
+                    drawPlayerLivesLable(playerLives);
                     drawStriker(striker);
                     drawBall(ball);
                     TIM2->CR1 = 0x0001;
