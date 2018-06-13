@@ -157,7 +157,7 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
             gotoxy(box.x + i, box.y + j);
             if (box.powerUp){
                 printf("o");
-            } else{
+            } else {
                 printf(" ");
             }
         }
@@ -207,9 +207,9 @@ void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(scoreboardX + 1, scoreboardY + 1);
-    if (!backButton) {
+    if (backButton != 1) {
         printf("Scoreboard");
-    } else if (backButton == 1) {
+    } else {
         printf("   Back   ");
     }
     resetbgcolor();
@@ -229,9 +229,9 @@ void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color, uint8_t backButt
     window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(helpX + 1, helpY + 1);
-    if (!backButton) {
+    if (backButton != 2) {
         printf("   Help   ");
-    } else if (backButton == 2) {
+    } else {
         printf("   Back   ");
     }
     resetbgcolor();
