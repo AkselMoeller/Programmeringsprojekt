@@ -207,7 +207,7 @@ void drawPlayerLivesLabel (uint8_t playerLives) {
 
 void drawBackMessage(uint8_t x, uint8_t y) { //x is center x-coordinate of the window
     char * s = "Press center-button to go back";
-    gotoxy(x + strlen(s), y);
+    gotoxy(x - strlen(s)/2, y);
     printf("%s", s);
 }
 
