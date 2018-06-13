@@ -204,11 +204,7 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528883562 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
-	<stdio.h>
-	"draw_objects.h"
-	"ansi.h"
-	<string.h>
+1528885607 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"

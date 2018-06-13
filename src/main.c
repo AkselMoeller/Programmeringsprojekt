@@ -77,6 +77,7 @@ int main(void) {
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
+    uint8_t playerLives = 3;
 
     //Initialization
     init_usb_uart(115200);
@@ -119,8 +120,25 @@ int main(void) {
                 ball.vY = -ball.vY;
             }
             if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
-                k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
+                TIM2->CR1 = 0x0000; //Disabling timer
+              playerLives --; //Decrement player lives
+              drawPlayerLivesLable(playerLives); //Output player lives to putty
+
+              //Resets striker
+              striker.x = (x1 + x2)/2 - striker.length/2;
+              striker.y = y2 - 1;
+              drawStriker(striker);
+
+              //Resets ball
+              ball.vY = -ball.vY;
+              ball.x = FIX14_left(striker.x + striker.length/2);
+              ball.y = FIX14_left(striker.y - 2);
+              drawBall(ball);
+
+              if (!playerLives) {
                 gameOver(x1, x2, y1, y2);
+              }
+              inGameStart = 1;
             }
 
             //Making ball bounce on striker
