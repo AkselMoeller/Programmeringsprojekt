@@ -23,7 +23,7 @@ void updateBallPos(ball_t * ball_p, uint8_t k);
 void deleteBall(ball_t ball);
 
 typedef struct {
-    int8_t x, y, length, color; //(x, y) is start position and length is the length of striker.
+    uint8_t x, y, length, color; //(x, y) is start position and length is the length of striker.
 } striker_t;
 void drawStriker (striker_t striker);
 void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
