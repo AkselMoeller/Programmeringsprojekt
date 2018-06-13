@@ -39,6 +39,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, i
 striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
     striker_t striker;
+    striker.color = 7;
     striker.length = (x2 - x1)/10;
     striker.x = (x1 + x2)/2 - striker.length/2;
     striker.y = y2 - 1;
