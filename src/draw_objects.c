@@ -173,6 +173,7 @@ void drawLevelLabel(uint8_t level) {
 
 void drawPlayerLivesLable (uint8_t playerLives) {
     gotoxy (100,1);
+    bgcolor(4);
     fgcolor(9);
     if (playerLives == 3) {
         printf("<3 <3 <3");
@@ -183,7 +184,7 @@ void drawPlayerLivesLable (uint8_t playerLives) {
     } else {
       printf(" X  X  X");
     }
-
+    resetbgcolor();
 }
 
 void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
