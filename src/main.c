@@ -94,6 +94,7 @@ int main(void) {
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t backButton = 0; //0 = no back-buttons, 1 = back-button on scoreboard, 2 = back-button on help
+    uint8_t centerPressed = 0;
 
     //Initialization of FLASH-memory for scoreboard
     uint32_t address = 0x0800F800; // Starting address for the saved scoreboard
@@ -283,56 +284,63 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!bossKey && (menuOpen || inGameStart)) {
-                    if (scoreboardSelected) { //Show scoreboard
-                        backButton = 1;
-                        deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                        drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
-                    } else if (startSelected || inGameStart) { //Start game
-                        deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
+                if (!centerPressed) {
+                    if (!bossKey && (menuOpen || inGameStart)) {
+                        if (scoreboardSelected) { //Show scoreboard
+                            backButton = backButton ? 0 : 1;
+                            deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                            drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
+                            scoreboardSelected = 0;
+                        } else if (startSelected || inGameStart) { //Start game
+                            deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
+                            drawScoreLabel(score);
+                            drawLevelLabel(level);
+                            drawPlayerLivesLabel(playerLives);
+                            inGameStart = 0;
+                            menuOpen = 0;
+                            TIM2->CR1 = 0x0001;
+                        } else if (helpSelected) { //Show help page
+                            backButton = backButton ? 0 : 2;
+                            deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                            drawHelpLabel(helpX, helpY, 0, backButton);
+                            helpSelected = 0;
+                        }
+                    } else if (bossKey && !menuOpen) { //Resume game
+                        window(x1, y1, x2, y2, "Breakout", 1, 1);
+                        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                            for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                                drawBox(boxMatrix[i][j]);
+                            }
+                        }
                         drawScoreLabel(score);
                         drawLevelLabel(level);
                         drawPlayerLivesLabel(playerLives);
-                        inGameStart = 0;
-                        menuOpen = 0;
+                        drawStriker(striker);
+                        drawBall(ball);
                         TIM2->CR1 = 0x0001;
-                    } else if (helpSelected) { //Show help page
-                        backButton = 2;
-                        deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                        bossKey = 0;
+                    } else if (bossKey && menuOpen) { //When the menu-page should be open
+                        window(x1, y1, x2, y2, "Breakout", 1, 1);
+                        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                            for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                                drawBox(boxMatrix[i][j]);
+                            }
+                        }
+                        backButton = 0;
+                        drawStriker(striker);
+                        drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
+                        drawStartLabel(startX, startY, 0);
                         drawHelpLabel(helpX, helpY, 0, backButton);
+                        scoreboardSelected = 0;
+                        startSelected = 0;
+                        helpSelected = 0;
+                        bossKey = 0;
                     }
-                } else if (bossKey && !menuOpen) { //Resume game
-                    window(x1, y1, x2, y2, "Breakout", 1, 1);
-                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                            drawBox(boxMatrix[i][j]);
-                        }
-                    }
-                    drawScoreLabel(score);
-                    drawLevelLabel(level);
-                    drawPlayerLivesLabel(playerLives);
-                    drawStriker(striker);
-                    drawBall(ball);
-                    TIM2->CR1 = 0x0001;
-                    bossKey = 0;
-                } else if (bossKey && menuOpen) { //When the menu-page should be open
-                    window(x1, y1, x2, y2, "Breakout", 1, 1);
-                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                            drawBox(boxMatrix[i][j]);
-                        }
-                    }
-                    drawStriker(striker);
-                    drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
-                    drawStartLabel(startX, startY, 0);
-                    drawHelpLabel(helpX, helpY, 0, backButton);
-                    scoreboardSelected = 0;
-                    startSelected = 0;
-                    helpSelected = 0;
-                    bossKey = 0;
                 }
+                centerPressed = 1;
                 break;
             default : //When a button on the joystick is released
+                centerPressed = 0;
                 break;
         }
 
@@ -341,20 +349,14 @@ int main(void) {
                 //Scoreboard selected
                 drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
                 scoreboardSelected = 1;
-                startSelected = 0;
-                helpSelected = 0;
             } else if (striker.x + striker.length/2 >= startX && striker.x + striker.length/2 <= startX + 11 && !startSelected) {
                 //Start selected
                 drawStartLabel(startX, startY, 4);
                 startSelected = 1;
-                scoreboardSelected = 0;
-                helpSelected = 0;
             } else if (striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
                 //Help selected
                 drawHelpLabel(helpX, helpY, 4, backButton);
                 helpSelected = 1;
-                scoreboardSelected = 0;
-                startSelected = 0;
             } else if ((scoreboardSelected || startSelected || helpSelected)
                         && (striker.x + striker.length/2 < scoreboardX
                         || (striker.x + striker.length/2 > scoreboardX + 11 && striker.x + striker.length/2 < startX)
@@ -369,7 +371,7 @@ int main(void) {
                 helpSelected = 0;
             }
         } else if (menuOpen && backButton == 1) { //Scoreboard-button has been selected
-            if (!scoreboardSelected && striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
+            if (!scoreboardSelected && striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11) {
                 drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
                 scoreboardSelected = 1;
             } else if (scoreboardSelected && striker.x + striker.length/2 < scoreboardX || striker.x + striker.length/2 > scoreboardX + 11) {
