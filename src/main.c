@@ -80,6 +80,7 @@ int main(void) {
     uint16_t strikerMaxCount = 8500; //Affects striker speed
     uint8_t bossKey = 0;
     uint16_t score = 0;
+    uint8_t playerLives = 3;
     uint8_t level = 1;
     uint8_t boxesAlive;
     uint8_t menuOpen = 1; //1 = YES, 0 = NO
@@ -87,6 +88,8 @@ int main(void) {
     uint8_t startX = (x1 + x2)/2 - 6, startY = 25;
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
+    uint8_t inGameStart = 0;
+
 
     //Initialization
     init_usb_uart(115200);
@@ -100,6 +103,7 @@ int main(void) {
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
     drawHelpLabel(helpX, helpY, 0);
+    drawPlayerLivesLable(playerLives);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -129,8 +133,27 @@ int main(void) {
                 ball.vY = -ball.vY;
             }
             if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
-                k = 0; //Another way to stop the ball from moving is by using "NVIC_DisableIRQ(TIM2_IRQn);"
+                playerLives --; //Decrement player lives
+                drawPlayerLivesLable(playerLives); //Output player lives to putty
+
+                //Resets ball
+                deleteBall(ball);
+                ball.vY = -ball.vY;
+                ball.x = FIX14_left(striker.x + striker.length/2);
+                ball.y = FIX14_left(striker.y - 2);
+                drawBall(ball);
+
+                //Resets striker
+                deleteStriker(striker);
+                striker.x = (x1 + x2)/2 - striker.length/2;
+                striker.y = y2 - 1;
+                drawStriker(striker);
+
+                if (!playerLives) {
                 gameOver(x1, x2, y1, y2);
+                menuOpen = 1;
+                }
+                inGameStart = 1;
             }
 
             //Making ball bounce on striker
@@ -216,7 +239,9 @@ int main(void) {
                 makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level);
             }
-            TIM2->CR1 = 0x0001; //Enabling timer
+            if (!inGameStart) {
+                TIM2->CR1 = 0x0001; //Enabling timer
+            }
             flag = 0;
         }
 
@@ -227,7 +252,7 @@ int main(void) {
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
                     TIM2->CR1 = 0x0000;
-                    printBossKey(score);
+                    printBossKey(score, playerLives);
                     bossKey = 1;
                 }
                 break;
@@ -246,20 +271,22 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!bossKey && menuOpen) {
+                if (!bossKey && (menuOpen || inGameStart)) {
                     if (scoreboardSelected) { //Show scoreboard
-                        //
-                    }
-                    if (startSelected) { //Start game
+                        deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                        drawBackLabel(scoreboardX, scoreboardY, 0);
+                    } else if (startSelected || inGameStart) { //Start game
                         deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                         drawScoreLabel(score);
                         drawLevelLabel(level);
-                        menuOpen = 0;
+                        drawPlayerLivesLable(playerLives);
+                        inGameStart = 0;
                         TIM2->CR1 = 0x0001;
+                    } else if (helpSelected) { //Show help page
+                        deleteMenuLabels(helpX, scoreboardY, startX, startY, helpX, helpY);
+                        drawBackLabel(helpX, helpY, 0);
                     }
-                    if (helpSelected) { //Show help page
-                        //
-                    }
+                    menuOpen = 0;
                 } else if (bossKey && !menuOpen) { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {

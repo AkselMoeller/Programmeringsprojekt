@@ -204,13 +204,13 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528883562 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1528886664 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528883495 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528886654 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
 1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"hardware_control.h"
@@ -223,7 +223,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528883819 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528886636 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -240,10 +240,9 @@
 	"lut-sin.h"
 	"vectors.h"
 
-<<<<<<< HEAD
-1528801079 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
-=======
 1528449105 D
+
+1528801079 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
 
 1528467593 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\game_control.h
 
@@ -481,7 +480,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528883732 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1528886187 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -623,7 +622,7 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528883732 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+1528886187 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
@@ -877,10 +876,5 @@
 	"hardware_control.h"
 	"draw_objects.h"
 
-1528883562 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
-	<stdio.h>
-	"draw_objects.h"
-	"ansi.h"
-	<string.h>
->>>>>>> 807831b52f3ab6acdeaf1deee7825273682ed70d
+1528883562 831b52f3ab6acdeaf1deee7825273682ed70d
 

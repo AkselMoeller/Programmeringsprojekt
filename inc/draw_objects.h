@@ -40,7 +40,7 @@ void drawScoreLabel(uint16_t score);
 void drawLevelLabel(uint8_t level);
 void drawPlayerLivesLable (uint8_t playerLives);
 
-void printBossKey(uint16_t score);
+void printBossKey(uint16_t score, uint8_t playerLives);
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2);
 
 void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color);

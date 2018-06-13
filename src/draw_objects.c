@@ -177,11 +177,11 @@ void drawPlayerLivesLable (uint8_t playerLives) {
     if (playerLives == 3) {
         printf("<3 <3 <3");
     } else if (playerLives == 2) {
-      printf("<3 <3 X");
+      printf("<3 <3  X");
     } else if (playerLives == 1) {
-      printf("<3 X X");
+      printf("<3  X  X");
     } else {
-      printf("X X X");
+      printf(" X  X  X");
     }
 
 }
@@ -230,11 +230,11 @@ void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color) {
     window(backX, backY, backX + 11, backY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(backX + 1, backY + 1);
-    printf(" <-Back   ");
+    printf("   Back   ");
     resetbgcolor();
 }
 
-void printBossKey(uint16_t score) {
+void printBossKey(uint16_t score, uint8_t playerLives) {
     //Clear screen and move courser to (1,1)
     clrscr();
     gotoxy(1,1);
@@ -310,6 +310,10 @@ void printBossKey(uint16_t score) {
     printf("    uint8_t score = ");
     fgcolor(4);
     printf("%i\n", score);
+    fgcolor(4);
+    printf("    uint8_t playerLives = ");
+    fgcolor(2);
+    printf("%i\n", playerLives);
 }
 
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
