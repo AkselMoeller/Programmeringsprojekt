@@ -23,7 +23,7 @@ void updateBallPos(ball_t * ball_p, uint8_t k);
 void deleteBall(ball_t * ball_p);
 
 typedef struct {
-    int8_t x, y, length; //(x, y) is start position and length is the length of striker.
+    int8_t x, y, length, color; //(x, y) is start position and length is the length of striker.
 } striker_t;
 void drawStriker (striker_t * striker_p);
 void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
@@ -46,5 +46,6 @@ void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color
 void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color);
 void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color);
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY);
+void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color);
 
 #endif /* draw_objects_h */
