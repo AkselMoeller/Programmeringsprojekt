@@ -171,7 +171,18 @@ void drawLevelLabel(uint8_t level) {
     printf("Level: %i", level);
 }
 
-void drawPlayerLives () {
+void drawPlayerLivesLable (uint8_t playerLives) {
+    gotoxy (100,1);
+    fgcolor(9);
+    if (playerLives == 3) {
+        printf("<3 <3 <3");
+    } else if (playerLives == 2) {
+      printf("<3 <3 X");
+    } else if (playerLives == 1) {
+      printf("<3 X X");
+    } else {
+      printf("X X X");
+    }
 
 }
 
