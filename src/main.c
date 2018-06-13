@@ -8,7 +8,15 @@
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     TIM2->CR1 = 0x0000;
-    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+
+    deleteStriker(*striker_p);
+    (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
+    drawStriker(*striker_p);
+
+    initBall(ball_p, *striker_p);
+
+    //level making
+    for (uint8_t i = 0; i < MAX_COLUMNS; i++) { //init all boxes size and position
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
             boxMatrix[i][j].ySize = (y2 - y1)/20;
@@ -16,6 +24,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
             boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
             boxMatrix[i][j].powerUp = 0;
 
+            //level design
             switch (level) {
                 case 1 :
                     if ((j == 5 || j == 4) && i == 4){
@@ -32,32 +41,27 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     }
                     break;
             }
-            drawBox(boxMatrix[i][j]);
+            drawBox(boxMatrix[i][j]); //draw all boxes
         }
     }
 }
 
-striker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {
+void initStriker(striker_t * striker_p, int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
-    striker_t striker;
-    striker.color = 7;
-    striker.length = (x2 - x1)/10;
-    striker.x = (x1 + x2)/2 - striker.length/2;
-    striker.y = y2 - 1;
-    drawStriker(striker);
-    return striker;
+    (*striker_p).color = 7;
+    (*striker_p).length = (x2 - x1)/10;
+    (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
+    (*striker_p).y = y2 - 1;
+    drawStriker(*striker_p);
 }
 
-ball_t initBall(striker_t striker) {
-    //Drawing ball
-    ball_t ball;
+void initBall(ball_t * ball_p, striker_t striker) {
     //Ball position- and velocity coordinates left-shifted 14 bits in order to produce 18.14-fixed point numbers
-    ball.x = FIX14_left(striker.x + striker.length/2);
-    ball.y = FIX14_left(striker.y - 2);
-    ball.vX = 0x00000000;
-    ball.vY = 0xFFFFF000; //-0.25
-    drawBall(ball);
-    return ball;
+    (*ball_p).x = FIX14_left(striker.x + striker.length/2);
+    (*ball_p).y = FIX14_left(striker.y - 2);
+    (*ball_p).vX = 0x00000000;
+    (*ball_p).vY = 0xFFFFF000; //-0.25
+    drawBall(*ball_p);
 }
 
 int main(void) {
@@ -95,10 +99,12 @@ int main(void) {
     drawPlayerLivesLable(playerLives);
 
     //Initializing and drawing striker
-    striker_t striker = initStriker(x1, x2, y2);
+    striker_t striker;
+    initStriker(&striker, x1, x2, y2);
 
     //Initializing and drawing ball
-    ball_t ball = initBall(striker);
+    ball_t ball;
+    initBall(&ball, striker);
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
