@@ -156,13 +156,17 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
         for (uint8_t j = 0; j < box.ySize; j++) {
             gotoxy(box.x + i, box.y + j);
             if (box.powerUp){
-                printf("o");
+                printf("%c", 15+96); // "o"
             } else {
                 printf(" ");
             }
         }
     }
     resetbgcolor();
+}
+
+void drawPowerUp(powerUp_t powerUp) {
+
 }
 
 void drawScoreLabel(uint16_t score) {

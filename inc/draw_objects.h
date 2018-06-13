@@ -36,6 +36,12 @@ typedef struct {
 } box_t;
 void drawBox(box_t box);
 
+typedef struct {
+    uint8_t x, y;
+    uint8_t type;
+} powerUp_t;
+void drawPowerUp(powerUp_t powerUp);
+
 void drawScoreLabel(uint16_t score);
 void drawLevelLabel(uint8_t level);
 void drawPlayerLivesLabel(uint8_t playerLives);
