@@ -1,6 +1,6 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-=======
+73 
+
 1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_adc.c
 	"stm32f30x_adc.h"
 	"stm32f30x_rcc.h"
@@ -206,13 +206,13 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528886664 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1528904860 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528899787 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528904889 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
 1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"hardware_control.h"
@@ -880,4 +880,5 @@
 
 1528883562 831b52f3ab6acdeaf1deee7825273682ed70d
 
->>>>>>> 22c553ad84203ad64b02e1fa26194115d6ae53b6
+1528883562 553ad84203ad64b02e1fa26194115d6ae53b6
+
