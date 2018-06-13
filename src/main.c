@@ -70,6 +70,10 @@ int main(void) {
     uint8_t level = 1;
     uint8_t boxesAlive;
     uint8_t menuOpen = 1; //1 = YES, 0 = NO
+    uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 25;
+    uint8_t startX = (x1 + x2)/2 - 6, startY = 25;
+    uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
+    uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -79,21 +83,24 @@ int main(void) {
     //Drawing window
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
-    //Drawing help and scoreboard labels
-    drawMenuLabels((x1 + x2)/2 - (x1 + x2)/4, 25, (x1 + x2)/2 + (x1 + x2)/4 - 10, 25);
+    //Drawing menu labels
+    drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
+    drawStartLabel(startX, startY, 0);
+    drawHelpLabel(helpX, helpY, 0);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
 
     //Initializing and drawing ball
     ball_t ball = initBall(striker);
+    deleteBall(&ball); //Ball should not be visible yet
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
     makeLevel(boxMatrix, x1, y1, x2, y2, level); //Drawing boxes for level 1
 
     while(1) {
-        if (flag) { //Everything in this if-statement is executed once every 1/20 second
+        if (flag && !menuOpen) { //Everything in this if-statement is executed once every 1/20 second
             TIM2->CR1 = 0x0000; //Disabling timer
 
             //Updating ball-position
@@ -194,8 +201,7 @@ int main(void) {
             if (!boxesAlive){
                 level++;
                 makeLevel(boxMatrix, x1, y1, x2, y2, level);
-                gotoxy(2,2);
-                printf("%i; ", level);
+                drawLevel(level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
@@ -227,9 +233,13 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!bossKey) { //Start game
+                if (!bossKey && menuOpen && startSelected) { //Start game
+                    deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
+                    drawScore(score);
+                    drawLevel(level);
+                    menuOpen = 0;
                     TIM2->CR1 = 0x0001;
-                } else { //Resume game
+                } else if (bossKey && !menuOpen) { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                         for (uint8_t j = 0; j < MAX_ROWS; j++) {
@@ -237,14 +247,64 @@ int main(void) {
                         }
                     }
                     drawScore(score);
+                    drawLevel(level);
                     drawStriker(&striker);
                     drawBall(&ball);
                     TIM2->CR1 = 0x0001;
+                    bossKey = 0;
+                } else if (bossKey && menuOpen) { //When the menu-page should be open
+                    window(x1, y1, x2, y2, "Breakout", 1, 1);
+                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                            drawBox(&boxMatrix[i][j]);
+                        }
+                    }
+                    drawStriker(&striker);
+                    drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                    drawStartLabel(startX, startY, 0);
+                    drawHelpLabel(helpX, helpY, 0);
+                    scoreboardSelected = 0;
+                    startSelected = 0;
+                    helpSelected = 0;
                     bossKey = 0;
                 }
                 break;
             default : //When a button on the joystick is released
                 break;
+        }
+
+        if (menuOpen) { //Enabling player to choose between menu items
+            if (striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
+                //Scoreboard selected
+                drawScoreboardLabel(scoreboardX, scoreboardY, 4);
+                scoreboardSelected = 1;
+                startSelected = 0;
+                helpSelected = 0;
+            } else if (striker.x + striker.length/2 >= startX && striker.x + striker.length/2 <= startX + 11 && !startSelected) {
+                //Start selected
+                drawStartLabel(startX, startY, 4);
+                startSelected = 1;
+                scoreboardSelected = 0;
+                helpSelected = 0;
+            } else if (striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
+                //Help selected
+                drawHelpLabel(helpX, helpY, 4);
+                helpSelected = 1;
+                scoreboardSelected = 0;
+                startSelected = 0;
+            } else if ((scoreboardSelected || startSelected || helpSelected)
+                        && (striker.x + striker.length/2 < scoreboardX
+                        || (striker.x + striker.length/2 > scoreboardX + 11 && striker.x + striker.length/2 < startX)
+                        || (striker.x + striker.length/2 > startX + 11 && striker.x + striker.length/2 < helpX)
+                        || striker.x + striker.length/2 > helpX + 11)) {
+                //When NO items should be selected
+                drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                drawStartLabel(startX, startY, 0);
+                drawHelpLabel(helpX, helpY, 0);
+                scoreboardSelected = 0;
+                startSelected = 0;
+                helpSelected = 0;
+            }
         }
     }
 }
