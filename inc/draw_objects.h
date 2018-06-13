@@ -45,7 +45,6 @@ void drawPowerUp(powerUp_t powerUp);
 void drawScoreLabel(uint16_t score);
 void drawLevelLabel(uint8_t level);
 void drawPlayerLivesLabel(uint8_t playerLives);
-void drawNewHighscoreLabel()
 
 void printBossKey(uint16_t score, uint8_t playerLives);
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2);

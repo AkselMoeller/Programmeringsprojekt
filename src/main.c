@@ -105,12 +105,6 @@ int main(void) {
     uint8_t backButton = 0; //0 = no back-buttons, 1 = back-button on scoreboard, 2 = back-button on help
     uint8_t centerPressed = 0;
 
-    //Initialization of FLASH-memory for scoreboard
-    uint32_t address = 0x0800F800; // Starting address for the saved scoreboard
-    uint16_t scoreboard[10] = {0};
-    uint16_t tempScoreVal;
-
-
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
@@ -214,7 +208,6 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
-
                         }
                         //Checking if ball hits the BOTTOM sides of the box
                         else if (ball.x >= FIX14_left(boxMatrix[i][j].x)
