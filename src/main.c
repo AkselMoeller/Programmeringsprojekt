@@ -8,13 +8,8 @@
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     TIM2->CR1 = 0x0000;
-
-    deleteStriker(*striker_p);
-    (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
-    drawStriker(*striker_p);
-
     deleteBall(*ball_p);
-    initBall(ball_p, *striker_p);
+    deleteStriker(*striker_p);
 
     //level making
     for (uint8_t i = 0; i < MAX_COLUMNS; i++) { //init all boxes size and position
@@ -45,6 +40,12 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
     }
+
+    (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
+    drawStriker(*striker_p);
+
+    initBall(ball_p, *striker_p);
+
 }
 
 void initStriker(striker_t * striker_p, int32_t x1, int32_t x2, int32_t y2) {
@@ -232,6 +233,7 @@ int main(void) {
                 level++;
                 makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level);
+                inGameStart = 1;
             }
             if (!inGameStart) {
                 TIM2->CR1 = 0x0001; //Enabling timer
