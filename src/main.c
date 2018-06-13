@@ -89,7 +89,7 @@ int main(void) {
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
-
+    uint8_t backButton = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -100,9 +100,9 @@ int main(void) {
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
     //Drawing menu labels
-    drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
+    drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
-    drawHelpLabel(helpX, helpY, 0);
+    drawHelpLabel(helpX, helpY, 0, backButton);
     drawPlayerLivesLabel(playerLives);
 
     //Initializing and drawing striker
@@ -274,8 +274,9 @@ int main(void) {
             case 16 : //Center
                 if (!bossKey && (menuOpen || inGameStart)) {
                     if (scoreboardSelected) { //Show scoreboard
+                        backButton = 1;
                         deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                        drawBackLabel(scoreboardX, scoreboardY, 0);
+                        drawBackLabel(scoreboardX, scoreboardY, 0, backButton);
                     } else if (startSelected || inGameStart) { //Start game
                         deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                         drawScoreLabel(score);
@@ -284,8 +285,9 @@ int main(void) {
                         inGameStart = 0;
                         TIM2->CR1 = 0x0001;
                     } else if (helpSelected) { //Show help page
+                        backButton = 1;
                         deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                        drawBackLabel(helpX, helpY, 0);
+                        drawBackLabel(helpX, helpY, 0, backButton);
                     }
                     menuOpen = 0;
                 } else if (bossKey && !menuOpen) { //Resume game
@@ -310,9 +312,9 @@ int main(void) {
                         }
                     }
                     drawStriker(striker);
-                    drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                    drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
                     drawStartLabel(startX, startY, 0);
-                    drawHelpLabel(helpX, helpY, 0);
+                    drawHelpLabel(helpX, helpY, 0, backButton);
                     scoreboardSelected = 0;
                     startSelected = 0;
                     helpSelected = 0;
@@ -326,7 +328,7 @@ int main(void) {
         if (menuOpen) { //Enabling player to choose between menu items
             if (striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
                 //Scoreboard selected
-                drawScoreboardLabel(scoreboardX, scoreboardY, 4);
+                drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
                 scoreboardSelected = 1;
                 startSelected = 0;
                 helpSelected = 0;
@@ -338,7 +340,7 @@ int main(void) {
                 helpSelected = 0;
             } else if (striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
                 //Help selected
-                drawHelpLabel(helpX, helpY, 4);
+                drawHelpLabel(helpX, helpY, 4, backButton);
                 helpSelected = 1;
                 scoreboardSelected = 0;
                 startSelected = 0;
@@ -348,9 +350,9 @@ int main(void) {
                         || (striker.x + striker.length/2 > startX + 11 && striker.x + striker.length/2 < helpX)
                         || striker.x + striker.length/2 > helpX + 11)) {
                 //When NO items should be selected
-                drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
                 drawStartLabel(startX, startY, 0);
-                drawHelpLabel(helpX, helpY, 0);
+                drawHelpLabel(helpX, helpY, 0, backButton);
                 scoreboardSelected = 0;
                 startSelected = 0;
                 helpSelected = 0;
