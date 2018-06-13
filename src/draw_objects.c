@@ -179,7 +179,6 @@ void drawLevelLabel(uint8_t level) {
     gotoxy(100, 3);
     fgcolor(7);
     printf("Level: %i", level);
-
 }
 
 void drawPlayerLivesLabel (uint8_t playerLives) {
@@ -206,16 +205,18 @@ void drawPlayerLivesLabel (uint8_t playerLives) {
     fgcolor(15);
 }
 
-void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color, uint8_t backButton) {
+void drawBackMessage(uint8_t x, uint8_t y) { //x is center x-coordinate of the window
+    char * s = "Press center-button to go back";
+    gotoxy(x + strlen(s), y);
+    printf("%s", s);
+}
+
+void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
     gotoxy(scoreboardX , scoreboardY);
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(scoreboardX + 1, scoreboardY + 1);
-    if (backButton != 1) {
-        printf("Scoreboard");
-    } else {
-        printf("   Back   ");
-    }
+    printf("Scoreboard");
     resetbgcolor();
 }
 
@@ -228,16 +229,12 @@ void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color) {
     resetbgcolor();
 }
 
-void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color, uint8_t backButton) {
+void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color) {
     gotoxy(helpX, helpY);
     window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(helpX + 1, helpY + 1);
-    if (backButton != 2) {
-        printf("   Help   ");
-    } else {
-        printf("   Back   ");
-    }
+    printf("   Help   ");
     resetbgcolor();
 }
 
