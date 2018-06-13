@@ -308,14 +308,9 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t halfbox = 208+12;
     uint8_t upperhalfbox = 208 + 15;
 
-<<<<<<< HEAD
+
     //start coordinates for G
     uint8_t xGs = xm - (5*5);
-=======
-
-    //Start-coordinates for G
-    uint8_t xGs = xm - ((5*5));
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
@@ -394,13 +389,8 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
 
-<<<<<<< HEAD
     //start coordinates for O
     uint8_t xOs = xEs + 13;
-=======
-    //Start-coordinates for O
-    uint8_t xOs = xEs + 12;
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yOs = yEs;
 
     //Sets color for O (Cyan)
@@ -476,11 +466,5 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xRs, yRs + 3);
     printf("%c  %c\n", box, box);
     gotoxy(xRs, yRs + 4);
-<<<<<<< HEAD
     printf("%c   %c\n", box, box);
-
-
-=======
-    printf("%c   %c\n", box, box, box, box, box);
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
 }
