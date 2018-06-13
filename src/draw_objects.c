@@ -108,7 +108,7 @@ void updateBallPos(ball_t * ball_p, uint8_t k) {
 
 void drawStriker (striker_t * striker_p) {
     //Draw striker from current position to length of striker
-    fgcolor(7); //Light gray
+    fgcolor((*striker_p).color);
     for (uint8_t i = 0; i < (*striker_p).length; i++) {
         gotoxy((*striker_p).x + i, (*striker_p).y);
         printf("%c", 11 + 208);
@@ -129,7 +129,7 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         printf(" "); //Deleting leftmost element
         (*striker_p).x++; //Moving striker one element right
         gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y); //Placing a new rightmost element
-        fgcolor(7);
+        fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     } else if (joyStickState == 4) { //Move left
         gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y);
@@ -208,6 +208,15 @@ void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, 
         gotoxy(helpX, helpY + i);
         printf("            ");
     }
+}
+
+void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color) {
+    gotoxy(backX, backY);
+    window(backX, backY, backX + 11, backY + 2, "", 0, 0);
+    bgcolor(color);
+    gotoxy(backX + 1, backY + 1);
+    printf(" <-Back   ");
+    resetbgcolor();
 }
 
 void printBossKey(uint16_t score) {
