@@ -1,1 +1,895 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
+=======
+84 
+
+84 B
+
+84 ====
+
+73 
+
+73 >>>> 101ed8c74e05887361a097c0b61a06ceb95dc2aa
+
+1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_adc.c
+	"stm32f30x_adc.h"
+	"stm32f30x_rcc.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_adc.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\stm32f30x.h
+	"core_cm4.h"
+	"system_stm32f30x.h"
+	<stdint.h>
+	"stm32f30x_conf.h"
+
+1528446649 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\cmsis\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1528446649 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1528446649 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1528446649 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\system_stm32f30x.h
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\stm32f30x_conf.h
+	"stm32f30x_adc.h"
+	"stm32f30x_can.h"
+	"stm32f30x_crc.h"
+	"stm32f30x_comp.h"
+	"stm32f30x_dac.h"
+	"stm32f30x_dbgmcu.h"
+	"stm32f30x_dma.h"
+	"stm32f30x_exti.h"
+	"stm32f30x_flash.h"
+	"stm32f30x_gpio.h"
+	"stm32f30x_syscfg.h"
+	"stm32f30x_i2c.h"
+	"stm32f30x_iwdg.h"
+	"stm32f30x_opamp.h"
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+	"stm32f30x_rtc.h"
+	"stm32f30x_spi.h"
+	"stm32f30x_tim.h"
+	"stm32f30x_usart.h"
+	"stm32f30x_wwdg.h"
+	"stm32f30x_misc.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_can.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_crc.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_comp.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_dac.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_dbgmcu.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_dma.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_exti.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_flash.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_gpio.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_syscfg.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_i2c.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_iwdg.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_opamp.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_pwr.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_rcc.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_rtc.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_spi.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_tim.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_usart.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_wwdg.h
+	"stm32f30x.h"
+
+1528446648 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\inc\stm32f30x_misc.h
+	"stm32f30x.h"
+
+1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_can.c
+	"stm32f30x_can.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_comp.c
+	"stm32f30x_comp.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_crc.c
+	"stm32f30x_crc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_dac.c
+	"stm32f30x_dac.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_dbgmcu.c
+	"stm32f30x_dbgmcu.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_dma.c
+	"stm32f30x_dma.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_exti.c
+	"stm32f30x_exti.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_flash.c
+	"stm32f30x_flash.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_gpio.c
+	"stm32f30x_gpio.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_i2c.c
+	"stm32f30x_i2c.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_iwdg.c
+	"stm32f30x_iwdg.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_misc.c
+	"stm32f30x_misc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_opamp.c
+	"stm32f30x_opamp.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_pwr.c
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_rcc.c
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_rtc.c
+	"stm32f30x_rtc.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_spi.c
+	"stm32f30x_spi.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_syscfg.c
+	"stm32f30x_syscfg.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_tim.c
+	"stm32f30x_tim.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_usart.c
+	"stm32f30x_usart.h"
+	"stm32f30x_rcc.h"
+
+1528446649 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\spl\src\stm32f30x_wwdg.c
+	"stm32f30x_wwdg.h"
+	"stm32f30x_rcc.h"
+
+1528447707 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\30010_io.c
+	"30010_io.h"
+
+1528466039 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\30010_io.h
+	"stm32f30x_conf.h"
+	<stdio.h>
+
+1528705066 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\ansi.c
+	"ansi.h"
+	<string.h>
+
+1528705065 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\ansi.h
+	"stm32f30x_conf.h"
+	"30010_io.h"
+
+1528904860 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+	<stdio.h>
+	"draw_objects.h"
+	"ansi.h"
+	<string.h>
+
+1528904889 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+
+1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+	"hardware_control.h"
+
+1528452076 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
+	"30010_io.h"
+
+1528449105 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\lut-sin.c
+	"lut-sin.h"
+
+1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
+
+1528899913 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"hardware_control.h"
+	"draw_objects.h"
+
+1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\startup_stm32f30x.s
+
+1528446648 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\system_stm32f30x.c
+	"stm32f30x.h"
+
+1528801079 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\vectors.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"lut-sin.h"
+	"vectors.h"
+
+1528449105 D
+
+1528801079 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
+
+1528467593 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\game_control.h
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_adc.c
+	"stm32f30x_adc.h"
+	"stm32f30x_rcc.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_adc.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\stm32f30x.h
+	"core_cm4.h"
+	"system_stm32f30x.h"
+	<stdint.h>
+	"stm32f30x_conf.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\cmsis\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1528449988 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\system_stm32f30x.h
+
+1528465100 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\stm32f30x_conf.h
+	"stm32f30x_adc.h"
+	"stm32f30x_can.h"
+	"stm32f30x_crc.h"
+	"stm32f30x_comp.h"
+	"stm32f30x_dac.h"
+	"stm32f30x_dbgmcu.h"
+	"stm32f30x_dma.h"
+	"stm32f30x_exti.h"
+	"stm32f30x_flash.h"
+	"stm32f30x_gpio.h"
+	"stm32f30x_syscfg.h"
+	"stm32f30x_i2c.h"
+	"stm32f30x_iwdg.h"
+	"stm32f30x_opamp.h"
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+	"stm32f30x_rtc.h"
+	"stm32f30x_spi.h"
+	"stm32f30x_tim.h"
+	"stm32f30x_usart.h"
+	"stm32f30x_wwdg.h"
+	"stm32f30x_misc.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_can.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_crc.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_comp.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_dac.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_dbgmcu.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_dma.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_exti.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_flash.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_gpio.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_syscfg.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_i2c.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_iwdg.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_opamp.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_pwr.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_rcc.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_rtc.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_spi.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_tim.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_usart.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_wwdg.h
+	"stm32f30x.h"
+
+1528447476 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\inc\stm32f30x_misc.h
+	"stm32f30x.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_can.c
+	"stm32f30x_can.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_comp.c
+	"stm32f30x_comp.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_crc.c
+	"stm32f30x_crc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_dac.c
+	"stm32f30x_dac.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_dbgmcu.c
+	"stm32f30x_dbgmcu.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_dma.c
+	"stm32f30x_dma.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_exti.c
+	"stm32f30x_exti.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_flash.c
+	"stm32f30x_flash.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_gpio.c
+	"stm32f30x_gpio.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_i2c.c
+	"stm32f30x_i2c.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_iwdg.c
+	"stm32f30x_iwdg.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_misc.c
+	"stm32f30x_misc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_opamp.c
+	"stm32f30x_opamp.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_pwr.c
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_rcc.c
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_rtc.c
+	"stm32f30x_rtc.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_spi.c
+	"stm32f30x_spi.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_syscfg.c
+	"stm32f30x_syscfg.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_tim.c
+	"stm32f30x_tim.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_usart.c
+	"stm32f30x_usart.h"
+	"stm32f30x_rcc.h"
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\spl\src\stm32f30x_wwdg.c
+	"stm32f30x_wwdg.h"
+	"stm32f30x_rcc.h"
+
+1528465825 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\30010_io.c
+	"30010_io.h"
+
+1528465609 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\30010_io.h
+	"stm32f30x_conf.h"
+	<stdio.h>
+
+1528648383 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\ansi.c
+	"ansi.h"
+	<string.h>
+
+1528649445 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\ansi.h
+	"stm32f30x_conf.h"
+	"30010_io.h"
+
+1528730221 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+	"hardware_control.h"
+
+1528451828 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
+	"30010_io.h"
+
+1528449846 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\lut-sin.c
+	"lut-sin.h"
+
+1528449983 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\lut-sin.h
+
+1528797245 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\startup_stm32f30x.s
+
+1528447476 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\system_stm32f30x.c
+	"stm32f30x.h"
+
+1528798363 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\vectors.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"lut-sin.h"
+	"vectors.h"
+
+1528795473 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\vectors.h
+
+1528467344 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\game_control.c
+	"game_control.h"
+
+1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
+
+1528904949 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"hardware_control.h"
+	"draw_objects.h"
+
+1528904949 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
+
+1528468097 24705c7310dd1264ee0036bbb65fc6a2acca9
+
+1528467593 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\game_control.c
+	"game_control.h"
+
+1528470004 source:c:\users\hunt4\documents\github\spil\src\draw_objects.c
+	<stdio.h>
+	"draw_objects.h"
+	"ansi.h"
+	<string.h>
+
+1528469758 c:\users\hunt4\documents\github\spil\inc\draw_objects.h
+
+1528452417 c:\users\hunt4\documents\github\spil\inc\ansi.h
+	"stm32f30x_conf.h"
+	"30010_io.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\inc\stm32f30x_conf.h
+	"stm32f30x_adc.h"
+	"stm32f30x_can.h"
+	"stm32f30x_crc.h"
+	"stm32f30x_comp.h"
+	"stm32f30x_dac.h"
+	"stm32f30x_dbgmcu.h"
+	"stm32f30x_dma.h"
+	"stm32f30x_exti.h"
+	"stm32f30x_flash.h"
+	"stm32f30x_gpio.h"
+	"stm32f30x_syscfg.h"
+	"stm32f30x_i2c.h"
+	"stm32f30x_iwdg.h"
+	"stm32f30x_opamp.h"
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+	"stm32f30x_rtc.h"
+	"stm32f30x_spi.h"
+	"stm32f30x_tim.h"
+	"stm32f30x_usart.h"
+	"stm32f30x_wwdg.h"
+	"stm32f30x_misc.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_adc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\inc\stm32f30x.h
+	"core_cm4.h"
+	"system_stm32f30x.h"
+	<stdint.h>
+	"stm32f30x_conf.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\cmsis\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1528452417 c:\users\hunt4\documents\github\spil\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\documents\github\spil\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\documents\github\spil\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\documents\github\spil\inc\system_stm32f30x.h
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_can.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_crc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_comp.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_dac.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_dbgmcu.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_dma.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_exti.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_flash.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_gpio.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_syscfg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_i2c.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_iwdg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_opamp.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_pwr.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_rcc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_rtc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_spi.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_tim.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_usart.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_wwdg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\documents\github\spil\spl\inc\stm32f30x_misc.h
+	"stm32f30x.h"
+
+1528466182 c:\users\hunt4\documents\github\spil\inc\30010_io.h
+	"stm32f30x_conf.h"
+	<stdio.h>
+
+1528904949 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+	<stdio.h>
+	"draw_objects.h"
+	"ansi.h"
+	<string.h>
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_adc.c
+	"stm32f30x_adc.h"
+	"stm32f30x_rcc.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_adc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\stm32f30x.h
+	"core_cm4.h"
+	"system_stm32f30x.h"
+	<stdint.h>
+	"stm32f30x_conf.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\cmsis\core_cm4.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+	<core_cm4_simd.h>
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\cmsis\core_cm4_simd.h
+	<cmsis_iar.h>
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\system_stm32f30x.h
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\stm32f30x_conf.h
+	"stm32f30x_adc.h"
+	"stm32f30x_can.h"
+	"stm32f30x_crc.h"
+	"stm32f30x_comp.h"
+	"stm32f30x_dac.h"
+	"stm32f30x_dbgmcu.h"
+	"stm32f30x_dma.h"
+	"stm32f30x_exti.h"
+	"stm32f30x_flash.h"
+	"stm32f30x_gpio.h"
+	"stm32f30x_syscfg.h"
+	"stm32f30x_i2c.h"
+	"stm32f30x_iwdg.h"
+	"stm32f30x_opamp.h"
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+	"stm32f30x_rtc.h"
+	"stm32f30x_spi.h"
+	"stm32f30x_tim.h"
+	"stm32f30x_usart.h"
+	"stm32f30x_wwdg.h"
+	"stm32f30x_misc.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_can.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_crc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_comp.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_dac.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_dbgmcu.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_dma.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_exti.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_flash.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_gpio.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_syscfg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_i2c.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_iwdg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_opamp.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_pwr.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_rcc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_rtc.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_spi.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_tim.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_usart.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_wwdg.h
+	"stm32f30x.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\inc\stm32f30x_misc.h
+	"stm32f30x.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_can.c
+	"stm32f30x_can.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_comp.c
+	"stm32f30x_comp.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_crc.c
+	"stm32f30x_crc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_dac.c
+	"stm32f30x_dac.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_dbgmcu.c
+	"stm32f30x_dbgmcu.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_dma.c
+	"stm32f30x_dma.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_exti.c
+	"stm32f30x_exti.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_flash.c
+	"stm32f30x_flash.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_gpio.c
+	"stm32f30x_gpio.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_i2c.c
+	"stm32f30x_i2c.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_iwdg.c
+	"stm32f30x_iwdg.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_misc.c
+	"stm32f30x_misc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_opamp.c
+	"stm32f30x_opamp.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_pwr.c
+	"stm32f30x_pwr.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_rcc.c
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_rtc.c
+	"stm32f30x_rtc.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_spi.c
+	"stm32f30x_spi.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_syscfg.c
+	"stm32f30x_syscfg.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_tim.c
+	"stm32f30x_tim.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_usart.c
+	"stm32f30x_usart.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_wwdg.c
+	"stm32f30x_wwdg.h"
+	"stm32f30x_rcc.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\30010_io.c
+	"30010_io.h"
+
+1528466182 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\30010_io.h
+	"stm32f30x_conf.h"
+	<stdio.h>
+
+1528705284 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\ansi.c
+	"ansi.h"
+	<string.h>
+
+1528705284 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\ansi.h
+	"stm32f30x_conf.h"
+	"30010_io.h"
+
+1528896385 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+	<stdio.h>
+	"draw_objects.h"
+	"ansi.h"
+	<string.h>
+
+1528899954 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+
+1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
+	"game_control.h"
+
+1528466802 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\game_control.h
+
+1528794363 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
+	"hardware_control.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\hardware_control.h
+	"30010_io.h"
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\lut-sin.c
+	"lut-sin.h"
+
+1528452417 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\lut-sin.h
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\startup_stm32f30x.s
+
+1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\system_stm32f30x.c
+	"stm32f30x.h"
+
+1528801057 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\vectors.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"lut-sin.h"
+	"vectors.h"
+
+1528801057 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\vectors.h
+
+1528899954 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"hardware_control.h"
+	"draw_objects.h"
+
+1528883562 831b52f3ab6acdeaf1deee7825273682ed70d
+
+1528883562 553ad84203ad64b02e1fa26194115d6ae53b6
+
+>>>>>>> 0f28aa56449e2fb2613f6cf70b20306acad80858
