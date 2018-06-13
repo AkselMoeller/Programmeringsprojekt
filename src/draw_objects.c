@@ -155,7 +155,11 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
     for (uint8_t i = 0; i < box.xSize; i++) {
         for (uint8_t j = 0; j < box.ySize; j++) {
             gotoxy(box.x + i, box.y + j);
-            printf(" ");
+            if (box.powerUp){
+                printf("o")
+            } else{
+                printf(" ");
+            }
         }
     }
     resetbgcolor();
@@ -235,15 +239,6 @@ void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, 
         gotoxy(helpX, helpY + i);
         printf("            ");
     }
-}
-
-void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color) {
-    gotoxy(backX, backY);
-    window(backX, backY, backX + 11, backY + 2, "", 0, 0);
-    bgcolor(color);
-    gotoxy(backX + 1, backY + 1);
-    printf("   Back   ");
-    resetbgcolor();
 }
 
 void printBossKey(uint16_t score, uint8_t playerLives) {
@@ -497,4 +492,16 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xRs, yRs + 4);
     printf("%c   %c\n", box, box);
 
+}
+
+
+void printHelp(uint8_t x, uint8_t y) {
+    gotoxy(x, y);
+    fgcolor(7);
+    printf("Here is some help: ");
+    gotoxy(x, y + 2);
+    printf("Move the joystick left end right to move the striker in th bottom of the screen.");
+    gotoxy(x, y + 3);
+    printf("Press the center of joystick to start the game and get the ball moving.");
+    gotoxy(x, y);
 }
