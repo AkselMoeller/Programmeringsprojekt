@@ -91,6 +91,7 @@ int main(void) {
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
     drawHelpLabel(helpX, helpY, 0);
+    drawPlayerLivesLable(playerLives);
 
     //Initializing and drawing striker
     striker_t striker = initStriker(x1, x2, y2);
@@ -120,16 +121,17 @@ int main(void) {
                 ball.vY = -ball.vY;
             }
             if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
-                TIM2->CR1 = 0x0000; //Disabling timer
                 playerLives --; //Decrement player lives
                 drawPlayerLivesLable(playerLives); //Output player lives to putty
 
                 //Resets striker
+                deleteStriker(striker);
                 striker.x = (x1 + x2)/2 - striker.length/2;
                 striker.y = y2 - 1;
                 drawStriker(striker);
 
                 //Resets ball
+                deleteBall(ball);
                 ball.vY = -ball.vY;
                 ball.x = FIX14_left(striker.x + striker.length/2);
                 ball.y = FIX14_left(striker.y - 2);
