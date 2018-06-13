@@ -156,7 +156,7 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
         for (uint8_t j = 0; j < box.ySize; j++) {
             gotoxy(box.x + i, box.y + j);
             if (box.powerUp){
-                printf("o")
+                printf("o");
             } else{
                 printf(" ");
             }
@@ -515,7 +515,7 @@ void printHelp(uint8_t x, uint8_t y) {
     gotoxy(x, y + 4);
     printf("Press down on the joystick to activate SW (safe for work) mode. Also known as the \"Boss Key\".");
     gotoxy(x, y + 5);
-    printf("If Scoreboard is selected (using the center button) a list of the highest scores will be shown.")
+    printf("If Scoreboard is selected (using the center button) a list of the highest scores will be shown.");
 
 }
 
