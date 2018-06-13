@@ -163,12 +163,15 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
 
 void drawScoreLabel(uint16_t score) {
     gotoxy(100, 2);
+    fgcolor(7);
     printf("Score: %i", score);
 }
 
 void drawLevelLabel(uint8_t level) {
     gotoxy(100, 3);
+    fgcolor(7);
     printf("Level: %i", level);
+
 }
 
 void drawPlayerLivesLable (uint8_t playerLives) {
