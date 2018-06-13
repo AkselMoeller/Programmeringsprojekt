@@ -89,15 +89,15 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
     }
 }
 
-void drawBall(ball_t * ball_p) {
+void drawBall(ball_t ball) {
     fgcolor(15);
     //Below 0.5 (0x2000 in 2.14 fixed point format) is added to coordinates in order to properly round off the numbers
-    gotoxy(FIX14_right((*ball_p).x + 0x2000), FIX14_right((*ball_p).y + 0x2000)); //The coordinates are right-shifted 14 bits in order to draw the ball correctly
+    gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000)); //The coordinates are right-shifted 14 bits in order to draw the ball correctly
     printf("%c", 15+96); // "o"
 }
 
-void deleteBall(ball_t * ball_p) {
-    gotoxy(FIX14_right((*ball_p).x + 0x2000), FIX14_right((*ball_p).y + 0x2000));
+void deleteBall(ball_t ball) {
+    gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000));
     printf(" ");
 }
 
@@ -106,19 +106,19 @@ void updateBallPos(ball_t * ball_p, uint8_t k) {
     (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
 }
 
-void drawStriker (striker_t * striker_p) {
+void drawStriker (striker_t striker) {
     //Draw striker from current position to length of striker
-    fgcolor((*striker_p).color);
-    for (uint8_t i = 0; i < (*striker_p).length; i++) {
-        gotoxy((*striker_p).x + i, (*striker_p).y);
+    fgcolor(striker.color);
+    for (uint8_t i = 0; i < striker.length; i++) {
+        gotoxy(striker.x + i, striker.y);
         printf("%c", 11 + 208);
     }
 }
 
-void deleteStriker(striker_t * striker_p) {
+void deleteStriker(striker_t striker) {
     //Delete previous striker before new coordinates
-    for (uint8_t i = 0; i < (*striker_p).length; i++) {
-        gotoxy((*striker_p).x + i, (*striker_p).y);
+    for (uint8_t i = 0; i < striker.length; i++) {
+        gotoxy(striker.x + i, striker.y);
         printf(" ");
     }
 }
@@ -141,8 +141,8 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
     }
 }
 
-void drawBox(box_t * box_p) { //Set lives to 0 in order to delete boxes
-    switch ((*box_p).lives) {
+void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
+    switch (box.lives) {
         case 0 : bgcolor(0);
             break;
         case 1 : bgcolor(3);
@@ -152,21 +152,21 @@ void drawBox(box_t * box_p) { //Set lives to 0 in order to delete boxes
         default :
             break;
     }
-    for (uint8_t i = 0; i < (*box_p).xSize; i++) {
-        for (uint8_t j = 0; j < (*box_p).ySize; j++) {
-            gotoxy((*box_p).x + i, (*box_p).y + j);
+    for (uint8_t i = 0; i < box.xSize; i++) {
+        for (uint8_t j = 0; j < box.ySize; j++) {
+            gotoxy(box.x + i, box.y + j);
             printf(" ");
         }
     }
     resetbgcolor();
 }
 
-void drawScore(uint16_t score) {
+void drawScoreLabel(uint16_t score) {
     gotoxy(100, 2);
     printf("Score: %i", score);
 }
 
-void drawLevel(uint8_t level) {
+void drawLevelLabel(uint8_t level) {
     gotoxy(100, 3);
     printf("Level: %i", level);
 }
@@ -312,9 +312,14 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t halfbox = 208+12;
     uint8_t upperhalfbox = 208 + 15;
 
-
+<<<<<<< HEAD
     //start coordinates for G
     uint8_t xGs = xm - (5*5);
+=======
+
+    //Start-coordinates for G
+    uint8_t xGs = xm - ((5*5));
+>>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
@@ -393,8 +398,13 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
 
+<<<<<<< HEAD
     //start coordinates for O
     uint8_t xOs = xEs + 13;
+=======
+    //Start-coordinates for O
+    uint8_t xOs = xEs + 12;
+>>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yOs = yEs;
 
     //Sets color for O (Cyan)
@@ -470,5 +480,11 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xRs, yRs + 3);
     printf("%c  %c\n", box, box);
     gotoxy(xRs, yRs + 4);
+<<<<<<< HEAD
     printf("%c   %c\n", box, box);
+
+
+=======
+    printf("%c   %c\n", box, box, box, box, box);
+>>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
 }
