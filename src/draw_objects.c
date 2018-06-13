@@ -498,3 +498,12 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     printf("%c   %c\n", box, box);
 
 }
+
+void printHelp (uint8_t x, uint8_t y) {
+
+    gotoxy(x, y);
+    printf("Here is help:\n");
+    gotoxy(x, y + 2);
+
+
+}
