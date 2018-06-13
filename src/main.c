@@ -13,6 +13,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
     (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
     drawStriker(*striker_p);
 
+    deleteBall(*ball_p);
     initBall(ball_p, *striker_p);
 
     //level making
