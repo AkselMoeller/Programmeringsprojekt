@@ -279,7 +279,7 @@ int main(void) {
                         inGameStart = 0;
                         TIM2->CR1 = 0x0001;
                     } else if (helpSelected) { //Show help page
-                        deleteMenuLabels(helpX, scoreboardY, startX, startY, helpX, helpY);
+                        deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
                         drawBackLabel(helpX, helpY, 0);
                     }
                     menuOpen = 0;
