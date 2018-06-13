@@ -6,34 +6,9 @@
 			<Cursor1 position="247" topLine="0" />
 		</Cursor>
 	</File>
-<<<<<<< HEAD
-	<File name="inc\draw_objects.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="612" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="inc\vectors.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="136" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\ansi.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1845" topLine="48" />
-		</Cursor>
-	</File>
-	<File name="src\draw_objects.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="9101" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11305" topLine="235" />
-=======
 	<File name="inc\draw_objects.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1264" topLine="8" />
+			<Cursor1 position="882" topLine="17" />
 		</Cursor>
 	</File>
 	<File name="inc\stm32f30x.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -53,12 +28,12 @@
 	</File>
 	<File name="src\draw_objects.c" open="1" top="1" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4859" topLine="153" />
+			<Cursor1 position="9800" topLine="299" />
 		</Cursor>
 	</File>
 	<File name="src\hardware_control.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3308" topLine="44" />
+			<Cursor1 position="3308" topLine="33" />
 		</Cursor>
 	</File>
 	<File name="src\lut-sin.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -68,8 +43,7 @@
 	</File>
 	<File name="src\main.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6109" topLine="43" />
->>>>>>> 5fb4da57861bad56703dded1629de4f8bd232a94
+			<Cursor1 position="1235" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -79,11 +53,7 @@
 	</File>
 	<File name="src\vectors.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="286" topLine="0" />
-=======
 			<Cursor1 position="728" topLine="6" />
->>>>>>> 5fb4da57861bad56703dded1629de4f8bd232a94
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
