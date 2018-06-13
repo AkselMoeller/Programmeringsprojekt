@@ -31,7 +31,10 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     break;
                 case 2 :
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
-                         boxMatrix[i][j].lives = 1;
+                        boxMatrix[i][j].lives = 1;
+                        if (i == 4){
+                            boxMatrix[i][j].powerUp = 1; // power up for extra ball
+                        }
                     } else {
                         boxMatrix[i][j].lives = 0;
                     }
