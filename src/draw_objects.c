@@ -147,7 +147,7 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
             break;
         case 1 : bgcolor(3);
             break;
-        case 2 : bgcolor(7);
+        case 2 : bgcolor(5);
             break;
         default :
             break;
@@ -155,7 +155,7 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
     for (uint8_t i = 0; i < box.xSize; i++) {
         for (uint8_t j = 0; j < box.ySize; j++) {
             gotoxy(box.x + i, box.y + j);
-            if (box.powerUp){
+            if (box.powerUp && box.lives){
                 printf("%c", 15+96); // "o"
             } else {
                 printf(" ");
