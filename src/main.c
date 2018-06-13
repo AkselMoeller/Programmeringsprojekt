@@ -84,6 +84,16 @@ void initBall(ball_t * ball_p, striker_t striker) {
     drawBall(*ball_p);
 }
 
+//Writes a value to data set, while swapping it with the next
+int swapWithReturnVal(uint16_t data[10],uint16_t lastVal, uint8_t i){
+    uint16_t tempVal = data[i];
+    data [i] = lastVal;
+    uint16_t nextTemp = data[i + 1];
+    data[i + 1] = tempVal;
+
+    return nextTemp;
+}
+
 int main(void) {
     //Variables
     int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
@@ -103,6 +113,13 @@ int main(void) {
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t centerPressed = 0;
+    //Init FLASH-memory
+    uint32_t address = 0x0800F800; // Starting address of the last page
+    uint16_t scoreData[10] = {0};
+    uint16_t tempVal;
+    uint16_t nextTemp;
+    uint8_t writtenToScoreboard = 0;
+    uint16_t lastVal = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -207,6 +224,9 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
+                                if (score >= *(uint16_t *)(address + 0 * 2) ) {
+                                    drawNewHighscoreLabel;
+                                }
                         }
                         //Checking if ball hits the BOTTOM sides of the box
                         else if (ball.x >= FIX14_left(boxMatrix[i][j].x)
@@ -219,6 +239,9 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
+                                if (score >= *(uint16_t *)(address + 0 * 2) ) {
+                                    drawNewHighscoreLabel;
+                                }
                         }
                         //Checking if ball hits the LEFT side of the box
                         else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
@@ -231,6 +254,9 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
+                                if (score >= *(uint16_t *)(address + 0 * 2) ) {
+                                    drawNewHighscoreLabel;
+                                }
                         }
                         //Checking if ball hits the RIGHT side of the box
                         else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
@@ -243,6 +269,9 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
+                                if (score >= *(uint16_t *)(address + 0 * 2) ) {
+                                    drawNewHighscoreLabel;
+                                }
                         }
                     }
                 }
@@ -380,6 +409,22 @@ int main(void) {
         } else if (menuOpen == 3) { //Help-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
         }
+        //Writes score to scoreboard, if the score is great enough
+        FLASH_Unlock(); // Unlock FLASH for writing
+        FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
+        //FLASH_ErasePage( address ); // Erase entire page before writing
+        for ( int i = 0 ; i < 10 ; i++ ){
+            if (score > *(uint16_t *)(address + i * 2) && !writtenToScoreboard) {
+                lastVal = score;
+                for (int j = i; j < 10; j++ ){
+                    lastVal = swapWithReturnVal(scoreData[j], lastVal, j);
+
+                    }
+                writtenToScoreboard = 1;
+                }
+            }
+
+        FLASH_Lock();
     }
 }
 

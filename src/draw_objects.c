@@ -170,15 +170,21 @@ void drawPowerUp(powerUp_t powerUp) {
 }
 
 void drawScoreLabel(uint16_t score) {
-    gotoxy(100, 2);
+    gotoxy(68, 1);
     fgcolor(7);
     printf("Score: %i", score);
 }
 
 void drawLevelLabel(uint8_t level) {
-    gotoxy(100, 3);
+    gotoxy(46, 1);
     fgcolor(7);
     printf("Level: %i", level);
+}
+
+void drawHighScoreLabel () {
+    gotoxy(80, 1);
+    fgcolor(11);
+    printf("NEW HIGHSCORE");
 }
 
 void drawPlayerLivesLabel (uint8_t playerLives) {
@@ -520,9 +526,10 @@ void printHelp(uint8_t x, uint8_t y) {
 
 }
 
-void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]) {
+void printScoreboard(uint8_t x, uint8_t y, uint32_t address) {
+    uint16_t tempScoreVal;
     gotoxy(x, y);
-    fgcolor(7);
+    /*fgcolor(7);
     printf("Here is the top scores: ");
     gotoxy(x, y + 2);
     printf("1: %i", scoreboard[0]);
@@ -533,5 +540,11 @@ void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]) {
     gotoxy(x, y + 5);
     printf("4: %i", scoreboard[3]);
     gotoxy(x, y + 6);
-    printf("4: %i", scoreboard[4]);
+    printf("4: %i", scoreboard[4]); */
+    //Prints the scoreboard to screen
+    for (int i = 0 ; i < 10 ; i++ ){
+        tempScoreVal = *(uint16_t *)(address + i * 2); // Read stored scoreboard
+        gotoxy(x, y + i);
+        printf("%i: %d ",(i + 1), tempScoreVal);
+    }
 }
