@@ -6,7 +6,8 @@
 #define MAX_COLUMNS 10
 #define MAX_ROWS 10
 
-void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
+void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
+    TIM2->CR1 = 0x0000;
     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
