@@ -210,7 +210,7 @@
 	"ansi.h"
 	<string.h>
 
-1528886654 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528893290 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
 1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"hardware_control.h"
@@ -223,7 +223,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528886636 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528893290 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
