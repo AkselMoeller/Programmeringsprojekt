@@ -108,7 +108,7 @@ void updateBallPos(ball_t * ball_p, uint8_t k) {
 
 void drawStriker (striker_t * striker_p) {
     //Draw striker from current position to length of striker
-    fgcolor(7); //Light gray
+    fgcolor((*striker_p).color);
     for (uint8_t i = 0; i < (*striker_p).length; i++) {
         gotoxy((*striker_p).x + i, (*striker_p).y);
         printf("%c", 11 + 208);
@@ -129,7 +129,7 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         printf(" "); //Deleting leftmost element
         (*striker_p).x++; //Moving striker one element right
         gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y); //Placing a new rightmost element
-        fgcolor(7);
+        fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     } else if (joyStickState == 4) { //Move left
         gotoxy((*striker_p).x + (*striker_p).length - 1, (*striker_p).y);
@@ -171,6 +171,10 @@ void drawLevel(uint8_t level) {
     printf("Level: %i", level);
 }
 
+void drawPlayerLives () {
+
+}
+
 void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
     gotoxy(scoreboardX , scoreboardY);
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
@@ -208,6 +212,15 @@ void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, 
         gotoxy(helpX, helpY + i);
         printf("            ");
     }
+}
+
+void drawBackLabel(uint8_t backX, uint8_t backY, uint8_t color) {
+    gotoxy(backX, backY);
+    window(backX, backY, backX + 11, backY + 2, "", 0, 0);
+    bgcolor(color);
+    gotoxy(backX + 1, backY + 1);
+    printf(" <-Back   ");
+    resetbgcolor();
 }
 
 void printBossKey(uint16_t score) {
@@ -299,14 +312,9 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t halfbox = 208+12;
     uint8_t upperhalfbox = 208 + 15;
 
-<<<<<<< HEAD
+
     //start coordinates for G
     uint8_t xGs = xm - (5*5);
-=======
-
-    //Start-coordinates for G
-    uint8_t xGs = xm - ((5*5));
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
@@ -385,13 +393,8 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
 
-<<<<<<< HEAD
     //start coordinates for O
     uint8_t xOs = xEs + 13;
-=======
-    //Start-coordinates for O
-    uint8_t xOs = xEs + 12;
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
     uint8_t yOs = yEs;
 
     //Sets color for O (Cyan)
@@ -467,11 +470,5 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xRs, yRs + 3);
     printf("%c  %c\n", box, box);
     gotoxy(xRs, yRs + 4);
-<<<<<<< HEAD
     printf("%c   %c\n", box, box);
-
-
-=======
-    printf("%c   %c\n", box, box, box, box, box);
->>>>>>> c24c09f22be00a58c0d571f5b636e53a676eb5cc
 }
