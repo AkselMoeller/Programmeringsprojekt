@@ -277,9 +277,11 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
     //Sets filled box character
     uint8_t box = 208+11;
+    uint8_t halfbox = 208+12;
+    uint8_t upperhalfbox = 208 + 15;
 
     //start coordinates for G
-    uint8_t xGs = xm - ((5*5));
+    uint8_t xGs = xm - (5*5);
     uint8_t yGs = ym - 3;
 
     //Sets color for G (Cyan)
@@ -291,7 +293,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xGs, yGs + 1);
     printf("%c\n", box);
     gotoxy(xGs, yGs + 2);
-    printf("%c %c%c\n", box, box, box);
+    printf("%c %c%c\n", box, halfbox, halfbox);
     gotoxy(xGs, yGs + 3);
     printf("%c   %c\n", box, box);
     gotoxy(xGs + 1, yGs + 4);
@@ -310,7 +312,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xAs, yAs + 1);
     printf("%c   %c\n", box, box);
     gotoxy(xAs, yAs + 2);
-    printf(" %c%c%c \n", box, box, box);
+    printf("%c%c%c%c%c\n", box, halfbox, halfbox, halfbox, box);
     gotoxy(xAs, yAs + 3);
     printf("%c   %c\n", box, box);
     gotoxy(xAs, yAs + 4);
@@ -323,7 +325,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     //Sets color for M (Cyan)
     fgcolor(6);
 
-    //Drawing the A
+    //Drawing the M
     gotoxy(xMs, yMs);
     printf("%c   %c\n", box, box);
     gotoxy(xMs, yMs + 1);
@@ -349,7 +351,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xEs, yEs + 1);
     printf("%c\n", box);
     gotoxy(xEs, yEs + 2);
-    printf("%c%c%c\n", box, box, box);
+    printf("%c%c%c\n", box, halfbox, halfbox);
     gotoxy(xEs, yEs + 3);
     printf("%c\n", box);
     gotoxy(xEs, yEs + 4);
@@ -357,7 +359,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 
     //start coordinates for O
-    uint8_t xOs = xEs + 12;
+    uint8_t xOs = xEs + 13;
     uint8_t yOs = yEs;
 
     //Sets color for O (Cyan)
@@ -408,7 +410,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xE2s, yE2s + 1);
     printf("%c\n", box);
     gotoxy(xE2s, yE2s + 2);
-    printf("%c%c%c\n", box, box, box);
+    printf("%c%c%c\n", box, halfbox, halfbox);
     gotoxy(xE2s, yE2s + 3);
     printf("%c\n", box);
     gotoxy(xE2s, yE2s + 4);
@@ -423,15 +425,15 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
     //Drawing the R
     gotoxy(xRs, yRs);
-    printf("%c%c%c%c\n", box, box, box, box);
+    printf("%c%c%c%c\n", box, box, box, halfbox);
     gotoxy(xRs, yRs + 1);
     printf("%c   %c\n", box, box);
     gotoxy(xRs, yRs + 2);
-    printf("%c %c%c\n", box, box, box);
+    printf("%c %c%c\n", box, halfbox, upperhalfbox);
     gotoxy(xRs, yRs + 3);
     printf("%c  %c\n", box, box);
     gotoxy(xRs, yRs + 4);
-    printf("%c   %c\n", box, box, box, box, box);
+    printf("%c   %c\n", box, box);
 
 
 }
