@@ -207,7 +207,11 @@ void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(scoreboardX + 1, scoreboardY + 1);
-    printf("%s", backButton ? "   Back   " : "Scoreboard");
+    if (!backButton) {
+        printf("Scoreboard");
+    } else if (backButton == 1) {
+        printf("   Back   ");
+    }
     resetbgcolor();
 }
 
@@ -225,7 +229,11 @@ void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color, uint8_t backButt
     window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(helpX + 1, helpY + 1);
-    printf("%s", backButton ? "   Back   " : "   Help   ");
+    if (!backButton) {
+        printf("   Help   ");
+    } else if (backButton == 2) {
+        printf("   Back   ");
+    }
     resetbgcolor();
 }
 
@@ -496,12 +504,33 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 
 void printHelp(uint8_t x, uint8_t y) {
+    //This prints help instructions to screen
     gotoxy(x, y);
     fgcolor(7);
     printf("Here is some help: ");
     gotoxy(x, y + 2);
     printf("Move the joystick left end right to move the striker in th bottom of the screen.");
     gotoxy(x, y + 3);
-    printf("Press the center of joystick to start the game and get the ball moving.");
+    printf("Press the center of joystick to either select any marked button, or start the game and get the ball moving again.");
+    gotoxy(x, y + 4);
+    printf("Press down on the joystick to activate SW (safe for work) mode. Also known as the \"Boss Key\".");
+    gotoxy(x, y + 5);
+    printf("If Scoreboard is selected (using the center button) a list of the highest scores will be shown.")
+
+}
+
+void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]) {
     gotoxy(x, y);
+    fgcolor(7);
+    printf("Here is the top scores: ");
+    gotoxy(x, y + 2);
+    printf("1: %i", scoreboard[0]);
+    gotoxy(x, y + 3);
+    printf("2: %i", scoreboard[1]);
+    gotoxy(x, y + 4);
+    printf("3: %i", scoreboard[2]);
+    gotoxy(x, y + 5);
+    printf("4: %i", scoreboard[3]);
+    gotoxy(x, y + 6);
+    printf("4: %i", scoreboard[4]);
 }
