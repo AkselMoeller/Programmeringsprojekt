@@ -8,7 +8,17 @@
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     TIM2->CR1 = 0x0000;
-    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+
+    deleteStriker(*striker_p);
+    (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
+    drawStriker(*striker_p);
+
+    *ball_p = initBall(*striker_p);
+
+
+
+    //level making
+    for (uint8_t i = 0; i < MAX_COLUMNS; i++) { //init all boxes size and position
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
             boxMatrix[i][j].xSize = (x2 - x1)/10;
             boxMatrix[i][j].ySize = (y2 - y1)/20;
@@ -16,6 +26,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
             boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
             boxMatrix[i][j].powerUp = 0;
 
+            //level design
             switch (level) {
                 case 1 :
                     if ((j == 5 || j == 4) && i == 4){
@@ -32,7 +43,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     }
                     break;
             }
-            drawBox(boxMatrix[i][j]);
+            drawBox(boxMatrix[i][j]); //draw all boxes
         }
     }
 }
