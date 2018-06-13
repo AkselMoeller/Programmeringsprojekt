@@ -31,10 +31,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     break;
                 case 2 :
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
-                        boxMatrix[i][j].lives = 1;
-                        if (i == 4){
-                            boxMatrix[i][j].powerUp = 1; // power up for extra ball
-                        }
+                         boxMatrix[i][j].lives = 1;
                     } else {
                         boxMatrix[i][j].lives = 0;
                     }
@@ -92,7 +89,7 @@ int main(void) {
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
-    uint8_t backButton = 0;
+    uint8_t backButton = 0; //0 = no back-buttons, 1 = back-button on scoreboard, 2 = back-button on help
 
     //Initialization
     init_usb_uart(115200);
@@ -279,20 +276,20 @@ int main(void) {
                     if (scoreboardSelected) { //Show scoreboard
                         backButton = 1;
                         deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                        drawBackLabel(scoreboardX, scoreboardY, 0, backButton);
+                        drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
                     } else if (startSelected || inGameStart) { //Start game
                         deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                         drawScoreLabel(score);
                         drawLevelLabel(level);
                         drawPlayerLivesLabel(playerLives);
                         inGameStart = 0;
+                        menuOpen = 0;
                         TIM2->CR1 = 0x0001;
                     } else if (helpSelected) { //Show help page
-                        backButton = 1;
+                        backButton = 2;
                         deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                        drawBackLabel(helpX, helpY, 0, backButton);
+                        drawHelpLabel(helpX, helpY, 0, backButton);
                     }
-                    menuOpen = 0;
                 } else if (bossKey && !menuOpen) { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
@@ -328,7 +325,7 @@ int main(void) {
                 break;
         }
 
-        if (menuOpen) { //Enabling player to choose between menu items
+        if (menuOpen && !backButton) { //Enabling player to choose between menu items (when no item has been chosen)
             if (striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
                 //Scoreboard selected
                 drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
@@ -360,6 +357,8 @@ int main(void) {
                 startSelected = 0;
                 helpSelected = 0;
             }
+        } else if (menuOpen && backButton) {
+
         }
     }
 }
