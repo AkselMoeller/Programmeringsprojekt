@@ -69,6 +69,7 @@ int main(void) {
     uint16_t strikerMaxCount = 8500; //Affects striker speed
     uint8_t bossKey = 0;
     uint16_t score = 0;
+    uint8_t playerLives = 3;
     uint8_t level = 1;
     uint8_t boxesAlive;
     uint8_t menuOpen = 1; //1 = YES, 0 = NO
@@ -77,7 +78,7 @@ int main(void) {
     uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 25;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
-    uint8_t playerLives = 3;
+
 
     //Initialization
     init_usb_uart(115200);
@@ -139,6 +140,7 @@ int main(void) {
 
                 if (!playerLives) {
                 gameOver(x1, x2, y1, y2);
+                menuOpen = 1;
                 }
                 inGameStart = 1;
             }
@@ -239,7 +241,7 @@ int main(void) {
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
                     TIM2->CR1 = 0x0000;
-                    printBossKey(score);
+                    printBossKey(score, playerLives);
                     bossKey = 1;
                 }
                 break;
