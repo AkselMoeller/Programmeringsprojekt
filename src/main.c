@@ -46,6 +46,11 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     initBall(ball_p, *striker_p);
 
+    //making the ball faster for every level
+    switch(level){
+        case 2 : (*ball_p).vY -= 0x2000; // (+0,5) - very fast for testing
+    }
+
 }
 
 void initStriker(striker_t * striker_p, int32_t x1, int32_t x2, int32_t y2) {
@@ -98,7 +103,7 @@ int main(void) {
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
     drawHelpLabel(helpX, helpY, 0);
-    drawPlayerLivesLable(playerLives);
+    drawPlayerLivesLabel(playerLives);
 
     //Initializing and drawing striker
     striker_t striker;
@@ -131,7 +136,7 @@ int main(void) {
             }
             if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
                 playerLives --; //Decrement player lives
-                drawPlayerLivesLable(playerLives); //Output player lives to putty
+                drawPlayerLivesLabel(playerLives); //Output player lives to putty
 
                 //Resets ball and striker
                 deleteStriker(striker);
@@ -275,7 +280,7 @@ int main(void) {
                         deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                         drawScoreLabel(score);
                         drawLevelLabel(level);
-                        drawPlayerLivesLable(playerLives);
+                        drawPlayerLivesLabel(playerLives);
                         inGameStart = 0;
                         TIM2->CR1 = 0x0001;
                     } else if (helpSelected) { //Show help page
@@ -292,7 +297,7 @@ int main(void) {
                     }
                     drawScoreLabel(score);
                     drawLevelLabel(level);
-                    drawPlayerLivesLable(playerLives);
+                    drawPlayerLivesLabel(playerLives);
                     drawStriker(striker);
                     drawBall(ball);
                     TIM2->CR1 = 0x0001;
