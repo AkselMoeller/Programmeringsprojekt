@@ -170,22 +170,16 @@ void drawPowerUp(powerUp_t powerUp) {
 }
 
 void drawScoreLabel(uint16_t score) {
-    gotoxy(68, 1);
+    gotoxy(100, 2);
     fgcolor(7);
     printf("Score: %i", score);
 }
 
 void drawLevelLabel(uint8_t level) {
-    gotoxy(48, 1);
+    gotoxy(100, 3);
     fgcolor(7);
     printf("Level: %i", level);
 
-}
-
-void drawNewHighscoreLabel() {
-    fgcolor(11);
-    gotoxy(80, 1);
-    printf("NEW HIGHSCORE!!")
 }
 
 void drawPlayerLivesLabel (uint8_t playerLives) {
