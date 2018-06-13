@@ -94,11 +94,11 @@ int main(void) {
 
     //Initializing and drawing ball
     ball_t ball = initBall(striker);
-    deleteBall(ball); //Ball should not be visible yet
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
-    makeLevel(boxMatrix, x1, y1, x2, y2, level); //Drawing boxes for level 1
+    makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
+    deleteBall(ball); //Ball should not be visible yet
 
     while(1) {
         if (flag && !menuOpen) { //Everything in this if-statement is executed once every 1/20 second
@@ -201,7 +201,7 @@ int main(void) {
             }
             if (!boxesAlive){
                 level++;
-                makeLevel(boxMatrix, x1, y1, x2, y2, level);
+                makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
@@ -234,12 +234,20 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!bossKey && menuOpen && startSelected) { //Start game
-                    deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
-                    drawScoreLabel(score);
-                    drawLevelLabel(level);
-                    menuOpen = 0;
-                    TIM2->CR1 = 0x0001;
+                if (!bossKey && menuOpen) {
+                    if (scoreboardSelected) { //Show scoreboard
+                        //
+                    }
+                    if (startSelected) { //Start game
+                        deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
+                        drawScoreLabel(score);
+                        drawLevelLabel(level);
+                        menuOpen = 0;
+                        TIM2->CR1 = 0x0001;
+                    }
+                    if (helpSelected) { //Show help page
+                        //
+                    }
                 } else if (bossKey && !menuOpen) { //Resume game
                     window(x1, y1, x2, y2, "Breakout", 1, 1);
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
