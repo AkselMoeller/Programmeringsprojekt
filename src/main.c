@@ -158,7 +158,7 @@ int main(void) {
                                 boxMatrix[i][j].lives--;
                                 drawBox(boxMatrix[i][j]);
                                 score++;
-                                drawScore(score);
+                                drawScoreLabel(score);
                         }
                         //Checking if ball hits the BOTTOM sides of the box
                         else if (ball.x >= FIX14_left(boxMatrix[i][j].x)
@@ -170,7 +170,7 @@ int main(void) {
                                 boxMatrix[i][j].lives--;
                                 drawBox(boxMatrix[i][j]);
                                 score++;
-                                drawScore(score);
+                                drawScoreLabel(score);
                         }
                         //Checking if ball hits the LEFT side of the box
                         else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
@@ -182,7 +182,7 @@ int main(void) {
                                 boxMatrix[i][j].lives--;
                                 drawBox(boxMatrix[i][j]);
                                 score++;
-                                drawScore(score);
+                                drawScoreLabel(score);
                         }
                         //Checking if ball hits the RIGHT side of the box
                         else if (ball.y >= FIX14_left(boxMatrix[i][j].y)
@@ -194,7 +194,7 @@ int main(void) {
                                 boxMatrix[i][j].lives--;
                                 drawBox(boxMatrix[i][j]);
                                 score++;
-                                drawScore(score);
+                                drawScoreLabel(score);
                         }
                     }
                 }
@@ -202,7 +202,7 @@ int main(void) {
             if (!boxesAlive){
                 level++;
                 makeLevel(boxMatrix, x1, y1, x2, y2, level);
-                drawLevel(level);
+                drawLevelLabel(level);
             }
             TIM2->CR1 = 0x0001; //Enabling timer
             flag = 0;
@@ -236,8 +236,8 @@ int main(void) {
             case 16 : //Center
                 if (!bossKey && menuOpen && startSelected) { //Start game
                     deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
-                    drawScore(score);
-                    drawLevel(level);
+                    drawScoreLabel(score);
+                    drawLevelLabel(level);
                     menuOpen = 0;
                     TIM2->CR1 = 0x0001;
                 } else if (bossKey && !menuOpen) { //Resume game
@@ -247,8 +247,8 @@ int main(void) {
                             drawBox(boxMatrix[i][j]);
                         }
                     }
-                    drawScore(score);
-                    drawLevel(level);
+                    drawScoreLabel(score);
+                    drawLevelLabel(level);
                     drawStriker(striker);
                     drawBall(ball);
                     TIM2->CR1 = 0x0001;

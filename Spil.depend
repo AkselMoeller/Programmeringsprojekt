@@ -474,7 +474,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528881695 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1528883163 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -616,7 +616,7 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528881596 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+1528882982 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
