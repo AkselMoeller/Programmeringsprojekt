@@ -325,20 +325,20 @@ int main(void) {
                 break;
         }
 
-        if (menuOpen) { //Enabling player to choose between menu items (when no item has been chosen)
-            if (backButton != 2 && striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
+        if (menuOpen && !backButton) { //Menu is open and no item (help or scoreboard) has been selected
+            if (striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
                 //Scoreboard selected
                 drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
                 scoreboardSelected = 1;
                 startSelected = 0;
                 helpSelected = 0;
-            } else if (backButton != 1 && backButton != 2 && striker.x + striker.length/2 >= startX && striker.x + striker.length/2 <= startX + 11 && !startSelected) {
+            } else if (striker.x + striker.length/2 >= startX && striker.x + striker.length/2 <= startX + 11 && !startSelected) {
                 //Start selected
                 drawStartLabel(startX, startY, 4);
                 startSelected = 1;
                 scoreboardSelected = 0;
                 helpSelected = 0;
-            } else if (backButton != 1 && striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
+            } else if (striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
                 //Help selected
                 drawHelpLabel(helpX, helpY, 4, backButton);
                 helpSelected = 1;
@@ -355,6 +355,22 @@ int main(void) {
                 drawHelpLabel(helpX, helpY, 0, backButton);
                 scoreboardSelected = 0;
                 startSelected = 0;
+                helpSelected = 0;
+            }
+        } else if (menuOpen && backButton == 1) { //Scoreboard-button has been selected
+            if (!scoreboardSelected && striker.x + striker.length/2 >= scoreboardX && striker.x + striker.length/2 <= scoreboardX + 11 && !scoreboardSelected) {
+                drawScoreboardLabel(scoreboardX, scoreboardY, 4, backButton);
+                scoreboardSelected = 1;
+            } else if (scoreboardSelected && striker.x + striker.length/2 < scoreboardX || striker.x + striker.length/2 > scoreboardX + 11) {
+                drawScoreboardLabel(scoreboardX, scoreboardY, 0, backButton);
+                scoreboardSelected = 0;
+            }
+        } else if (menuOpen && backButton == 2) { //Help-button has been selected
+            if (!helpSelected && striker.x + striker.length/2 >= helpX && striker.x + striker.length/2 <= helpX + 11 && !helpSelected) {
+                drawHelpLabel(helpX, helpY, 4, backButton);
+                helpSelected = 1;
+            } else if (helpSelected && striker.x + striker.length/2 < helpX || striker.x + striker.length/2 > helpX + 11) {
+                drawHelpLabel(helpX, helpY, 0, backButton);
                 helpSelected = 0;
             }
         }
