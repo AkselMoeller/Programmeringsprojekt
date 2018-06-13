@@ -37,7 +37,7 @@ typedef struct {
 void drawBox(box_t box);
 
 typedef struct {
-    int32_t x, y;
+    uint8_t x, y;
     uint8_t type;
 } powerUp_t;
 void drawPowerUp(powerUp_t powerUp);

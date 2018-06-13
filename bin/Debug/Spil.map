@@ -3440,7 +3440,7 @@ Discarded input sections
  .data          0x00000000        0x0 obj\debug\src\draw_objects.o
  .bss           0x00000000        0x0 obj\debug\src\draw_objects.o
  .text.drawPowerUp
-                0x00000000       0x18 obj\debug\src\draw_objects.o
+                0x00000000       0x14 obj\debug\src\draw_objects.o
  .text.printHelp
                 0x00000000       0x94 obj\debug\src\draw_objects.o
  .text.printScoreboard
