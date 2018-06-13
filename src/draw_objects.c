@@ -177,11 +177,11 @@ void drawPlayerLivesLable (uint8_t playerLives) {
     if (playerLives == 3) {
         printf("<3 <3 <3");
     } else if (playerLives == 2) {
-      printf("<3 <3 X");
+      printf("<3 <3  X");
     } else if (playerLives == 1) {
-      printf("<3 X X");
+      printf("<3  X  X");
     } else {
-      printf("X X X");
+      printf(" X  X  X");
     }
 
 }
