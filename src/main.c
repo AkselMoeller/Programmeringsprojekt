@@ -233,6 +233,7 @@ int main(void) {
                 level++;
                 makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level);
+                inGameStart = 1;
             }
             if (!inGameStart) {
                 TIM2->CR1 = 0x0001; //Enabling timer
