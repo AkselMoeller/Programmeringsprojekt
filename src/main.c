@@ -46,6 +46,11 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     initBall(ball_p, *striker_p);
 
+    //making the ball faster for every level
+    switch(level){
+        case 2 : (*ball_p).vY -= 0x2000; // (+0,5) - very fast for testing
+    }
+
 }
 
 void initStriker(striker_t * striker_p, int32_t x1, int32_t x2, int32_t y2) {
