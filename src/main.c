@@ -40,6 +40,14 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                         boxMatrix[i][j].lives = 0;
                     }
                     break;
+                case 3 :
+                    if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
+                        boxMatrix[i][j].lives = 1;
+                    } else if (j == 6) {
+                        boxMatrix[i][j].lives = 2;
+                    } else {
+                        boxMatrix[i][j].lives = 0;
+                    }
             }
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
@@ -52,7 +60,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY -= 0x2000; // (+0,5) - very fast for testing
+        case 2 : (*ball_p).vY -= 0x1000; // (+0,25) - very fast for testing
+        case 3 : (*ball_p).vY -= 0x2000; // (+0,5)
     }
 
 }
@@ -95,12 +104,6 @@ int main(void) {
     uint8_t inGameStart = 0;
     uint8_t backButton = 0; //0 = no back-buttons, 1 = back-button on scoreboard, 2 = back-button on help
     uint8_t centerPressed = 0;
-
-    //Initialization of FLASH-memory for scoreboard
-    uint32_t address = 0x0800F800; // Starting address for the saved scoreboard
-    uint16_t scoreboard[10] = {0};
-    uint16_t tempScoreVal;
-
 
     //Initialization
     init_usb_uart(115200);
@@ -205,7 +208,6 @@ int main(void) {
                                 drawBox(boxMatrix[i][j]);
                                 score++;
                                 drawScoreLabel(score);
-
                         }
                         //Checking if ball hits the BOTTOM sides of the box
                         else if (ball.x >= FIX14_left(boxMatrix[i][j].x)
