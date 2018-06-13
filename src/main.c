@@ -121,24 +121,24 @@ int main(void) {
             }
             if (ball.y >= FIX14_left(y2 - 1) && k) { //Game over!!!
                 TIM2->CR1 = 0x0000; //Disabling timer
-              playerLives --; //Decrement player lives
-              drawPlayerLivesLable(playerLives); //Output player lives to putty
+                playerLives --; //Decrement player lives
+                drawPlayerLivesLable(playerLives); //Output player lives to putty
 
-              //Resets striker
-              striker.x = (x1 + x2)/2 - striker.length/2;
-              striker.y = y2 - 1;
-              drawStriker(striker);
+                //Resets striker
+                striker.x = (x1 + x2)/2 - striker.length/2;
+                striker.y = y2 - 1;
+                drawStriker(striker);
 
-              //Resets ball
-              ball.vY = -ball.vY;
-              ball.x = FIX14_left(striker.x + striker.length/2);
-              ball.y = FIX14_left(striker.y - 2);
-              drawBall(ball);
+                //Resets ball
+                ball.vY = -ball.vY;
+                ball.x = FIX14_left(striker.x + striker.length/2);
+                ball.y = FIX14_left(striker.y - 2);
+                drawBall(ball);
 
-              if (!playerLives) {
+                if (!playerLives) {
                 gameOver(x1, x2, y1, y2);
-              }
-              inGameStart = 1;
+                }
+                inGameStart = 1;
             }
 
             //Making ball bounce on striker
@@ -224,7 +224,9 @@ int main(void) {
                 makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level);
             }
-            TIM2->CR1 = 0x0001; //Enabling timer
+            if (!inGameStart) {
+                TIM2->CR1 = 0x0001; //Enabling timer
+            }
             flag = 0;
         }
 
