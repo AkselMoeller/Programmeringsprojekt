@@ -186,7 +186,7 @@ void drawPlayerLivesLable (uint8_t playerLives) {
         fgcolor(9);
         printf("<3");
         fgcolor(7);
-        printf("  X  X")
+        printf("  X  X");
     } else {
         fgcolor(7);
         printf(" X  X  X");
