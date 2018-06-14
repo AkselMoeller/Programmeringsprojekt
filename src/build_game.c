@@ -196,7 +196,10 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawScoreLabel(*score_p, x2);
                 }
             }
-        }
+            if (boxMatrix[i][j].powerUp.hit) {
+                drawPowerUp(boxMatrix[i][j]);
+            }
+        } //end of both for-loops
     }
 }
 
@@ -244,6 +247,11 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                         boxMatrix[i][j].lives = 0;
                     }
             }
+            //set all powerUps to their boxes center position:
+            if (boxMatrix[i][j].powerUp.style) {
+                boxMatrix[i][j].powerUp.x = boxMatrix[i][j].x + boxMatrix[i][j].xSize/2;
+                boxMatrix[i][j].powerUp.y = boxMatrix[i][j].y + boxMatrix[i][j].ySize;
+            }
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
     }
@@ -255,8 +263,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY -= 0x00001000; // (+0,125) - semi fast for testing
-        case 3 : (*ball_p).vY -= 0x00002000; // (+0,5) - very fast for testing
+        case 2 : (*ball_p).vY += 0; // (0) - 0 for testing
+        case 3 : (*ball_p).vY += ~(0x00002000)+1; // (+0,5) - very fast for testing
     }
 }
 
