@@ -105,6 +105,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
 
         if (!(*playerLives_p)) { //Game over!!!
             gameOver(x1, x2, y1, y2);
+            (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
             TIM2->CR1 = 0x0000;
         }
