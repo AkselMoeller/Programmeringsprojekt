@@ -9,8 +9,7 @@
 
 int main(void) {
     //Variables
-    int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size (current values will produce a 4 : 3 aspect ratio)
-    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+    int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
     uint16_t strikerMaxCount = 5000; //Affects striker speed
@@ -33,6 +32,7 @@ int main(void) {
     uint16_t scoreData[10] = {0};
     uint8_t writtenToScoreboard = 0;
     uint16_t lastVal = 0;
+    uint8_t upPressed = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -42,6 +42,9 @@ int main(void) {
     initTimer();
 
     //Drawing window
+    x2 = readPotentiometer1();
+    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+    y2 = readPotentiometer2();
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
     //Drawing menu labels
@@ -112,6 +115,13 @@ int main(void) {
         //Reading joystick input
         switch (readJoyStick()) {
             case 1 : //Up
+                //Making window size user-scalable
+                upPressed = 1;
+                if (menuOpen == 1 && !bossKey) { //Should only be an option when the main-menu is open
+                    x2 = readPotentiometer1();
+                    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+                    y2 = readPotentiometer2();
+                }
                 break;
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
@@ -141,6 +151,19 @@ int main(void) {
 
             default : //When a button on the joystick is released
                 centerPressed = 0;
+                if (menuOpen == 1 && upPressed) { //When user has changed x2 and y2
+                    window(x1, y1, x2, y2, "Breakout", 1, 1); //Old window is deleted and a new one is drawn
+                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                            drawBox(boxMatrix[i][j]);
+                        }
+                    }
+                    drawStriker(striker);
+                    drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                    drawStartLabel(startX, startY, 0);
+                    drawHelpLabel(helpX, helpY, 0);
+                    upPressed = 0;
+                }
                 break;
         }
 

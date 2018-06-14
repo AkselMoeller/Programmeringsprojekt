@@ -10,6 +10,7 @@
 #include "draw_objects.h"
 #include "ansi.h"
 #include <string.h>
+#include "hardware_control.h"
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset) {
     resetbgcolor();
