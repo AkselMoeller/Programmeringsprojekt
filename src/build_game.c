@@ -143,11 +143,11 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                     && (*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
                     && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x2000
                     && (*ball_p).vY > 0) {
-                        (*ball_p).vY = -(*ball_p).vY;
-                        boxMatrix[i][j].lives--;
-                        if (boxMatrix[i][j].powerUp.style) {
+                        (*ball_p).vY = -(*ball_p).vY; //bounce ball
+                        if (boxMatrix[i][j].powerUp.style) { //testing for powerUp
                             boxMatrix[i][j].powerUp.hit = 1;
                         }
+                        boxMatrix[i][j].lives--;
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
                         drawScoreLabel(*score_p, x2);
@@ -159,6 +159,9 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                     && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
                     && (*ball_p).vY < 0) {
                         (*ball_p).vY = -(*ball_p).vY;
+                        if (boxMatrix[i][j].powerUp.style) {
+                            boxMatrix[i][j].powerUp.hit = 1;
+                        }
                         boxMatrix[i][j].lives--;
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
@@ -171,6 +174,9 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x) + 0x2000
                     && (*ball_p).vX > 0) {
                         (*ball_p).vX = -(*ball_p).vX;
+                        if (boxMatrix[i][j].powerUp.style) {
+                            boxMatrix[i][j].powerUp.hit = 1;
+                        }
                         boxMatrix[i][j].lives--;
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
@@ -183,6 +189,9 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                     && (*ball_p).x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
                     && (*ball_p).vX < 0) {
                         (*ball_p).vX = -(*ball_p).vX;
+                        if (boxMatrix[i][j].powerUp.style) {
+                            boxMatrix[i][j].powerUp.hit = 1;
+                        }
                         boxMatrix[i][j].lives--;
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
@@ -248,8 +257,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY -= 0x0800; // (+0,125) - semi fast for testing
-        case 3 : (*ball_p).vY -= 0x2000; // (+0,5) - very fast for testing
+        case 2 : (*ball_p).vY -= 0x00001000; // (+0,125) - semi fast for testing
+        case 3 : (*ball_p).vY -= 0x00002000; // (+0,5) - very fast for testing
     }
 }
 

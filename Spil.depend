@@ -858,7 +858,7 @@
 
 1528466802 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\game_control.h
 
-1528980664 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
+1528986475 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
@@ -882,7 +882,7 @@
 
 1528801057 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\vectors.h
 
-1528982801 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
+1528986475 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -915,9 +915,9 @@
 
 1528984231 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
-1528982801 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
+1528986475 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
-1528983519 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
+1528987042 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
