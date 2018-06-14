@@ -37,6 +37,7 @@ int main(void) {
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
+    initPotentiometer();
     initTemperature();
     initTimer();
 
@@ -60,6 +61,17 @@ int main(void) {
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
     makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
     deleteBall(ball); //Ball should not be visible yet
+
+    //Reset scoreboard
+    /*
+    FLASH_Unlock(); // Unlock FLASH for writing
+    FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
+    FLASH_ErasePage( address ); // Erase entire page before writing
+    for (int i = 0; i < 10; i++) {
+        FLASH_ProgramHalfWord(address + i * 2, 0);
+    }
+    FLASH_Lock();
+    */
 
     //Initializing scoreboard
     for (int i = 0; i < 10; i++) {
@@ -186,7 +198,7 @@ int main(void) {
             score = 0;
             level = 1;
             playerLives = 3;
-            makeLevel(&boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+            makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
             gameOver(x1, x2, y1, y2);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);
