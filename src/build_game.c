@@ -4,6 +4,74 @@
 #include "draw_objects.h"
 #include "build_game.h"
 
+void center (uint8_t * centerPressed, uint8_t * bossKey, uint8_t * menuOpen, uint8_t * inGameStart, uint8_t * scoreboardSelected, uint8_t scoreboardX,
+             uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY, uint8_t * startSelected, uint8_t * helpSelected, uint8_t score,  ) {
+     if (!(*centerPressed)) {
+        if (!(*bossKey) && ((*menuOpen) == 1 || (*inGameStart))) {
+            if ((*scoreboardSelected)) { //Show scoreboard
+                deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                (*menuOpen) = 2;
+            } else if ((*startSelected) || (*inGameStart)) { //Start game
+                deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
+                drawScoreLabel(score, x2);
+                drawLevelLabel(level, x2);
+                drawPlayerLivesLabel(playerLives, x2);
+                (*inGameStart) = 0;
+                (*menuOpen) = 0;
+                TIM2->CR1 = 0x0001;
+            } else if (helpSelected) { //Show help
+                deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                (*menuOpen) = 3;
+            }
+        } else if ((*bossKey) && !(*menuOpen)) { //Resume game
+            window(x1, y1, x2, y2, "Breakout", 1, 1);
+            for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                    drawBox(boxMatrix[i][j]);
+                }
+            }
+            drawScoreLabel(score, x2);
+            drawLevelLabel(level, x2);
+            drawPlayerLivesLabel(playerLives, x2);
+            drawStriker(striker);
+            drawBall(ball);
+            TIM2->CR1 = 0x0001;
+            bossKey = 0;
+        } else if (bossKey && (*menuOpen)) { //When the menu-page should be opened
+            window(x1, y1, x2, y2, "Breakout", 1, 1);
+            for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                    drawBox(boxMatrix[i][j]);
+                }
+            }
+            drawStriker(striker);
+            drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+            drawStartLabel(startX, startY, 0);
+            drawHelpLabel(helpX, helpY, 0);
+            (*scoreboardSelected) = 0;
+            (*startSelected) = 0;
+            (*helpSelected) = 0;
+            (*bossKey) = 0;
+            (*menuOpen) = 1;
+        } else if ((*menuOpen) == 2 || (*menuOpen) == 3) { //Return to home-page from scoreboard or help-page
+            deleteHelp((x2 - x1)/4, 28);
+            deleteScoreboard((x2 - x1)/4, 28);
+            deleteBackMessage((x2 - x1)/2, 25);
+            drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+            drawStartLabel(startX, startY, 0);
+            drawHelpLabel(helpX, helpY, 0);
+            (*scoreboardSelected) = 0;
+            startSelected = 0;
+            helpSelected = 0;
+            (*menuOpen) = 1;
+        }
+        centerPressed = 1;
+    }
+    break;
+}
+
+
+
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
                         uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * level_p, uint8_t * gameIsDone_p,
                         int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
