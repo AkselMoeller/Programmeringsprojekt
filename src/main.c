@@ -47,7 +47,6 @@ int main(void) {
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
     drawHelpLabel(helpX, helpY, 0);
-    drawPlayerLivesLabel(playerLives, x2);
 
     //Initializing and drawing striker
     striker_t striker;
@@ -77,7 +76,7 @@ int main(void) {
             drawBall(ball);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &level, &gameIsDone, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
 
             //Making ball bounce on striker
             ballStrikerCollision(&ball, striker);
@@ -125,7 +124,7 @@ int main(void) {
                 break;
             case 16 : //Center
                 center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
-                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, MAX_COLUMNS, MAX_ROWS, boxMatrix, &ball, &striker);
+                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, MAX_COLUMNS, MAX_ROWS, boxMatrix, &ball, &striker, &gameIsDone);
                 break;
 
             default : //When a button on the joystick is released
@@ -184,6 +183,15 @@ int main(void) {
                 FLASH_ProgramHalfWord(address + i * 2, scoreData[i]);
             }
             FLASH_Lock();
+            score = 0;
+            level = 1;
+            playerLives = 3;
+            makeLevel(&boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+            gameOver(x1, x2, y1, y2);
+            drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+            drawStartLabel(startX, startY, 0);
+            drawHelpLabel(helpX, helpY, 0);
+            menuOpen = 1;
             gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
