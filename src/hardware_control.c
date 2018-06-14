@@ -123,6 +123,7 @@ void initTemperature() {
 }
 
 int8_t readTemperature() {
+    //Reading from channel 16 (temperature sensor)
     ADC_RegularChannelConfig(ADC1, ADC_Channel_16, 1, ADC_SampleTime_1Cycles5);
 
     ADC_StartConversion(ADC1); // Start ADC read
