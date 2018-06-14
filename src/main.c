@@ -8,7 +8,7 @@
 #define MAX_ROWS 10
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t k, uint8_t * level_p, uint8_t * gameIsDone,
+                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * level_p, uint8_t * gameIsDone_p,
                         int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
     if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) {
         (*ball_p).vX = -(*ball_p).vX;
@@ -16,7 +16,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
     if ((*ball_p).y <= FIX14_left(y1 + 1)) {
         (*ball_p).vY = -(*ball_p).vY;
     }
-    if ((*ball_p).y >= FIX14_left(y2 - 1) && k) {
+    if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) {
         (*playerLives_p)--; //Decrement player lives
         drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
 
@@ -35,7 +35,8 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
             gameOver(x1, x2, y1, y2);
             (*level_p) = 1;
             (*menuOpen_p) = 1;
-            (*gameIsDone) = 1;
+            (*gameIsDone_p) = 1;
+            (*k_p) = 0;
         }
         (*inGameStart_p) = 1;
     }
@@ -79,11 +80,6 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
                         drawScoreLabel(*score_p, x2);
-                        /*
-                        if (score >= *(uint16_t *)(address + 0 * 2) ) {
-                            drawNewHighscoreLabel;
-                        }
-                        */
                 }
                 //Checking if ball hits the BOTTOM sides of the box
                 else if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
@@ -96,11 +92,6 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
                         drawScoreLabel(*score_p, x2);
-                        /*
-                        if (score >= *(uint16_t *)(address + 0 * 2) ) {
-                            drawNewHighscoreLabel;
-                        }
-                        */
                 }
                 //Checking if ball hits the LEFT side of the box
                 else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
@@ -113,11 +104,6 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
                         drawScoreLabel(*score_p, x2);
-                        /*
-                        if (score >= *(uint16_t *)(address + 0 * 2) ) {
-                            drawNewHighscoreLabel;
-                        }
-                        */
                 }
                 //Checking if ball hits the RIGHT side of the box
                 else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
@@ -130,11 +116,6 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawBox(boxMatrix[i][j]);
                         (*score_p)++;
                         drawScoreLabel(*score_p, x2);
-                        /*
-                        if (score >= *(uint16_t *)(address + 0 * 2) ) {
-                            drawNewHighscoreLabel;
-                        }
-                        */
                 }
             }
         }
@@ -212,7 +193,7 @@ int main(void) {
             drawBall(ball);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, k, &level, &gameIsDone, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &level, &gameIsDone, x1, y1, x2, y2);
 
             //Making ball bounce on striker
             ballStrikerCollision(&ball, striker);
@@ -308,6 +289,7 @@ int main(void) {
                         menuOpen = 1;
                     } else if (menuOpen == 2 || menuOpen == 3) { //Return to home-page from scoreboard or help-page
                         deleteHelp((x2 - x1)/4, 28);
+                        deleteScoreboard((x2 - x1)/4, 28);
                         deleteBackMessage((x2 - x1)/2, 25);
                         drawScoreboardLabel(scoreboardX, scoreboardY, 0);
                         drawStartLabel(startX, startY, 0);
