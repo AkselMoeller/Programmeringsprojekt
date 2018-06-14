@@ -462,7 +462,7 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528980710 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+1528983662 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
@@ -498,7 +498,7 @@
 	"draw_objects.h"
 	"build_game.h"
 
-1528972231 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
+1528984425 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
 
 1528468097 24705c7310dd1264ee0036bbb65fc6a2acca9
 
@@ -634,7 +634,7 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528981711 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+1528984426 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
@@ -845,13 +845,13 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528982801 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+1528983451 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528974066 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+1528983547 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
 
 1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
 	"game_control.h"
@@ -902,22 +902,22 @@
 	"draw_objects.h"
 	"build_game.h"
 
-1528980895 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
+1528984425 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1528983011 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1528984181 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
 
-1528981160 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
+1528984231 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
 1528982801 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
-1528978851 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
+1528983519 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
