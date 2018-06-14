@@ -103,8 +103,8 @@ void initTemperature() {
     RCC->CFGR2 |= RCC_CFGR2_ADCPRE12_DIV6; // Set ADC12 prescaler to 6
     RCC->AHBENR |= RCC_AHBPeriph_ADC12; // Enable clock for ADC12
 
-    ADC1_2->CCR = 0x00000000; //clear CCR register -JAN HAR SKREVET DETTE!
-    ADC1_2->CCR |= 0x00800000;//enable TSEN for Temperature reading- AWHAWL
+    ADC1_2->CCR = 0x00000000; //Clear CCR register
+    ADC1_2->CCR |= 0x00800000;//Enable TSEN for Temperature reading
 
     ADC1->CR = 0x00000000; // Clear CR register
     ADC1->CFGR &= 0xFDFFC007; // Clear ADC1 config register
