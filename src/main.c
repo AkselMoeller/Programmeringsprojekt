@@ -354,7 +354,7 @@ int main(void) {
                     }
                     writtenToScoreboard = 1;
                 }
-                FLASH_ProgramHalfWord(address + i * 2, scoreData[i]);
+                FLASH_ProgramHalfWord(address + 0 * 2, score);
             }
             FLASH_Lock();
             gameIsDone = 0;
