@@ -1,13 +1,11 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-=======
+73 
+
 84 
 
 84 B
 
 84 ====
-
-73 
 
 73 >>>> 101ed8c74e05887361a097c0b61a06ceb95dc2aa
 
@@ -235,7 +233,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528899913 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528904910 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -892,4 +890,5 @@
 
 1528883562 553ad84203ad64b02e1fa26194115d6ae53b6
 
->>>>>>> 0f28aa56449e2fb2613f6cf70b20306acad80858
+1528883562 8aa56449e2fb2613f6cf70b20306acad80858
+
