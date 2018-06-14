@@ -9,7 +9,7 @@
 
 int main(void) {
     //Variables
-    int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
+    int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size (current values will produce a 4 : 3 aspect ratio)
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
@@ -19,7 +19,7 @@ int main(void) {
     uint8_t playerLives = 3;
     uint8_t level = 1;
     uint8_t gameIsDone = 0;
-    uint8_t boxesAlive;xw
+    uint8_t boxesAlive;
     uint8_t menuOpen = 1; //0 = NO, 1 = YES; 2 = scoreboard open, 3 = help open
     uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
     uint8_t startX = (x1 + x2)/2 - 6, startY = 30;
@@ -172,8 +172,8 @@ int main(void) {
                         bossKey = 0;
                         menuOpen = 1;
                     } else if (menuOpen == 2 || menuOpen == 3) { //Return to home-page from scoreboard or help-page
-                        deleteHelp((x2 - x1)/4, 28);
-                        deleteScoreboard((x2 - x1)/4, 28);
+                        deleteHelp((x2 - x1)/8, 28);
+                        deleteScoreboard((x2 - x1)/8, 28);
                         deleteBackMessage((x2 - x1)/2, 25);
                         drawScoreboardLabel(scoreboardX, scoreboardY, 0);
                         drawStartLabel(startX, startY, 0);
@@ -219,10 +219,10 @@ int main(void) {
             }
         } else if (menuOpen == 2 && centerPressed) { //Scoreboard-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
-            drawScoreboard((x2 - x1)/4, 28, address);
+            drawScoreboard((x2 - x1)/8, 28, address);
         } else if (menuOpen == 3 && centerPressed) { //Help-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
-            drawHelp((x2 - x1)/4, 28);
+            drawHelp((x2 - x1)/8, 28);
         }
 
         //Writes score to scoreboard when the game has finished and if the score is great enough
