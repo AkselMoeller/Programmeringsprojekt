@@ -491,7 +491,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528982677 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1528982759 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -845,13 +845,13 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528982801 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+1528983451 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528974066 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+1528983547 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
 
 1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
 	"game_control.h"
@@ -895,7 +895,7 @@
 
 1528883562 8aa56449e2fb2613f6cf70b20306acad80858
 
-1528980862 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
+1528983134 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -917,7 +917,7 @@
 
 1528982801 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
-1528978851 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
+1528983519 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"

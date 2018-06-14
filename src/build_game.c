@@ -202,7 +202,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
             boxMatrix[i][j].ySize = (y2 - y1)/20;
             boxMatrix[i][j].x = (x1 + 1) +  boxMatrix[i][j].xSize * i;
             boxMatrix[i][j].y = (y1 + 3) + boxMatrix[i][j].ySize * j;
-            boxMatrix[i][j].powerUp = 0;
+            boxMatrix[i][j].powerUp.style = 0;
 
             //level design
             switch (level) {
@@ -217,7 +217,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
                         if (i == 4){
-                            boxMatrix[i][j].powerUp = 1; // power up for extra ball
+                            boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
                             boxMatrix[i][j].lives = 2;
                         }
                     } else {
