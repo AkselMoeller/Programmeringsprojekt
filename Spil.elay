@@ -6,14 +6,14 @@
 			<Cursor1 position="8805" topLine="296" />
 		</Cursor>
 	</File>
-	<File name="inc\ansi.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\ansi.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="247" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="inc\build_game.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\build_game.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="927" topLine="0" />
+			<Cursor1 position="65" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="inc\charset.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -21,14 +21,14 @@
 			<Cursor1 position="0" topLine="38" />
 		</Cursor>
 	</File>
-	<File name="inc\draw_objects.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\draw_objects.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1609" topLine="25" />
 		</Cursor>
 	</File>
-	<File name="inc\hardware_control.h" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\hardware_control.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="307" topLine="0" />
+			<Cursor1 position="254" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="inc\stm32f30x.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -46,24 +46,24 @@
 			<Cursor1 position="0" topLine="224" />
 		</Cursor>
 	</File>
-	<File name="src\ansi.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\ansi.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="760" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="src\build_game.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\build_game.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2022" topLine="10" />
+			<Cursor1 position="3195" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\draw_objects.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\draw_objects.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="16513" topLine="533" />
+			<Cursor1 position="16513" topLine="584" />
 		</Cursor>
 	</File>
-	<File name="src\hardware_control.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\hardware_control.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3823" topLine="77" />
+			<Cursor1 position="3919" topLine="77" />
 		</Cursor>
 	</File>
 	<File name="src\lut-sin.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -71,9 +71,9 @@
 			<Cursor1 position="497" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1386" topLine="15" />
+			<Cursor1 position="7216" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\startup_stm32f30x.S" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

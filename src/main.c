@@ -136,7 +136,7 @@ int main(void) {
                 break;
             case 16 : //Center
                 center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
-                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, MAX_COLUMNS, MAX_ROWS, boxMatrix, &ball, &striker, &gameIsDone);
+                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, boxMatrix, &ball, &striker, &gameIsDone);
                 break;
 
             default : //When a button on the joystick is released
@@ -205,7 +205,8 @@ int main(void) {
             drawHelpLabel(helpX, helpY, 0);
             menuOpen = 1;
         }
-        //Checks if the the current score is grater than the high score
+
+        //Checks if the the current score is greater than the high score
         if (score > scoreData[0] && !NewHighScore) {
             drawHighscoreLabel(x2); //Notifies the player if it is a new high score
             NewHighScore = 1;
