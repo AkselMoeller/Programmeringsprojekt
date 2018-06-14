@@ -81,7 +81,7 @@ void TIM2_IRQHandler() {
     TIM2->SR &= ~0x0001; //Clear interrupt bit
 }
 
-void initTemperature() {
+void initPotentiometer() {
     RCC->AHBENR |= RCC_AHBPeriph_GPIOA; // Enable clock for GPIO Port A
 
         // Set pin PA0 to input
@@ -103,9 +103,6 @@ void initTemperature() {
     RCC->CFGR2 |= RCC_CFGR2_ADCPRE12_DIV6; // Set ADC12 prescaler to 6
     RCC->AHBENR |= RCC_AHBPeriph_ADC12; // Enable clock for ADC12
 
-    ADC1_2->CCR = 0x00000000; //Clear CCR register
-    ADC1_2->CCR |= 0x00800000;//Enable TSEN for Temperature reading
-
     ADC1->CR = 0x00000000; // Clear CR register
     ADC1->CFGR &= 0xFDFFC007; // Clear ADC1 config register
     ADC1->SQR1 &= ~ADC_SQR1_L; // Clear regular sequence register 1
@@ -122,7 +119,33 @@ void initTemperature() {
     while (!(ADC1->ISR & 0x00000001)); // Wait until ready
 }
 
+uint16_t readPotentiometer1() {
+    //Reading from channel 1
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_1, 1, ADC_SampleTime_1Cycles5);
+
+    ADC_StartConversion(ADC1); //Start ADC read
+    while (ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); //Wait for ADC read
+
+    return 100 + ADC_GetConversionValue(ADC1)/41; //Read ADC value
+}
+
+uint16_t readPotentiometer2() {
+    //Reading from channel 2
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_2, 1, ADC_SampleTime_1Cycles5);
+
+    ADC_StartConversion(ADC1); //Start ADC read
+    while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == 0); //Wait for ADC read
+
+    return 42 + ADC_GetConversionValue(ADC1)/226; //Read ADC value
+}
+
+void initTemperature() {
+    ADC1_2->CCR = 0x00000000; //Clear CCR register
+    ADC1_2->CCR |= 0x00800000;//Enable TSEN for Temperature reading
+}
+
 int8_t readTemperature() {
+    //Reading from channel 16 (temperature sensor)
     ADC_RegularChannelConfig(ADC1, ADC_Channel_16, 1, ADC_SampleTime_1Cycles5);
 
     ADC_StartConversion(ADC1); // Start ADC read

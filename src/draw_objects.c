@@ -189,8 +189,12 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
     resetbgcolor();
 }
 
-void drawPowerUp(powerUp_t powerUp) {
-
+void drawPowerUp(box_t box) {
+    gotoxy(box.x, box.y);
+    printf(" "); //delete powerUp
+    box.powerUp.y++;
+    gotoxy(box.x, box.y);
+    printf("%c", 4+144); // "ö"
 }
 
 void drawScoreLabel(uint16_t score, uint8_t x2) {
