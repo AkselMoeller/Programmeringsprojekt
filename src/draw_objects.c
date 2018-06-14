@@ -185,8 +185,8 @@ void drawLevelLabel(uint8_t level, uint8_t x2) {
     resetbgcolor();
 }
 
-void drawHighScoreLabel() {
-    gotoxy(80, 1);
+void drawHighScoreLabel(uint8_t x2) {
+    gotoxy(x2 - 55, 1);
     fgcolor(11);
     printf("NEW HIGHSCORE");
 }

@@ -56,7 +56,7 @@ void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color
 void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color);
 void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color);
 void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY);
-void drawNewHighscoreLabel ();
+void drawNewHighscoreLabel (uint8_t x2);
 
 void drawHelp(uint8_t x, uint8_t y);
 void deleteHelp(uint8_t x, uint8_t y);
