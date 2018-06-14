@@ -163,7 +163,7 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
-    gotoxy(125, 1);
+    gotoxy(130, 2);
     printf("Temperature: %i", readTemperature());
 }
 
