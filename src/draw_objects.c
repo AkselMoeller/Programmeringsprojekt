@@ -160,7 +160,7 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         printf(" "); //Deleting rightmost element
         (*striker_p).x--; //Moving striker one element left
         gotoxy((*striker_p).x, (*striker_p).y); //Placing a new leftmost element
-        fgcolor(7);
+        fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
 }
