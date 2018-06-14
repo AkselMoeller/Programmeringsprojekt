@@ -174,6 +174,11 @@ int main(void) {
     initJoyStick();
     initTimer();
 
+    //Initializing scoreboard
+    for (int i = 0; i < 10; i++) {
+        scoreData[i] = *(uint16_t *)(address + i * 2); //Reading from flash-memory
+    }
+
     //Drawing window
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
@@ -357,23 +362,23 @@ int main(void) {
         if (gameIsDone) {
             FLASH_Unlock(); // Unlock FLASH for writing
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
-            //FLASH_ErasePage( address ); // Erase entire page before writing
+            FLASH_ErasePage( address ); // Erase entire page before writing
             for (int i = 0 ; i < 10 ; i++ ){
-                if (score > *(uint16_t *)(address + i * 2) && !writtenToScoreboard) {
+                if (score > scoreData[i] && !writtenToScoreboard) {
                     lastVal = score;
                     for (int j = i; j < 10; j++ ){
                         lastVal = swapWithReturnVal(scoreData[j], lastVal, j);
-
                     }
                     writtenToScoreboard = 1;
                 }
+                FLASH_ProgramHalfWord(address + i * 2, scoreData[i]);
             }
             FLASH_Lock();
             gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
-        if (score >= *(uint16_t *)(address + 0 * 2) ) {
-            drawNewHighscoreLabel; //Notifies the player if it is a new high score
+        if (score > scoreData[i]) {
+            drawNewHighscoreLabel(x2); //Notifies the player if it is a new high score
         }
     }
 }
