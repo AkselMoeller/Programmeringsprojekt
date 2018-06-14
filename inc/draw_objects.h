@@ -30,17 +30,18 @@ void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 void deleteStriker(striker_t striker);
 
 typedef struct {
-    int32_t x, y;
-    uint8_t xSize, ySize, powerUp;
-    int8_t lives;
-} box_t;
-void drawBox(box_t box);
-
-typedef struct {
     uint8_t x, y;
-    uint8_t type;
+    uint8_t style;
 } powerUp_t;
 void drawPowerUp(powerUp_t powerUp);
+
+typedef struct {
+    int32_t x, y;
+    uint8_t xSize, ySize;
+    int8_t lives;
+    powerUp_t powerUp;
+} box_t;
+void drawBox(box_t box);
 
 void drawScoreLabel(uint16_t score, uint8_t x2);
 void drawLevelLabel(uint8_t level, uint8_t x2);
