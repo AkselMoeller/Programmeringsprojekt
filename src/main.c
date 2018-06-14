@@ -193,7 +193,6 @@ int main(void) {
             drawStartLabel(startX, startY, 0);
             drawHelpLabel(helpX, helpY, 0);
             menuOpen = 1;
-            gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
         if (score > scoreData[0] && !NewHighScore) {

@@ -22,6 +22,10 @@ void center (uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_
                 drawPlayerLivesLabel(playerLives, x2);
                 (*inGameStart_p) = 0;
                 (*menuOpen_p) = 0;
+                if ((*gameIsDone) == 1) {
+                    deleteGameOver(x1,x2,y1,y2);
+                    (*gameIsDone) = 0;
+                }
                 TIM2->CR1 = 0x0001;
             } else if (*helpSelected_p) { //Show help
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
