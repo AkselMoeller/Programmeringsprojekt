@@ -161,6 +161,7 @@ int main(void) {
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t centerPressed = 0;
+    uint8_t NewHighScore = 0;
     //Init FLASH-memory
     uint32_t address = 0x0800F800; // Starting-address of the last page
     uint16_t scoreData[10] = {0};
@@ -377,8 +378,9 @@ int main(void) {
             gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
-        if (score > scoreData[0]) {
+        if (score > scoreData[0] && !NewHighScore) {
             drawHighscoreLabel(x2); //Notifies the player if it is a new high score
+            NewHighScore = 1;
         }
     }
 }
