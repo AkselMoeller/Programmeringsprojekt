@@ -31,7 +31,7 @@ void deleteStriker(striker_t striker);
 
 typedef struct {
     uint8_t x, y;
-    uint8_t style;
+    uint8_t style, hit;
 } powerUp_t;
 void drawPowerUp(powerUp_t powerUp);
 
