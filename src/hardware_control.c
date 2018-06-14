@@ -130,5 +130,5 @@ int8_t readTemperature() {
 
     int16_t x = ADC_GetConversionValue(ADC1); // Read ADC value
 
-    return 338 - x/5; // convert a number from 1690(min temp) - 1650(max temp) to a number from 0-8
+    return 336 - x/5; // convert a number from 1690(min temp) - 1650(max temp) to a number from 0-8
 }
