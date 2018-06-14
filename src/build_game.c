@@ -82,8 +82,8 @@ void initBall(ball_t * ball_p, striker_t striker) {
 }
 
 //Writes a value to data set, while swapping it with the next
-int swapWithReturnVal(uint16_t data[10],uint16_t lastVal, uint8_t i) {
-    uint16_t tempVal = data[i];
-    data[i] = lastVal;
-    return tempVal;
+void swapScores(uint16_t * lastVal_p, uint16_t * currentVal_p) {
+    uint16_t temp = *lastVal_p;
+    *lastVal_p = *currentVal_p;
+    *currentVal_p = temp;
 }
