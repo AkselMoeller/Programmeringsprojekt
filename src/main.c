@@ -7,121 +7,6 @@
 #define MAX_COLUMNS 10
 #define MAX_ROWS 10
 
-void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * level_p, uint8_t * gameIsDone_p,
-                        int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-    if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) {
-        (*ball_p).vX = -(*ball_p).vX;
-    }
-    if ((*ball_p).y <= FIX14_left(y1 + 1)) {
-        (*ball_p).vY = -(*ball_p).vY;
-    }
-    if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) {
-        (*playerLives_p)--; //Decrement player lives
-        drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
-
-        //Resets ball and striker
-        deleteStriker(*striker_p);
-        (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
-        (*striker_p).y = y2 - 1;
-        deleteBall((*ball_p));
-        (*ball_p).vY = -(*ball_p).vY;
-        (*ball_p).x = FIX14_left((*striker_p).x + (*striker_p).length/2);
-        (*ball_p).y = FIX14_left((*striker_p).y - 2);
-        drawBall((*ball_p));
-        drawStriker((*striker_p));
-
-        if (!(*playerLives_p)) { //Game over!!!
-            gameOver(x1, x2, y1, y2);
-            (*level_p) = 1;
-            (*menuOpen_p) = 1;
-            (*gameIsDone_p) = 1;
-            (*k_p) = 0;
-        }
-        (*inGameStart_p) = 1;
-    }
-}
-
-void ballStrikerCollision(ball_t * ball_p, striker_t striker) {
-    if (FIX14_right((*ball_p).y) == striker.y - 1
-        && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
-        && FIX14_right((*ball_p).x + 0x2000) >= striker.x) {
-        for (int i = 0; i < striker.length; i++) {
-            if (FIX14_right((*ball_p).x + 0x2000) == striker.x + i) {
-                //Do stuff
-                if ((*ball_p).vY > 0) {
-                    (*ball_p).vY = -(*ball_p).vY;
-                    (*ball_p).vX += -0x2000 + (0x2000 * 2)/(striker.length - 1) * i;
-                    if ((*ball_p).vX >= 0x2000) {
-                        (*ball_p).vX = 0x2000;
-                    }
-                    if ((*ball_p).vX <= -0x2000) {
-                        (*ball_p).vX = -0x2000;
-                    }
-                }
-            }
-        }
-    }
-}
-
-void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, uint8_t * boxesAlive_p, int32_t x2) {
-    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-        for (uint8_t j = 0; j < MAX_ROWS; j++) {
-            if (boxMatrix[i][j].lives > 0) { //Only executed if the box is "alive"
-                (*boxesAlive_p)++;
-                //Checking if ball hits the TOP side of the box
-                if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
-                    && FIX14_left((*ball_p).x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
-                    && (*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x2000
-                    && (*ball_p).vY > 0) {
-                        (*ball_p).vY = -(*ball_p).vY;
-                        boxMatrix[i][j].lives--;
-                        drawBox(boxMatrix[i][j]);
-                        (*score_p)++;
-                        drawScoreLabel(*score_p, x2);
-                }
-                //Checking if ball hits the BOTTOM sides of the box
-                else if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
-                    && FIX14_left((*ball_p).x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
-                    && (*ball_p).y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                    && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
-                    && (*ball_p).vY < 0) {
-                        (*ball_p).vY = -(*ball_p).vY;
-                        boxMatrix[i][j].lives--;
-                        drawBox(boxMatrix[i][j]);
-                        (*score_p)++;
-                        drawScoreLabel(*score_p, x2);
-                }
-                //Checking if ball hits the LEFT side of the box
-                else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && FIX14_left((*ball_p).y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                    && (*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
-                    && (*ball_p).x < FIX14_left(boxMatrix[i][j].x) + 0x2000
-                    && (*ball_p).vX > 0) {
-                        (*ball_p).vX = -(*ball_p).vX;
-                        boxMatrix[i][j].lives--;
-                        drawBox(boxMatrix[i][j]);
-                        (*score_p)++;
-                        drawScoreLabel(*score_p, x2);
-                }
-                //Checking if ball hits the RIGHT side of the box
-                else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && FIX14_left((*ball_p).y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                    && (*ball_p).x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
-                    && (*ball_p).x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
-                    && (*ball_p).vX < 0) {
-                        (*ball_p).vX = -(*ball_p).vX;
-                        boxMatrix[i][j].lives--;
-                        drawBox(boxMatrix[i][j]);
-                        (*score_p)++;
-                        drawScoreLabel(*score_p, x2);
-                }
-            }
-        }
-    }
-}
-
 int main(void) {
     //Variables
     int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45; //Window size (current values will produce a 4 : 3 aspect ratio)
@@ -134,7 +19,7 @@ int main(void) {
     uint8_t playerLives = 3;
     uint8_t level = 1;
     uint8_t gameIsDone = 0;
-    uint8_t boxesAlive;
+    uint8_t boxesAlive;xw
     uint8_t menuOpen = 1; //0 = NO, 1 = YES; 2 = scoreboard open, 3 = help open
     uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
     uint8_t startX = (x1 + x2)/2 - 6, startY = 30;
@@ -146,8 +31,6 @@ int main(void) {
     //Init FLASH-memory
     uint32_t address = 0x0800F800; // Starting-address of the last page
     uint16_t scoreData[10] = {0};
-    uint16_t tempVal;
-    uint16_t nextTemp;
     uint8_t writtenToScoreboard = 0;
     uint16_t lastVal = 0;
 
