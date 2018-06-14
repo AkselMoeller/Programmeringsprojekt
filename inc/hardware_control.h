@@ -10,6 +10,10 @@ void TIM2_IRQHandler();
 void initJoyStick();
 uint8_t readJoyStick();
 
+void initPotentiometer();
+uint16_t readPotentiometer1();
+uint16_t readPotentiometer2();
+
 void initTemperature();
 int8_t readTemperature();
 

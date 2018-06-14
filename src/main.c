@@ -37,6 +37,7 @@ int main(void) {
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
+    initPotentiometer();
     initTemperature();
     initTimer();
 
