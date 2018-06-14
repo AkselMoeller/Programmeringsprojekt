@@ -194,6 +194,7 @@ void drawPowerUp(box_t box) {
     printf(" "); //delete powerUp
     box.powerUp.y++;
     gotoxy(box.x, box.y);
+    fgcolor(7);
     printf("%c", 4+144); // "ö"
 }
 
