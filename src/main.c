@@ -159,6 +159,8 @@ int main(void) {
     //Initializing scoreboard
     for (int i = 0; i < 10; i++) {
         scoreData[i] = *(uint16_t *)(address + i * 2); //Reading from flash-memory
+        gotoxy(125, 1 + i);
+        printf("%i", scoreData[i]);
     }
 
     //Drawing window
@@ -347,6 +349,7 @@ int main(void) {
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
             FLASH_ErasePage( address ); // Erase entire page before writing
             for (int i = 0 ; i < 10 ; i++ ){
+                /*
                 if (score > scoreData[i] && !writtenToScoreboard) {
                     lastVal = score;
                     for (int j = i; j < 10; j++ ){
@@ -354,7 +357,8 @@ int main(void) {
                     }
                     writtenToScoreboard = 1;
                 }
-                FLASH_ProgramHalfWord(address + 0 * 2, score);
+                */
+                FLASH_ProgramHalfWord(address + i * 2, score);
             }
             FLASH_Lock();
             gameIsDone = 0;
