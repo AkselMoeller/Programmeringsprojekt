@@ -61,5 +61,6 @@ void drawNewHighscoreLabel ();
 void drawHelp(uint8_t x, uint8_t y);
 void deleteHelp(uint8_t x, uint8_t y);
 void drawScoreboard(uint8_t x, uint8_t y, uint32_t address);
+void deleteScoreboard (uint8_t x, uint8_t y);
 
 #endif /* draw_objects_h */

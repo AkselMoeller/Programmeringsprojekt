@@ -575,8 +575,7 @@ void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
 
 void deleteScoreboard (uint8_t x, uint8_t y) {
     gotoxy(x, y);
-    for (int i = 0 ; i < 10 ; i++ ){
-        tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
+    for (int i = 0 ; i < 12 ; i++ ){
         gotoxy(x, y + i);
         printf("        ");
     }
