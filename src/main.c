@@ -347,6 +347,7 @@ int main(void) {
             }
         } else if (menuOpen == 2 && centerPressed) { //Scoreboard-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
+            drawScoreboard((x2 - x1)/4, 28, address);
         } else if (menuOpen == 3 && centerPressed) { //Help-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
             drawHelp((x2 - x1)/4, 28);
