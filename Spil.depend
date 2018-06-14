@@ -845,24 +845,24 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528968202 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+1528974975 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528968202 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+1528974066 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
 
 1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
 	"game_control.h"
 
 1528466802 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\game_control.h
 
-1528967966 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
+1528974506 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1528967966 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\hardware_control.h
+1528974557 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\hardware_control.h
 
 1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -882,7 +882,7 @@
 
 1528801057 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\vectors.h
 
-1528968113 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
+1528974995 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -917,7 +917,7 @@
 
 1528967966 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
-1528967966 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
+1528974067 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"

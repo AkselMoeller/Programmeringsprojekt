@@ -124,6 +124,30 @@ void deleteStriker(striker_t striker) {
 }
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
+    //update color
+    switch (readTemperature()) {
+        case 0 : (*striker_p).color = 11; //yellow
+            break;
+        case 1 : (*striker_p).color = 6; //cyan
+            break;
+        case 2 : (*striker_p).color = 14; //light cyan
+            break;
+        case 3 : (*striker_p).color = 12; //light blue
+            break;
+        case 4 : (*striker_p).color = 4; //blue
+            break;
+        case 5 : (*striker_p).color = 5; //purple
+            break;
+        case 6 : (*striker_p).color = 13; //light purple
+            break;
+        case 7 : (*striker_p).color = 9; //light red
+            break;
+        case 8 : (*striker_p).color = 1; //red
+            break;
+        default : (*striker_p).color = 15; //white
+            break;
+    }
+    //update position
     if (joyStickState == 8) { //Move right
         gotoxy((*striker_p).x, (*striker_p).y);
         printf(" "); //Deleting leftmost element
