@@ -552,6 +552,7 @@ void deleteHelp(uint8_t x, uint8_t y) {
 void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
     uint16_t tempScoreVal;
     gotoxy(x, y);
+    printf("Here are the top scores: ");
     /*fgcolor(7);
     printf("Here are the top scores: ");
     gotoxy(x, y + 2);
@@ -567,7 +568,17 @@ void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
     //Prints the scoreboard to screen
     for (int i = 0 ; i < 10 ; i++ ){
         tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
-        gotoxy(x, y + i);
+        gotoxy(x, y + i + 2);
         printf("%i: %d ",(i + 1), tempScoreVal);
     }
 }
+
+void deleteScoreboard (uint8_t x, uint8_t y) {
+    gotoxy(x, y);
+    for (int i = 0 ; i < 10 ; i++ ){
+        tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
+        gotoxy(x, y + i);
+        printf("        ");
+    }
+}
+
