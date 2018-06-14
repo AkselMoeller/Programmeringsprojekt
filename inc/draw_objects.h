@@ -42,19 +42,24 @@ typedef struct {
 } powerUp_t;
 void drawPowerUp(powerUp_t powerUp);
 
-void drawScoreLabel(uint16_t score);
-void drawLevelLabel(uint8_t level);
-void drawPlayerLivesLabel(uint8_t playerLives);
+void drawScoreLabel(uint16_t score, uint8_t x2);
+void drawLevelLabel(uint8_t level, uint8_t x2);
+void drawPlayerLivesLabel(uint8_t playerLives, uint8_t x2);
 
-void printBossKey(uint16_t score, uint8_t playerLives);
+void printBossKey(uint16_t score, uint8_t level, uint8_t playerLives);
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2);
 
-void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color, uint8_t backButton);
-void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color);
-void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color, uint8_t backButton);
-void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY);
+void drawBackMessage(uint8_t x, uint8_t y);
+void deleteBackMessage(uint8_t x, uint8_t y);
 
-void printHelp(uint8_t x, uint8_t y);
-void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]);
+void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color);
+void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color);
+void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color);
+void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY);
+void drawNewHighscoreLabel ();
+
+void drawHelp(uint8_t x, uint8_t y);
+void deleteHelp(uint8_t x, uint8_t y);
+void drawScoreboard(uint8_t x, uint8_t y, uint32_t address);
 
 #endif /* draw_objects_h */

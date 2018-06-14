@@ -169,21 +169,30 @@ void drawPowerUp(powerUp_t powerUp) {
 
 }
 
-void drawScoreLabel(uint16_t score) {
-    gotoxy(100, 2);
+void drawScoreLabel(uint16_t score, uint8_t x2) {
+    bgcolor(4);
+    gotoxy(x2 - 40, 1);
     fgcolor(7);
     printf("Score: %i", score);
+    resetbgcolor();
 }
 
-void drawLevelLabel(uint8_t level) {
-    gotoxy(100, 3);
+void drawLevelLabel(uint8_t level, uint8_t x2) {
+    bgcolor(4);
+    gotoxy(x2 - 25, 1);
     fgcolor(7);
     printf("Level: %i", level);
-
+    resetbgcolor();
 }
 
-void drawPlayerLivesLabel (uint8_t playerLives) {
-    gotoxy (100,1);
+void drawHighScoreLabel() {
+    gotoxy(80, 1);
+    fgcolor(11);
+    printf("NEW HIGHSCORE");
+}
+
+void drawPlayerLivesLabel (uint8_t playerLives, uint8_t x2) {
+    gotoxy(x2 - 10, 1);
     bgcolor(4);
     if (playerLives == 3) {
         fgcolor(9);
@@ -206,16 +215,22 @@ void drawPlayerLivesLabel (uint8_t playerLives) {
     fgcolor(15);
 }
 
-void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color, uint8_t backButton) {
+void drawBackMessage(uint8_t x, uint8_t y) { //x is center x-coordinate of the window
+    gotoxy(x - 15, y);
+    printf("Press center-button to go back");
+}
+
+void deleteBackMessage(uint8_t x, uint8_t y) {
+    gotoxy(x - 15, y);
+    printf("                              ");
+}
+
+void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
     gotoxy(scoreboardX , scoreboardY);
     window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(scoreboardX + 1, scoreboardY + 1);
-    if (backButton != 1) {
-        printf("Scoreboard");
-    } else {
-        printf("   Back   ");
-    }
+    printf("Scoreboard");
     resetbgcolor();
 }
 
@@ -228,16 +243,12 @@ void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color) {
     resetbgcolor();
 }
 
-void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color, uint8_t backButton) {
+void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color) {
     gotoxy(helpX, helpY);
     window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
     bgcolor(color);
     gotoxy(helpX + 1, helpY + 1);
-    if (backButton != 2) {
-        printf("   Help   ");
-    } else {
-        printf("   Back   ");
-    }
+    printf("   Help   ");
     resetbgcolor();
 }
 
@@ -253,7 +264,7 @@ void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, 
     }
 }
 
-void printBossKey(uint16_t score, uint8_t playerLives) {
+void printBossKey(uint16_t score, uint8_t level, uint8_t playerLives) {
     //Clear screen and move courser to (1,1)
     clrscr();
     gotoxy(1,1);
@@ -325,18 +336,21 @@ void printBossKey(uint16_t score, uint8_t playerLives) {
     printf("    uint8_t bossKey = ");
     fgcolor(4);
     printf("SFW-mode (safe for work) is now ACTIVE, press center-buttom to resume game\n");
-    fgcolor (2);
+    fgcolor(2);
     printf("    uint8_t score = ");
     fgcolor(4);
     printf("%i\n", score);
-    fgcolor(4);
-    printf("    uint8_t playerLives = ");
     fgcolor(2);
+    printf("    uint8_t level = ");
+    fgcolor(4);
+    printf("%i\n", level);
+    fgcolor(2);
+    printf("    uint8_t playerLives = ");
+    fgcolor(4);
     printf("%i\n", playerLives);
 }
 
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
-
     //Coordinates for center-point of screen
     uint8_t xm = (x2 - x1)/2;
     uint8_t ym = (y2 - y1)/2;
@@ -346,7 +360,7 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     uint8_t halfbox = 208+12;
     uint8_t upperhalfbox = 208 + 15;
 
-    //start coordinates for G
+    //Start-coordinates for G
     uint8_t xGs = xm - (5*5);
     uint8_t yGs = ym - 3;
 
@@ -425,7 +439,8 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
     gotoxy(xEs, yEs + 4);
     printf("%c%c%c%c%c\n", box, box, box, box, box);
 
-    //start coordinates for O
+
+    //Start-coordinates for O
     uint8_t xOs = xEs + 13;
     uint8_t yOs = yEs;
 
@@ -506,27 +521,39 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 }
 
-
-void printHelp(uint8_t x, uint8_t y) {
+void drawHelp(uint8_t x, uint8_t y) {
     //This prints help instructions to screen
     gotoxy(x, y);
     fgcolor(7);
-    printf("Here is some help: ");
+    printf("Help:");
     gotoxy(x, y + 2);
-    printf("Move the joystick left end right to move the striker in th bottom of the screen.");
+    printf("- Move the joystick left and right to move the striker.");
     gotoxy(x, y + 3);
-    printf("Press the center of joystick to either select any marked button, or start the game and get the ball moving again.");
+    printf("- Press the center of joystick to select an action (etc. starting the game).");
     gotoxy(x, y + 4);
-    printf("Press down on the joystick to activate SW (safe for work) mode. Also known as the \"Boss Key\".");
+    printf("- Press down on the joystick to activate SFW (safe for work) mode (\"Boss Key\".)");
     gotoxy(x, y + 5);
-    printf("If Scoreboard is selected (using the center button) a list of the highest scores will be shown.");
-
+    printf("- If the scoreboard is selected, a list of the highest scores will be shown.");
 }
 
-void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]) {
+void deleteHelp(uint8_t x, uint8_t y) {
     gotoxy(x, y);
-    fgcolor(7);
-    printf("Here is the top scores: ");
+    printf("     ");
+    gotoxy(x, y + 2);
+    printf("                                                       ");
+    gotoxy(x, y + 3);
+    printf("                                                                            ");
+    gotoxy(x, y + 4);
+    printf("                                                                                 ");
+    gotoxy(x, y + 5);
+    printf("                                                                            ");
+}
+
+void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
+    uint16_t tempScoreVal;
+    gotoxy(x, y);
+    /*fgcolor(7);
+    printf("Here are the top scores: ");
     gotoxy(x, y + 2);
     printf("1: %i", scoreboard[0]);
     gotoxy(x, y + 3);
@@ -536,5 +563,11 @@ void printScoreboard(uint8_t x, uint8_t y, int scoreboard[5]) {
     gotoxy(x, y + 5);
     printf("4: %i", scoreboard[3]);
     gotoxy(x, y + 6);
-    printf("4: %i", scoreboard[4]);
+    printf("4: %i", scoreboard[4]); */
+    //Prints the scoreboard to screen
+    for (int i = 0 ; i < 10 ; i++ ){
+        tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
+        gotoxy(x, y + i);
+        printf("%i: %d ",(i + 1), tempScoreVal);
+    }
 }
