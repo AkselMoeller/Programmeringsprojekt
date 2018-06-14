@@ -579,7 +579,7 @@ void deleteScoreboard (uint8_t x, uint8_t y) {
     gotoxy(x, y);
     for (int i = 0 ; i < 12 ; i++ ){
         gotoxy(x, y + i);
-        printf("                       ");
+        printf("                        ");
     }
 }
 
