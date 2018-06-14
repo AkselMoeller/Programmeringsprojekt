@@ -233,7 +233,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528982843 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1528988642 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -906,14 +906,14 @@
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1528984294 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1528990729 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
 
-1528984231 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
+1528988613 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
 1528982801 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
