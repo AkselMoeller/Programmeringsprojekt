@@ -352,8 +352,8 @@ int main(void) {
             drawHelp((x2 - x1)/4, 28);
         }
 
+        //Writes score to scoreboard when the game has finished and if the score is great enough
         if (gameIsDone) {
-            //Writes score to scoreboard, if the score is great enough
             FLASH_Unlock(); // Unlock FLASH for writing
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
             //FLASH_ErasePage( address ); // Erase entire page before writing
@@ -369,6 +369,10 @@ int main(void) {
             }
             FLASH_Lock();
             gameIsDone = 0;
+        }
+        //Checks if the the current score is grater than the high score
+        if (score >= *(uint16_t *)(address + 0 * 2) ) {
+            drawNewHighscoreLabel; //Notifies the player if it is a new high score
         }
     }
 }
