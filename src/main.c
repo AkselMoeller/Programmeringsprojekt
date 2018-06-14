@@ -377,8 +377,8 @@ int main(void) {
             gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
-        if (score > scoreData[i]) {
-            drawNewHighscoreLabel(x2); //Notifies the player if it is a new high score
+        if (score > scoreData[0]) {
+            drawHighscoreLabel(x2); //Notifies the player if it is a new high score
         }
     }
 }
