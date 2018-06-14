@@ -595,7 +595,11 @@ void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
     for (int i = 0 ; i < 10 ; i++ ){
         tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
         gotoxy(x, y + i + 2);
-        printf("%i: %d ",(i + 1), tempScoreVal);
+        if ( i < 9) {
+            printf(" %i: %d ",(i + 1), tempScoreVal);
+        } else {
+            printf("%i: %d ",(i + 1), tempScoreVal);
+        }
     }
 }
 
