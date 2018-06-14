@@ -214,13 +214,13 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528982843 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1528984294 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528972353 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528984294 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
 1528981160 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"30010_io.h"
@@ -906,7 +906,7 @@
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1528984181 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1528984294 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
