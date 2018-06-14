@@ -85,7 +85,5 @@ void initBall(ball_t * ball_p, striker_t striker) {
 int swapWithReturnVal(uint16_t data[10],uint16_t lastVal, uint8_t i) {
     uint16_t tempVal = data[i];
     data[i] = lastVal;
-    uint16_t nextTemp = data[i + 1];
-    data[i + 1] = tempVal;
-    return nextTemp;
+    return tempVal;
 }
