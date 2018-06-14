@@ -156,13 +156,6 @@ int main(void) {
     initJoyStick();
     initTimer();
 
-    //Initializing scoreboard
-    for (int i = 0; i < 10; i++) {
-        scoreData[i] = *(uint16_t *)(address + i * 2); //Reading from flash-memory
-        gotoxy(125, 1 + i);
-        printf("%i", scoreData[i]);
-    }
-
     //Drawing window
     window(x1, y1, x2, y2, "Breakout", 1, 1);
 
@@ -184,6 +177,11 @@ int main(void) {
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
     makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
     deleteBall(ball); //Ball should not be visible yet
+
+    //Initializing scoreboard
+    for (int i = 0; i < 10; i++) {
+        scoreData[i] = *(uint16_t *)(address + i * 2); //Reading from flash-memory
+    }
 
     while(1) {
         if (flag && !menuOpen) { //Everything in this if-statement is executed once every 1/64 second (64 Hz refresh-rate)
@@ -349,15 +347,14 @@ int main(void) {
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
             FLASH_ErasePage( address ); // Erase entire page before writing
             for (int i = 0 ; i < 10 ; i++ ){
-                /*
                 if (score > scoreData[i] && !writtenToScoreboard) {
-                    lastVal = score;
-                    for (int j = i; j < 10; j++ ){
-                        lastVal = swapWithReturnVal(scoreData[j], lastVal, j);
+                    lastVal = scoreData[i];
+                    scoreData[i] = score;
+                    for (int j = i; j < 10; j++) {
+                        swapScores(&lastVal, scoreData[1 + i]);
                     }
                     writtenToScoreboard = 1;
                 }
-                */
                 FLASH_ProgramHalfWord(address + i * 2, score);
             }
             FLASH_Lock();
