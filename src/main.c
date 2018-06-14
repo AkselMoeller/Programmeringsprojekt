@@ -47,7 +47,6 @@ int main(void) {
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
     drawStartLabel(startX, startY, 0);
     drawHelpLabel(helpX, helpY, 0);
-    drawPlayerLivesLabel(playerLives, x2);
 
     //Initializing and drawing striker
     striker_t striker;
@@ -77,7 +76,7 @@ int main(void) {
             drawBall(ball);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &level, &gameIsDone, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
 
             //Making ball bounce on striker
             ballStrikerCollision(&ball, striker);
@@ -124,68 +123,10 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                if (!centerPressed) {
-                    if (!bossKey && (menuOpen == 1 || inGameStart)) {
-                        if (scoreboardSelected) { //Show scoreboard
-                            deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                            menuOpen = 2;
-                        } else if ((startSelected || inGameStart)) { //Start game
-                            deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
-                            drawScoreLabel(score, x2);
-                            drawLevelLabel(level, x2);
-                            drawPlayerLivesLabel(playerLives, x2);
-                            inGameStart = 0;
-                            menuOpen = 0;
-                            TIM2->CR1 = 0x0001;
-                        } else if (helpSelected) { //Show help
-                            deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                            menuOpen = 3;
-                        }
-                    } else if (bossKey && !menuOpen) { //Resume game
-                        window(x1, y1, x2, y2, "Breakout", 1, 1);
-                        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                            for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                                drawBox(boxMatrix[i][j]);
-                            }
-                        }
-                        drawScoreLabel(score, x2);
-                        drawLevelLabel(level, x2);
-                        drawPlayerLivesLabel(playerLives, x2);
-                        drawStriker(striker);
-                        drawBall(ball);
-                        TIM2->CR1 = 0x0001;
-                        bossKey = 0;
-                    } else if (bossKey && menuOpen) { //When the menu-page should be opened
-                        window(x1, y1, x2, y2, "Breakout", 1, 1);
-                        for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                            for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                                drawBox(boxMatrix[i][j]);
-                            }
-                        }
-                        drawStriker(striker);
-                        drawScoreboardLabel(scoreboardX, scoreboardY, 0);
-                        drawStartLabel(startX, startY, 0);
-                        drawHelpLabel(helpX, helpY, 0);
-                        scoreboardSelected = 0;
-                        startSelected = 0;
-                        helpSelected = 0;
-                        bossKey = 0;
-                        menuOpen = 1;
-                    } else if (menuOpen == 2 || menuOpen == 3) { //Return to home-page from scoreboard or help-page
-                        deleteHelp((x2 - x1)/8, 28);
-                        deleteScoreboard((x2 - x1)/8, 28);
-                        deleteBackMessage((x2 - x1)/2, 25);
-                        drawScoreboardLabel(scoreboardX, scoreboardY, 0);
-                        drawStartLabel(startX, startY, 0);
-                        drawHelpLabel(helpX, helpY, 0);
-                        scoreboardSelected = 0;
-                        startSelected = 0;
-                        helpSelected = 0;
-                        menuOpen = 1;
-                    }
-                    centerPressed = 1;
-                }
+                center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
+                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, MAX_COLUMNS, MAX_ROWS, boxMatrix, &ball, &striker, &gameIsDone);
                 break;
+
             default : //When a button on the joystick is released
                 centerPressed = 0;
                 break;
@@ -242,6 +183,15 @@ int main(void) {
                 FLASH_ProgramHalfWord(address + i * 2, scoreData[i]);
             }
             FLASH_Lock();
+            score = 0;
+            level = 1;
+            playerLives = 3;
+            makeLevel(&boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+            gameOver(x1, x2, y1, y2);
+            drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+            drawStartLabel(startX, startY, 0);
+            drawHelpLabel(helpX, helpY, 0);
+            menuOpen = 1;
             gameIsDone = 0;
         }
         //Checks if the the current score is grater than the high score
