@@ -352,11 +352,11 @@ int main(void) {
                     lastVal = scoreData[i];
                     scoreData[i] = score;
                     for (int j = i; j < 10; j++) {
-                        swapScores(&lastVal, &scoreData[1 + j]);
+                        swapScores(&scoreData[1 + j], &lastVal);
                     }
                     writtenToScoreboard = 1;
                 }
-                FLASH_ProgramHalfWord(address + i * 2, score);
+                FLASH_ProgramHalfWord(address + i * 2, scoreData[i]);
             }
             FLASH_Lock();
             gameIsDone = 0;
