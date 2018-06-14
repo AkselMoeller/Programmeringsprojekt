@@ -154,6 +154,7 @@ int main(void) {
     //Initialization
     init_usb_uart(115200);
     initJoyStick();
+    initTemperature();
     initTimer();
 
     //Drawing window
@@ -351,7 +352,7 @@ int main(void) {
                     lastVal = scoreData[i];
                     scoreData[i] = score;
                     for (int j = i; j < 10; j++) {
-                        swapScores(&lastVal, scoreData[1 + i]);
+                        swapScores(&lastVal, &scoreData[1 + j]);
                     }
                     writtenToScoreboard = 1;
                 }

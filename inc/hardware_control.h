@@ -10,7 +10,7 @@ void TIM2_IRQHandler();
 void initJoyStick();
 uint8_t readJoyStick();
 
-int8_t readTemperature();
 void initTemperature();
+int8_t readTemperature();
 
 #endif /*_HARDWARE_CONTROL_H_*/
