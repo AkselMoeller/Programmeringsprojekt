@@ -1,3 +1,4 @@
+#include "30010_io.h"
 #include "hardware_control.h"
 
 void initJoyStick() {
