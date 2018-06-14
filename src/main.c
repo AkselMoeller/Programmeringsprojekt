@@ -8,7 +8,7 @@
 #define MAX_ROWS 10
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t k, uint8_t * level_p,
+                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t k, uint8_t * level_p, uint8_t * gameIsDone,
                         int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
     if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) {
         (*ball_p).vX = -(*ball_p).vX;
@@ -35,6 +35,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
             gameOver(x1, x2, y1, y2);
             (*level_p) = 1;
             (*menuOpen_p) = 1;
+            (*gameIsDone) = 1;
         }
         (*inGameStart_p) = 1;
     }
@@ -151,6 +152,7 @@ int main(void) {
     uint16_t score = 0;
     uint8_t playerLives = 3;
     uint8_t level = 1;
+    uint8_t gameIsDone = 0;
     uint8_t boxesAlive;
     uint8_t menuOpen = 1; //0 = NO, 1 = YES; 2 = scoreboard open, 3 = help open
     uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
@@ -204,7 +206,7 @@ int main(void) {
             drawBall(ball);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, k, &level, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, k, &level, &gameIsDone, x1, y1, x2, y2);
 
             //Making ball bounce on striker
             ballStrikerCollision(&ball, striker);
@@ -350,24 +352,24 @@ int main(void) {
             drawHelp((x2 - x1)/4, 28);
         }
 
-        /*
-        //Writes score to scoreboard, if the score is great enough
-        FLASH_Unlock(); // Unlock FLASH for writing
-        FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
-        //FLASH_ErasePage( address ); // Erase entire page before writing
-        for (int i = 0 ; i < 10 ; i++ ){
-            if (score > *(uint16_t *)(address + i * 2) && !writtenToScoreboard) {
-                lastVal = score;
-                for (int j = i; j < 10; j++ ){
-                    lastVal = swapWithReturnVal(scoreData[j], lastVal, j);
+        if (gameIsDone) {
+            //Writes score to scoreboard, if the score is great enough
+            FLASH_Unlock(); // Unlock FLASH for writing
+            FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
+            //FLASH_ErasePage( address ); // Erase entire page before writing
+            for (int i = 0 ; i < 10 ; i++ ){
+                if (score > *(uint16_t *)(address + i * 2) && !writtenToScoreboard) {
+                    lastVal = score;
+                    for (int j = i; j < 10; j++ ){
+                        lastVal = swapWithReturnVal(scoreData[j], lastVal, j);
 
                     }
-                writtenToScoreboard = 1;
+                    writtenToScoreboard = 1;
                 }
             }
-
-        FLASH_Lock();
-        */
+            FLASH_Lock();
+            gameIsDone = 0;
+        }
     }
 }
 

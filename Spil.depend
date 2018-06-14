@@ -214,19 +214,19 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528904860 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1528965607 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 
-1528904889 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528965607 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
-1528795437 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+1528965607 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+	"30010_io.h"
 	"hardware_control.h"
 
-1528452076 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
-	"30010_io.h"
+1528965607 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
 
 1528449105 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -250,7 +250,7 @@
 	"lut-sin.h"
 	"vectors.h"
 
-1528449105 D
+1528883562 D
 
 1528801079 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\vectors.h
 
@@ -893,8 +893,6 @@
 
 1528883562 8aa56449e2fb2613f6cf70b20306acad80858
 
-<<<<<<< HEAD
-=======
 1528928339 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
@@ -904,4 +902,14 @@
 
 1528928118 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
 
->>>>>>> 43a96658d997685aa726fc83513907c1f50523ba
+1528928118 96658d997685aa726fc83513907c1f50523ba
+
+1528965607 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+	"stm32f30x_conf.h"
+	"30010_io.h"
+	"hardware_control.h"
+	"draw_objects.h"
+	"build_game.h"
+
+1528965607 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
+
