@@ -163,6 +163,8 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
+    gotoxy(125, 1);
+    printf("Temperature: %i", readTemperature());
 }
 
 void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
