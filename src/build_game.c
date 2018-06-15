@@ -47,11 +47,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*bossKey_p) = 0;
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
-            for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                    drawBox(boxMatrix[i][j]);
-                }
-            }
+            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
             drawStriker(*striker_p);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);
@@ -104,14 +100,16 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
         drawBall((*ball_p));
         drawStriker((*striker_p));
 
+
+        (*inGameStart_p) = 1;
         if (!(*playerLives_p)) { //Game over!!!
             gameOver(x1, x2, y1, y2);
             (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
             (*menuOpen_p) = 1;
             TIM2->CR1 = 0x0000;
+            (*inGameStart_p) = 0;
         }
-        (*inGameStart_p) = 1;
     }
 }
 
