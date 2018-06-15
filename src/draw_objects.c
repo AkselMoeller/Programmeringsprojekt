@@ -576,34 +576,39 @@ void deleteGameOver (int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 void drawHelp(uint8_t x, uint8_t y) {
     //This prints help instructions to screen
+    fgcolor(15);
     gotoxy(x, y);
-    fgcolor(7);
     printf("Help:");
-    gotoxy(x, y + 2);
+    gotoxy(x, y + 1);
     printf("- Move the joystick left and right to move the striker.");
+    gotoxy(x, y + 2);
+    printf("- Press the center of the joystick to select an action (etc. starting the game).");
     gotoxy(x, y + 3);
-    printf("- Press the center of joystick to select an action (etc. starting the game).");
+    printf("- Press down on the joystick to activate SFW (safe for work) mode (\"Boss Key\").");
     gotoxy(x, y + 4);
-    printf("- Press down on the joystick to activate SFW (safe for work) mode (\"Boss Key\".)");
-    gotoxy(x, y + 5);
     printf("- If the scoreboard is selected, a list of the highest scores will be shown.");
+    gotoxy(x, y + 6);
+    printf("Objective:");
+    gotoxy(x, y + 7);
+    printf("- Hit the boxes in the top half of the window by bouncing the ball on the striker.");
+    gotoxy(x, y + 8);
+    printf("- When a box is hit, the score increases. If the last ball (more balls will");
+    gotoxy(x, y + 9);
+    printf("  appear due to power-ups) hits the ground, you loose a life.");
+    gotoxy(x, y + 10);
+    printf("- When you have no lives left, the game is over.");
 }
 
 void deleteHelp(uint8_t x, uint8_t y) {
-    gotoxy(x, y);
-    printf("     ");
-    gotoxy(x, y + 2);
-    printf("                                                       ");
-    gotoxy(x, y + 3);
-    printf("                                                                            ");
-    gotoxy(x, y + 4);
-    printf("                                                                                 ");
-    gotoxy(x, y + 5);
-    printf("                                                                            ");
+    for (int i = 0; i < 11; i++) {
+        gotoxy(x, y + i);
+        printf("                                                                                  ");
+    }
 }
 
 void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
     uint16_t tempScoreVal;
+    fgcolor(15);
     gotoxy(x, y);
     printf("Here are the top scores: ");
     for (int i = 0 ; i < 10 ; i++ ){

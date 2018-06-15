@@ -183,7 +183,7 @@ int main(void) {
             drawScoreboard((x2 - x1)/8, 28, address);
         } else if (menuOpen == 3 && centerPressed) { //Help-button has been selected
             drawBackMessage((x2 - x1)/2, 25);
-            drawHelp((x2 - x1)/8, 28);
+            drawHelp((x2 - x1)/16, 28);
         }
 
         //Writes score to scoreboard when the game has finished and if the score is great enough

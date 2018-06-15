@@ -55,7 +55,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*menuOpen_p) = 1;
             (*gameIsDone_p) = 0;
         } else if (((*menuOpen_p) == 2 || (*menuOpen_p) == 3)) { //Return to home-page from scoreboard or help-page
-            deleteHelp((x2 - x1)/8, 28);
+            deleteHelp((x2 - x1)/16, 28);
             deleteScoreboard((x2 - x1)/8, 28);
             deleteBackMessage((x2 - x1)/2, 25);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
