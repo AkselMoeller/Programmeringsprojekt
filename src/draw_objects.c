@@ -203,7 +203,7 @@ void drawPowerUp(box_t * box_p) {
     (*box_p).powerUp.y++;
     gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
     fgcolor(7);
-    printf("%c y = %i", 4+144, (*box_p).powerUp.y); // "ö"
+    printf("%c", 4+144); // "ö"
 }
 
 void drawScoreLabel(uint16_t score, uint8_t x2) {
