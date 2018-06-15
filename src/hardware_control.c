@@ -89,14 +89,14 @@ void initPotentiometer() {
     GPIOA->MODER |= (0x00000000 << (0 * 2)); // Set mode register (0x00 - Input, 0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
         //Set PA0 to pull-down
     GPIOA->PUPDR &= ~(0x00000003 << (0 * 2)); // Clear push/pull register
-    GPIOA->PUPDR |= (0x00000002 << (0 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
+    GPIOA->PUPDR |= (0x00000000 << (0 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
 
         // Set pin PA1 to input
     GPIOA->MODER &= ~(0x00000003 << (1 * 2)); // Clear mode register
     GPIOA->MODER |= (0x00000000 << (1 * 2)); // Set mode register (0x00 - Input, 0x01 - Output, 0x02 - Alternate Function, 0x03 - Analog in/out)
         //Set PA1 to pull-down
     GPIOA->PUPDR &= ~(0x00000003 << (1 * 2)); // Clear push/pull register
-    GPIOA->PUPDR |= (0x00000002 << (1 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
+    GPIOA->PUPDR |= (0x00000000 << (1 * 2)); // Set push/pull register (0x00 - No pull, 0x01 - Pull-up, 0x02 - Pull-down)
 
     //Configure clock source
     RCC->CFGR2 &= ~RCC_CFGR2_ADCPRE12; // Clear ADC12 prescaler bits

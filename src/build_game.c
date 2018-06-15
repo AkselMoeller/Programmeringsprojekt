@@ -3,6 +3,7 @@
 #include "hardware_control.h"
 #include "draw_objects.h"
 #include "build_game.h"
+#include "ansi.h"
 
 void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p,
             uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
@@ -134,14 +135,14 @@ void ballStrikerCollision(ball_t * ball_p, striker_t striker) {
     }
 }
 
-void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, uint8_t * boxesAlive_p, int32_t x2) {
+void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, uint8_t * boxesAlive_p, int32_t x2, int32_t y2) {
     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
             if (boxMatrix[i][j].lives > 0) { //Only executed if the box is "alive"
                 (*boxesAlive_p)++;
                 //Checking if ball hits the TOP side of the box
                 if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
-                    && FIX14_left((*ball_p).x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                    && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
                     && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x2000
                     && (*ball_p).vY > 0) {
@@ -156,7 +157,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 }
                 //Checking if ball hits the BOTTOM sides of the box
                 else if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
-                    && FIX14_left((*ball_p).x < boxMatrix[i][j].x + boxMatrix[i][j].xSize)
+                    && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                     && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
                     && (*ball_p).vY < 0) {
@@ -171,7 +172,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 }
                 //Checking if ball hits the LEFT side of the box
                 else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && FIX14_left((*ball_p).y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                     && (*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x) + 0x2000
                     && (*ball_p).vX > 0) {
@@ -186,7 +187,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 }
                 //Checking if ball hits the RIGHT side of the box
                 else if ((*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && FIX14_left((*ball_p).y < boxMatrix[i][j].y + boxMatrix[i][j].ySize)
+                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
                     && (*ball_p).x <= FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).x > FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize) - 0x2000
                     && (*ball_p).vX < 0) {
@@ -200,11 +201,11 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                         drawScoreLabel(*score_p, x2);
                 }
             }
-            if (boxMatrix[i][j].powerUp.hit) {
-                drawPowerUp(&boxMatrix[i][j]);
+            if (boxMatrix[i][j].powerUp.hit) { //Draw powerUp
+                drawPowerUp(&boxMatrix[i][j], y2);
             }
-        } //end of both for-loops
-    }
+        }
+    }//End of both for-loops
 }
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {

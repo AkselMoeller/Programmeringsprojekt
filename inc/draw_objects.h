@@ -9,8 +9,8 @@
 #ifndef draw_objects_h
 #define draw_objects_h
 
-#define FIX14_right(x) (x >> 14)
-#define FIX14_left(x) (x << 14)
+#define FIX14_right(x) ((x) >> 14)
+#define FIX14_left(x) ((x) << 14)
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset);
 
@@ -30,7 +30,7 @@ void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 void deleteStriker(striker_t striker);
 
 typedef struct {
-    uint8_t x, y;
+    int32_t x, y;
     uint8_t style, hit;
 } powerUp_t;
 
@@ -41,7 +41,7 @@ typedef struct {
     powerUp_t powerUp;
 } box_t;
 void drawBox(box_t box);
-void drawPowerUp(box_t * box_p);
+void drawPowerUp(box_t * box_p, int32_t y2);
 
 void drawScoreLabel(uint16_t score, uint8_t x2);
 void drawLevelLabel(uint8_t level, uint8_t x2);

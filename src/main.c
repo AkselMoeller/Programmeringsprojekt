@@ -30,7 +30,6 @@ int main(void) {
     uint16_t scoreData[10] = {0};
     uint8_t writtenToScoreboard = 0;
     uint16_t lastVal = 0;
-    uint8_t upPressed = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -100,7 +99,7 @@ int main(void) {
 
             //Making ball bounce on boxes
             boxesAlive = 0;
-            ballBoxesCollision(&ball, boxMatrix, &score, &boxesAlive, x2);
+            ballBoxesCollision(&ball, boxMatrix, &score, &boxesAlive, x2, y2);
 
             if (!boxesAlive){ //When all boxes are "dead" (level-up!)
                 level++;
