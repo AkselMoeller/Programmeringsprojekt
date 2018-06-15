@@ -57,7 +57,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*menuOpen_p) = 1;
             (*gameIsDone_p) = 0;
         } else if (((*menuOpen_p) == 2 || (*menuOpen_p) == 3)) { //Return to home-page from scoreboard or help-page
-            deleteHelp((x2 - x1)/8, 28);
+            deleteHelp((x2 - x1)/16, 28);
             deleteScoreboard((x2 - x1)/8, 28);
             deleteBackMessage((x2 - x1)/2, 25);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
@@ -315,7 +315,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
 void initStriker(striker_t * striker_p, int32_t x1, int32_t x2, int32_t y2) {
     //Drawing striker
-    (*striker_p).color = 7;
+    (*striker_p).color = 12;
     (*striker_p).length = (x2 - x1)/10;
     (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
     (*striker_p).y = y2 - 1;
