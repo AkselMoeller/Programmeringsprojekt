@@ -197,13 +197,17 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
     resetbgcolor();
 }
 
-void drawPowerUp(box_t * box_p) {
+void drawPowerUp(box_t * box_p, int32_t y2) {
     gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
     printf(" "); //delete powerUp
     (*box_p).powerUp.y++;
-    gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
-    fgcolor(7);
-    printf("%c", 4+144); // "ö"
+    if ((*box_p).powerUp.y >= y2) {
+        (*box_p).powerUp.hit = 0;
+    } else {
+        gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
+        fgcolor(7);
+        printf("%c", 4+144); // "ö"
+    }
 }
 
 void drawScoreLabel(uint16_t score, uint8_t x2) {
