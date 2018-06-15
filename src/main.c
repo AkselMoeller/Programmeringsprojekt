@@ -44,6 +44,7 @@ int main(void) {
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     y2 = readPotentiometer2();
     window(x1, y1, x2, y2, "Breakout", 1, 1);
+    deactivatePotentiometer();
     scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
     startX = (x1 + x2)/2 - 6, startY = 30;
     helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 30;

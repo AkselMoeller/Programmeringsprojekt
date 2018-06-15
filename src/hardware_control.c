@@ -120,7 +120,11 @@ void initPotentiometer() {
 }
 
 void deactivatePotentiometer() {
+    ADC1->CR &= 0x0000002; // Enable ADC1 (0x01 - Enable, 0x02 - Disable)
+    while (!(ADC1->ISR & 0x00000001)); // Wait until ready
 
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_1, 2, ADC_SampleTime_1Cycles5);
+    ADC_RegularChannelConfig(ADC1, ADC_Channel_2, 2, ADC_SampleTime_1Cycles5);
 }
 
 uint16_t readPotentiometer1() {
