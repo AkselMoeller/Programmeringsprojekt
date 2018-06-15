@@ -126,6 +126,7 @@ void deleteStriker(striker_t striker) {
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
     //update color
+    readTemperature();
     switch (readTemperature()) {
         case 0 : (*striker_p).color = 11; //yellow
             break;
