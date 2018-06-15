@@ -198,7 +198,6 @@ void drawPowerUp(box_t * box_p, int32_t y2) {
         (*box_p).powerUp.hit = 0;
     } else {
         gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000)); //Rounded number
-        gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
         fgcolor(4);
         printf("%c", 4+144); // "ö"
     }
