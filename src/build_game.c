@@ -202,7 +202,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 }
             }
             if (boxMatrix[i][j].powerUp.hit) {
-                drawPowerUp(boxMatrix[i][j]);
+                drawPowerUp(&boxMatrix[i][j]);
             }
         } //end of both for-loops
     }
@@ -233,7 +233,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     }
                     break;
                 case 2 : //LVL 2
-                    if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
+                    if (j > 1 && j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
                         if (i == 1){
                             boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
