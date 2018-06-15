@@ -125,17 +125,21 @@ int main(void) {
                 }
                 break;
             case 4 : //Left
-                strikerCounter++;
-                if (striker.x > x1 + 1 && strikerCounter == strikerMaxCount && !bossKey) {
-                    strikerCounter = 0;
-                    updateStrikerPos(&striker, 4); //Moving striker left
+                if (!gameIsDone) {
+                    strikerCounter++;
+                    if (striker.x > x1 + 1 && strikerCounter == strikerMaxCount && !bossKey) {
+                        strikerCounter = 0;
+                        updateStrikerPos(&striker, 4); //Moving striker left
+                    }
                 }
                 break;
             case 8 : //Right
-                strikerCounter++;
-                if (striker.x < x2 - striker.length && strikerCounter == strikerMaxCount && !bossKey) {
-                    strikerCounter = 0;
-                    updateStrikerPos(&striker, 8); //Moving striker right
+                if (!gameIsDone) {
+                    strikerCounter++;
+                    if (striker.x < x2 - striker.length && strikerCounter == strikerMaxCount && !bossKey) {
+                        strikerCounter = 0;
+                        updateStrikerPos(&striker, 8); //Moving striker right
+                    }
                 }
                 break;
             case 16 : //Center
