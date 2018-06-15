@@ -95,7 +95,7 @@ int main(void) {
             ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
 
             //Making ball bounce on striker
-            ballStrikerCollision(&ball, striker);
+            strikerCollision(&ball, striker, boxMatrix);
 
             //Making ball bounce on boxes
             boxesAlive = 0;
