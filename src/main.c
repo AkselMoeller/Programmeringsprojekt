@@ -72,7 +72,6 @@ int main(void) {
     deleteBall(ball2);
 
     //Reset scoreboard
-    /*
     FLASH_Unlock(); // Unlock FLASH for writing
     FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
     FLASH_ErasePage( address ); // Erase entire page before writing
@@ -80,7 +79,6 @@ int main(void) {
         FLASH_ProgramHalfWord(address + i * 2, 0);
     }
     FLASH_Lock();
-    */
 
     //Initializing scoreboard
     for (int i = 0; i < 10; i++) {
