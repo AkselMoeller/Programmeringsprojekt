@@ -216,9 +216,6 @@
 		<Unit filename="src\system_stm32f30x.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="src\vectors.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="stm32f302r8_flash.ld" />
 		<Unit filename="stm32f302r8_sram.ld" />
 		<Extensions>
