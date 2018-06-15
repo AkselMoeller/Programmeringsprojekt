@@ -13,9 +13,6 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             if ((*scoreboardSelected_p)) { //Show scoreboard
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
                 (*menuOpen_p) = 2;
-            } else if (*helpSelected_p) { //Show help
-                deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
-                (*menuOpen_p) = 3;
             } else if ((*startSelected_p) || (*inGameStart_p)) { //Start game
                 deleteMenuLabels(scoreboardX, scoreboardY, helpX, helpY, startX, startY);
                 drawScoreLabel(score, x2);
@@ -30,6 +27,9 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
                 }
                 */
                 TIM2->CR1 = 0x0001;
+            } else if (*helpSelected_p) { //Show help
+                deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
+                (*menuOpen_p) = 3;
             }
         } else if ((*bossKey_p) && !(*menuOpen_p)) { //Resume game
             window(x1, y1, x2, y2, "Breakout", 1, 1);
@@ -266,8 +266,10 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY += 0x00000000; // (0) - 0 for testing
-        case 3 : (*ball_p).vY += 0x00000000; // (0) - for testing
+        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125) - 0 for testing
+            break;
+        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25) - for testing
+            break;
     }
 }
 
@@ -285,7 +287,7 @@ void initBall(ball_t * ball_p, striker_t striker) {
     (*ball_p).x = FIX14_left(striker.x + striker.length/2);
     (*ball_p).y = FIX14_left(striker.y - 2);
     (*ball_p).vX = 0x00000000;
-    (*ball_p).vY = 0xFFFFF000; //-0.25
+    (*ball_p).vY = -(0x00001000); //-0.25 - 0xFFFFF000
     drawBall(*ball_p);
 }
 
