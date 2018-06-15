@@ -91,10 +91,12 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
 }
 
 void drawBall(ball_t ball) {
-    fgcolor(15);
-    //Below 0.5 (0x2000 in 2.14 fixed point format) is added to coordinates in order to properly round off the numbers
-    gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000)); //The coordinates are right-shifted 14 bits in order to draw the ball correctly
-    printf("%c", 15+96); // "o"
+    if (ball.active) {
+        fgcolor(15);
+        //Below 0.5 (0x2000 in 2.14 fixed point format) is added to coordinates in order to properly round off the numbers
+        gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000)); //The coordinates are right-shifted 14 bits in order to draw the ball correctly
+        printf("%c", 15+96); // "o"
+    }
 }
 
 void deleteBall(ball_t ball) {
@@ -103,8 +105,10 @@ void deleteBall(ball_t ball) {
 }
 
 void updateBallPos(ball_t * ball_p, uint8_t k) {
-    (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
-    (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
+    if ((*ball_p).active) {
+        (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
+        (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
+    }
 }
 
 void drawStriker (striker_t striker) {
@@ -181,7 +185,8 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
         for (uint8_t j = 0; j < box.ySize; j++) {
             gotoxy(box.x + i, box.y + j);
             if (box.powerUp.style && box.lives && !box.powerUp.hit){
-                printf("%c", 15+96); // "o"
+                fgcolor(4);
+                printf("%c", 15+96); // "o" - making the powerUp visible
             } else {
                 printf(" ");
             }
@@ -191,15 +196,20 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
 }
 
 void drawPowerUp(box_t * box_p, int32_t y2) {
-    gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
+    gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000));
     printf(" "); //delete powerUp
     (*box_p).powerUp.y+= 0x1000; //Speed of drop
     if (FIX14_right((*box_p).powerUp.y + 0x2000) >= y2) { // check if the powerUp hits the bottom of game
         (*box_p).powerUp.hit = 0;
     } else {
         gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000)); //Rounded number
-        fgcolor(4);
-        printf("%c", 4+144); // "ö"
+        if ((*box_p).powerUp.style == 1) {
+            fgcolor(7);
+            printf("%c", 4+144); // "ö"
+        } else if ((*box_p).powerUp.style == 2) {
+            fgcolor(11); // yellow
+            printf("%c", 4+32); // "$"
+        }
     }
 }
 

@@ -60,11 +60,16 @@ int main(void) {
     //Initializing and drawing ball
     ball_t ball;
     initBall(&ball, striker);
+    ball.active = 1;
+
+    ball_t ball2;
+    initBall(&ball2, striker);
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
     makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
     deleteBall(ball); //Ball should not be visible yet
+    deleteBall(ball2);
 
     //Reset scoreboard
     /*
@@ -91,18 +96,30 @@ int main(void) {
             updateBallPos(&ball, k);
             drawBall(ball);
 
+            deleteBall(ball2);
+            updateBallPos(&ball2, k);
+            drawBall(ball2);
+
             //Making ball bounce on walls
             ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+            ballWallsCollision(&ball2, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+
+            if (!ball.active && !ball2.active) {
+                playerDead(&ball2, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+            }
 
             //Making ball bounce on striker
-            strikerCollision(&ball, striker, boxMatrix);
+            strikerCollision(&ball, striker, boxMatrix, &score);
+            strikerCollision(&ball2, striker, boxMatrix, &score);
 
             //Making ball bounce on boxes
             boxesAlive = 0;
             ballBoxesCollision(&ball, boxMatrix, &score, &boxesAlive, x2, y2);
+            ballBoxesCollision(&ball2, boxMatrix, &score, &boxesAlive, x2, y2);
 
             if (!boxesAlive){ //When all boxes are "dead" (level-up!)
                 level++;
+                ball2.active = 0;
                 makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level, x2);
                 inGameStart = 1;
@@ -144,7 +161,7 @@ int main(void) {
                 break;
             case 16 : //Center
                 center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
-                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, boxMatrix, &ball, &striker, &gameIsDone);
+                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, boxMatrix, &ball, &striker, &gameIsDone, &ball2);
                 break;
 
             default : //When a button on the joystick is released

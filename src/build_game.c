@@ -8,7 +8,7 @@
 void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p,
             uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
             uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2,
-            uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p) {
+            uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p, ball_t * ball2_p) {
      if (!(*centerPressed_p)) {
         if (!(*gameIsDone_p) && !(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
             if ((*scoreboardSelected_p)) { //Show scoreboard
@@ -43,6 +43,8 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
             makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
+            (*ball2_p).active = 0;
+            deleteBall(*ball2_p);
             deleteBall(*ball_p);
             drawStriker(*striker_p);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
@@ -105,7 +107,13 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
     }
 }
 
-void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS]) {
+void playerDead(ball_t * ball_p, striker_t * striker_p,
+                uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
+                int32_t x1, int32_t y1, int32_t x2, int32_t y2) { //runs if last ball is out
+
+}
+
+void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
         && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker
@@ -131,6 +139,12 @@ void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_CO
                     && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) <= striker.x + striker.length
                     && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) >= striker.x) {//conditions for powerUp hitting the striker
                     // stuff for hitting powerUp
+                    if (boxMatrix[i][j].powerUp.style == 1) { //powerUp for extra ball
+                        (*ball_p).active = 1;
+                    }
+                    if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra ball
+                        *score_p += 5;
+                    }
                 }
             }
         }
@@ -237,8 +251,11 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                 case 2 : //LVL 2
                     if (j > 1 && j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
-                        if (i == 1 || i == 8){
+                        if (i == 1){
                             boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
+                            boxMatrix[i][j].lives = 2;
+                        } else if (i == 8) {
+                            boxMatrix[i][j].powerUp.style = 2; // power up for extra points
                             boxMatrix[i][j].lives = 2;
                         }
                     } else {
@@ -249,7 +266,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
                         if (j == 3) {
-                            boxMatrix[i][j].powerUp.style = 1;
+                            boxMatrix[i][j].powerUp.style = 2;
                         }
                     } else if (j == 6) {
                         boxMatrix[i][j].lives = 2;
@@ -283,6 +300,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
     drawStriker(*striker_p);
 
     initBall(ball_p, *striker_p);
+    (*ball_p).active = 1;
 
     //making the ball faster for every level
     switch(level){
@@ -310,6 +328,7 @@ void initBall(ball_t * ball_p, striker_t striker) {
     (*ball_p).y = FIX14_left(striker.y - 2);
     (*ball_p).vX = 0x00000000;
     (*ball_p).vY = -(0x00001000); //-0.25 - 0xFFFFF000
+    (*ball_p).active = 0;
     drawBall(*ball_p);
 }
 

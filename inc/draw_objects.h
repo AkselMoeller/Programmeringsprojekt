@@ -17,6 +17,7 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
 typedef struct {
     int32_t x, y; //(x,y) is the position of the ball
     int32_t vX, vY; //(vX,vY) is the velocity-vector of the ball (how much it's going to move up/down next iteration)
+    int8_t active;
 } ball_t;
 void drawBall(ball_t ball);
 void updateBallPos(ball_t * ball_p, uint8_t k);
