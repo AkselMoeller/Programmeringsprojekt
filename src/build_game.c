@@ -105,13 +105,12 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
     }
 }
 
-void ballStrikerCollision(ball_t * ball_p, striker_t striker) {
+void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS]) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
-        && FIX14_right((*ball_p).x + 0x2000) >= striker.x) {
+        && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker
         for (int i = 0; i < striker.length; i++) {
-            if (FIX14_right((*ball_p).x + 0x2000) == striker.x + i) {
-                //Do stuff
+            if (FIX14_right((*ball_p).x + 0x2000) == striker.x + i) { //check position of striker
                 if ((*ball_p).vY > 0) {
                     (*ball_p).vY = -(*ball_p).vY;
                     (*ball_p).vX += -0x2000 + (0x2000 * 2)/(striker.length - 1) * i;
@@ -121,6 +120,17 @@ void ballStrikerCollision(ball_t * ball_p, striker_t striker) {
                     if ((*ball_p).vX <= -0x2000) {
                         (*ball_p).vX = -0x2000;
                     }
+                }
+            }
+        } //end of for-loop for striker position
+    }
+    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+        for (uint8_t j = 0; j < MAX_ROWS; j++) {
+            if (boxMatrix[i][j].powerUp.hit) { // checking only for moving powerUps
+                if (FIX14_right(boxMatrix[i][j].powerUp.y) == striker.y - 1
+                    && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) <= striker.x + striker.length
+                    && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) >= striker.x) {//conditions for powerUp hitting the striker
+                    // stuff for hitting powerUp
                 }
             }
         }
