@@ -21,12 +21,6 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
                 drawPlayerLivesLabel(playerLives, x2);
                 (*inGameStart_p) = 0;
                 (*menuOpen_p) = 0;
-                /*
-                if ((*gameIsDone_p) == 1) {
-                    deleteGameOver(x1,x2,y1,y2);
-                    (*gameIsDone_p) = 0;
-                }
-                */
                 TIM2->CR1 = 0x0001;
             } else if (*helpSelected_p) { //Show help
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
@@ -79,13 +73,11 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
                         uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
                         int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-    if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) {
+    if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) { //Ball colliding with vertical sides
         (*ball_p).vX = -(*ball_p).vX;
-    }
-    if ((*ball_p).y <= FIX14_left(y1 + 1)) {
+    } else if ((*ball_p).y <= FIX14_left(y1 + 1)) { //Ball colliding with top horizontal side
         (*ball_p).vY = -(*ball_p).vY;
-    }
-    if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) {
+    } else if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) { //Ball is not caught by player
         (*playerLives_p)--; //Decrement player lives
         drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
 
