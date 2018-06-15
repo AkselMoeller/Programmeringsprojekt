@@ -463,11 +463,11 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1529054878 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+1529067133 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1528991744 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
+1529066290 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
 
 1528449106 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -492,7 +492,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1529060556 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1529067648 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"

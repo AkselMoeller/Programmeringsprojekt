@@ -13,6 +13,7 @@ uint8_t readJoyStick();
 void initPotentiometer();
 uint16_t readPotentiometer1();
 uint16_t readPotentiometer2();
+void deactivatePotentiometer();
 
 void initTemperature();
 int8_t readTemperature();
