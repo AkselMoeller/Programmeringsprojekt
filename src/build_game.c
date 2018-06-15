@@ -246,16 +246,32 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                 case 3 : // LVL 3
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
+                        if (j == 3) {
+                            boxMatrix[i][j].powerUp.style = 1;
+                        }
                     } else if (j == 6) {
                         boxMatrix[i][j].lives = 2;
                     } else {
                         boxMatrix[i][j].lives = 0;
                     }
+                    break;
+                case 4 : // LVL 4
+                    if (j < 4) {
+                        boxMatrix[i][j].lives = 1;
+                        if (j == 2) {
+                            boxMatrix[i][j].lives = 2;
+                        } else {
+                            boxMatrix[i][j].lives = 0;
+                        }
+                    }
+                    if (j == 3 && (i == 2 || i == 7))
+                        boxMatrix[i][j].powerUp.style = 1;
+                    break;
             }
             //set all powerUps to their boxes center position:
             if (boxMatrix[i][j].powerUp.style) {
-                boxMatrix[i][j].powerUp.x = boxMatrix[i][j].x + boxMatrix[i][j].xSize/2;
-                boxMatrix[i][j].powerUp.y = boxMatrix[i][j].y + boxMatrix[i][j].ySize;
+                boxMatrix[i][j].powerUp.x = FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize/2);
+                boxMatrix[i][j].powerUp.y = FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize);
             }
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
@@ -271,6 +287,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
         case 2 : (*ball_p).vY += -(0x00000800); // (-0,125) - 0 for testing
             break;
         case 3 : (*ball_p).vY += -(0x00001000); // (-0,25) - for testing
+            break;
+        case 4 : (*ball_p).vY += -(0x00001800); // (-0,375)
             break;
     }
 }

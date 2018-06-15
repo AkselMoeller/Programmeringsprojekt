@@ -864,25 +864,25 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1529059374 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+1529076315 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 	"hardware_control.h"
 
-1529058731 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+1529075844 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
 
 1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
 	"game_control.h"
 
 1528466802 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\game_control.h
 
-1529055890 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
+1529075844 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1528992181 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\hardware_control.h
+1529068598 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\hardware_control.h
 
 1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -902,7 +902,7 @@
 
 1528801057 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\vectors.h
 
-1529059078 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
+1529075844 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -936,7 +936,7 @@
 
 1529054876 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
-1529055890 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
+1529075844 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
 1529059456 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
