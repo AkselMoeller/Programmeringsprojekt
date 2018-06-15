@@ -80,18 +80,24 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
     } else if ((*ball_p).y <= FIX14_left(y1 + 1)) { //Ball colliding with top horizontal side
         (*ball_p).vY = -(*ball_p).vY;
     } else if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) { //Ball is not caught by player
-        (*playerLives_p)--; //Decrement player lives
-        drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
-
-        //Resets ball and striker
-        deleteStriker(*striker_p);
-        (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
-        (*striker_p).y = y2 - 1;
         deleteBall((*ball_p));
         (*ball_p).vY = -(*ball_p).vY;
         (*ball_p).x = FIX14_left((*striker_p).x + (*striker_p).length/2);
         (*ball_p).y = FIX14_left((*striker_p).y - 2);
-        drawBall((*ball_p));
+        (*ball_p).active = 0;
+    }
+}
+
+void playerDead(ball_t * ball_p, striker_t * striker_p,
+                uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
+                int32_t x1, int32_t y1, int32_t x2, int32_t y2) { //runs if last ball is out
+        (*playerLives_p)--; //Decrement player lives
+        drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
+
+        //Resets striker
+        deleteStriker(*striker_p);
+        (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;
+        (*striker_p).y = y2 - 1;
         drawStriker((*striker_p));
 
         if (!(*playerLives_p)) { //Game over!!!
@@ -104,13 +110,6 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
         } else {
             (*inGameStart_p) = 1;
         }
-    }
-}
-
-void playerDead(ball_t * ball_p, striker_t * striker_p,
-                uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
-                int32_t x1, int32_t y1, int32_t x2, int32_t y2) { //runs if last ball is out
-
 }
 
 void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p) {
@@ -141,8 +140,7 @@ void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_CO
                     // stuff for hitting powerUp
                     if (boxMatrix[i][j].powerUp.style == 1) { //powerUp for extra ball
                         (*ball_p).active = 1;
-                    }
-                    if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra ball
+                    } else if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra points
                         *score_p += 5;
                     }
                 }

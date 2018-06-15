@@ -100,8 +100,10 @@ void drawBall(ball_t ball) {
 }
 
 void deleteBall(ball_t ball) {
-    gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000));
-    printf(" ");
+    if (ball.active) {
+        gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000));
+        printf(" ");
+    }
 }
 
 void updateBallPos(ball_t * ball_p, uint8_t k) {
