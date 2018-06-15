@@ -126,8 +126,8 @@ void deleteStriker(striker_t striker) {
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
     //update color
-    gotoxy(130, 10);
-    printf("     ");
+    gotoxy(150, 10);
+    printf("    ");
     readTemperature();
     uint8_t t = readTemperature();
     switch (t) {
@@ -169,7 +169,7 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         printf("%c", 11 + 208);
     }
     fgcolor(7);
-    gotoxy(130, 10);
+    gotoxy(150, 10);
     printf("%i", t);
 }
 

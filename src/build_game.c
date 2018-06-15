@@ -48,6 +48,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
             makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
+            deleteBall(*ball_p);
             drawStriker(*striker_p);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);
@@ -73,8 +74,6 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
         (*centerPressed_p) = 1;
     }
 }
-
-
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
                         uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
