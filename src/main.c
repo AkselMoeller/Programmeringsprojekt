@@ -9,8 +9,7 @@
 
 int main(void) {
     //Variables
-    int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size (current values will produce a 4 : 3 aspect ratio)
-    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+    int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size
     uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
     uint16_t strikerMaxCount = 5000; //Affects striker speed
@@ -20,10 +19,8 @@ int main(void) {
     uint8_t level = 1;
     uint8_t gameIsDone = 0;
     uint8_t boxesAlive;
+    uint8_t scoreboardX, scoreboardY, startX, startY, helpX, helpY;
     uint8_t menuOpen = 1; //0 = NO, 1 = YES; 2 = scoreboard open, 3 = help open
-    uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
-    uint8_t startX = (x1 + x2)/2 - 6, startY = 30;
-    uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 30;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t centerPressed = 0;
@@ -33,6 +30,7 @@ int main(void) {
     uint16_t scoreData[10] = {0};
     uint8_t writtenToScoreboard = 0;
     uint16_t lastVal = 0;
+    uint8_t upPressed = 0;
 
     //Initialization
     init_usb_uart(115200);
@@ -42,7 +40,13 @@ int main(void) {
     initTimer();
 
     //Drawing window
+    x2 = readPotentiometer1();
+    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+    y2 = readPotentiometer2();
     window(x1, y1, x2, y2, "Breakout", 1, 1);
+    scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
+    startX = (x1 + x2)/2 - 6, startY = 30;
+    helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 30;
 
     //Drawing menu labels
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
@@ -112,6 +116,15 @@ int main(void) {
         //Reading joystick input
         switch (readJoyStick()) {
             case 1 : //Up
+                //Making window size user-scalable
+                /*
+                upPressed = 1;
+                if (menuOpen == 1 && !bossKey) { //Should only be an option when the main-menu is open
+                    x2 = readPotentiometer1();
+                    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
+                    y2 = readPotentiometer2();
+                }
+                */
                 break;
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
@@ -136,11 +149,26 @@ int main(void) {
                 break;
             case 16 : //Center
                 center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
-                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, MAX_COLUMNS, MAX_ROWS, boxMatrix, &ball, &striker, &gameIsDone);
+                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, boxMatrix, &ball, &striker, &gameIsDone);
                 break;
 
             default : //When a button on the joystick is released
                 centerPressed = 0;
+                /*
+                if (menuOpen == 1 && upPressed) { //When user has changed x2 and y2
+                    window(x1, y1, x2, y2, "Breakout", 1, 1); //Old window is deleted and a new one is drawn
+                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
+                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
+                            drawBox(boxMatrix[i][j]);
+                        }
+                    }
+                    drawStriker(striker);
+                    drawScoreboardLabel(scoreboardX, scoreboardY, 0);
+                    drawStartLabel(startX, startY, 0);
+                    drawHelpLabel(helpX, helpY, 0);
+                    upPressed = 0;
+                }
+                */
                 break;
         }
 
@@ -179,7 +207,7 @@ int main(void) {
         }
 
         //Writes score to scoreboard when the game has finished and if the score is great enough
-        if (gameIsDone) {
+        if (gameIsDone && !writtenToScoreboard) {
             FLASH_Unlock(); // Unlock FLASH for writing
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
             FLASH_ErasePage( address ); // Erase entire page before writing
@@ -198,15 +226,15 @@ int main(void) {
             score = 0;
             level = 1;
             playerLives = 3;
-            makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
-            gameOver(x1, x2, y1, y2);
+            //makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+            /*gameOver(x1, x2, y1, y2);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);
             drawHelpLabel(helpX, helpY, 0);
-            menuOpen = 1;
-            gameIsDone = 0;
+            */menuOpen = 1;
         }
-        //Checks if the the current score is grater than the high score
+
+        //Checks if the the current score is greater than the high score
         if (score > scoreData[0] && !NewHighScore) {
             drawHighscoreLabel(x2); //Notifies the player if it is a new high score
             NewHighScore = 1;

@@ -4,14 +4,12 @@
 #include "draw_objects.h"
 #include "build_game.h"
 
-
-
-void center (uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p, uint8_t scoreboardX,
-             uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY, uint8_t * startSelected_p, uint8_t * helpSelected_p,
-             uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2, uint8_t playerLives, uint8_t colums, uint8_t rows,
-             box_t boxMatrix[colums][rows], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone) {
+void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p,
+            uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
+            uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2,
+            uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p) {
      if (!(*centerPressed_p)) {
-        if (!(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
+        if (!(*gameIsDone_p) && !(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
             if ((*scoreboardSelected_p)) { //Show scoreboard
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
                 (*menuOpen_p) = 2;
@@ -22,6 +20,12 @@ void center (uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_
                 drawPlayerLivesLabel(playerLives, x2);
                 (*inGameStart_p) = 0;
                 (*menuOpen_p) = 0;
+                /*
+                if ((*gameIsDone_p) == 1) {
+                    deleteGameOver(x1,x2,y1,y2);
+                    (*gameIsDone_p) = 0;
+                }
+                */
                 TIM2->CR1 = 0x0001;
             } else if (*helpSelected_p) { //Show help
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
@@ -41,7 +45,7 @@ void center (uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_
             drawBall(*ball_p);
             TIM2->CR1 = 0x0001;
             (*bossKey_p) = 0;
-        } else if (((*bossKey_p) && (*menuOpen_p))) { //When the menu-page should be opened
+        } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
             for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
                 for (uint8_t j = 0; j < MAX_ROWS; j++) {
@@ -57,9 +61,10 @@ void center (uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_
             (*helpSelected_p) = 0;
             (*bossKey_p) = 0;
             (*menuOpen_p) = 1;
+            (*gameIsDone_p) = 0;
         } else if (((*menuOpen_p) == 2 || (*menuOpen_p) == 3)) { //Return to home-page from scoreboard or help-page
-            deleteHelp((x2 - x1)/4, 28);
-            deleteScoreboard((x2 - x1)/4, 28);
+            deleteHelp((x2 - x1)/8, 28);
+            deleteScoreboard((x2 - x1)/8, 28);
             deleteBackMessage((x2 - x1)/2, 25);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);
@@ -101,7 +106,9 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
 
         if (!(*playerLives_p)) { //Game over!!!
             gameOver(x1, x2, y1, y2);
+            (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
+            (*menuOpen_p) = 1;
             TIM2->CR1 = 0x0000;
         }
         (*inGameStart_p) = 1;

@@ -49,6 +49,7 @@ void drawPlayerLivesLabel(uint8_t playerLives, uint8_t x2);
 
 void printBossKey(uint16_t score, uint8_t level, uint8_t playerLives);
 void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2);
+void deleteGameOver (int32_t x1, int32_t x2, int32_t y1, int32_t y2);
 
 void drawBackMessage(uint8_t x, uint8_t y);
 void deleteBackMessage(uint8_t x, uint8_t y);

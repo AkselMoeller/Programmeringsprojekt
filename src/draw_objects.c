@@ -10,6 +10,7 @@
 #include "draw_objects.h"
 #include "ansi.h"
 #include <string.h>
+#include "hardware_control.h"
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset) {
     resetbgcolor();
@@ -125,7 +126,11 @@ void deleteStriker(striker_t striker) {
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
     //update color
-    switch (readTemperature()) {
+    gotoxy(130, 10);
+    printf("     ");
+    readTemperature();
+    uint8_t t = readTemperature();
+    switch (t) {
         case 0 : (*striker_p).color = 11; //yellow
             break;
         case 1 : (*striker_p).color = 6; //cyan
@@ -163,6 +168,9 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
+    fgcolor(7);
+    gotoxy(130, 10);
+    printf("%i", t);
 }
 
 void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
@@ -552,6 +560,23 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 }
 
+void deleteGameOver (int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
+    uint8_t xm = (x2 - x1)/2;
+    uint8_t ym = (y2 - y1)/2;
+
+    //Goes to start position for delete
+    uint8_t xDs = xm - (5*5);
+    uint8_t yDs = ym - 3;
+    gotoxy(xDs + 1, yDs);
+
+    for (int i = 0; i < 5; i ++) {
+        gotoxy(xDs, yDs + i);
+        for (int j = 0; j < 53; j++){
+                printf(" ");
+        }
+    }
+}
+
 void drawHelp(uint8_t x, uint8_t y) {
     //This prints help instructions to screen
     gotoxy(x, y);
@@ -584,19 +609,6 @@ void drawScoreboard(uint8_t x, uint8_t y, uint32_t address) {
     uint16_t tempScoreVal;
     gotoxy(x, y);
     printf("Here are the top scores: ");
-    /*fgcolor(7);
-    printf("Here are the top scores: ");
-    gotoxy(x, y + 2);
-    printf("1: %i", scoreboard[0]);
-    gotoxy(x, y + 3);
-    printf("2: %i", scoreboard[1]);
-    gotoxy(x, y + 4);
-    printf("3: %i", scoreboard[2]);
-    gotoxy(x, y + 5);
-    printf("4: %i", scoreboard[3]);
-    gotoxy(x, y + 6);
-    printf("4: %i", scoreboard[4]); */
-    //Prints the scoreboard to screen
     for (int i = 0 ; i < 10 ; i++ ){
         tempScoreVal = *(uint16_t *)(address + i * 2); //Read stored scoreboard
         gotoxy(x, y + i + 2);

@@ -214,26 +214,27 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528984294 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1529052283 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
+	"hardware_control.h"
 
-1528984294 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1528992257 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
-1528984463 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+1528991743 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1528978906 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
+1528991743 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\hardware_control.h
 
 1528449105 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\lut-sin.c
 	"lut-sin.h"
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1528988642 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1529052283 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -462,11 +463,11 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1528991027 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+1529054396 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1528990959 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
+1529018971 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
 
 1528449846 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -491,14 +492,14 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1528991309 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1529053888 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
 
-1528991168 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
+1528992626 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\draw_objects.h
 
 1528468097 24705c7310dd1264ee0036bbb65fc6a2acca9
 
@@ -634,11 +635,12 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528991494 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
+1529054168 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
+	"hardware_control.h"
 
 1528452417 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\spl\src\stm32f30x_adc.c
 	"stm32f30x_adc.h"
@@ -895,25 +897,25 @@
 
 1528883562 8aa56449e2fb2613f6cf70b20306acad80858
 
-1528991168 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
+1529019609 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
 
-1528990879 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
+1529054849 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1528990729 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1529052283 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
 
-1528988613 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
+1529052283 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
 1528991026 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
