@@ -19,10 +19,8 @@ int main(void) {
     uint8_t level = 1;
     uint8_t gameIsDone = 0;
     uint8_t boxesAlive;
+    uint8_t scoreboardX, scoreboardY, startX, startY, helpX, helpY;
     uint8_t menuOpen = 1; //0 = NO, 1 = YES; 2 = scoreboard open, 3 = help open
-    uint8_t scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
-    uint8_t startX = (x1 + x2)/2 - 6, startY = 30;
-    uint8_t helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 30;
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t centerPressed = 0;
@@ -46,6 +44,9 @@ int main(void) {
     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
     y2 = readPotentiometer2();
     window(x1, y1, x2, y2, "Breakout", 1, 1);
+    scoreboardX = (x1 + x2)/2 - (x1 + x2)/4, scoreboardY = 30;
+    startX = (x1 + x2)/2 - 6, startY = 30;
+    helpX = (x1 + x2)/2 + (x1 + x2)/4 - 12, helpY = 30;
 
     //Drawing menu labels
     drawScoreboardLabel(scoreboardX, scoreboardY, 0); //0 = black bgcolor
@@ -116,12 +117,14 @@ int main(void) {
         switch (readJoyStick()) {
             case 1 : //Up
                 //Making window size user-scalable
+                /*
                 upPressed = 1;
                 if (menuOpen == 1 && !bossKey) { //Should only be an option when the main-menu is open
                     x2 = readPotentiometer1();
                     x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
                     y2 = readPotentiometer2();
                 }
+                */
                 break;
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
@@ -151,6 +154,7 @@ int main(void) {
 
             default : //When a button on the joystick is released
                 centerPressed = 0;
+                /*
                 if (menuOpen == 1 && upPressed) { //When user has changed x2 and y2
                     window(x1, y1, x2, y2, "Breakout", 1, 1); //Old window is deleted and a new one is drawn
                     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
@@ -164,6 +168,7 @@ int main(void) {
                     drawHelpLabel(helpX, helpY, 0);
                     upPressed = 0;
                 }
+                */
                 break;
         }
 
