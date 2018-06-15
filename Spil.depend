@@ -234,7 +234,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1529053831 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1529057073 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -909,7 +909,7 @@
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1529055706 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1529057073 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
