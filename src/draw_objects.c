@@ -114,6 +114,7 @@ void drawStriker (striker_t striker) {
         gotoxy(striker.x + i, striker.y);
         printf("%c", 11 + 208);
     }
+    fgcolor(15);
 }
 
 void deleteStriker(striker_t striker) {
@@ -131,25 +132,17 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
     readTemperature();
     uint8_t t = readTemperature();
     switch (t) {
-        case 0 : (*striker_p).color = 11; //yellow
+        case 0 : (*striker_p).color = 4; //blue
             break;
-        case 1 : (*striker_p).color = 6; //cyan
+        case 1 : (*striker_p).color = 12; //light blue
             break;
-        case 2 : (*striker_p).color = 14; //light cyan
+        case 2 : (*striker_p).color = 13; //light purple
             break;
-        case 3 : (*striker_p).color = 12; //light blue
+        case 3 : (*striker_p).color = 9; //light red
             break;
-        case 4 : (*striker_p).color = 4; //blue
+        case 4 : (*striker_p).color = 1; //red
             break;
-        case 5 : (*striker_p).color = 5; //purple
-            break;
-        case 6 : (*striker_p).color = 13; //light purple
-            break;
-        case 7 : (*striker_p).color = 9; //light red
-            break;
-        case 8 : (*striker_p).color = 1; //red
-            break;
-        default : (*striker_p).color = 15; //white
+        default : //don't change color
             break;
     }
     //update position
