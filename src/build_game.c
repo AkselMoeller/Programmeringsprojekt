@@ -47,11 +47,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*bossKey_p) = 0;
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
-            for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                    drawBox(boxMatrix[i][j]);
-                }
-            }
+            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
             drawStriker(*striker_p);
             drawScoreboardLabel(scoreboardX, scoreboardY, 0);
             drawStartLabel(startX, startY, 0);

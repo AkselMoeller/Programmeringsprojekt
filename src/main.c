@@ -116,15 +116,6 @@ int main(void) {
         //Reading joystick input
         switch (readJoyStick()) {
             case 1 : //Up
-                //Making window size user-scalable
-                /*
-                upPressed = 1;
-                if (menuOpen == 1 && !bossKey) { //Should only be an option when the main-menu is open
-                    x2 = readPotentiometer1();
-                    x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1; //Makes the width divisible by 10
-                    y2 = readPotentiometer2();
-                }
-                */
                 break;
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
@@ -154,21 +145,6 @@ int main(void) {
 
             default : //When a button on the joystick is released
                 centerPressed = 0;
-                /*
-                if (menuOpen == 1 && upPressed) { //When user has changed x2 and y2
-                    window(x1, y1, x2, y2, "Breakout", 1, 1); //Old window is deleted and a new one is drawn
-                    for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
-                        for (uint8_t j = 0; j < MAX_ROWS; j++) {
-                            drawBox(boxMatrix[i][j]);
-                        }
-                    }
-                    drawStriker(striker);
-                    drawScoreboardLabel(scoreboardX, scoreboardY, 0);
-                    drawStartLabel(startX, startY, 0);
-                    drawHelpLabel(helpX, helpY, 0);
-                    upPressed = 0;
-                }
-                */
                 break;
         }
 
