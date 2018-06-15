@@ -233,7 +233,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                 case 2 : //LVL 2
                     if (j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
-                        if (i == 4){
+                        if (i == 1){
                             boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
                             boxMatrix[i][j].lives = 2;
                         }
@@ -266,8 +266,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY += 0; // (0) - 0 for testing
-        case 3 : (*ball_p).vY += ~(0x00002000)+1; // (+0,5) - very fast for testing
+        case 2 : (*ball_p).vY += 0x00000000; // (0) - 0 for testing
+        case 3 : (*ball_p).vY += 0x00000000; // (0) - for testing
     }
 }
 
