@@ -200,12 +200,13 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
 void drawPowerUp(box_t * box_p, int32_t y2) {
     gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
     printf(" "); //delete powerUp
-    (*box_p).powerUp.y++;
-    if ((*box_p).powerUp.y >= y2) {
+    (*box_p).powerUp.y+= 0x1000; //Speed of drop
+    if (FIX14_right((*box_p).powerUp.y + 0x2000) >= y2) { // check if the powerUp hits the bottom of game
         (*box_p).powerUp.hit = 0;
     } else {
+        gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000)); //Rounded number
         gotoxy((*box_p).powerUp.x, (*box_p).powerUp.y);
-        fgcolor(7);
+        fgcolor(4);
         printf("%c", 4+144); // "ö"
     }
 }
