@@ -9,7 +9,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2,
             uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p) {
      if (!(*centerPressed_p)) {
-        if (!(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
+        if (!(*gameIsDone_p) && !(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
             if ((*scoreboardSelected_p)) { //Show scoreboard
                 deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
                 (*menuOpen_p) = 2;
@@ -61,7 +61,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*helpSelected_p) = 0;
             (*bossKey_p) = 0;
             (*menuOpen_p) = 1;
-            (*gameIsDone) = 0;
+            (*gameIsDone_p) = 0;
         } else if (((*menuOpen_p) == 2 || (*menuOpen_p) == 3)) { //Return to home-page from scoreboard or help-page
             deleteHelp((x2 - x1)/8, 28);
             deleteScoreboard((x2 - x1)/8, 28);
@@ -108,6 +108,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
             gameOver(x1, x2, y1, y2);
             (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
+            (*menuOpen_p) = 1;
             TIM2->CR1 = 0x0000;
         }
         (*inGameStart_p) = 1;
