@@ -30,7 +30,7 @@ void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 void deleteStriker(striker_t striker);
 
 typedef struct {
-    uint8_t x, y;
+    int32_t x, y;
     uint8_t style, hit;
 } powerUp_t;
 
