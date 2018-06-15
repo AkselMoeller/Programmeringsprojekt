@@ -201,8 +201,6 @@ int main(void) {
             FLASH_Lock();
             score = 0;
             level = 1;
-            playerLives = 3;
-            menuOpen = 1;
         }
 
         //Checks if the the current score is greater than the high score
