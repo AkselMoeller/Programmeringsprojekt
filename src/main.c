@@ -202,12 +202,7 @@ int main(void) {
             score = 0;
             level = 1;
             playerLives = 3;
-            //makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
-            /*gameOver(x1, x2, y1, y2);
-            drawScoreboardLabel(scoreboardX, scoreboardY, 0);
-            drawStartLabel(startX, startY, 0);
-            drawHelpLabel(helpX, helpY, 0);
-            */menuOpen = 1;
+            menuOpen = 1;
         }
 
         //Checks if the the current score is greater than the high score
