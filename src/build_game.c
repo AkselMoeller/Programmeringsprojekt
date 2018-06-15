@@ -268,8 +268,10 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
 
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY += 0x00000000; // (0) - 0 for testing
-        case 3 : (*ball_p).vY += 0x00000000; // (0) - for testing
+        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125) - 0 for testing
+            break;
+        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25) - for testing
+            break;
     }
 }
 
@@ -287,7 +289,7 @@ void initBall(ball_t * ball_p, striker_t striker) {
     (*ball_p).x = FIX14_left(striker.x + striker.length/2);
     (*ball_p).y = FIX14_left(striker.y - 2);
     (*ball_p).vX = 0x00000000;
-    (*ball_p).vY = 0xFFFFF000; //-0.25
+    (*ball_p).vY = -(0x00001000); //-0.25 - 0xFFFFF000
     drawBall(*ball_p);
 }
 
