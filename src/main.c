@@ -125,7 +125,7 @@ int main(void) {
                 }
                 break;
             case 4 : //Left
-                if (!gameIsDone) {
+                if (!gameIsDone) { //Only move striker when game is running
                     strikerCounter++;
                     if (striker.x > x1 + 1 && strikerCounter == strikerMaxCount && !bossKey) {
                         strikerCounter = 0;
@@ -134,7 +134,7 @@ int main(void) {
                 }
                 break;
             case 8 : //Right
-                if (!gameIsDone) {
+                if (!gameIsDone) { //Only move striker when game is running
                     strikerCounter++;
                     if (striker.x < x2 - striker.length && strikerCounter == strikerMaxCount && !bossKey) {
                         strikerCounter = 0;
