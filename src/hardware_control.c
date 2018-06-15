@@ -119,6 +119,10 @@ void initPotentiometer() {
     while (!(ADC1->ISR & 0x00000001)); // Wait until ready
 }
 
+void deactivatePotentiometer() {
+
+}
+
 uint16_t readPotentiometer1() {
     //Reading from channel 1
     ADC_RegularChannelConfig(ADC1, ADC_Channel_1, 1, ADC_SampleTime_1Cycles5);
