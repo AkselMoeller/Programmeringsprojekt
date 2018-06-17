@@ -73,8 +73,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
 }
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                        uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
-                        int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+                         uint8_t * k_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
     if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) { //Ball colliding with vertical sides
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).y <= FIX14_left(y1 + 1)) { //Ball colliding with top horizontal side
@@ -82,9 +81,9 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
     } else if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) { //Ball is not caught by player
         deleteBall((*ball_p));
         (*ball_p).vY = -(*ball_p).vY;
-        (*ball_p).x = FIX14_left((*striker_p).x + (*striker_p).length/2);
-        (*ball_p).y = FIX14_left((*striker_p).y - 2);
         (*ball_p).active = 0;
+        (*ball_p).x = FIX14_left((x1 + x2)/2);
+        (*ball_p).y = FIX14_left((*striker_p).y - 2);
     }
 }
 
@@ -100,6 +99,9 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
         (*striker_p).y = y2 - 1;
         drawStriker((*striker_p));
 
+        //brings back 1 ball
+        (*ball_p).active = 1;
+
         if (!(*playerLives_p)) { //Game over!!!
             gameOver(x1, x2, y1, y2);
             (*playerLives_p) = 3;
@@ -109,10 +111,11 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
             (*inGameStart_p) = 0;
         } else {
             (*inGameStart_p) = 1;
+            drawBall(*ball_p);
         }
 }
 
-void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p) {
+void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
         && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker
@@ -141,7 +144,8 @@ void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_CO
                     if (boxMatrix[i][j].powerUp.style == 1) { //powerUp for extra ball
                         (*ball_p).active = 1;
                     } else if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra points
-                        *score_p += 5;
+                        *score_p += 2;
+                        drawScoreLabel(*score_p, x2);
                     }
                 }
             }
@@ -249,13 +253,13 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                 case 2 : //LVL 2
                     if (j > 1 && j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
-                        if (i == 1){
+                        //if (i == 1){
                             boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
                             boxMatrix[i][j].lives = 2;
-                        } else if (i == 8) {
-                            boxMatrix[i][j].powerUp.style = 2; // power up for extra points
+                       // } else if (i == 8) {
+                         //   boxMatrix[i][j].powerUp.style = 2; // power up for extra points
                             boxMatrix[i][j].lives = 2;
-                        }
+                       // }
                     } else {
                         boxMatrix[i][j].lives = 0;
                     }
@@ -277,9 +281,9 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                         boxMatrix[i][j].lives = 1;
                         if (j == 2) {
                             boxMatrix[i][j].lives = 2;
-                        } else {
-                            boxMatrix[i][j].lives = 0;
                         }
+                    } else {
+                            boxMatrix[i][j].lives = 0;
                     }
                     if (j == 3 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
