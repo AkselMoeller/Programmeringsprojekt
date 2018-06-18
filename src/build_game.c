@@ -43,7 +43,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*newHighscore_p) = 0;
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
-            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
+            makeLevel(boxMatrix, ball_p, ball2_p, striker_p, x1, y1, x2, y2, level);
             (*ball2_p).active = 0;
             deleteBall(*ball2_p);
             deleteBall(*ball_p);
@@ -232,7 +232,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
     }//End of both for-loops
 }
 
-void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
+void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t * ball2_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     TIM2->CR1 = 0x0000;
     deleteBall(*ball_p);
     deleteStriker(*striker_p);
@@ -294,6 +294,21 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     if (j == 3 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
+                case 5 : // LVL 5
+                    if (j < 4) {
+                        boxMatrix[i][j].lives = 1;
+                        if (j == 2 || j == 0) {
+                            boxMatrix[i][j].lives = 2;
+                            if (i == 0 || 9) {
+                                boxMatrix[i][j].powerUp.style = 2;
+                            }
+                        }
+                    } else {
+                            boxMatrix[i][j].lives = 0;
+                    }
+                    if (j == 3 && (i == 2 || i == 7))
+                        boxMatrix[i][j].powerUp.style = 1;
+                    break;
             }
             //set all powerUps to their boxes center position:
             if (boxMatrix[i][j].powerUp.style) {
@@ -310,13 +325,21 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
     initBall(ball_p, *striker_p);
     (*ball_p).active = 1;
 
+    initBall(ball2_p, *striker_p);
+
     //making the ball faster for every level
     switch(level){
-        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125) - 0 for testing
+        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125)
+            (*ball2_p).vY += -(0x00000800);
             break;
-        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25) - for testing
+        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25)
+            (*ball2_p).vY += -(0x00001000);
             break;
         case 4 : (*ball_p).vY += -(0x00001800); // (-0,375)
+            (*ball2_p).vY += -(0x00001800);
+            break;
+        case 5 : (*ball_p).vY += -(0x00001800); // (-0,375)
+            (*ball2_p).vY += -(0x00001800);
             break;
     }
 }
