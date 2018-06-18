@@ -74,7 +74,9 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
                          uint8_t * k_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-    if ((*ball_p).x <= FIX14_left(x1 + 1) || (*ball_p).x >= FIX14_left(x2 - 1)) { //Ball colliding with vertical sides
+    if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX < 0) { //Ball colliding with left side
+        (*ball_p).vX = -(*ball_p).vX;
+    } else if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX > 0) { //Ball colliding with right side
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).y <= FIX14_left(y1 + 1)) { //Ball colliding with top horizontal side
         (*ball_p).vY = -(*ball_p).vY;
@@ -89,7 +91,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
 
 void playerDead(ball_t * ball_p, striker_t * striker_p,
                 uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
-                int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t * level) { //runs if last ball is out
+                int32_t x1, int32_t y1, int32_t x2, int32_t y2) { //runs if last ball is out
         (*playerLives_p)--; //Decrement player lives
         drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
 
@@ -103,7 +105,6 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
         (*ball_p).active = 1;
 
         if (!(*playerLives_p)) { //Game over!!!
-            *level = 1;
             gameOver(x1, x2, y1, y2);
             (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
@@ -254,13 +255,13 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                 case 2 : //LVL 2
                     if (j > 1 && j < 4 && ((j%2 && (i+1)%2) || ((j+1)%2 && i%2))) {
                         boxMatrix[i][j].lives = 1;
-                        if (i == 1){
+                        //if (i == 1){
                             boxMatrix[i][j].powerUp.style = 1; // power up for extra ball
                             boxMatrix[i][j].lives = 2;
-                        } else if (i == 8) {
-                            boxMatrix[i][j].powerUp.style = 2; // power up for extra points
+                       // } else if (i == 8) {
+                         //   boxMatrix[i][j].powerUp.style = 2; // power up for extra points
                             boxMatrix[i][j].lives = 2;
-                        }
+                       // }
                     } else {
                         boxMatrix[i][j].lives = 0;
                     }
