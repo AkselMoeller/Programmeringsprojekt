@@ -33,7 +33,7 @@ int main(void) {
     uint16_t lastVal = 0;
 
     //Initialization
-    init_usb_uart(115200);
+    init_usb_uart(576000);
     initJoyStick();
     initPotentiometer();
     initTemperature();
