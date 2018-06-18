@@ -93,6 +93,7 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
 }
 
 void drawBall(ball_t ball) {
+    resetbgcolor();
     if (ball.active) {
         fgcolor(15);
         //Below 0.5 (0x2000 in 2.14 fixed point format) is added to coordinates in order to properly round off the numbers
@@ -102,6 +103,7 @@ void drawBall(ball_t ball) {
 }
 
 void deleteBall(ball_t ball) {
+    resetbgcolor();
     if (ball.active) {
         gotoxy(FIX14_right(ball.x + 0x2000), FIX14_right(ball.y + 0x2000));
         printf(" ");

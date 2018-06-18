@@ -78,7 +78,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX > 0) { //Ball colliding with right side
         (*ball_p).vX = -(*ball_p).vX;
-    } else if ((*ball_p).y <= FIX14_left(y1 + 1)) { //Ball colliding with top horizontal side
+    } else if ((*ball_p).y <= FIX14_left(y1 + 1) && (*ball_p).vY < 0) { //Ball colliding with top horizontal side
         (*ball_p).vY = -(*ball_p).vY;
     } else if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) { //Ball is not caught by player
         deleteBall((*ball_p));
