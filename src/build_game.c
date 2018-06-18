@@ -309,6 +309,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t *
                     if (j == 3 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
+                default :
+                    boxMatrix[i][j].powerUp.style = 2;
             }
             //set all powerUps to their boxes center position:
             if (boxMatrix[i][j].powerUp.style) {
@@ -341,6 +343,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t *
         case 5 : (*ball_p).vY += -(0x00001800); // (-0,375)
             (*ball2_p).vY += -(0x00001800);
             break;
+        default : (*ball_p).vY += -(0x00001800); // (-0,375)
+            (*ball2_p).vY += -(0x00001800);
     }
 }
 
