@@ -203,10 +203,10 @@ void drawPowerUp(box_t * box_p, int32_t y2) {
     gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000));
     printf(" "); //delete powerUp
     (*box_p).powerUp.y+= 0x1000; //Speed of drop
-    if (FIX14_right((*box_p).powerUp.y + 0x2000) >= y2) { // check if the powerUp hits the bottom of game
+    if (FIX14_right((*box_p).powerUp.y) >= y2 - 1) { // check if the powerUp hits the bottom of game
         (*box_p).powerUp.hit = 0;
     } else {
-        gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000)); //Rounded number
+        gotoxy(FIX14_right((*box_p).powerUp.x), FIX14_right((*box_p).powerUp.y)); //Draw powerUp
         if ((*box_p).powerUp.style == 1) {
             fgcolor(7);
             printf("%c", 4+144); // "ö"
