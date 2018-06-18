@@ -168,7 +168,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x2000
+                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x3000
                     && (*ball_p).vY > 0) {
                         (*ball_p).vY = -(*ball_p).vY; //bounce ball
                         if (boxMatrix[i][j].powerUp.style) { //testing for powerUp
@@ -183,7 +183,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 else if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                    && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
+                    && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x3000
                     && (*ball_p).vY < 0) {
                         (*ball_p).vY = -(*ball_p).vY;
                         if (boxMatrix[i][j].powerUp.style) {
