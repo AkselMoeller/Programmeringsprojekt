@@ -203,11 +203,11 @@ int main(void) {
         }
 
         //Writes score to scoreboard when the game has finished and if the score is great enough
-        if (gameIsDone) {
+        if (gameIsDone && score > scoreData[9]) {
             FLASH_Unlock(); // Unlock FLASH for writing
             FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
             FLASH_ErasePage( address ); // Erase entire page before writing
-            for (int i = 0 ; i < 10 ; i++ ){
+            for (int i = 0 ; i < 10 ; i++ ) {
                 if (score > scoreData[i] && !writtenToScoreboard) {
                     lastVal = scoreData[i];
                     scoreData[i] = score;
