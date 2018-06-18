@@ -13,5 +13,6 @@ void gotoxy(int x, int y);
 void underline(uint8_t on);
 void blink(uint8_t on);
 void inverse(uint8_t on);
+void showCursor();
 
 #endif /* ANSI_H_INCLUDED */

@@ -7,6 +7,7 @@
 #define MAX_COLUMNS 10
 #define MAX_ROWS 10
 
+
 int main(void) {
     //Variables
     int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size

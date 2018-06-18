@@ -12,6 +12,7 @@
 #define FIX14_right(x) ((x) >> 14)
 #define FIX14_left(x) ((x) << 14)
 
+
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset);
 
 typedef struct {
