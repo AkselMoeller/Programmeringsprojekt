@@ -8,7 +8,11 @@
 	</File>
 	<File name="inc\build_game.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="1438" topLine="0" />
+=======
+			<Cursor1 position="852" topLine="0" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 	<File name="inc\draw_objects.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -33,27 +37,47 @@
 	</File>
 	<File name="src\build_game.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="16417" topLine="316" />
+=======
+			<Cursor1 position="9229" topLine="162" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 	<File name="src\draw_objects.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="6293" topLine="173" />
+=======
+			<Cursor1 position="5754" topLine="183" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 	<File name="src\hardware_control.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="6355" topLine="24" />
+=======
+			<Cursor1 position="7417" topLine="129" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 	<File name="src\main.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="4269" topLine="106" />
+=======
+			<Cursor1 position="1068" topLine="6" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="3768" topLine="131" />
+=======
+			<Cursor1 position="3823" topLine="113" />
+>>>>>>> a37d32ccf2183662dad385e528e45305819a577e
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
