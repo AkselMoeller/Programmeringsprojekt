@@ -74,7 +74,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
                          uint8_t * k_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
-    if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX < 0) { //Ball colliding with left side
+    if ((*ball_p).x <= FIX14_left(x1 + 1) && (*ball_p).vX < 0) { //Ball colliding with left side
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX > 0) { //Ball colliding with right side
         (*ball_p).vX = -(*ball_p).vX;
