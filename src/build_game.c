@@ -299,18 +299,18 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t *
                         boxMatrix[i][j].lives = 1;
                         if (j == 2 || j == 0) {
                             boxMatrix[i][j].lives = 2;
-                            if (i == 0 || 9) {
+                            if (i == 0 || i == 9) {
                                 boxMatrix[i][j].powerUp.style = 2;
                             }
                         }
                     } else {
                             boxMatrix[i][j].lives = 0;
                     }
-                    if (j == 3 && (i == 2 || i == 7))
+                    if (j == 1 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
                 default :
-                    boxMatrix[i][j].powerUp.style = 2;
+                    boxMatrix[i][j].lives = 2;
             }
             //set all powerUps to their boxes center position:
             if (boxMatrix[i][j].powerUp.style) {
