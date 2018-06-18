@@ -105,7 +105,7 @@ int main(void) {
             ballWallsCollision(&ball2, &striker, &k, x1, y1, x2, y2);
 
             if (!ball.active && !ball2.active) {
-                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2, &level);
             }
 
             //Making ball bounce on striker
