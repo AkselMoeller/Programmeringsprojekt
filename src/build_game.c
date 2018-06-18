@@ -5,7 +5,7 @@
 #include "build_game.h"
 #include "ansi.h"
 
-void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p,
+void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p, uint8_t * newHighscore_p,
             uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
             uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2,
             uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p, ball_t * ball2_p) {
@@ -42,7 +42,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*bossKey_p) = 0;
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
-            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
+            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level, newHighscore_p);
             (*ball2_p).active = 0;
             deleteBall(*ball2_p);
             deleteBall(*ball_p);
@@ -229,7 +229,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
     }//End of both for-loops
 }
 
-void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
+void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level, uint8_t * newHighscore_p) {
     TIM2->CR1 = 0x0000;
     deleteBall(*ball_p);
     deleteStriker(*striker_p);
@@ -299,6 +299,8 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
             }
             drawBox(boxMatrix[i][j]); //draw all boxes
         }
+
+        (*newHighscore_p) = 0;
     }
 
     (*striker_p).x = (x1 + x2)/2 - (*striker_p).length/2;

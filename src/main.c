@@ -25,7 +25,7 @@ int main(void) {
     uint8_t scoreboardSelected = 0, startSelected = 0, helpSelected = 0;
     uint8_t inGameStart = 0;
     uint8_t centerPressed = 0;
-    uint8_t NewHighScore = 0;
+    uint8_t newHighScore = 0;
     //Init FLASH-memory
     uint32_t address = 0x0800F800; // Starting-address of the last page
     uint16_t scoreData[10] = {0};
@@ -68,11 +68,11 @@ int main(void) {
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
-    makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
+    makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level, &newHighScore); //Drawing boxes for level 1
     deleteBall(ball); //Ball should not be visible yet
     deleteBall(ball2);
 
-    /*
+
     //Reset scoreboard
     FLASH_Unlock(); // Unlock FLASH for writing
     FLASH_ClearFlag( FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR );
@@ -81,7 +81,7 @@ int main(void) {
         FLASH_ProgramHalfWord(address + i * 2, 0);
     }
     FLASH_Lock();
-    */
+
 
     //Initializing scoreboard
     for (int i = 0; i < 10; i++) {
@@ -121,7 +121,7 @@ int main(void) {
             if (!boxesAlive){ //When all boxes are "dead" (level-up!)
                 level++;
                 ball2.active = 0;
-                makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+                makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level, &newHighScore);
                 drawLevelLabel(level, x2);
                 inGameStart = 1;
             }
@@ -161,7 +161,7 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, scoreboardX, scoreboardY, startX, startY, helpX,
+                center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, &newHighScore, scoreboardX, scoreboardY, startX, startY, helpX,
                        helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, playerLives, boxMatrix, &ball, &striker, &gameIsDone, &ball2);
                 break;
 
@@ -226,9 +226,9 @@ int main(void) {
         }
 
         //Checks if the the current score is greater than the high score
-        if (score > scoreData[0] && !NewHighScore) {
+        if (score > scoreData[0] && !newHighScore) {
             drawHighscoreLabel(x2); //Notifies the player if it is a new high score
-            NewHighScore = 1;
+            newHighScore = 1;
         }
     }
 }
