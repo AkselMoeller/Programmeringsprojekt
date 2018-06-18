@@ -101,16 +101,16 @@ int main(void) {
             drawBall(ball2);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
-            ballWallsCollision(&ball2, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, &k, x1, y1, x2, y2);
+            ballWallsCollision(&ball2, &striker, &k, x1, y1, x2, y2);
 
             if (!ball.active && !ball2.active) {
-                playerDead(&ball2, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
+                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2);
             }
 
             //Making ball bounce on striker
-            strikerCollision(&ball, striker, boxMatrix, &score);
-            strikerCollision(&ball2, striker, boxMatrix, &score);
+            strikerCollision(&ball, striker, boxMatrix, &score, x2);
+            strikerCollision(&ball2, striker, boxMatrix, &score, x2);
 
             //Making ball bounce on boxes
             boxesAlive = 0;

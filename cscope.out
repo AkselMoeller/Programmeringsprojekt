@@ -1,4 +1,4 @@
-cscope 15 $HOME\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil"               0000935256
+cscope 15 $HOME\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil"               0000937106
 	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\SPL\inc\stm32f30x_adc.h
 
 30 #i‚de‡
@@ -100491,6 +100491,8 @@ bÆl_p
 °rikî_p
 , uöt8_à* 
 gameIsD⁄e_p
+, bÆl_à* 
+bÆl2_p
 );
 
 12 
@@ -100532,7 +100534,45 @@ y2
 );
 
 16 
-bÆlSåikîCﬁlisi⁄
+∂ayîDód
+(
+bÆl_t
+ * 
+bÆl_p
+, 
+°rikî_t
+ * 
+°rikî_p
+,
+
+17 
+uöt8_t
+ * 
+∂ayîLives_p
+, uöt8_à* 
+öGameSèπ_p
+, uöt8_à* 
+míuO≥n_p
+, uöt8_à* 
+k_p
+, uöt8_à* 
+gameIsD⁄e_p
+,
+
+18 
+öt32_t
+ 
+x1
+, i¡32_à
+y1
+, i¡32_à
+x2
+, i¡32_à
+y2
+);
+
+20 
+°rikîCﬁlisi⁄
 (
 bÆl_t
  * 
@@ -100541,9 +100581,21 @@ bÆl_p
 °rikî_t
  
 °rikî
+, 
+box_t
+ 
+boxM©rix
+[
+MAX_COLUMNS
+][
+MAX_ROWS
+], 
+uöt16_t
+ * 
+sc‹e_p
 );
 
-17 
+21 
 bÆlBoxesCﬁlisi⁄
 (
 bÆl_t
@@ -100569,9 +100621,11 @@ boxesAlive_p
 öt32_t
  
 x2
+, i¡32_à
+y2
 );
 
-19 
+23 
 makeLevñ
 (
 box_t
@@ -100605,7 +100659,7 @@ uöt8_t
 Àvñ
 );
 
-20 
+24 
 öôSåikî
 (
 °rikî_t
@@ -100621,7 +100675,7 @@ x2
 y2
 );
 
-21 
+25 
 öôBÆl
 (
 bÆl_t
@@ -100633,7 +100687,7 @@ bÆl_p
 °rikî
 );
 
-22 
+26 
 sw≠Sc‹es
 (
 uöt16_t
@@ -100675,7 +100729,7 @@ døw_obje˘s_h
 	#FIX14_right
 (
 x
-Ë(x >> 14)
+Ë((xË>> 14)
 
 	)
 
@@ -100683,7 +100737,7 @@ x
 	#FIX14_À·
 (
 x
-Ë(x << 14)
+Ë((xË<< 14)
 
 	)
 
@@ -100723,11 +100777,17 @@ tôÀ
 	mvY
 ;
 
-20 } 
+20 
+öt8_t
+ 
+	ma˘ive
+;
+
+21 } 
 	tbÆl_t
 ;
 
-21 
+22 
 døwBÆl
 (
 bÆl_t
@@ -100735,7 +100795,7 @@ bÆl_t
 bÆl
 );
 
-22 
+23 
 upd©eBÆlPos
 (
 bÆl_t
@@ -100747,7 +100807,7 @@ uöt8_t
 k
 );
 
-23 
+24 
 dñëeBÆl
 (
 bÆl_t
@@ -100755,7 +100815,7 @@ bÆl_t
 bÆl
 );
 
-26 
+27 
 uöt8_t
  
 	mx
@@ -100767,11 +100827,11 @@ uöt8_t
 	mcﬁ‹
 ;
 
-27 } 
+28 } 
 	t°rikî_t
 ;
 
-28 
+29 
 døwSåikî
  (
 °rikî_t
@@ -100779,7 +100839,7 @@ døwSåikî
 °rikî
 );
 
-29 
+30 
 upd©eSåikîPos
 (
 °rikî_t
@@ -100791,7 +100851,7 @@ uöt8_t
 joyStickSèã
 );
 
-30 
+31 
 dñëeSåikî
 (
 °rikî_t
@@ -100799,27 +100859,7 @@ dñëeSåikî
 °rikî
 );
 
-33 
-uöt8_t
- 
-	mx
-, 
-	my
-;
-
 34 
-uöt8_t
- 
-	m°yÀ
-, 
-	mhô
-;
-
-35 } 
-	tpowîUp_t
-;
-
-38 
 öt32_t
  
 	mx
@@ -100827,7 +100867,27 @@ uöt8_t
 	my
 ;
 
+35 
+uöt8_t
+ 
+	m°yÀ
+, 
+	mhô
+;
+
+36 } 
+	tpowîUp_t
+;
+
 39 
+öt32_t
+ 
+	mx
+, 
+	my
+;
+
+40 
 uöt8_t
  
 	mxSize
@@ -100835,23 +100895,23 @@ uöt8_t
 	mySize
 ;
 
-40 
+41 
 öt8_t
  
 	mlives
 ;
 
-41 
+42 
 powîUp_t
  
 	mpowîUp
 ;
 
-42 } 
+43 } 
 	tbox_t
 ;
 
-43 
+44 
 døwBox
 (
 box_t
@@ -100859,15 +100919,19 @@ box_t
 box
 );
 
-44 
+45 
 døwPowîUp
 (
 box_t
+ * 
+box_p
+, 
+öt32_t
  
-box
+y2
 );
 
-46 
+47 
 døwSc‹eLabñ
 (
 uöt16_t
@@ -100879,7 +100943,7 @@ uöt8_t
 x2
 );
 
-47 
+48 
 døwLevñLabñ
 (
 uöt8_t
@@ -100889,7 +100953,7 @@ uöt8_t
 x2
 );
 
-48 
+49 
 døwPœyîLivesLabñ
 (
 uöt8_t
@@ -100899,7 +100963,7 @@ uöt8_t
 x2
 );
 
-50 
+51 
 ¥ötBossKey
 (
 uöt16_t
@@ -100913,7 +100977,7 @@ uöt8_t
 ∂ayîLives
 );
 
-51 
+52 
 gameOvî
 (
 öt32_t
@@ -100927,7 +100991,7 @@ y1
 y2
 );
 
-52 
+53 
 dñëeGameOvî
  (
 öt32_t
@@ -100941,7 +101005,7 @@ y1
 y2
 );
 
-54 
+55 
 døwBackMesßge
 (
 uöt8_t
@@ -100951,7 +101015,7 @@ x
 y
 );
 
-55 
+56 
 dñëeBackMesßge
 (
 uöt8_t
@@ -100961,7 +101025,7 @@ x
 y
 );
 
-57 
+58 
 døwSc‹ebﬂrdLabñ
 (
 uöt8_t
@@ -100973,7 +101037,7 @@ sc‹ebﬂrdY
 cﬁ‹
 );
 
-58 
+59 
 døwSèπLabñ
 (
 uöt8_t
@@ -100985,7 +101049,7 @@ uöt8_t
 cﬁ‹
 );
 
-59 
+60 
 døwHñpLabñ
 (
 uöt8_t
@@ -100997,7 +101061,7 @@ hñpY
 cﬁ‹
 );
 
-60 
+61 
 dñëeMíuLabñs
 (
 uöt8_t
@@ -101015,7 +101079,7 @@ hñpX
 hñpY
 );
 
-61 
+62 
 døwHighsc‹eLabñ
 (
 öt32_t
@@ -101023,7 +101087,7 @@ døwHighsc‹eLabñ
 x2
 );
 
-63 
+64 
 døwHñp
 (
 uöt8_t
@@ -101033,7 +101097,7 @@ x
 y
 );
 
-64 
+65 
 dñëeHñp
 (
 uöt8_t
@@ -101043,7 +101107,7 @@ x
 y
 );
 
-65 
+66 
 døwSc‹ebﬂrd
 (
 uöt8_t
@@ -101057,7 +101121,7 @@ uöt32_t
 addªss
 );
 
-66 
+67 
 dñëeSc‹ebﬂrd
 (
 uöt8_t
@@ -101119,37 +101183,19 @@ uöt16_t
 ªadPŸítiomëî2
 ();
 
-17 
+16 
+dó˘iv©ePŸítiomëî
+();
+
+18 
 öôTem≥øtuª
 ();
 
-18 
+19 
 öt8_t
  
 ªadTem≥øtuª
 ();
-
-	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\lut-sin.h
-
-8 #i‚de‡
-LUT_SIN_H
-
-
-9 
-	#LUT_SIN_H
-
-
-	)
-
-12 
-	#SIN_SIZE
- 512
-
-	)
-
-15 c⁄° sig√d 
-SIN
-[512];
 
 	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\stm32f30x.h
 
@@ -139449,90 +139495,6 @@ Sy°emC‹eClockUpd©e
 __˝lu•lus
 
 
-	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\vectors.h
-
-1 #i‚de‡
-VECTORS_H_INCLUDED
-
-
-2 
-	#VECTORS_H_INCLUDED
-
-
-	)
-
-4 
-	#FIX14_right
-(
-x
-Ë(x >> 14)
-
-	)
-
-5 
-	#FIX14_À·
-(
-x
-Ë(x << 14)
-
-	)
-
-7 
-¥ötFix
-(
-öt32_t
- 
-i
-);
-
-8 
-öt32_t
- 
-ex∑nd
-(öt32_à
-i
-);
-
-10 
-öt32_t
- 
-sö
-(
-x
-);
-
-11 
-öt32_t
- 
-cos
-(
-x
-);
-
-14 
-öt32_t
- 
-	mx
-, 
-	my
-;
-
-15 } 
-	tve˘‹_t
-;
-
-17 
-rŸ
-(
-öt32_t
- * 
-x
-, i¡32_à* 
-y
-, 
-™gÀ
-);
-
 	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\readme.txt
 
 1 
@@ -140897,7 +140859,11 @@ ESC
 	~"buûd_game.h
 "
 
-7 
+6 
+	~"™si.h
+"
+
+8 
 	$˚¡î
 (
 uöt8_t
@@ -140913,7 +140879,7 @@ míuO≥n_p
 sc‹ebﬂrdSñe˘ed_p
 ,
 
-8 
+9 
 uöt8_t
  
 sc‹ebﬂrdX
@@ -140929,7 +140895,7 @@ hñpX
 hñpY
 ,
 
-9 
+10 
 uöt8_t
  * 
 °¨tSñe˘ed_p
@@ -140951,7 +140917,7 @@ y1
 y2
 ,
 
-10 
+11 
 uöt8_t
  
 ∂ayîLives
@@ -140973,13 +140939,15 @@ bÆl_p
 °rikî_p
 , uöt8_à* 
 gameIsD⁄e_p
+, bÆl_à* 
+bÆl2_p
 ) {
 
-11 i‡(!(*
+12 i‡(!(*
 ˚¡îPªs£d_p
 )) {
 
-12 i‡(!(*
+13 i‡(!(*
 gameIsD⁄e_p
 Ë&& !(*
 bossKey_p
@@ -140989,11 +140957,11 @@ míuO≥n_p
 öGameSèπ_p
 ))) {
 
-13 i‡((*
+14 i‡((*
 sc‹ebﬂrdSñe˘ed_p
 )) {
 
-14 
+15 
 	`dñëeMíuLabñs
 (
 sc‹ebﬂrdX
@@ -141009,17 +140977,17 @@ hñpX
 hñpY
 );
 
-15 (*
+16 (*
 míuO≥n_p
 ) = 2;
 
-16 } i‡((*
+17 } i‡((*
 °¨tSñe˘ed_p
 Ë|| (*
 öGameSèπ_p
 )) {
 
-17 
+18 
 	`dñëeMíuLabñs
 (
 sc‹ebﬂrdX
@@ -141035,7 +141003,7 @@ hñpY
 °¨tY
 );
 
-18 
+19 
 	`døwSc‹eLabñ
 (
 sc‹e
@@ -141043,7 +141011,7 @@ sc‹e
 x2
 );
 
-19 
+20 
 	`døwLevñLabñ
 (
 Àvñ
@@ -141051,7 +141019,7 @@ x2
 x2
 );
 
-20 
+21 
 	`døwPœyîLivesLabñ
 (
 ∂ayîLives
@@ -141059,25 +141027,25 @@ x2
 x2
 );
 
-21 (*
+22 (*
 öGameSèπ_p
 ) = 0;
 
-22 (*
+23 (*
 míuO≥n_p
 ) = 0;
 
-29 
+24 
 TIM2
 ->
 CR1
  = 0x0001;
 
-30 } i‡(*
+25 } i‡(*
 hñpSñe˘ed_p
 ) {
 
-31 
+26 
 	`dñëeMíuLabñs
 (
 sc‹ebﬂrdX
@@ -141093,17 +141061,17 @@ hñpX
 hñpY
 );
 
-32 (*
+27 (*
 míuO≥n_p
 ) = 3;
 
-34 } i‡((*
+29 } i‡((*
 bossKey_p
 Ë&& !(*
 míuO≥n_p
 )) {
 
-35 
+30 
 	`wödow
 (
 x1
@@ -141115,7 +141083,7 @@ x2
 y2
 , "Breakout", 1, 1);
 
-36 
+31 
 uöt8_t
  
 i
@@ -141123,7 +141091,7 @@ i
 MAX_COLUMNS
 ; i++) {
 
-37 
+32 
 uöt8_t
  
 j
@@ -141131,7 +141099,7 @@ j
 MAX_ROWS
 ; j++) {
 
-38 
+33 
 	`døwBox
 (
 boxM©rix
@@ -141141,7 +141109,7 @@ i
 j
 ]);
 
-41 
+36 
 	`døwSc‹eLabñ
 (
 sc‹e
@@ -141149,7 +141117,7 @@ sc‹e
 x2
 );
 
-42 
+37 
 	`døwLevñLabñ
 (
 Àvñ
@@ -141157,7 +141125,7 @@ x2
 x2
 );
 
-43 
+38 
 	`døwPœyîLivesLabñ
 (
 ∂ayîLives
@@ -141165,29 +141133,29 @@ x2
 x2
 );
 
-44 
+39 
 	`døwSåikî
 ((*
 °rikî_p
 ));
 
-45 
+40 
 	`døwBÆl
 (*
 bÆl_p
 );
 
-46 
+41 
 TIM2
 ->
 CR1
  = 0x0001;
 
-47 (*
+42 (*
 bossKey_p
 ) = 0;
 
-48 } i‡(((*
+43 } i‡(((*
 bossKey_p
 Ë|| (*
 gameIsD⁄e_p
@@ -141195,7 +141163,7 @@ gameIsD⁄e_p
 míuO≥n_p
 )) {
 
-49 
+44 
 	`wödow
 (
 x1
@@ -141207,7 +141175,7 @@ x2
 y2
 , "Breakout", 1, 1);
 
-50 
+45 
 	`makeLevñ
 (
 boxM©rix
@@ -141227,13 +141195,31 @@ y2
 Àvñ
 );
 
-51 
+46 (*
+bÆl2_p
+).
+a˘ive
+ = 0;
+
+47 
+	`dñëeBÆl
+(*
+bÆl2_p
+);
+
+48 
+	`dñëeBÆl
+(*
+bÆl_p
+);
+
+49 
 	`døwSåikî
 (*
 °rikî_p
 );
 
-52 
+50 
 	`døwSc‹ebﬂrdLabñ
 (
 sc‹ebﬂrdX
@@ -141241,7 +141227,7 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 , 0);
 
-53 
+51 
 	`døwSèπLabñ
 (
 °¨tX
@@ -141249,7 +141235,7 @@ sc‹ebﬂrdY
 °¨tY
 , 0);
 
-54 
+52 
 	`døwHñpLabñ
 (
 hñpX
@@ -141257,43 +141243,43 @@ hñpX
 hñpY
 , 0);
 
-55 (*
+53 (*
 sc‹ebﬂrdSñe˘ed_p
 ) = 0;
 
-56 (*
+54 (*
 °¨tSñe˘ed_p
 ) = 0;
 
-57 (*
+55 (*
 hñpSñe˘ed_p
 ) = 0;
 
-58 (*
+56 (*
 bossKey_p
 ) = 0;
 
-59 (*
+57 (*
 míuO≥n_p
 ) = 1;
 
-60 (*
+58 (*
 gameIsD⁄e_p
 ) = 0;
 
-61 } i‡(((*
+59 } i‡(((*
 míuO≥n_p
 ) == 2 || (*menuOpen_p) == 3)) {
 
-62 
+60 
 	`dñëeHñp
 ((
 x2
  - 
 x1
-)/8, 28);
+)/16, 28);
 
-63 
+61 
 	`dñëeSc‹ebﬂrd
 ((
 x2
@@ -141301,7 +141287,7 @@ x2
 x1
 )/8, 28);
 
-64 
+62 
 	`dñëeBackMesßge
 ((
 x2
@@ -141309,7 +141295,7 @@ x2
 x1
 )/2, 25);
 
-65 
+63 
 	`døwSc‹ebﬂrdLabñ
 (
 sc‹ebﬂrdX
@@ -141317,7 +141303,7 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 , 0);
 
-66 
+64 
 	`døwSèπLabñ
 (
 °¨tX
@@ -141325,7 +141311,7 @@ sc‹ebﬂrdY
 °¨tY
 , 0);
 
-67 
+65 
 	`døwHñpLabñ
 (
 hñpX
@@ -141333,31 +141319,31 @@ hñpX
 hñpY
 , 0);
 
-68 (*
+66 (*
 sc‹ebﬂrdSñe˘ed_p
 ) = 0;
 
-69 (*
+67 (*
 °¨tSñe˘ed_p
 ) = 0;
 
-70 (*
+68 (*
 hñpSñe˘ed_p
 ) = 0;
 
-71 (*
+69 (*
 míuO≥n_p
 ) = 1;
 
-73 (*
+71 (*
 ˚¡îPªs£d_p
 ) = 1;
 
-75 
+73 
 	}
 }
 
-79 
+75 
 	$bÆlWÆlsCﬁlisi⁄
 (
 bÆl_t
@@ -141369,7 +141355,125 @@ bÆl_p
 °rikî_p
 ,
 
-80 
+76 
+uöt8_t
+ * 
+k_p
+, 
+öt32_t
+ 
+x1
+, i¡32_à
+y1
+, i¡32_à
+x2
+, i¡32_à
+y2
+) {
+
+77 i‡((*
+bÆl_p
+).
+x
+ <
+	`FIX14_À·
+(
+x1
+ + 1Ë|| (*bÆl_p).x >FIX14_À·(
+x2
+ - 1)) {
+
+78 (*
+bÆl_p
+).
+vX
+ = -(*ball_p).vX;
+
+79 } i‡((*
+bÆl_p
+).
+y
+ <
+	`FIX14_À·
+(
+y1
+ + 1)) {
+
+80 (*
+bÆl_p
+).
+vY
+ = -(*ball_p).vY;
+
+81 } i‡((*
+bÆl_p
+).
+y
+ >
+	`FIX14_À·
+(
+y2
+ - 1Ë&& (*
+k_p
+)) {
+
+82 
+	`dñëeBÆl
+((*
+bÆl_p
+));
+
+83 (*
+bÆl_p
+).
+vY
+ = -(*ball_p).vY;
+
+84 (*
+bÆl_p
+).
+x
+ = 
+	`FIX14_À·
+((*
+°rikî_p
+).x + (*°rikî_p).
+Àngth
+/2);
+
+85 (*
+bÆl_p
+).
+y
+ = 
+	`FIX14_À·
+((*
+°rikî_p
+).y - 2);
+
+86 (*
+bÆl_p
+).
+a˘ive
+ = 0;
+
+88 
+	}
+}
+
+90 
+	$∂ayîDód
+(
+bÆl_t
+ * 
+bÆl_p
+, 
+°rikî_t
+ * 
+°rikî_p
+,
+
+91 
 uöt8_t
  * 
 ∂ayîLives_p
@@ -141383,7 +141487,7 @@ k_p
 gameIsD⁄e_p
 ,
 
-81 
+92 
 öt32_t
  
 x1
@@ -141395,57 +141499,11 @@ x2
 y2
 ) {
 
-82 i‡((*
-bÆl_p
-).
-x
- <
-	`FIX14_À·
-(
-x1
- + 1Ë|| (*bÆl_p).x >FIX14_À·(
-x2
- - 1)) {
-
-83 (*
-bÆl_p
-).
-vX
- = -(*ball_p).vX;
-
-85 i‡((*
-bÆl_p
-).
-y
- <
-	`FIX14_À·
-(
-y1
- + 1)) {
-
-86 (*
-bÆl_p
-).
-vY
- = -(*ball_p).vY;
-
-88 i‡((*
-bÆl_p
-).
-y
- >
-	`FIX14_À·
-(
-y2
- - 1Ë&& (*
-k_p
-)) {
-
-89 (*
+93 (*
 ∂ayîLives_p
 )--;
 
-90 
+94 
 	`døwPœyîLivesLabñ
 (*
 ∂ayîLives_p
@@ -141453,13 +141511,13 @@ k_p
 x2
 );
 
-93 
+97 
 	`dñëeSåikî
 (*
 °rikî_p
 );
 
-94 (*
+98 (*
 °rikî_p
 ).
 x
@@ -141471,7 +141529,7 @@ x2
 Àngth
 /2;
 
-95 (*
+99 (*
 °rikî_p
 ).
 y
@@ -141479,61 +141537,17 @@ y
 y2
  - 1;
 
-96 
-	`dñëeBÆl
-((*
-bÆl_p
-));
-
-97 (*
-bÆl_p
-).
-vY
- = -(*ball_p).vY;
-
-98 (*
-bÆl_p
-).
-x
- = 
-	`FIX14_À·
-((*
-°rikî_p
-).x + (*°rikî_p).
-Àngth
-/2);
-
-99 (*
-bÆl_p
-).
-y
- = 
-	`FIX14_À·
-((*
-°rikî_p
-).y - 2);
-
 100 
-	`døwBÆl
-((*
-bÆl_p
-));
-
-101 
 	`døwSåikî
 ((*
 °rikî_p
 ));
 
-104 (*
-öGameSèπ_p
-) = 1;
-
-105 i‡(!(*
+102 i‡(!(*
 ∂ayîLives_p
 )) {
 
-106 
+103 
 	`gameOvî
 (
 x1
@@ -141545,34 +141559,38 @@ y1
 y2
 );
 
-107 (*
+104 (*
 ∂ayîLives_p
 ) = 3;
 
-108 (*
+105 (*
 gameIsD⁄e_p
 ) = 1;
 
-109 (*
+106 (*
 míuO≥n_p
 ) = 1;
 
-110 
+107 
 TIM2
 ->
 CR1
  = 0x0000;
 
-111 (*
+108 (*
 öGameSèπ_p
 ) = 0;
 
-114 
+110 (*
+öGameSèπ_p
+) = 1;
+
+112 
 	}
 }
 
-116 
-	$bÆlSåikîCﬁlisi⁄
+114 
+	$°rikîCﬁlisi⁄
 (
 bÆl_t
  * 
@@ -141581,9 +141599,21 @@ bÆl_p
 °rikî_t
  
 °rikî
+, 
+box_t
+ 
+boxM©rix
+[
+MAX_COLUMNS
+][
+MAX_ROWS
+], 
+uöt16_t
+ * 
+sc‹e_p
 ) {
 
-117 i‡(
+115 i‡(
 	`FIX14_right
 ((*
 bÆl_p
@@ -141593,7 +141623,7 @@ y
 °rikî
 .y - 1
 
-118 && 
+116 && 
 	`FIX14_right
 ((*
 bÆl_p
@@ -141605,7 +141635,7 @@ x
 Àngth
 
 
-119 && 
+117 && 
 	`FIX14_right
 ((*
 bÆl_p
@@ -141615,7 +141645,7 @@ x
 °rikî
 .x) {
 
-120 
+118 
 i
  = 0; i < 
 °rikî
@@ -141623,7 +141653,7 @@ i
 Àngth
 ; i++) {
 
-121 i‡(
+119 i‡(
 	`FIX14_right
 ((*
 bÆl_p
@@ -141635,19 +141665,19 @@ x
 i
 ) {
 
-123 i‡((*
+120 i‡((*
 bÆl_p
 ).
 vY
  > 0) {
 
-124 (*
+121 (*
 bÆl_p
 ).
 vY
  = -(*ball_p).vY;
 
-125 (*
+122 (*
 bÆl_p
 ).
 vX
@@ -141659,35 +141689,147 @@ vX
 i
 ;
 
-126 i‡((*
+123 i‡((*
 bÆl_p
 ).
 vX
  >= 0x2000) {
 
-127 (*
+124 (*
 bÆl_p
 ).
 vX
  = 0x2000;
 
-129 i‡((*
+126 i‡((*
 bÆl_p
 ).
 vX
  <= -0x2000) {
 
-130 (*
+127 (*
 bÆl_p
 ).
 vX
  = -0x2000;
 
-136 
+133 
+uöt8_t
+ 
+i
+ = 0; i < 
+MAX_COLUMNS
+; i++) {
+
+134 
+uöt8_t
+ 
+j
+ = 0; j < 
+MAX_ROWS
+; j++) {
+
+135 i‡(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+hô
+) {
+
+136 i‡(
+	`FIX14_right
+(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+y
+Ë=
+°rikî
+.y - 1
+
+137 && 
+	`FIX14_right
+(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+x
+ + 0x2000Ë<
+°rikî
+.x + såikî.
+Àngth
+
+
+138 && 
+	`FIX14_right
+(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+x
+ + 0x2000Ë>
+°rikî
+.x) {
+
+140 i‡(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ == 1) {
+
+141 (*
+bÆl_p
+).
+a˘ive
+ = 1;
+
+142 } i‡(
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ == 2) {
+
+143 *
+sc‹e_p
+ += 5;
+
+149 
 	}
 }
 
-138 
+151 
 	$bÆlBoxesCﬁlisi⁄
 (
 bÆl_t
@@ -141713,9 +141855,11 @@ boxesAlive_p
 öt32_t
  
 x2
+, i¡32_à
+y2
 ) {
 
-139 
+152 
 uöt8_t
  
 i
@@ -141723,7 +141867,7 @@ i
 MAX_COLUMNS
 ; i++) {
 
-140 
+153 
 uöt8_t
  
 j
@@ -141731,7 +141875,7 @@ j
 MAX_ROWS
 ; j++) {
 
-141 i‡(
+154 i‡(
 boxM©rix
 [
 i
@@ -141741,11 +141885,11 @@ j
 lives
  > 0) {
 
-142 (*
+155 (*
 boxesAlive_p
 )++;
 
-144 i‡((*
+157 i‡((*
 bÆl_p
 ).
 x
@@ -141759,13 +141903,13 @@ i
 j
 ].x)
 
-145 && 
-	`FIX14_À·
-((*
+158 && (*
 bÆl_p
 ).
 x
  < 
+	`FIX14_À·
+(
 boxM©rix
 [
 i
@@ -141775,7 +141919,7 @@ j
 xSize
 )
 
-146 && (*
+159 && (*
 bÆl_p
 ).
 y
@@ -141789,7 +141933,7 @@ i
 j
 ].y)
 
-147 && (*
+160 && (*
 bÆl_p
 ).
 y
@@ -141803,19 +141947,19 @@ i
 j
 ].y) + 0x2000
 
-148 && (*
+161 && (*
 bÆl_p
 ).
 vY
  > 0) {
 
-149 (*
+162 (*
 bÆl_p
 ).
 vY
  = -(*ball_p).vY;
 
-150 i‡(
+163 i‡(
 boxM©rix
 [
 i
@@ -141827,7 +141971,7 @@ powîUp
 °yÀ
 ) {
 
-151 
+164 
 boxM©rix
 [
 i
@@ -141839,7 +141983,7 @@ powîUp
 hô
  = 1;
 
-153 
+166 
 boxM©rix
 [
 i
@@ -141849,7 +141993,7 @@ j
 lives
 --;
 
-154 
+167 
 	`døwBox
 (
 boxM©rix
@@ -141859,11 +142003,11 @@ i
 j
 ]);
 
-155 (*
+168 (*
 sc‹e_p
 )++;
 
-156 
+169 
 	`døwSc‹eLabñ
 (*
 sc‹e_p
@@ -141871,7 +142015,7 @@ sc‹e_p
 x2
 );
 
-159 i‡((*
+172 i‡((*
 bÆl_p
 ).
 x
@@ -141885,13 +142029,13 @@ i
 j
 ].x)
 
-160 && 
-	`FIX14_À·
-((*
+173 && (*
 bÆl_p
 ).
 x
  < 
+	`FIX14_À·
+(
 boxM©rix
 [
 i
@@ -141901,7 +142045,7 @@ j
 xSize
 )
 
-161 && (*
+174 && (*
 bÆl_p
 ).
 y
@@ -141917,7 +142061,7 @@ j
 ySize
 )
 
-162 && (*
+175 && (*
 bÆl_p
 ).
 y
@@ -141933,19 +142077,19 @@ j
 ySize
 ) - 0x2000
 
-163 && (*
+176 && (*
 bÆl_p
 ).
 vY
  < 0) {
 
-164 (*
+177 (*
 bÆl_p
 ).
 vY
  = -(*ball_p).vY;
 
-165 i‡(
+178 i‡(
 boxM©rix
 [
 i
@@ -141957,7 +142101,7 @@ powîUp
 °yÀ
 ) {
 
-166 
+179 
 boxM©rix
 [
 i
@@ -141969,7 +142113,7 @@ powîUp
 hô
  = 1;
 
-168 
+181 
 boxM©rix
 [
 i
@@ -141979,7 +142123,7 @@ j
 lives
 --;
 
-169 
+182 
 	`døwBox
 (
 boxM©rix
@@ -141989,11 +142133,11 @@ i
 j
 ]);
 
-170 (*
+183 (*
 sc‹e_p
 )++;
 
-171 
+184 
 	`døwSc‹eLabñ
 (*
 sc‹e_p
@@ -142001,7 +142145,7 @@ sc‹e_p
 x2
 );
 
-174 i‡((*
+187 i‡((*
 bÆl_p
 ).
 y
@@ -142015,13 +142159,13 @@ i
 j
 ].y)
 
-175 && 
-	`FIX14_À·
-((*
+188 && (*
 bÆl_p
 ).
 y
  < 
+	`FIX14_À·
+(
 boxM©rix
 [
 i
@@ -142031,7 +142175,7 @@ j
 ySize
 )
 
-176 && (*
+189 && (*
 bÆl_p
 ).
 x
@@ -142045,7 +142189,7 @@ i
 j
 ].x)
 
-177 && (*
+190 && (*
 bÆl_p
 ).
 x
@@ -142059,19 +142203,19 @@ i
 j
 ].x) + 0x2000
 
-178 && (*
+191 && (*
 bÆl_p
 ).
 vX
  > 0) {
 
-179 (*
+192 (*
 bÆl_p
 ).
 vX
  = -(*ball_p).vX;
 
-180 i‡(
+193 i‡(
 boxM©rix
 [
 i
@@ -142083,7 +142227,7 @@ powîUp
 °yÀ
 ) {
 
-181 
+194 
 boxM©rix
 [
 i
@@ -142095,7 +142239,7 @@ powîUp
 hô
  = 1;
 
-183 
+196 
 boxM©rix
 [
 i
@@ -142105,7 +142249,7 @@ j
 lives
 --;
 
-184 
+197 
 	`døwBox
 (
 boxM©rix
@@ -142115,11 +142259,11 @@ i
 j
 ]);
 
-185 (*
+198 (*
 sc‹e_p
 )++;
 
-186 
+199 
 	`døwSc‹eLabñ
 (*
 sc‹e_p
@@ -142127,7 +142271,7 @@ sc‹e_p
 x2
 );
 
-189 i‡((*
+202 i‡((*
 bÆl_p
 ).
 y
@@ -142141,13 +142285,13 @@ i
 j
 ].y)
 
-190 && 
-	`FIX14_À·
-((*
+203 && (*
 bÆl_p
 ).
 y
  < 
+	`FIX14_À·
+(
 boxM©rix
 [
 i
@@ -142157,7 +142301,7 @@ j
 ySize
 )
 
-191 && (*
+204 && (*
 bÆl_p
 ).
 x
@@ -142173,7 +142317,7 @@ j
 xSize
 )
 
-192 && (*
+205 && (*
 bÆl_p
 ).
 x
@@ -142189,19 +142333,19 @@ j
 xSize
 ) - 0x2000
 
-193 && (*
+206 && (*
 bÆl_p
 ).
 vX
  < 0) {
 
-194 (*
+207 (*
 bÆl_p
 ).
 vX
  = -(*ball_p).vX;
 
-195 i‡(
+208 i‡(
 boxM©rix
 [
 i
@@ -142213,7 +142357,7 @@ powîUp
 °yÀ
 ) {
 
-196 
+209 
 boxM©rix
 [
 i
@@ -142225,7 +142369,7 @@ powîUp
 hô
  = 1;
 
-198 
+211 
 boxM©rix
 [
 i
@@ -142235,7 +142379,7 @@ j
 lives
 --;
 
-199 
+212 
 	`døwBox
 (
 boxM©rix
@@ -142245,11 +142389,11 @@ i
 j
 ]);
 
-200 (*
+213 (*
 sc‹e_p
 )++;
 
-201 
+214 
 	`døwSc‹eLabñ
 (*
 sc‹e_p
@@ -142257,7 +142401,7 @@ sc‹e_p
 x2
 );
 
-204 i‡(
+217 i‡(
 boxM©rix
 [
 i
@@ -142269,21 +142413,23 @@ powîUp
 hô
 ) {
 
-205 
+218 
 	`døwPowîUp
-(
+(&
 boxM©rix
 [
 i
 ][
 j
-]);
+], 
+y2
+);
 
-209 
+222 
 	}
 }
 
-211 
+224 
 	$makeLevñ
 (
 box_t
@@ -142317,25 +142463,25 @@ uöt8_t
 Àvñ
 ) {
 
-212 
+225 
 TIM2
 ->
 CR1
  = 0x0000;
 
-213 
+226 
 	`dñëeBÆl
 (*
 bÆl_p
 );
 
-214 
+227 
 	`dñëeSåikî
 (*
 °rikî_p
 );
 
-217 
+230 
 uöt8_t
  
 i
@@ -142343,7 +142489,7 @@ i
 MAX_COLUMNS
 ; i++) {
 
-218 
+231 
 uöt8_t
  
 j
@@ -142351,7 +142497,7 @@ j
 MAX_ROWS
 ; j++) {
 
-219 
+232 
 boxM©rix
 [
 i
@@ -142365,7 +142511,7 @@ x2
 x1
 )/10;
 
-220 
+233 
 boxM©rix
 [
 i
@@ -142379,7 +142525,7 @@ y2
 y1
 )/20;
 
-221 
+234 
 boxM©rix
 [
 i
@@ -142393,7 +142539,7 @@ x1
 xSize
  * i;
 
-222 
+235 
 boxM©rix
 [
 i
@@ -142407,7 +142553,7 @@ y1
 ySize
  * j;
 
-223 
+236 
 boxM©rix
 [
 i
@@ -142419,7 +142565,7 @@ powîUp
 °yÀ
  = 0;
 
-224 
+237 
 boxM©rix
 [
 i
@@ -142431,77 +142577,15 @@ powîUp
 hô
  = 0;
 
-227 
+240 
 Àvñ
 ) {
 
-229 i‡((
+242 i‡((
 j
  =5 || j =4Ë&& 
 i
  == 4){
-
-230 
-boxM©rix
-[
-i
-][
-j
-].
-lives
- = 1;
-
-232 
-boxM©rix
-[
-i
-][
-j
-].
-lives
- = 0;
-
-236 i‡(
-j
- > 1 && j < 4 && ((j%2 && (
-i
-+1)%2) || ((j+1)%2 && i%2))) {
-
-237 
-boxM©rix
-[
-i
-][
-j
-].
-lives
- = 1;
-
-238 i‡(
-i
- == 1){
-
-239 
-boxM©rix
-[
-i
-][
-j
-].
-powîUp
-.
-°yÀ
- = 1;
-
-240 
-boxM©rix
-[
-i
-][
-j
-].
-lives
- = 2;
 
 243 
 boxM©rix
@@ -142511,15 +142595,9 @@ i
 j
 ].
 lives
- = 0;
+ = 1;
 
-247 i‡(
-j
- < 4 && ((j%2 && (
-i
-+1)%2) || ((j+1)%2 && i%2))) {
-
-248 
+245 
 boxM©rix
 [
 i
@@ -142527,11 +142605,13 @@ i
 j
 ].
 lives
- = 1;
+ = 0;
 
-249 } i‡(
+249 i‡(
 j
- == 6) {
+ > 1 && j < 4 && ((j%2 && (
+i
++1)%2) || ((j+1)%2 && i%2))) {
 
 250 
 boxM©rix
@@ -142541,9 +142621,61 @@ i
 j
 ].
 lives
- = 2;
+ = 1;
+
+251 i‡(
+i
+ == 1){
 
 252 
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ = 1;
+
+253 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 2;
+
+254 } i‡(
+i
+ == 8) {
+
+255 
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ = 2;
+
+256 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 2;
+
+259 
 boxM©rix
 [
 i
@@ -142553,7 +142685,119 @@ j
 lives
  = 0;
 
-256 i‡(
+263 i‡(
+j
+ < 4 && ((j%2 && (
+i
++1)%2) || ((j+1)%2 && i%2))) {
+
+264 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 1;
+
+265 i‡(
+j
+ == 3) {
+
+266 
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ = 2;
+
+268 } i‡(
+j
+ == 6) {
+
+269 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 2;
+
+271 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 0;
+
+275 i‡(
+j
+ < 4) {
+
+276 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 1;
+
+277 i‡(
+j
+ == 2) {
+
+278 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 2;
+
+280 
+boxM©rix
+[
+i
+][
+j
+].
+lives
+ = 0;
+
+283 i‡(
+j
+ =3 && (
+i
+ == 2 || i == 7))
+
+284 
+boxM©rix
+[
+i
+][
+j
+].
+powîUp
+.
+°yÀ
+ = 1;
+
+288 i‡(
 boxM©rix
 [
 i
@@ -142565,7 +142809,7 @@ powîUp
 °yÀ
 ) {
 
-257 
+289 
 boxM©rix
 [
 i
@@ -142575,11 +142819,13 @@ j
 powîUp
 .
 x
- = boxM©rix[i][j].x + boxM©rix[i][j].
+ = 
+	`FIX14_À·
+(boxM©rix[i][j].x + boxM©rix[i][j].
 xSize
-/2;
+/2);
 
-258 
+290 
 boxM©rix
 [
 i
@@ -142589,11 +142835,13 @@ j
 powîUp
 .
 y
- = boxM©rix[i][j].y + boxM©rix[i][j].
+ = 
+	`FIX14_À·
+(boxM©rix[i][j].y + boxM©rix[i][j].
 ySize
-;
+);
 
-260 
+292 
 	`døwBox
 (
 boxM©rix
@@ -142603,7 +142851,7 @@ i
 j
 ]);
 
-264 (*
+296 (*
 °rikî_p
 ).
 x
@@ -142615,13 +142863,13 @@ x2
 Àngth
 /2;
 
-265 
+297 
 	`døwSåikî
 (*
 °rikî_p
 );
 
-267 
+299 
 	`öôBÆl
 (
 bÆl_p
@@ -142629,27 +142877,39 @@ bÆl_p
 °rikî_p
 );
 
-270 
+300 (*
+bÆl_p
+).
+a˘ive
+ = 1;
+
+303 
 Àvñ
 ){
 
-271 2 : (*
+304 2 : (*
 bÆl_p
 ).
 vY
  += -(0x00000800);
 
-273 3 : (*
+306 3 : (*
 bÆl_p
 ).
 vY
  += -(0x00001000);
 
-276 
+308 4 : (*
+bÆl_p
+).
+vY
+ += -(0x00001800);
+
+311 
 	}
 }
 
-278 
+313 
 	$öôSåikî
 (
 °rikî_t
@@ -142665,13 +142925,13 @@ x2
 y2
 ) {
 
-280 (*
+315 (*
 °rikî_p
 ).
 cﬁ‹
- = 7;
+ = 12;
 
-281 (*
+316 (*
 °rikî_p
 ).
 Àngth
@@ -142681,7 +142941,7 @@ x2
 x1
 )/10;
 
-282 (*
+317 (*
 °rikî_p
 ).
 x
@@ -142693,7 +142953,7 @@ x2
 Àngth
 /2;
 
-283 (*
+318 (*
 °rikî_p
 ).
 y
@@ -142701,17 +142961,17 @@ y
 y2
  - 1;
 
-284 
+319 
 	`døwSåikî
 (*
 °rikî_p
 );
 
-285 
+320 
 	}
 }
 
-287 
+322 
 	$öôBÆl
 (
 bÆl_t
@@ -142723,7 +142983,7 @@ bÆl_p
 °rikî
 ) {
 
-289 (*
+324 (*
 bÆl_p
 ).
 x
@@ -142735,7 +142995,7 @@ x
 Àngth
 /2);
 
-290 (*
+325 (*
 bÆl_p
 ).
 y
@@ -142745,29 +143005,35 @@ y
 °rikî
 .y - 2);
 
-291 (*
+326 (*
 bÆl_p
 ).
 vX
  = 0x00000000;
 
-292 (*
+327 (*
 bÆl_p
 ).
 vY
  = -(0x00001000);
 
-293 
+328 (*
+bÆl_p
+).
+a˘ive
+ = 0;
+
+329 
 	`døwBÆl
 (*
 bÆl_p
 );
 
-294 
+330 
 	}
 }
 
-297 
+333 
 	$sw≠Sc‹es
 (
 uöt16_t
@@ -142777,7 +143043,7 @@ uöt16_t
 cuºítVÆ_p
 ) {
 
-298 
+334 
 uöt16_t
  
 ãmp
@@ -142785,19 +143051,19 @@ uöt16_t
 œ°VÆ_p
 ;
 
-299 *
+335 *
 œ°VÆ_p
  = *
 cuºítVÆ_p
 ;
 
-300 *
+336 *
 cuºítVÆ_p
  = 
 ãmp
 ;
 
-301 
+337 
 	}
 }
 
@@ -143187,11 +143453,17 @@ bÆl_t
 bÆl
 ) {
 
-94 
+94 i‡(
+bÆl
+.
+a˘ive
+) {
+
+95 
 	`fgcﬁ‹
 (15);
 
-96 
+97 
 	`gŸoxy
 (
 	`FIX14_right
@@ -143203,15 +143475,15 @@ x
 y
  + 0x2000));
 
-97 
+98 
 	`¥ötf
 ("%c", 15+96);
 
-98 
+100 
 	}
 }
 
-100 
+102 
 	$dñëeBÆl
 (
 bÆl_t
@@ -143219,7 +143491,13 @@ bÆl_t
 bÆl
 ) {
 
-101 
+103 i‡(
+bÆl
+.
+a˘ive
+) {
+
+104 
 	`gŸoxy
 (
 	`FIX14_right
@@ -143231,15 +143509,15 @@ x
 y
  + 0x2000));
 
-102 
+105 
 	`¥ötf
 (" ");
 
-103 
+107 
 	}
 }
 
-105 
+109 
 	$upd©eBÆlPos
 (
 bÆl_t
@@ -143251,7 +143529,13 @@ uöt8_t
 k
 ) {
 
-106 (*
+110 i‡((*
+bÆl_p
+).
+a˘ive
+) {
+
+111 (*
 bÆl_p
 ).
 x
@@ -143261,7 +143545,7 @@ vX
 k
 ;
 
-107 (*
+112 (*
 bÆl_p
 ).
 y
@@ -143271,11 +143555,11 @@ vY
 k
 ;
 
-108 
+114 
 	}
 }
 
-110 
+116 
 	$døwSåikî
  (
 °rikî_t
@@ -143283,7 +143567,7 @@ k
 °rikî
 ) {
 
-112 
+118 
 	`fgcﬁ‹
 (
 °rikî
@@ -143291,7 +143575,7 @@ k
 cﬁ‹
 );
 
-113 
+119 
 uöt8_t
  
 i
@@ -143301,7 +143585,7 @@ i
 Àngth
 ; i++) {
 
-114 
+120 
 	`gŸoxy
 (
 °rikî
@@ -143313,15 +143597,19 @@ i
 y
 );
 
-115 
+121 
 	`¥ötf
 ("%c", 11 + 208);
 
-117 
+123 
+	`fgcﬁ‹
+(15);
+
+124 
 	}
 }
 
-119 
+126 
 	$dñëeSåikî
 (
 °rikî_t
@@ -143329,7 +143617,7 @@ y
 °rikî
 ) {
 
-121 
+128 
 uöt8_t
  
 i
@@ -143339,7 +143627,7 @@ i
 Àngth
 ; i++) {
 
-122 
+129 
 	`gŸoxy
 (
 °rikî
@@ -143351,15 +143639,15 @@ i
 y
 );
 
-123 
+130 
 	`¥ötf
 (" ");
 
-125 
+132 
 	}
 }
 
-127 
+134 
 	$upd©eSåikîPos
  (
 °rikî_t
@@ -143371,19 +143659,19 @@ uöt8_t
 joyStickSèã
 ) {
 
-129 
+136 
 	`gŸoxy
-(130, 10);
+(150, 10);
 
-130 
+137 
 	`¥ötf
 (" ");
 
-131 
+138 
 	`ªadTem≥øtuª
 ();
 
-132 
+139 
 uöt8_t
  
 t
@@ -143391,75 +143679,45 @@ t
 	`ªadTem≥øtuª
 ();
 
-133 
+140 
 t
 ) {
 
-134 0 : (*
-°rikî_p
-).
-cﬁ‹
- = 11;
-
-136 1 : (*
-°rikî_p
-).
-cﬁ‹
- = 6;
-
-138 2 : (*
-°rikî_p
-).
-cﬁ‹
- = 14;
-
-140 3 : (*
-°rikî_p
-).
-cﬁ‹
- = 12;
-
-142 4 : (*
+141 0 : (*
 °rikî_p
 ).
 cﬁ‹
  = 4;
 
-144 5 : (*
+143 1 : (*
 °rikî_p
 ).
 cﬁ‹
- = 5;
+ = 12;
 
-146 6 : (*
+145 2 : (*
 °rikî_p
 ).
 cﬁ‹
  = 13;
 
-148 7 : (*
+147 3 : (*
 °rikî_p
 ).
 cﬁ‹
  = 9;
 
-150 8 : (*
+149 4 : (*
 °rikî_p
 ).
 cﬁ‹
  = 1;
 
-152  : (*
-°rikî_p
-).
-cﬁ‹
- = 15;
-
-156 i‡(
+155 i‡(
 joyStickSèã
  == 8) {
 
-157 
+156 
 	`gŸoxy
 ((*
 °rikî_p
@@ -143469,17 +143727,17 @@ x
 y
 );
 
-158 
+157 
 	`¥ötf
 (" ");
 
-159 (*
+158 (*
 °rikî_p
 ).
 x
 ++;
 
-160 
+159 
 	`gŸoxy
 ((*
 °rikî_p
@@ -143491,7 +143749,7 @@ x
 y
 );
 
-161 
+160 
 	`fgcﬁ‹
 ((*
 °rikî_p
@@ -143499,15 +143757,15 @@ y
 cﬁ‹
 );
 
-162 
+161 
 	`¥ötf
 ("%c", 11 + 208);
 
-163 } i‡(
+162 } i‡(
 joyStickSèã
  == 4) {
 
-164 
+163 
 	`gŸoxy
 ((*
 °rikî_p
@@ -143519,17 +143777,17 @@ x
 y
 );
 
-165 
+164 
 	`¥ötf
 (" ");
 
-166 (*
+165 (*
 °rikî_p
 ).
 x
 --;
 
-167 
+166 
 	`gŸoxy
 ((*
 °rikî_p
@@ -143539,7 +143797,7 @@ x
 y
 );
 
-168 
+167 
 	`fgcﬁ‹
 ((*
 °rikî_p
@@ -143547,29 +143805,29 @@ y
 cﬁ‹
 );
 
-169 
+168 
 	`¥ötf
 ("%c", 11 + 208);
 
-171 
+170 
 	`fgcﬁ‹
 (7);
 
-172 
+171 
 	`gŸoxy
-(130, 10);
+(150, 10);
 
-173 
+172 
 	`¥ötf
 ("%i", 
 t
 );
 
-174 
+173 
 	}
 }
 
-176 
+175 
 	$døwBox
 (
 box_t
@@ -143577,25 +143835,25 @@ box_t
 box
 ) {
 
-177 
+176 
 box
 .
 lives
 ) {
 
-178 0 : 
+177 0 : 
 	`bgcﬁ‹
 (0);
 
-180 1 : 
+179 1 : 
 	`bgcﬁ‹
 (3);
 
-182 2 : 
+181 2 : 
 	`bgcﬁ‹
 (5);
 
-187 
+186 
 uöt8_t
  
 i
@@ -143605,7 +143863,7 @@ box
 xSize
 ; i++) {
 
-188 
+187 
 uöt8_t
  
 j
@@ -143615,7 +143873,7 @@ box
 ySize
 ; j++) {
 
-189 
+188 
 	`gŸoxy
 (
 box
@@ -143629,7 +143887,7 @@ y
 j
 );
 
-190 i‡(
+189 i‡(
 box
 .
 powîUp
@@ -143640,6 +143898,10 @@ lives
  && !box.powîUp.
 hô
 ){
+
+190 
+	`fgcﬁ‹
+(4);
 
 191 
 	`¥ötf
@@ -143661,65 +143923,111 @@ hô
 	$døwPowîUp
 (
 box_t
+ * 
+box_p
+, 
+öt32_t
  
-box
+y2
 ) {
 
 201 
 	`gŸoxy
 (
-box
-.
+	`FIX14_right
+((*
+box_p
+).
 powîUp
 .
 x
-, box.powîUp.
+ + 0x2000), FIX14_right((*box_p).powîUp.
 y
-);
+ + 0x2000));
 
 202 
 	`¥ötf
 (" ");
 
-203 
-box
-.
+203 (*
+box_p
+).
 powîUp
 .
 y
-++;
++= 0x1000;
 
-204 
+204 i‡(
+	`FIX14_right
+((*
+box_p
+).
+powîUp
+.
+y
+ + 0x2000Ë>
+y2
+) {
+
+205 (*
+box_p
+).
+powîUp
+.
+hô
+ = 0;
+
+207 
 	`gŸoxy
 (
-box
-.
+	`FIX14_right
+((*
+box_p
+).
 powîUp
 .
 x
-, box.powîUp.
+ + 0x2000), FIX14_right((*box_p).powîUp.
 y
-);
+ + 0x2000));
 
-205 
+208 i‡((*
+box_p
+).
+powîUp
+.
+°yÀ
+ == 1) {
+
+209 
 	`fgcﬁ‹
 (7);
 
-206 
+210 
 	`¥ötf
-("%¯y = %i", 4+144, 
-box
-.
+("%c", 4+144);
+
+211 } i‡((*
+box_p
+).
 powîUp
 .
-y
-);
+°yÀ
+ == 2) {
 
-207 
+212 
+	`fgcﬁ‹
+(11);
+
+213 
+	`¥ötf
+("%c", 4+32);
+
+216 
 	}
 }
 
-209 
+218 
 	$døwSc‹eLabñ
 (
 uöt16_t
@@ -143731,35 +144039,35 @@ uöt8_t
 x2
 ) {
 
-210 
+219 
 	`bgcﬁ‹
 (4);
 
-211 
+220 
 	`gŸoxy
 (
 x2
  - 40, 1);
 
-212 
+221 
 	`fgcﬁ‹
 (7);
 
-213 
+222 
 	`¥ötf
 ("Sc‹e: %i", 
 sc‹e
 );
 
-214 
+223 
 	`ª£tbgcﬁ‹
 ();
 
-215 
+224 
 	}
 }
 
-217 
+226 
 	$døwLevñLabñ
 (
 uöt8_t
@@ -143769,35 +144077,35 @@ uöt8_t
 x2
 ) {
 
-218 
+227 
 	`bgcﬁ‹
 (4);
 
-219 
+228 
 	`gŸoxy
 (
 x2
  - 25, 1);
 
-220 
+229 
 	`fgcﬁ‹
 (7);
 
-221 
+230 
 	`¥ötf
 ("Levñ: %i", 
 Àvñ
 );
 
-222 
+231 
 	`ª£tbgcﬁ‹
 ();
 
-223 
+232 
 	}
 }
 
-225 
+234 
 	$døwHighsc‹eLabñ
 (
 öt32_t
@@ -143805,33 +144113,33 @@ x2
 x2
 ) {
 
-226 
+235 
 	`bgcﬁ‹
 (4);
 
-227 
+236 
 	`gŸoxy
 (
 x2
  - 55, 1);
 
-228 
+237 
 	`fgcﬁ‹
 (7);
 
-229 
+238 
 	`¥ötf
 ("NEW HIGHSCORE");
 
-230 
+239 
 	`ª£tbgcﬁ‹
 ();
 
-231 
+240 
 	}
 }
 
-233 
+242 
 	$døwPœyîLivesLabñ
  (
 uöt8_t
@@ -143841,89 +144149,89 @@ uöt8_t
 x2
 ) {
 
-234 
+243 
 	`gŸoxy
 (
 x2
  - 10, 1);
 
-235 
+244 
 	`bgcﬁ‹
 (4);
 
-236 i‡(
+245 i‡(
 ∂ayîLives
  == 3) {
 
-237 
+246 
 	`fgcﬁ‹
 (9);
 
-238 
+247 
 	`¥ötf
 ("<3 <3 <3");
 
-239 } i‡(
+248 } i‡(
 ∂ayîLives
  == 2) {
 
-240 
+249 
 	`fgcﬁ‹
 (9);
 
-241 
+250 
 	`¥ötf
 ("<3 <3");
 
-242 
+251 
 	`fgcﬁ‹
 (7);
 
-243 
+252 
 	`¥ötf
 (" X");
 
-244 } i‡(
+253 } i‡(
 ∂ayîLives
  == 1) {
 
-245 
+254 
 	`fgcﬁ‹
 (9);
 
-246 
+255 
 	`¥ötf
 ("<3");
 
-247 
+256 
 	`fgcﬁ‹
 (7);
 
-248 
+257 
 	`¥ötf
 (" X X");
 
-250 
+259 
 	`fgcﬁ‹
 (7);
 
-251 
+260 
 	`¥ötf
 (" X X X");
 
-253 
+262 
 	`ª£tbgcﬁ‹
 ();
 
-254 
+263 
 	`fgcﬁ‹
 (15);
 
-255 
+264 
 	}
 }
 
-257 
+266 
 	$døwBackMesßge
 (
 uöt8_t
@@ -143933,7 +144241,7 @@ x
 y
 ) {
 
-258 
+267 
 	`gŸoxy
 (
 x
@@ -143941,15 +144249,15 @@ x
 y
 );
 
-259 
+268 
 	`¥ötf
 ("Press center-buttonÅo go back");
 
-260 
+269 
 	}
 }
 
-262 
+271 
 	$dñëeBackMesßge
 (
 uöt8_t
@@ -143959,7 +144267,7 @@ x
 y
 ) {
 
-263 
+272 
 	`gŸoxy
 (
 x
@@ -143967,15 +144275,15 @@ x
 y
 );
 
-264 
+273 
 	`¥ötf
 (" ");
 
-265 
+274 
 	}
 }
 
-267 
+276 
 	$døwSc‹ebﬂrdLabñ
 (
 uöt8_t
@@ -143987,7 +144295,7 @@ sc‹ebﬂrdY
 cﬁ‹
 ) {
 
-268 
+277 
 	`gŸoxy
 (
 sc‹ebﬂrdX
@@ -143995,7 +144303,7 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 );
 
-269 
+278 
 	`wödow
 (
 sc‹ebﬂrdX
@@ -144003,13 +144311,13 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 , scoreboardX + 11, scoreboardY + 2, "", 0, 0);
 
-270 
+279 
 	`bgcﬁ‹
 (
 cﬁ‹
 );
 
-271 
+280 
 	`gŸoxy
 (
 sc‹ebﬂrdX
@@ -144017,19 +144325,19 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
  + 1);
 
-272 
+281 
 	`¥ötf
 ("Scoreboard");
 
-273 
+282 
 	`ª£tbgcﬁ‹
 ();
 
-274 
+283 
 	}
 }
 
-276 
+285 
 	$døwSèπLabñ
 (
 uöt8_t
@@ -144041,7 +144349,7 @@ uöt8_t
 cﬁ‹
 ) {
 
-277 
+286 
 	`gŸoxy
 (
 °¨tX
@@ -144049,7 +144357,7 @@ cﬁ‹
 °¨tY
 );
 
-278 
+287 
 	`wödow
 (
 °¨tX
@@ -144057,13 +144365,13 @@ cﬁ‹
 °¨tY
 , startX + 11, startY + 2, "", 0, 0);
 
-279 
+288 
 	`bgcﬁ‹
 (
 cﬁ‹
 );
 
-280 
+289 
 	`gŸoxy
 (
 °¨tX
@@ -144071,19 +144379,19 @@ cﬁ‹
 °¨tY
  + 1);
 
-281 
+290 
 	`¥ötf
 ("Start game");
 
-282 
+291 
 	`ª£tbgcﬁ‹
 ();
 
-283 
+292 
 	}
 }
 
-285 
+294 
 	$døwHñpLabñ
 (
 uöt8_t
@@ -144095,7 +144403,7 @@ hñpY
 cﬁ‹
 ) {
 
-286 
+295 
 	`gŸoxy
 (
 hñpX
@@ -144103,7 +144411,7 @@ hñpX
 hñpY
 );
 
-287 
+296 
 	`wödow
 (
 hñpX
@@ -144111,13 +144419,13 @@ hñpX
 hñpY
 , helpX + 11, helpY + 2, "", 0, 0);
 
-288 
+297 
 	`bgcﬁ‹
 (
 cﬁ‹
 );
 
-289 
+298 
 	`gŸoxy
 (
 hñpX
@@ -144125,19 +144433,19 @@ hñpX
 hñpY
  + 1);
 
-290 
+299 
 	`¥ötf
 (" Help ");
 
-291 
+300 
 	`ª£tbgcﬁ‹
 ();
 
-292 
+301 
 	}
 }
 
-294 
+303 
 	$dñëeMíuLabñs
 (
 uöt8_t
@@ -144155,17 +144463,17 @@ hñpX
 hñpY
 ) {
 
-295 
+304 
 	`ª£tbgcﬁ‹
 ();
 
-296 
+305 
 uöt8_t
  
 i
  = 0; i <= 2; i++) {
 
-297 
+306 
 	`gŸoxy
 (
 sc‹ebﬂrdX
@@ -144175,11 +144483,11 @@ sc‹ebﬂrdY
 i
 );
 
-298 
+307 
 	`¥ötf
 (" ");
 
-299 
+308 
 	`gŸoxy
 (
 °¨tX
@@ -144189,11 +144497,11 @@ i
 i
 );
 
-300 
+309 
 	`¥ötf
 (" ");
 
-301 
+310 
 	`gŸoxy
 (
 hñpX
@@ -144203,15 +144511,15 @@ hñpY
 i
 );
 
-302 
+311 
 	`¥ötf
 (" ");
 
-304 
+313 
 	}
 }
 
-306 
+315 
 	$¥ötBossKey
 (
 uöt16_t
@@ -144225,309 +144533,309 @@ uöt8_t
 ∂ayîLives
 ) {
 
-308 
+317 
 	`˛rs¸
 ();
 
-309 
+318 
 	`gŸoxy
 (1,1);
 
-313 
-	`fgcﬁ‹
-(2);
-
-314 
-	`¥ötf
- ("#include \"stm32f30x_conf.h\"\n #include \"30010_io.h\"\n#include \"hardware_control.h\"\n#include \"draw_objects.h\"\n#include \"game_control.h\"");
-
-317 
-	`¥ötf
-("\n\nstriker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {\n");
-
-318 
-	`fgcﬁ‹
-(8);
-
-319 
-	`¥ötf
-(" //Drawing striker\n" );
-
-320 
-	`fgcﬁ‹
-(2);
-
-321 
-	`¥ötf
-(" striker_t striker;\n");
-
 322 
-	`¥ötf
-(" striker.length = (x2 - x1)/10;\n");
+	`fgcﬁ‹
+(2);
 
 323 
 	`¥ötf
-(" striker.x = (x1 + x2)/2 - striker.length/2;\n");
-
-324 
-	`¥ötf
-(" striker.y = y2 - 1;\n");
-
-325 
-	`¥ötf
-(" drawStriker(&striker);\n");
+ ("#include \"stm32f30x_conf.h\"\n #include \"30010_io.h\"\n#include \"hardware_control.h\"\n#include \"draw_objects.h\"\n#include \"game_control.h\"");
 
 326 
 	`¥ötf
-("Ñeturn striker;\n}\n");
+("\n\nstriker_t initStriker(int32_t x1, int32_t x2, int32_t y2) {\n");
 
 327 
+	`fgcﬁ‹
+(8);
+
+328 
 	`¥ötf
-("\n");
+(" //Drawing striker\n" );
+
+329 
+	`fgcﬁ‹
+(2);
 
 330 
 	`¥ötf
-("ball_t initBall(striker_t striker) {\n");
+(" striker_t striker;\n");
 
 331 
-	`fgcﬁ‹
-(8);
+	`¥ötf
+(" striker.length = (x2 - x1)/10;\n");
 
 332 
 	`¥ötf
-(" //Drawing Ball\n");
+(" striker.x = (x1 + x2)/2 - striker.length/2;\n");
 
 333 
-	`fgcﬁ‹
-(2);
+	`¥ötf
+(" striker.y = y2 - 1;\n");
 
 334 
 	`¥ötf
-(" ball_t ball;\n");
+(" drawStriker(&striker);\n");
 
 335 
-	`fgcﬁ‹
-(8);
+	`¥ötf
+("Ñeturn striker;\n}\n");
 
 336 
 	`¥ötf
-(" //BallÖosition-ánd velocity coordinatesÜeft-shifted 14 bits in orderÅoÖroduce 18.14-fixedÖointÇumbers\n");
-
-337 
-	`fgcﬁ‹
-(2);
-
-338 
-	`¥ötf
-(" ball.x = FIX14_left(striker.x + striker.length/2);\n");
+("\n");
 
 339 
 	`¥ötf
-(" ball.y = FIX14_left(striker.y - 2);\n");
+("ball_t initBall(striker_t striker) {\n");
 
 340 
-	`¥ötf
-(" ball.vX = 0x00000000;\n");
+	`fgcﬁ‹
+(8);
 
 341 
 	`¥ötf
-(" ball.vY = 0xFFFFF000; //-0.25\n");
+(" //Drawing Ball\n");
 
 342 
-	`¥ötf
-(" drawBall(&ball);\n");
+	`fgcﬁ‹
+(2);
 
 343 
 	`¥ötf
-("Ñeturn ball;\n}\n");
+(" ball_t ball;\n");
 
 344 
+	`fgcﬁ‹
+(8);
+
+345 
 	`¥ötf
-("\n");
+(" //BallÖosition-ánd velocity coordinatesÜeft-shifted 14 bits in orderÅoÖroduce 18.14-fixedÖointÇumbers\n");
+
+346 
+	`fgcﬁ‹
+(2);
 
 347 
 	`¥ötf
-("int main(void) {\n");
+(" ball.x = FIX14_left(striker.x + striker.length/2);\n");
 
 348 
-	`fgcﬁ‹
-(8);
+	`¥ötf
+(" ball.y = FIX14_left(striker.y - 2);\n");
 
 349 
 	`¥ötf
-(" //Variables\n");
+(" ball.vX = 0x00000000;\n");
 
 350 
-	`fgcﬁ‹
-(2);
+	`¥ötf
+(" ball.vY = 0xFFFFF000; //-0.25\n");
 
 351 
 	`¥ötf
-(" int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45;");
+(" drawBall(&ball);\n");
 
 352 
-	`fgcﬁ‹
-(8);
+	`¥ötf
+("Ñeturn ball;\n}\n");
 
 353 
 	`¥ötf
-("//Window size (current values willÖroduceá 4 : 3áspectÑatio)\n");
+("\n");
 
-354 
+356 
+	`¥ötf
+("int main(void) {\n");
+
+357 
+	`fgcﬁ‹
+(8);
+
+358 
+	`¥ötf
+(" //Variables\n");
+
+359 
 	`fgcﬁ‹
 (2);
 
-355 
+360 
+	`¥ötf
+(" int32_t x1 = 1, y1 = 1, x2 = 120, y2 = 45;");
+
+361 
+	`fgcﬁ‹
+(8);
+
+362 
+	`¥ötf
+("//Window size (current values willÖroduceá 4 : 3áspectÑatio)\n");
+
+363 
+	`fgcﬁ‹
+(2);
+
+364 
 	`¥ötf
 (" x2 = (((x2 - x1 - 1) / 10) * 10) + x1 + 1;");
 
-356 
+365 
 	`fgcﬁ‹
 (8);
 
-357 
+366 
 	`¥ötf
 ("//MakesÅhe width divisible by 10\n");
 
-358 
+367 
 	`fgcﬁ‹
 (2);
 
-359 
+368 
 	`¥ötf
 (" uint8_t k = 1;");
 
-360 
+369 
 	`fgcﬁ‹
 (8);
 
-361 
+370 
 	`¥ötf
 ("//Controlling speed of ball\n");
 
-362 
+371 
 	`fgcﬁ‹
 (2);
 
-363 
+372 
 	`¥ötf
 (" uint16_t strikerCounter = 0;\n uint16_t strikerMaxCount = 8500;");
 
-364 
+373 
 	`fgcﬁ‹
 (8);
 
-365 
+374 
 	`¥ötf
 ("//Affects striker speed\n");
 
-366 
+375 
 	`fgcﬁ‹
 (2);
 
-367 
+376 
 	`¥ötf
 (" uint8_t boxColumns = 10;");
 
-368 
+377 
 	`fgcﬁ‹
 (8);
 
-369 
+378 
 	`¥ötf
 ("//Number of boxesálongÅhe x-axis\n");
 
-370 
+379 
 	`fgcﬁ‹
 (2);
 
-371 
+380 
 	`¥ötf
 (" uint8_t boxRows = 5");
 
-372 
+381 
 	`fgcﬁ‹
 (8);
 
-373 
+382 
 	`¥ötf
 ("//Number of boxesálongÅhe y-axis\n");
 
-374 
+383 
 	`fgcﬁ‹
 (2);
 
-375 
+384 
 	`¥ötf
 (" uint8_t bossKey = ");
 
-376 
+385 
 	`fgcﬁ‹
 (4);
 
-377 
+386 
 	`¥ötf
 ("SFW-mode (safe for work) isÇow ACTIVE,Öress center-buttomÅoÑesume game\n");
 
-378 
+387 
 	`fgcﬁ‹
 (2);
 
-379 
+388 
 	`¥ötf
 (" uint8_t score = ");
 
-380 
+389 
 	`fgcﬁ‹
 (4);
 
-381 
+390 
 	`¥ötf
 ("%i\n", 
 sc‹e
 );
 
-382 
+391 
 	`fgcﬁ‹
 (2);
 
-383 
+392 
 	`¥ötf
 (" uint8_tÜevel = ");
 
-384 
+393 
 	`fgcﬁ‹
 (4);
 
-385 
+394 
 	`¥ötf
 ("%i\n", 
 Àvñ
 );
 
-386 
+395 
 	`fgcﬁ‹
 (2);
 
-387 
+396 
 	`¥ötf
 (" uint8_tÖlayerLives = ");
 
-388 
+397 
 	`fgcﬁ‹
 (4);
 
-389 
+398 
 	`¥ötf
 ("%i\n", 
 ∂ayîLives
 );
 
-390 
+399 
 	}
 }
 
-392 
+401 
 	$gameOvî
 (
 öt32_t
@@ -144541,7 +144849,7 @@ y1
 y2
 ) {
 
-394 
+403 
 uöt8_t
  
 xm
@@ -144551,7 +144859,7 @@ x2
 x1
 )/2;
 
-395 
+404 
 uöt8_t
  
 ym
@@ -144561,25 +144869,25 @@ y2
 y1
 )/2;
 
-398 
+407 
 uöt8_t
  
 box
  = 208+11;
 
-399 
+408 
 uöt8_t
  
 hÆfbox
  = 208+12;
 
-400 
+409 
 uöt8_t
  
 uµîhÆfbox
  = 208 + 15;
 
-403 
+412 
 uöt8_t
  
 xGs
@@ -144587,7 +144895,7 @@ xGs
 xm
  - (5*5);
 
-404 
+413 
 uöt8_t
  
 yGs
@@ -144595,11 +144903,11 @@ yGs
 ym
  - 3;
 
-407 
+416 
 	`fgcﬁ‹
 (6);
 
-410 
+419 
 	`gŸoxy
 (
 xGs
@@ -144607,13 +144915,13 @@ xGs
 yGs
 );
 
-411 
+420 
 	`¥ötf
 ("%c%c%c\n", 
 box
 , box, box);
 
-412 
+421 
 	`gŸoxy
 (
 xGs
@@ -144621,13 +144929,13 @@ xGs
 yGs
  + 1);
 
-413 
+422 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-414 
+423 
 	`gŸoxy
 (
 xGs
@@ -144635,7 +144943,7 @@ xGs
 yGs
  + 2);
 
-415 
+424 
 	`¥ötf
 ("%¯%c%c\n", 
 box
@@ -144643,7 +144951,7 @@ box
 hÆfbox
 , halfbox);
 
-416 
+425 
 	`gŸoxy
 (
 xGs
@@ -144651,13 +144959,13 @@ xGs
 yGs
  + 3);
 
-417 
+426 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-418 
+427 
 	`gŸoxy
 (
 xGs
@@ -144665,13 +144973,13 @@ xGs
 yGs
  + 4);
 
-419 
+428 
 	`¥ötf
 ("%c%c%c\n", 
 box
 , box, box);
 
-423 
+432 
 uöt8_t
  
 xAs
@@ -144679,7 +144987,7 @@ xAs
 xGs
  + 6;
 
-424 
+433 
 uöt8_t
  
 yAs
@@ -144687,11 +144995,11 @@ yAs
 yGs
 ;
 
-427 
+436 
 	`fgcﬁ‹
 (6);
 
-430 
+439 
 	`gŸoxy
 (
 xAs
@@ -144699,13 +145007,13 @@ xAs
 yAs
 );
 
-431 
+440 
 	`¥ötf
 ("%c%c%c\n", 
 box
 , box, box);
 
-432 
+441 
 	`gŸoxy
 (
 xAs
@@ -144713,13 +145021,13 @@ xAs
 yAs
  + 1);
 
-433 
+442 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-434 
+443 
 	`gŸoxy
 (
 xAs
@@ -144727,7 +145035,7 @@ xAs
 yAs
  + 2);
 
-435 
+444 
 	`¥ötf
 ("%c%c%c%c%c\n", 
 box
@@ -144735,7 +145043,7 @@ box
 hÆfbox
 , halfbox, halfbox, box);
 
-436 
+445 
 	`gŸoxy
 (
 xAs
@@ -144743,13 +145051,13 @@ xAs
 yAs
  + 3);
 
-437 
+446 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-438 
+447 
 	`gŸoxy
 (
 xAs
@@ -144757,47 +145065,47 @@ xAs
 yAs
  + 4);
 
-439 
-	`¥ötf
-("%¯ %c\n", 
-box
-, box);
-
-443 
-uöt8_t
- 
-xMs
- = 
-xAs
- + 6;
-
-444 
-uöt8_t
- 
-yMs
- = 
-yAs
-;
-
-447 
-	`fgcﬁ‹
-(6);
-
-450 
-	`gŸoxy
-(
-xMs
-, 
-yMs
-);
-
-451 
+448 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
 452 
+uöt8_t
+ 
+xMs
+ = 
+xAs
+ + 6;
+
+453 
+uöt8_t
+ 
+yMs
+ = 
+yAs
+;
+
+456 
+	`fgcﬁ‹
+(6);
+
+459 
+	`gŸoxy
+(
+xMs
+, 
+yMs
+);
+
+460 
+	`¥ötf
+("%¯ %c\n", 
+box
+, box);
+
+461 
 	`gŸoxy
 (
 xMs
@@ -144805,13 +145113,13 @@ xMs
 yMs
  + 1);
 
-453 
+462 
 	`¥ötf
 ("%c%¯%c%c\n", 
 box
 , box, box, box);
 
-454 
+463 
 	`gŸoxy
 (
 xMs
@@ -144819,13 +145127,13 @@ xMs
 yMs
  + 2);
 
-455 
+464 
 	`¥ötf
 ("%¯%¯%c\n", 
 box
 , box, box);
 
-456 
+465 
 	`gŸoxy
 (
 xMs
@@ -144833,13 +145141,13 @@ xMs
 yMs
  + 3);
 
-457 
+466 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-458 
+467 
 	`gŸoxy
 (
 xMs
@@ -144847,13 +145155,13 @@ xMs
 yMs
  + 4);
 
-459 
+468 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-463 
+472 
 uöt8_t
  
 xEs
@@ -144861,7 +145169,7 @@ xEs
 xMs
  + 6;
 
-464 
+473 
 uöt8_t
  
 yEs
@@ -144869,11 +145177,11 @@ yEs
 yMs
 ;
 
-467 
+476 
 	`fgcﬁ‹
 (6);
 
-470 
+479 
 	`gŸoxy
 (
 xEs
@@ -144881,13 +145189,13 @@ xEs
 yEs
 );
 
-471 
+480 
 	`¥ötf
 ("%c%c%c%c%c\n", 
 box
 , box, box, box, box);
 
-472 
+481 
 	`gŸoxy
 (
 xEs
@@ -144895,13 +145203,13 @@ xEs
 yEs
  + 1);
 
-473 
+482 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-474 
+483 
 	`gŸoxy
 (
 xEs
@@ -144909,7 +145217,7 @@ xEs
 yEs
  + 2);
 
-475 
+484 
 	`¥ötf
 ("%c%c%c\n", 
 box
@@ -144917,7 +145225,7 @@ box
 hÆfbox
 , halfbox);
 
-476 
+485 
 	`gŸoxy
 (
 xEs
@@ -144925,13 +145233,13 @@ xEs
 yEs
  + 3);
 
-477 
+486 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-478 
+487 
 	`gŸoxy
 (
 xEs
@@ -144939,13 +145247,13 @@ xEs
 yEs
  + 4);
 
-479 
+488 
 	`¥ötf
 ("%c%c%c%c%c\n", 
 box
 , box, box, box, box);
 
-483 
+492 
 uöt8_t
  
 xOs
@@ -144953,7 +145261,7 @@ xOs
 xEs
  + 13;
 
-484 
+493 
 uöt8_t
  
 yOs
@@ -144961,11 +145269,11 @@ yOs
 yEs
 ;
 
-487 
+496 
 	`fgcﬁ‹
 (6);
 
-490 
+499 
 	`gŸoxy
 (
 xOs
@@ -144973,13 +145281,13 @@ xOs
 yOs
 );
 
-491 
+500 
 	`¥ötf
 ("%c%c%c\n", 
 box
 , box, box);
 
-492 
+501 
 	`gŸoxy
 (
 xOs
@@ -144987,13 +145295,13 @@ xOs
 yOs
  + 1);
 
-493 
+502 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-494 
+503 
 	`gŸoxy
 (
 xOs
@@ -145001,13 +145309,13 @@ xOs
 yOs
  + 2);
 
-495 
+504 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-496 
+505 
 	`gŸoxy
 (
 xOs
@@ -145015,13 +145323,13 @@ xOs
 yOs
  + 3);
 
-497 
+506 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-498 
+507 
 	`gŸoxy
 (
 xOs
@@ -145029,13 +145337,13 @@ xOs
 yOs
  + 4);
 
-499 
+508 
 	`¥ötf
 ("%c%c%c\n", 
 box
 , box, box);
 
-503 
+512 
 uöt8_t
  
 xVs
@@ -145043,7 +145351,7 @@ xVs
 xOs
  + 6;
 
-504 
+513 
 uöt8_t
  
 yVs
@@ -145051,11 +145359,11 @@ yVs
 yOs
 ;
 
-507 
+516 
 	`fgcﬁ‹
 (6);
 
-510 
+519 
 	`gŸoxy
 (
 xVs
@@ -145063,13 +145371,13 @@ xVs
 yVs
 );
 
-511 
+520 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-512 
+521 
 	`gŸoxy
 (
 xVs
@@ -145077,13 +145385,13 @@ xVs
 yVs
  + 1);
 
-513 
+522 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-514 
+523 
 	`gŸoxy
 (
 xVs
@@ -145091,13 +145399,13 @@ xVs
 yVs
  + 2);
 
-515 
+524 
 	`¥ötf
 ("%¯%c\n", 
 box
 , box);
 
-516 
+525 
 	`gŸoxy
 (
 xVs
@@ -145105,13 +145413,13 @@ xVs
 yVs
  + 3);
 
-517 
+526 
 	`¥ötf
 ("%¯%c\n", 
 box
 , box);
 
-518 
+527 
 	`gŸoxy
 (
 xVs
@@ -145119,13 +145427,13 @@ xVs
 yVs
  + 4);
 
-519 
+528 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-523 
+532 
 uöt8_t
  
 xE2s
@@ -145133,7 +145441,7 @@ xE2s
 xVs
  + 6;
 
-524 
+533 
 uöt8_t
  
 yE2s
@@ -145141,11 +145449,11 @@ yE2s
 yVs
 ;
 
-527 
+536 
 	`fgcﬁ‹
 (6);
 
-530 
+539 
 	`gŸoxy
 (
 xE2s
@@ -145153,13 +145461,13 @@ xE2s
 yE2s
 );
 
-531 
+540 
 	`¥ötf
 ("%c%c%c%c%c\n", 
 box
 , box, box, box, box);
 
-532 
+541 
 	`gŸoxy
 (
 xE2s
@@ -145167,13 +145475,13 @@ xE2s
 yE2s
  + 1);
 
-533 
+542 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-534 
+543 
 	`gŸoxy
 (
 xE2s
@@ -145181,7 +145489,7 @@ xE2s
 yE2s
  + 2);
 
-535 
+544 
 	`¥ötf
 ("%c%c%c\n", 
 box
@@ -145189,7 +145497,7 @@ box
 hÆfbox
 , halfbox);
 
-536 
+545 
 	`gŸoxy
 (
 xE2s
@@ -145197,13 +145505,13 @@ xE2s
 yE2s
  + 3);
 
-537 
+546 
 	`¥ötf
 ("%c\n", 
 box
 );
 
-538 
+547 
 	`gŸoxy
 (
 xE2s
@@ -145211,13 +145519,13 @@ xE2s
 yE2s
  + 4);
 
-539 
+548 
 	`¥ötf
 ("%c%c%c%c%c\n", 
 box
 , box, box, box, box);
 
-543 
+552 
 uöt8_t
  
 xRs
@@ -145225,7 +145533,7 @@ xRs
 xE2s
  + 6;
 
-544 
+553 
 uöt8_t
  
 yRs
@@ -145233,11 +145541,11 @@ yRs
 yE2s
 ;
 
-547 
+556 
 	`fgcﬁ‹
 (6);
 
-550 
+559 
 	`gŸoxy
 (
 xRs
@@ -145245,7 +145553,7 @@ xRs
 yRs
 );
 
-551 
+560 
 	`¥ötf
 ("%c%c%c%c\n", 
 box
@@ -145253,7 +145561,7 @@ box
 hÆfbox
 );
 
-552 
+561 
 	`gŸoxy
 (
 xRs
@@ -145261,13 +145569,13 @@ xRs
 yRs
  + 1);
 
-553 
+562 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-554 
+563 
 	`gŸoxy
 (
 xRs
@@ -145275,7 +145583,7 @@ xRs
 yRs
  + 2);
 
-555 
+564 
 	`¥ötf
 ("%¯%c%c\n", 
 box
@@ -145285,7 +145593,7 @@ hÆfbox
 uµîhÆfbox
 );
 
-556 
+565 
 	`gŸoxy
 (
 xRs
@@ -145293,13 +145601,13 @@ xRs
 yRs
  + 3);
 
-557 
+566 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-558 
+567 
 	`gŸoxy
 (
 xRs
@@ -145307,17 +145615,17 @@ xRs
 yRs
  + 4);
 
-559 
+568 
 	`¥ötf
 ("%¯ %c\n", 
 box
 , box);
 
-561 
+570 
 	}
 }
 
-563 
+572 
 	$dñëeGameOvî
  (
 öt32_t
@@ -145331,7 +145639,7 @@ y1
 y2
 ) {
 
-564 
+573 
 uöt8_t
  
 xm
@@ -145341,7 +145649,7 @@ x2
 x1
 )/2;
 
-565 
+574 
 uöt8_t
  
 ym
@@ -145351,7 +145659,7 @@ y2
 y1
 )/2;
 
-568 
+577 
 uöt8_t
  
 xDs
@@ -145359,7 +145667,7 @@ xDs
 xm
  - (5*5);
 
-569 
+578 
 uöt8_t
  
 yDs
@@ -145367,7 +145675,7 @@ yDs
 ym
  - 3;
 
-570 
+579 
 	`gŸoxy
 (
 xDs
@@ -145375,11 +145683,11 @@ xDs
 yDs
 );
 
-572 
+581 
 i
  = 0; i < 5; i ++) {
 
-573 
+582 
 	`gŸoxy
 (
 xDs
@@ -145389,19 +145697,19 @@ yDs
 i
 );
 
-574 
+583 
 j
  = 0; j < 53; j++){
 
-575 
+584 
 	`¥ötf
 (" ");
 
-578 
+587 
 	}
 }
 
-580 
+589 
 	$døwHñp
 (
 uöt8_t
@@ -145411,7 +145719,11 @@ x
 y
 ) {
 
-582 
+591 
+	`fgcﬁ‹
+(15);
+
+592 
 	`gŸoxy
 (
 x
@@ -145419,15 +145731,23 @@ x
 y
 );
 
-583 
-	`fgcﬁ‹
-(7);
-
-584 
+593 
 	`¥ötf
 ("Help:");
 
-585 
+594 
+	`gŸoxy
+(
+x
+, 
+y
+ + 1);
+
+595 
+	`¥ötf
+("- MoveÅhe joystickÜeftándÑightÅo moveÅhe striker.");
+
+596 
 	`gŸoxy
 (
 x
@@ -145435,11 +145755,11 @@ x
 y
  + 2);
 
-586 
+597 
 	`¥ötf
-("- MoveÅhe joystickÜeftándÑightÅo moveÅhe striker.");
+("- PressÅhe center ofÅhe joystickÅo selectánáction (etc. startingÅhe game).");
 
-587 
+598 
 	`gŸoxy
 (
 x
@@ -145447,11 +145767,11 @@ x
 y
  + 3);
 
-588 
+599 
 	`¥ötf
-("- PressÅhe center of joystickÅo selectánáction (etc. startingÅhe game).");
+("- Press down onÅhe joystickÅoáctivate SFW (safe for work) mode (\"Boss Key\").");
 
-589 
+600 
 	`gŸoxy
 (
 x
@@ -145459,27 +145779,75 @@ x
 y
  + 4);
 
-590 
+601 
 	`¥ötf
-("- Press down onÅhe joystickÅoáctivate SFW (safe for work) mode (\"Boss Key\".)");
+("- IfÅhe scoreboard is selected,áÜist ofÅhe highest scores will be shown.");
 
-591 
+602 
 	`gŸoxy
 (
 x
 , 
 y
- + 5);
+ + 6);
 
-592 
+603 
 	`¥ötf
-("- IfÅhe scoreboard is selected,áÜist ofÅhe highest scores will be shown.");
+("Objective:");
 
-593 
+604 
+	`gŸoxy
+(
+x
+, 
+y
+ + 7);
+
+605 
+	`¥ötf
+("- HitÅhe boxes inÅheÅop half ofÅhe window by bouncingÅhe ball onÅhe striker.");
+
+606 
+	`gŸoxy
+(
+x
+, 
+y
+ + 8);
+
+607 
+	`¥ötf
+("- Whená box is hit,Åhe score increases. IfÅheÜast ball (more balls will");
+
+608 
+	`gŸoxy
+(
+x
+, 
+y
+ + 9);
+
+609 
+	`¥ötf
+("áppear dueÅoÖower-ups) hitsÅhe ground, youÜooseáÜife.");
+
+610 
+	`gŸoxy
+(
+x
+, 
+y
+ + 10);
+
+611 
+	`¥ötf
+("- When you haveÇoÜivesÜeft,Åhe game is over.");
+
+612 
 	}
 }
 
-595 
+614 
 	$dñëeHñp
 (
 uöt8_t
@@ -145489,71 +145857,29 @@ x
 y
 ) {
 
-596 
+615 
+i
+ = 0; i < 11; i++) {
+
+616 
 	`gŸoxy
 (
 x
 , 
 y
+ + 
+i
 );
 
-597 
+617 
 	`¥ötf
 (" ");
 
-598 
-	`gŸoxy
-(
-x
-, 
-y
- + 2);
-
-599 
-	`¥ötf
-(" ");
-
-600 
-	`gŸoxy
-(
-x
-, 
-y
- + 3);
-
-601 
-	`¥ötf
-(" ");
-
-602 
-	`gŸoxy
-(
-x
-, 
-y
- + 4);
-
-603 
-	`¥ötf
-(" ");
-
-604 
-	`gŸoxy
-(
-x
-, 
-y
- + 5);
-
-605 
-	`¥ötf
-(" ");
-
-606 
+619 
 	}
 }
 
-608 
+621 
 	$døwSc‹ebﬂrd
 (
 uöt8_t
@@ -145567,81 +145893,15 @@ uöt32_t
 addªss
 ) {
 
-609 
+622 
 uöt16_t
  
 ãmpSc‹eVÆ
 ;
 
-610 
-	`gŸoxy
-(
-x
-, 
-y
-);
-
-611 
-	`¥ötf
-("HereáreÅheÅop scores: ");
-
-612 
-i
- = 0 ; i < 10 ; i++ ){
-
-613 
-ãmpSc‹eVÆ
- = *(
-uöt16_t
- *)(
-addªss
- + 
-i
- * 2);
-
-614 
-	`gŸoxy
-(
-x
-, 
-y
- + 
-i
- + 2);
-
-615 i‡–
-i
- < 9) {
-
-616 
-	`¥ötf
-(" %i: %d ",(
-i
- + 1), 
-ãmpSc‹eVÆ
-);
-
-618 
-	`¥ötf
-("%i: %d ",(
-i
- + 1), 
-ãmpSc‹eVÆ
-);
-
-621 
-	}
-}
-
-623 
-	$dñëeSc‹ebﬂrd
- (
-uöt8_t
- 
-x
-, uöt8_à
-y
-) {
+623 
+	`fgcﬁ‹
+(15);
 
 624 
 	`gŸoxy
@@ -145651,11 +145911,81 @@ x
 y
 );
 
-625 
+625 
+	`¥ötf
+("HereáreÅheÅop scores: ");
+
+626 
+i
+ = 0 ; i < 10 ; i++ ){
+
+627 
+ãmpSc‹eVÆ
+ = *(
+uöt16_t
+ *)(
+addªss
+ + 
+i
+ * 2);
+
+628 
+	`gŸoxy
+(
+x
+, 
+y
+ + 
+i
+ + 2);
+
+629 i‡–
+i
+ < 9) {
+
+630 
+	`¥ötf
+(" %i: %d ",(
+i
+ + 1), 
+ãmpSc‹eVÆ
+);
+
+632 
+	`¥ötf
+("%i: %d ",(
+i
+ + 1), 
+ãmpSc‹eVÆ
+);
+
+635 
+	}
+}
+
+637 
+	$dñëeSc‹ebﬂrd
+ (
+uöt8_t
+ 
+x
+, uöt8_à
+y
+) {
+
+638 
+	`gŸoxy
+(
+x
+, 
+y
+);
+
+639 
 i
  = 0 ; i < 12 ; i++ ){
 
-626 
+640 
 	`gŸoxy
 (
 x
@@ -145665,11 +145995,11 @@ y
 i
 );
 
-627 
+641 
 	`¥ötf
 (" ");
 
-629 
+643 
 	}
 }
 
@@ -146009,7 +146339,7 @@ PUPDR
 GPIOA
 ->
 PUPDR
- |= (0x00000002 << (0 * 2));
+ |= (0x00000000 << (0 * 2));
 
 95 
 GPIOA
@@ -146033,7 +146363,7 @@ PUPDR
 GPIOA
 ->
 PUPDR
- |= (0x00000002 << (1 * 2));
+ |= (0x00000000 << (1 * 2));
 
 102 
 RCC
@@ -146125,17 +146455,49 @@ ISR
 	$dó˘iv©ePŸítiomëî
 () {
 
-124 
+123 
+ADC1
+->
+CR
+ &= 0x0000002;
+
+124 !(
+ADC1
+->
+ISR
+ & 0x00000001));
+
+126 
+	`ADC_ReguœrCh™√lC⁄fig
+(
+ADC1
+, 
+ADC_Ch™√l_1
+, 2, 
+ADC_Sam∂eTime_1Cy˛es5
+);
+
+127 
+	`ADC_ReguœrCh™√lC⁄fig
+(
+ADC1
+, 
+ADC_Ch™√l_2
+, 2, 
+ADC_Sam∂eTime_1Cy˛es5
+);
+
+128 
 	}
 }
 
-126 
+130 
 uöt16_t
  
 	$ªadPŸítiomëî1
 () {
 
-128 
+132 
 	`ADC_ReguœrCh™√lC⁄fig
 (
 ADC1
@@ -146145,13 +146507,13 @@ ADC_Ch™√l_1
 ADC_Sam∂eTime_1Cy˛es5
 );
 
-130 
+134 
 	`ADC_SèπC⁄vîsi⁄
 (
 ADC1
 );
 
-131 
+135 
 	`ADC_GëFœgSètus
 (
 ADC1
@@ -146159,23 +146521,23 @@ ADC1
 ADC_FLAG_EOC
 ) == 0);
 
-133  100 + 
+137  100 + 
 	`ADC_GëC⁄vîsi⁄VÆue
 (
 ADC1
 )/41;
 
-134 
+138 
 	}
 }
 
-136 
+140 
 uöt16_t
  
 	$ªadPŸítiomëî2
 () {
 
-138 
+142 
 	`ADC_ReguœrCh™√lC⁄fig
 (
 ADC1
@@ -146185,13 +146547,13 @@ ADC_Ch™√l_2
 ADC_Sam∂eTime_1Cy˛es5
 );
 
-140 
+144 
 	`ADC_SèπC⁄vîsi⁄
 (
 ADC1
 );
 
-141 
+145 
 	`ADC_GëFœgSètus
 (
 ADC1
@@ -146199,43 +146561,43 @@ ADC1
 ADC_FLAG_EOC
 ) == 0);
 
-143  42 + 
+147  42 + 
 	`ADC_GëC⁄vîsi⁄VÆue
 (
 ADC1
 )/226;
 
-144 
+148 
 	}
 }
 
-146 
+150 
 	$öôTem≥øtuª
 () {
 
-147 
+151 
 ADC1_2
 ->
 CCR
  = 0x00000000;
 
-148 
+152 
 ADC1_2
 ->
 CCR
  |= 0x00800000;
 
-149 
+153 
 	}
 }
 
-151 
+155 
 öt8_t
  
 	$ªadTem≥øtuª
 () {
 
-153 
+157 
 	`ADC_ReguœrCh™√lC⁄fig
 (
 ADC1
@@ -146245,13 +146607,13 @@ ADC_Ch™√l_16
 ADC_Sam∂eTime_1Cy˛es5
 );
 
-155 
+159 
 	`ADC_SèπC⁄vîsi⁄
 (
 ADC1
 );
 
-156 
+160 
 	`ADC_GëFœgSètus
 (
 ADC1
@@ -146259,7 +146621,7 @@ ADC1
 ADC_FLAG_EOC
 ) == 0);
 
-158 
+162 
 öt16_t
  
 x
@@ -146269,23 +146631,13 @@ x
 ADC1
 );
 
-160  336 - 
+164  167 - 
 x
-/5;
+/10;
 
-161 
+165 
 	}
 }
-
-	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\lut-sin.c
-
-10 
-	~"lut-sö.h
-"
-
-14 c⁄° sig√d 
-	gSIN
-[512]=
 
 	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\main.c
 
@@ -146465,51 +146817,45 @@ uöt16_t
 œ°VÆ
  = 0;
 
-33 
-uöt8_t
- 
-upPªs£d
- = 0;
-
-36 
+35 
 	`öô_usb_u¨t
 (115200);
 
-37 
+36 
 	`öôJoyStick
 ();
 
-38 
+37 
 	`öôPŸítiomëî
 ();
 
-39 
+38 
 	`öôTem≥øtuª
 ();
 
-40 
+39 
 	`öôTimî
 ();
 
-43 
+42 
 x2
  = 
 	`ªadPŸítiomëî1
 ();
 
-44 
+43 
 x2
  = (((x2 - 
 x1
  - 1) / 10) * 10) + x1 + 1;
 
-45 
+44 
 y2
  = 
 	`ªadPŸítiomëî2
 ();
 
-46 
+45 
 	`wödow
 (
 x1
@@ -146520,6 +146866,10 @@ x2
 , 
 y2
 , "Breakout", 1, 1);
+
+46 
+	`dó˘iv©ePŸítiomëî
+();
 
 47 
 sc‹ebﬂrdX
@@ -146607,7 +146957,27 @@ bÆl
 °rikî
 );
 
+63 
+bÆl
+.
+a˘ive
+ = 1;
+
 65 
+bÆl_t
+ 
+bÆl2
+;
+
+66 
+	`öôBÆl
+(&
+bÆl2
+, 
+°rikî
+);
+
+69 
 box_t
  
 boxM©rix
@@ -146617,7 +146987,7 @@ MAX_COLUMNS
 MAX_ROWS
 ];
 
-66 
+70 
 	`makeLevñ
 (
 boxM©rix
@@ -146637,17 +147007,59 @@ y2
 Àvñ
 );
 
-67 
+71 
 	`dñëeBÆl
 (
 bÆl
 );
 
-81 
+72 
+	`dñëeBÆl
+(
+bÆl2
+);
+
+75 
+	`FLASH_U∆ock
+();
+
+76 
+	`FLASH_CÀ¨Fœg
+–
+FLASH_FLAG_EOP
+ | 
+FLASH_FLAG_PGERR
+ | 
+FLASH_FLAG_WRPERR
+ );
+
+77 
+	`FLASH_Eø£Page
+–
+addªss
+ );
+
+78 
 i
  = 0; i < 10; i++) {
 
-82 
+79 
+	`FLASH_ProgømHÆfW‹d
+(
+addªss
+ + 
+i
+ * 2, 0);
+
+81 
+	`FLASH_Lock
+();
+
+84 
+i
+ = 0; i < 10; i++) {
+
+85 
 sc‹eD©a
 [
 i
@@ -146657,25 +147069,25 @@ uöt16_t
 addªss
  + i * 2);
 
-86 i‡(
+89 i‡(
 Êag
  && !
 míuO≥n
 ) {
 
-87 
+90 
 TIM2
 ->
 CR1
  = 0x0000;
 
-90 
+93 
 	`dñëeBÆl
 (
 bÆl
 );
 
-91 
+94 
 	`upd©eBÆlPos
 (&
 bÆl
@@ -146683,13 +147095,33 @@ bÆl
 k
 );
 
-92 
+95 
 	`døwBÆl
 (
 bÆl
 );
 
-95 
+97 
+	`dñëeBÆl
+(
+bÆl2
+);
+
+98 
+	`upd©eBÆlPos
+(&
+bÆl2
+, 
+k
+);
+
+99 
+	`døwBÆl
+(
+bÆl2
+);
+
+102 
 	`bÆlWÆlsCﬁlisi⁄
 (&
 bÆl
@@ -146715,19 +147147,95 @@ x2
 y2
 );
 
-98 
-	`bÆlSåikîCﬁlisi⁄
+103 
+	`bÆlWÆlsCﬁlisi⁄
+(&
+bÆl2
+, &
+°rikî
+, &
+∂ayîLives
+, &
+öGameSèπ
+, &
+míuO≥n
+, &
+k
+, &
+gameIsD⁄e
+, 
+x1
+, 
+y1
+, 
+x2
+, 
+y2
+);
+
+105 i‡(!
+bÆl
+.
+a˘ive
+ && !
+bÆl2
+.active) {
+
+106 
+	`∂ayîDód
+(&
+bÆl
+, &
+°rikî
+, &
+∂ayîLives
+, &
+öGameSèπ
+, &
+míuO≥n
+, &
+k
+, &
+gameIsD⁄e
+, 
+x1
+, 
+y1
+, 
+x2
+, 
+y2
+);
+
+110 
+	`°rikîCﬁlisi⁄
 (&
 bÆl
 , 
 °rikî
+, 
+boxM©rix
+, &
+sc‹e
 );
 
-101 
+111 
+	`°rikîCﬁlisi⁄
+(&
+bÆl2
+, 
+°rikî
+, 
+boxM©rix
+, &
+sc‹e
+);
+
+114 
 boxesAlive
  = 0;
 
-102 
+115 
 	`bÆlBoxesCﬁlisi⁄
 (&
 bÆl
@@ -146739,17 +147247,41 @@ sc‹e
 boxesAlive
 , 
 x2
+, 
+y2
 );
 
-104 i‡(!
+116 
+	`bÆlBoxesCﬁlisi⁄
+(&
+bÆl2
+, 
+boxM©rix
+, &
+sc‹e
+, &
+boxesAlive
+, 
+x2
+, 
+y2
+);
+
+118 i‡(!
 boxesAlive
 ){
 
-105 
+119 
 Àvñ
 ++;
 
-106 
+120 
+bÆl2
+.
+a˘ive
+ = 0;
+
+121 
 	`makeLevñ
 (
 boxM©rix
@@ -146769,7 +147301,7 @@ y2
 Àvñ
 );
 
-107 
+122 
 	`døwLevñLabñ
 (
 Àvñ
@@ -146777,39 +147309,39 @@ y2
 x2
 );
 
-108 
+123 
 öGameSèπ
  = 1;
 
-110 i‡(!
+125 i‡(!
 öGameSèπ
 ) {
 
-111 
+126 
 TIM2
 ->
 CR1
  = 0x0001;
 
-113 
+128 
 Êag
  = 0;
 
-117 
+132 
 	`ªadJoyStick
 ()) {
 
-121 i‡(!
+136 i‡(!
 bossKey
 ) {
 
-122 
+137 
 TIM2
 ->
 CR1
  = 0x0000;
 
-123 
+138 
 	`¥ötBossKey
 (
 sc‹e
@@ -146819,15 +147351,19 @@ sc‹e
 ∂ayîLives
 );
 
-124 
+139 
 bossKey
  = 1;
 
-128 
+143 i‡(!
+gameIsD⁄e
+) {
+
+144 
 °rikîCou¡î
 ++;
 
-129 i‡(
+145 i‡(
 °rikî
 .
 x
@@ -146841,21 +147377,25 @@ x1
 bossKey
 ) {
 
-130 
+146 
 °rikîCou¡î
  = 0;
 
-131 
+147 
 	`upd©eSåikîPos
 (&
 °rikî
 , 4);
 
-135 
+152 i‡(!
+gameIsD⁄e
+) {
+
+153 
 °rikîCou¡î
 ++;
 
-136 i‡(
+154 i‡(
 °rikî
 .
 x
@@ -146871,17 +147411,17 @@ x2
 bossKey
 ) {
 
-137 
+155 
 °rikîCou¡î
  = 0;
 
-138 
+156 
 	`upd©eSåikîPos
 (&
 °rikî
 , 8);
 
-142 
+161 
 	`˚¡î
 (&
 ˚¡îPªs£d
@@ -146905,7 +147445,7 @@ sc‹ebﬂrdY
 hñpX
 ,
 
-143 
+162 
 hñpY
 , &
 °¨tSñe˘ed
@@ -146933,17 +147473,19 @@ bÆl
 °rikî
 , &
 gameIsD⁄e
+, &
+bÆl2
 );
 
-147 
+166 
 ˚¡îPªs£d
  = 0;
 
-151 i‡(
+170 i‡(
 míuO≥n
  == 1) {
 
-152 i‡(
+171 i‡(
 °rikî
 .
 x
@@ -146955,7 +147497,7 @@ sc‹ebﬂrdX
 sc‹ebﬂrdSñe˘ed
 ) {
 
-154 
+173 
 	`døwSc‹ebﬂrdLabñ
 (
 sc‹ebﬂrdX
@@ -146963,11 +147505,11 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 , 4);
 
-155 
+174 
 sc‹ebﬂrdSñe˘ed
  = 1;
 
-156 } i‡(
+175 } i‡(
 °rikî
 .
 x
@@ -146979,7 +147521,7 @@ x
 °¨tSñe˘ed
 ) {
 
-158 
+177 
 	`døwSèπLabñ
 (
 °¨tX
@@ -146987,11 +147529,11 @@ x
 °¨tY
 , 4);
 
-159 
+178 
 °¨tSñe˘ed
  = 1;
 
-160 } i‡(
+179 } i‡(
 °rikî
 .
 x
@@ -147003,7 +147545,7 @@ hñpX
 hñpSñe˘ed
 ) {
 
-162 
+181 
 	`døwHñpLabñ
 (
 hñpX
@@ -147011,11 +147553,11 @@ hñpX
 hñpY
 , 4);
 
-163 
+182 
 hñpSñe˘ed
  = 1;
 
-164 } i‡((
+183 } i‡((
 sc‹ebﬂrdSñe˘ed
  || 
 °¨tSñe˘ed
@@ -147023,7 +147565,7 @@ sc‹ebﬂrdSñe˘ed
 hñpSñe˘ed
 )
 
-165 && (
+184 && (
 °rikî
 .
 x
@@ -147033,7 +147575,7 @@ x
 sc‹ebﬂrdX
 
 
-166 || (
+185 || (
 °rikî
 .
 x
@@ -147045,7 +147587,7 @@ sc‹ebﬂrdX
 °¨tX
 )
 
-167 || (
+186 || (
 °rikî
 .
 x
@@ -147057,7 +147599,7 @@ x
 hñpX
 )
 
-168 || 
+187 || 
 °rikî
 .
 x
@@ -147067,7 +147609,7 @@ x
 hñpX
  + 11)) {
 
-170 
+189 
 	`døwSc‹ebﬂrdLabñ
 (
 sc‹ebﬂrdX
@@ -147075,7 +147617,7 @@ sc‹ebﬂrdX
 sc‹ebﬂrdY
 , 0);
 
-171 
+190 
 	`døwSèπLabñ
 (
 °¨tX
@@ -147083,7 +147625,7 @@ sc‹ebﬂrdY
 °¨tY
 , 0);
 
-172 
+191 
 	`døwHñpLabñ
 (
 hñpX
@@ -147091,25 +147633,25 @@ hñpX
 hñpY
 , 0);
 
-173 
+192 
 sc‹ebﬂrdSñe˘ed
  = 0;
 
-174 
+193 
 °¨tSñe˘ed
  = 0;
 
-175 
+194 
 hñpSñe˘ed
  = 0;
 
-177 } i‡(
+196 } i‡(
 míuO≥n
  =2 && 
 ˚¡îPªs£d
 ) {
 
-178 
+197 
 	`døwBackMesßge
 ((
 x2
@@ -147117,7 +147659,7 @@ x2
 x1
 )/2, 25);
 
-179 
+198 
 	`døwSc‹ebﬂrd
 ((
 x2
@@ -147127,13 +147669,13 @@ x1
 addªss
 );
 
-180 } i‡(
+199 } i‡(
 míuO≥n
  =3 && 
 ˚¡îPªs£d
 ) {
 
-181 
+200 
 	`døwBackMesßge
 ((
 x2
@@ -147141,25 +147683,25 @@ x2
 x1
 )/2, 25);
 
-182 
+201 
 	`døwHñp
 ((
 x2
  - 
 x1
-)/8, 28);
+)/16, 28);
 
-186 i‡(
+205 i‡(
 gameIsD⁄e
  && !
 wrôãnToSc‹ebﬂrd
 ) {
 
-187 
+206 
 	`FLASH_U∆ock
 ();
 
-188 
+207 
 	`FLASH_CÀ¨Fœg
 –
 FLASH_FLAG_EOP
@@ -147169,17 +147711,17 @@ FLASH_FLAG_PGERR
 FLASH_FLAG_WRPERR
  );
 
-189 
+208 
 	`FLASH_Eø£Page
 –
 addªss
  );
 
-190 
+209 
 i
  = 0 ; i < 10 ; i++ ){
 
-191 i‡(
+210 i‡(
 sc‹e
  > 
 sc‹eD©a
@@ -147189,7 +147731,7 @@ i
 wrôãnToSc‹ebﬂrd
 ) {
 
-192 
+211 
 œ°VÆ
  = 
 sc‹eD©a
@@ -147197,7 +147739,7 @@ sc‹eD©a
 i
 ];
 
-193 
+212 
 sc‹eD©a
 [
 i
@@ -147205,13 +147747,13 @@ i
 sc‹e
 ;
 
-194 
+213 
 j
  = 
 i
 ; j < 10; j++) {
 
-195 
+214 
 	`sw≠Sc‹es
 (&
 sc‹eD©a
@@ -147221,11 +147763,11 @@ j
 œ°VÆ
 );
 
-197 
+216 
 wrôãnToSc‹ebﬂrd
  = 1;
 
-199 
+218 
 	`FLASH_ProgømHÆfW‹d
 (
 addªss
@@ -147235,27 +147777,19 @@ i
 sc‹eD©a
 [i]);
 
-201 
+220 
 	`FLASH_Lock
 ();
 
-202 
+221 
 sc‹e
  = 0;
 
-203 
+222 
 Àvñ
  = 1;
 
-204 
-∂ayîLives
- = 3;
-
-210  
-míuO≥n
- = 1;
-
-214 i‡(
+226 i‡(
 sc‹e
  > 
 sc‹eD©a
@@ -147263,17 +147797,17 @@ sc‹eD©a
 NewHighSc‹e
 ) {
 
-215 
+227 
 	`døwHighsc‹eLabñ
 (
 x2
 );
 
-216 
+228 
 NewHighSc‹e
  = 1;
 
-219 
+231 
 	}
 }
 
@@ -148963,214 +149497,6 @@ RCC_CFGR_SWS_PLL
 	}
 }
 
-	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\vectors.c
-
-1 
-	~"°m32f30x_c⁄f.h
-"
-
-2 
-	~"30010_io.h
-"
-
-3 
-	~"lut-sö.h
-"
-
-4 
-	~"ve˘‹s.h
-"
-
-6 
-	$¥ötFix
-(
-öt32_t
- 
-i
-) {
-
-7 if((
-i
- & 0x80000000) != 0) {
-
-8 
-	`¥ötf
-("-");
-
-9 
-i
- = ~i + 1;
-
-11 
-	`¥ötf
-("%ld.%04ld", 
-i
- >> 16, 10000 * (
-uöt32_t
-) (i & 0xFFFF) >> 16);
-
-12 
-	}
-}
-
-14 
-öt32_t
- 
-	$ex∑nd
-(
-öt32_t
- 
-i
-) {
-
-15  
-i
- << 2;
-
-16 
-	}
-}
-
-18 
-öt32_t
- 
-	$sö
-(
-x
-) {
-
-19 
-x
- = x % 512;
-
-20 i‡(
-x
- < 0) {
-
-21 
-x
- += 512;
-
-24  
-SIN
-[
-x
-];
-
-25 
-	}
-}
-
-27 
-öt32_t
- 
-	$cos
-(
-x
-) {
-
-28  
-	`sö
-(
-x
- + 128);
-
-29 
-	}
-}
-
-31 
-	$rŸ
-(
-öt32_t
- * 
-x
-, i¡32_à* 
-y
-, 
-™gÀ
-) {
-
-32 *
-x
- = 
-	`FIX14_right
-((*x)*
-	`cos
-(
-™gÀ
-)Ë- FIX14_right((*
-y
-)*
-	`sö
-(angle));
-
-33 *
-y
- = 
-	`FIX14_right
-((*
-x
-)*
-	`sö
-(
-™gÀ
-)Ë+ FIX14_right((*y)*
-	`cos
-(angle));
-
-35 
-	`gŸoxy
-(10, 2);
-
-36 
-	`¥ötf
-("(");
-
-37 
-	`¥ötFix
-(
-	`ex∑nd
-(*
-x
-));
-
-38 
-	`¥ötf
-(",");
-
-39 
-	`¥ötFix
-(
-	`ex∑nd
-(*
-y
-));
-
-40 
-	`¥ötf
-(")\n");
-
-41 
-	`gŸoxy
-(10, 3);
-
-42 
-	`¥ötFix
-(
-	`ex∑nd
-(
-	`FIX14_right
-((*
-x
-Ë* (*x)Ë+ FIX14_right((*
-y
-) * (*y))));
-
-43 
-	}
-}
-
 	@C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\stm32f302r8_flash.ld
 
 33 
@@ -150055,8 +150381,8 @@ __HópLimô
 1
 .
 0
-74
-6731
+70
+6399
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\SPL\inc\stm32f30x_adc.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\SPL\inc\stm32f30x_can.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\SPL\inc\stm32f30x_comp.h
@@ -150113,21 +150439,17 @@ C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\build_g
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\charset.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\draw_objects.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\hardware_control.h
-C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\lut-sin.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\stm32f30x.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\stm32f30x_conf.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\system_stm32f30x.h
-C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\inc\vectors.h
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\readme.txt
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\30010_io.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\ansi.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\build_game.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\draw_objects.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\hardware_control.c
-C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\lut-sin.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\main.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\startup_stm32f30x.S
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\system_stm32f30x.c
-C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\src\vectors.c
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\stm32f302r8_flash.ld
 C:\Users\hunt4\OneDrive\Dokumenter\Programmeringsprojekt\GitHub\Spil\stm32f302r8_sram.ld
