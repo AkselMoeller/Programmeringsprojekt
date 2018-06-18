@@ -68,7 +68,7 @@ int main(void) {
 
     //Drawing boxes
     box_t boxMatrix[MAX_COLUMNS][MAX_ROWS];
-    makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
+    makeLevel(boxMatrix, &ball, &ball2, &striker, x1, y1, x2, y2, level); //Drawing boxes for level 1
     deleteBall(ball); //Ball should not be visible yet
     deleteBall(ball2);
 
@@ -119,7 +119,7 @@ int main(void) {
             if (!boxesAlive){ //When all boxes are "dead" (level-up!)
                 level++;
                 ball2.active = 0;
-                makeLevel(boxMatrix, &ball, &striker, x1, y1, x2, y2, level);
+                makeLevel(boxMatrix, &ball, &ball2, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level, x2);
                 inGameStart = 1;
             }
