@@ -137,8 +137,6 @@ void deleteStriker(striker_t striker) {
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
     //update color
-    gotoxy(150, 10);
-    printf("    ");
     readTemperature();
     uint8_t t = readTemperature();
     switch (t) {
@@ -171,9 +169,6 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
-    fgcolor(7);
-    gotoxy(150, 10);
-    printf("%i", t);
 }
 
 void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
