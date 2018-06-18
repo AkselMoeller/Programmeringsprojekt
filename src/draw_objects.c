@@ -13,6 +13,7 @@
 #include "hardware_control.h"
 
 void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_t style, uint8_t reset) {
+    showCursor();
     resetbgcolor();
     if (reset) {
         clrscr();
@@ -52,6 +53,7 @@ void window(uint8_t x1, uint8_t y1, uint8_t x2, uint8_t y2, char * title, uint8_
         gotoxy(x2, i);
         printf("%c", vSide);
     }
+
 
     //Drawing corners
     gotoxy(x1,y1);

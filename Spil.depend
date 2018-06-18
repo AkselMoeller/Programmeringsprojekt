@@ -206,24 +206,24 @@
 	"stm32f30x_conf.h"
 	<stdio.h>
 
-1528705066 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\ansi.c
+1529314117 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\ansi.c
 	"ansi.h"
 	<string.h>
 
-1528705065 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\ansi.h
+1529314114 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\ansi.h
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1529068618 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
+1529314117 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 	"hardware_control.h"
 
-1529075206 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1529314117 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
-1529068618 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
+1529083968 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
@@ -234,7 +234,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1529068618 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1529314133 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -927,14 +927,15 @@
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
-1529065470 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
+1529313256 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
+	"ansi.h"
 
-1529054876 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
+1529313255 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
 1529313262 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 

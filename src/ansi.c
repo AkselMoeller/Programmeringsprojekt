@@ -83,3 +83,6 @@ void inverse(uint8_t on) {//0 = off, 1-255 = on
     printf("%c[%dm", ESC, on ? 7 : 27);
 }
 
+void showCursor() { //Draws cursor
+    printf("%c[?25l", ESC);
+}
