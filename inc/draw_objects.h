@@ -20,16 +20,17 @@ typedef struct {
     int32_t vX, vY; //(vX,vY) is the velocity-vector of the ball (how much it's going to move up/down next iteration)
     int8_t active;
 } ball_t;
+
 void drawBall(ball_t ball);
-void updateBallPos(ball_t * ball_p);
 void deleteBall(ball_t ball);
+void updateBallPos(ball_t * ball_p);
 
 typedef struct {
     uint8_t x, y, length, color; //(x, y) is start position and length is the length of striker.
 } striker_t;
 void drawStriker (striker_t striker);
-void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 void deleteStriker(striker_t striker);
+void updateStrikerPos(striker_t * striker_p, uint8_t joyStickState);
 
 typedef struct {
     int32_t x, y;
