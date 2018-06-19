@@ -32,7 +32,7 @@ int main(void) {
     uint16_t lastVal = 0;
 
     //Initialization
-    init_usb_uart(460800);
+    init_usb_uart(576000);
     initJoyStick();
     initPotentiometer();
     initTemperature();
@@ -109,8 +109,8 @@ int main(void) {
             }
 
             //Making ball bounce on striker
-            ballStrikerCollision(&ball, striker, boxMatrix, &score, x2);
-            ballStrikerCollision(&ball2, striker, boxMatrix, &score, x2);
+            strikerCollision(&ball, striker, boxMatrix, &score, x2);
+            strikerCollision(&ball2, striker, boxMatrix, &score, x2);
 
             //Making ball bounce on boxes
             boxesAlive = 0;
