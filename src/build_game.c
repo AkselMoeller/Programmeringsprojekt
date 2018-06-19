@@ -121,7 +121,7 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
         }
 }
 
-void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
+void ballStrikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
         && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker

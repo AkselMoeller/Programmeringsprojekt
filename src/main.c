@@ -110,8 +110,8 @@ int main(void) {
             }
 
             //Making ball bounce on striker
-            strikerCollision(&ball, striker, boxMatrix, &score, x2);
-            strikerCollision(&ball2, striker, boxMatrix, &score, x2);
+            ballStrikerCollision(&ball, striker, boxMatrix, &score, x2);
+            ballStrikerCollision(&ball2, striker, boxMatrix, &score, x2);
 
             //Making ball bounce on boxes
             boxesAlive = 0;
