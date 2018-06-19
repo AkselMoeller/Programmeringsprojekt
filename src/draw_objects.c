@@ -197,7 +197,7 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
 }
 
 void drawPowerUp(box_t * box_p, int32_t y2) {
-    gotoxy(FIX14_right((*box_p).powerUp.x), FIX14_right((*box_p).powerUp.y));
+    gotoxy(FIX14_right((*box_p).powerUp.x), FIX14_right((*box_p).powerUp.y)); //go to power up location
     printf(" "); //delete powerUp
     (*box_p).powerUp.y+= 0x0600; //Speed of drop
     if (FIX14_right((*box_p).powerUp.y) >= y2 - 1) { // check if the powerUp hits the bottom of game
@@ -260,55 +260,6 @@ void drawPlayerLivesLabel (uint8_t playerLives, uint8_t x2) {
     }
     resetbgcolor();
     fgcolor(15);
-}
-
-void drawBackMessage(uint8_t x, uint8_t y) { //x is center x-coordinate of the window
-    gotoxy(x - 15, y);
-    printf("Press center-button to go back");
-}
-
-void deleteBackMessage(uint8_t x, uint8_t y) {
-    gotoxy(x - 15, y);
-    printf("                              ");
-}
-
-void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
-    gotoxy(scoreboardX , scoreboardY);
-    window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
-    bgcolor(color);
-    gotoxy(scoreboardX + 1, scoreboardY + 1);
-    printf("Scoreboard");
-    resetbgcolor();
-}
-
-void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color) {
-    gotoxy(startX, startY);
-    window(startX, startY, startX + 11, startY + 2, "", 0, 0);
-    bgcolor(color);
-    gotoxy(startX + 1, startY + 1);
-    printf("Start game");
-    resetbgcolor();
-}
-
-void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color) {
-    gotoxy(helpX, helpY);
-    window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
-    bgcolor(color);
-    gotoxy(helpX + 1, helpY + 1);
-    printf("   Help   ");
-    resetbgcolor();
-}
-
-void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY) {
-    resetbgcolor();
-    for (uint8_t i = 0; i <= 2; i++) {
-        gotoxy(scoreboardX, scoreboardY + i);
-        printf("            ");
-        gotoxy(startX, startY + i);
-        printf("            ");
-        gotoxy(helpX, helpY + i);
-        printf("            ");
-    }
 }
 
 void printBossKey(uint16_t score, uint8_t level, uint8_t playerLives) {
@@ -568,22 +519,57 @@ void gameOver(int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
 
 }
 
-void deleteGameOver (int32_t x1, int32_t x2, int32_t y1, int32_t y2) {
-    uint8_t xm = (x2 - x1)/2;
-    uint8_t ym = (y2 - y1)/2;
+void drawBackMessage(uint8_t x, uint8_t y) { //x is center x-coordinate of the window
+    gotoxy(x - 15, y);
+    printf("Press center-button to go back");
+}
 
-    //Goes to start position for delete
-    uint8_t xDs = xm - (5*5);
-    uint8_t yDs = ym - 3;
-    gotoxy(xDs + 1, yDs);
+void deleteBackMessage(uint8_t x, uint8_t y) {
+    gotoxy(x - 15, y);
+    printf("                              ");
+}
 
-    for (int i = 0; i < 5; i ++) {
-        gotoxy(xDs, yDs + i);
-        for (int j = 0; j < 53; j++){
-                printf(" ");
-        }
+void drawScoreboardLabel(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t color) {
+    gotoxy(scoreboardX , scoreboardY);
+    window(scoreboardX, scoreboardY, scoreboardX + 11, scoreboardY + 2, "", 0, 0);
+    bgcolor(color);
+    gotoxy(scoreboardX + 1, scoreboardY + 1);
+    printf("Scoreboard");
+    resetbgcolor();
+}
+
+void drawStartLabel(uint8_t startX, uint8_t startY, uint8_t color) {
+    gotoxy(startX, startY);
+    window(startX, startY, startX + 11, startY + 2, "", 0, 0);
+    bgcolor(color);
+    gotoxy(startX + 1, startY + 1);
+    printf("Start game");
+    resetbgcolor();
+}
+
+void drawHelpLabel(uint8_t helpX, uint8_t helpY, uint8_t color) {
+    gotoxy(helpX, helpY);
+    window(helpX, helpY, helpX + 11, helpY + 2, "", 0, 0);
+    bgcolor(color);
+    gotoxy(helpX + 1, helpY + 1);
+    printf("   Help   ");
+    resetbgcolor();
+}
+
+void deleteMenuLabels(uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY) {
+    resetbgcolor();
+    for (uint8_t i = 0; i <= 2; i++) {
+        gotoxy(scoreboardX, scoreboardY + i);
+        printf("            ");
+        gotoxy(startX, startY + i);
+        printf("            ");
+        gotoxy(helpX, helpY + i);
+        printf("            ");
     }
 }
+
+
+
 
 void drawHelp(uint8_t x, uint8_t y) {
     //This prints help instructions to screen
