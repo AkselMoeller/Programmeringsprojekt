@@ -1,91 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <EmBitz_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="inc\ansi.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\ansi.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="247" topLine="0" />
+			<Cursor1 position="172" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="inc\build_game.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="inc\draw_objects.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="1438" topLine="0" />
-=======
-			<Cursor1 position="852" topLine="0" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
-		</Cursor>
-	</File>
-	<File name="inc\draw_objects.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1521" topLine="10" />
+			<Cursor1 position="288" topLine="24" />
 		</Cursor>
 	</File>
 	<File name="inc\hardware_control.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="226" topLine="0" />
+			<Cursor1 position="255" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="inc\stm32f30x.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\ansi.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="15469" topLine="230" />
+			<Cursor1 position="2222" topLine="54" />
 		</Cursor>
 	</File>
-	<File name="src\ansi.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\build_game.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="94" topLine="0" />
+			<Cursor1 position="7485" topLine="313" />
 		</Cursor>
 	</File>
-	<File name="src\build_game.c" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\draw_objects.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="16417" topLine="316" />
-=======
-			<Cursor1 position="9229" topLine="162" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
-		</Cursor>
-	</File>
-	<File name="src\draw_objects.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="6293" topLine="173" />
-=======
-			<Cursor1 position="5754" topLine="183" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
+			<Cursor1 position="2927" topLine="405" />
 		</Cursor>
 	</File>
 	<File name="src\hardware_control.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="6355" topLine="24" />
-=======
-			<Cursor1 position="7417" topLine="129" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
+			<Cursor1 position="7237" topLine="135" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="9380" topLine="197" />
-=======
-<<<<<<< HEAD
-			<Cursor1 position="4269" topLine="106" />
-=======
-			<Cursor1 position="1068" topLine="6" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
->>>>>>> 9ecaa83f2a03fb8313582e4ba6833e3a30baeb5d
-		</Cursor>
-	</File>
-	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="3768" topLine="158" />
-=======
-<<<<<<< HEAD
-			<Cursor1 position="3768" topLine="131" />
-=======
-			<Cursor1 position="3823" topLine="113" />
->>>>>>> a37d32ccf2183662dad385e528e45305819a577e
->>>>>>> 9ecaa83f2a03fb8313582e4ba6833e3a30baeb5d
+			<Cursor1 position="7294" topLine="203" />
 		</Cursor>
 	</File>
 </EmBitz_layout_file>
