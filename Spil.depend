@@ -492,7 +492,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1529409746 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1529409887 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -915,7 +915,7 @@
 
 1528883562 8aa56449e2fb2613f6cf70b20306acad80858
 
-1529399558 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
+1529410193 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -923,7 +923,7 @@
 	"build_game.h"
 	"ansi.h"
 
-1529409810 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
+1529410165 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
 
 1528928118 96658d997685aa726fc83513907c1f50523ba
 
