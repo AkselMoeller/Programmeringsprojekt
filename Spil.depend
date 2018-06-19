@@ -221,7 +221,7 @@
 	<string.h>
 	"hardware_control.h"
 
-1529410108 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
+1529413334 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\draw_objects.h
 
 1529328765 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\hardware_control.c
 	"30010_io.h"
@@ -234,7 +234,7 @@
 
 1528450307 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\lut-sin.h
 
-1529412160 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
+1529412189 source:c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
