@@ -292,9 +292,9 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t *
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
                 case 5 : // LVL 5
-                    if (j < 4) {
+                    if (j > 0 && j < 5) {
                         boxMatrix[i][j].lives = 1;
-                        if (j == 2 || j == 0) {
+                        if (j == 3 || j == 1) {
                             boxMatrix[i][j].lives = 2;
                             if (i == 0 || i == 9) {
                                 boxMatrix[i][j].powerUp.style = 2;
@@ -303,7 +303,7 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t *
                     } else {
                             boxMatrix[i][j].lives = 0;
                     }
-                    if (j == 1 && (i == 2 || i == 7))
+                    if (j == 2 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
                 default :
@@ -362,7 +362,6 @@ void initBall(ball_t * ball_p, striker_t striker) {
     (*ball_p).vX = 0x00000000;
     (*ball_p).vY = -(0x00001000); //-0.25 - 0xFFFFF000
     (*ball_p).active = 0;
-    drawBall(*ball_p);
 }
 
 //Writes a value to data set, while swapping it with the next
