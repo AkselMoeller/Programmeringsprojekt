@@ -21,7 +21,7 @@ typedef struct {
     int8_t active;
 } ball_t;
 void drawBall(ball_t ball);
-void updateBallPos(ball_t * ball_p, uint8_t k);
+void updateBallPos(ball_t * ball_p);
 void deleteBall(ball_t ball);
 
 typedef struct {

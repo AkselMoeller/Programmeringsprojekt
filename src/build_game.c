@@ -76,7 +76,7 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
 }
 
 void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                         uint8_t * k_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+                        , int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
     if ((*ball_p).x <= FIX14_left(x1 + 1) && (*ball_p).vX < 0) { //Ball colliding with left side
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX > 0) { //Ball colliding with right side
@@ -93,7 +93,7 @@ void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
 }
 
 void playerDead(ball_t * ball_p, striker_t * striker_p,
-                uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * k_p, uint8_t * gameIsDone_p,
+                uint8_t * playerLives_p, uint8_t * inGameStart_p, uint8_t * menuOpen_p, uint8_t * gameIsDone_p,
                 int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t * level) { //runs if last ball is out
         (*playerLives_p)--; //Decrement player lives
         drawPlayerLivesLabel(*playerLives_p, x2); //Output player lives to putty
