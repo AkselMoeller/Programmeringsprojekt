@@ -137,8 +137,6 @@ void deleteStriker(striker_t striker) {
 
 void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updating the striker position with joystick
     //update color
-    gotoxy(150, 10);
-    printf("    ");
     readTemperature();
     uint8_t t = readTemperature();
     switch (t) {
@@ -171,9 +169,6 @@ void updateStrikerPos (striker_t * striker_p, uint8_t joyStickState) { //Updatin
         fgcolor((*striker_p).color);
         printf("%c", 11 + 208);
     }
-    fgcolor(7);
-    gotoxy(150, 10);
-    printf("%i", t);
 }
 
 void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
@@ -202,13 +197,13 @@ void drawBox(box_t box) { //Set lives to 0 in order to delete boxes
 }
 
 void drawPowerUp(box_t * box_p, int32_t y2) {
-    gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000));
+    gotoxy(FIX14_right((*box_p).powerUp.x), FIX14_right((*box_p).powerUp.y));
     printf(" "); //delete powerUp
-    (*box_p).powerUp.y+= 0x1000; //Speed of drop
-    if (FIX14_right((*box_p).powerUp.y + 0x2000) >= y2) { // check if the powerUp hits the bottom of game
+    (*box_p).powerUp.y+= 0x0600; //Speed of drop
+    if (FIX14_right((*box_p).powerUp.y) >= y2 - 1) { // check if the powerUp hits the bottom of game
         (*box_p).powerUp.hit = 0;
     } else {
-        gotoxy(FIX14_right((*box_p).powerUp.x + 0x2000), FIX14_right((*box_p).powerUp.y + 0x2000)); //Rounded number
+        gotoxy(FIX14_right((*box_p).powerUp.x), FIX14_right((*box_p).powerUp.y)); //Draw powerUp
         if ((*box_p).powerUp.style == 1) {
             fgcolor(7);
             printf("%c", 4+144); // "ö"

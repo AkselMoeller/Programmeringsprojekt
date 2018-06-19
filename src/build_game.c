@@ -5,9 +5,9 @@
 #include "build_game.h"
 #include "ansi.h"
 
-void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p,
+void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p, uint8_t * newHighscore_p,
             uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
-            uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2,
+            uint8_t * startSelected_p, uint8_t * helpSelected_p, uint8_t score, uint8_t level, int32_t x1, int32_t x2, int32_t y1, int32_t y2, uint8_t * writtenToScoreboard_p,
             uint8_t playerLives, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, uint8_t * gameIsDone_p, ball_t * ball2_p) {
      if (!(*centerPressed_p)) {
         if (!(*gameIsDone_p) && !(*bossKey_p) && ((*menuOpen_p) == 1 || (*inGameStart_p))) {
@@ -40,9 +40,10 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             drawBall(*ball_p);
             TIM2->CR1 = 0x0001;
             (*bossKey_p) = 0;
+            (*newHighscore_p) = 0;
         } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
             window(x1, y1, x2, y2, "Breakout", 1, 1);
-            makeLevel(boxMatrix, ball_p, striker_p, x1, y1, x2, y2, level);
+            makeLevel(boxMatrix, ball_p, ball2_p, striker_p, x1, y1, x2, y2, level);
             (*ball2_p).active = 0;
             deleteBall(*ball2_p);
             deleteBall(*ball_p);
@@ -56,6 +57,8 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
             (*bossKey_p) = 0;
             (*menuOpen_p) = 1;
             (*gameIsDone_p) = 0;
+            (*newHighscore_p) = 0;
+            (*writtenToScoreboard_p) = 0;
         } else if (((*menuOpen_p) == 2 || (*menuOpen_p) == 3)) { //Return to home-page from scoreboard or help-page
             deleteHelp((x2 - x1)/16, 28);
             deleteScoreboard((x2 - x1)/8, 28);
@@ -165,7 +168,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y >= FIX14_left(boxMatrix[i][j].y)
-                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x2000
+                    && (*ball_p).y < FIX14_left(boxMatrix[i][j].y) + 0x3000
                     && (*ball_p).vY > 0) {
                         (*ball_p).vY = -(*ball_p).vY; //bounce ball
                         if (boxMatrix[i][j].powerUp.style) { //testing for powerUp
@@ -180,7 +183,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
                 else if ((*ball_p).x >= FIX14_left(boxMatrix[i][j].x)
                     && (*ball_p).x < FIX14_left(boxMatrix[i][j].x + boxMatrix[i][j].xSize)
                     && (*ball_p).y <= FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize)
-                    && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x2000
+                    && (*ball_p).y > FIX14_left(boxMatrix[i][j].y + boxMatrix[i][j].ySize) - 0x3000
                     && (*ball_p).vY < 0) {
                         (*ball_p).vY = -(*ball_p).vY;
                         if (boxMatrix[i][j].powerUp.style) {
@@ -229,7 +232,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
     }//End of both for-loops
 }
 
-void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
+void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t * ball2_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
     TIM2->CR1 = 0x0000;
     deleteBall(*ball_p);
     deleteStriker(*striker_p);
@@ -291,6 +294,23 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
                     if (j == 3 && (i == 2 || i == 7))
                         boxMatrix[i][j].powerUp.style = 1;
                     break;
+                case 5 : // LVL 5
+                    if (j < 4) {
+                        boxMatrix[i][j].lives = 1;
+                        if (j == 2 || j == 0) {
+                            boxMatrix[i][j].lives = 2;
+                            if (i == 0 || i == 9) {
+                                boxMatrix[i][j].powerUp.style = 2;
+                            }
+                        }
+                    } else {
+                            boxMatrix[i][j].lives = 0;
+                    }
+                    if (j == 1 && (i == 2 || i == 7))
+                        boxMatrix[i][j].powerUp.style = 1;
+                    break;
+                default :
+                    boxMatrix[i][j].lives = 2;
             }
             //set all powerUps to their boxes center position:
             if (boxMatrix[i][j].powerUp.style) {
@@ -307,14 +327,25 @@ void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, striker_
     initBall(ball_p, *striker_p);
     (*ball_p).active = 1;
 
-    //making the ball faster for every level
+    initBall(ball2_p, *striker_p);
+
+    //Controlling ball speed
     switch(level){
-        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125) - 0 for testing
+        case 1 : break; // Default speed
+        case 2 : (*ball_p).vY += -(0x00000800); // (-0,125)
+            (*ball2_p).vY += -(0x00000800);
             break;
-        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25) - for testing
+        case 3 : (*ball_p).vY += -(0x00001000); // (-0,25)
+            (*ball2_p).vY += -(0x00001000);
             break;
         case 4 : (*ball_p).vY += -(0x00001800); // (-0,375)
+            (*ball2_p).vY += -(0x00001800);
             break;
+        case 5 : (*ball_p).vY += -(0x00001800); // (-0,375)
+            (*ball2_p).vY += -(0x00001800);
+            break;
+        default : (*ball_p).vY += -(0x00001800); // (-0,375) speed for further levels
+            (*ball2_p).vY += -(0x00001800);
     }
 }
 
