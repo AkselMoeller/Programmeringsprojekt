@@ -110,10 +110,10 @@ void deleteBall(ball_t ball) {
     }
 }
 
-void updateBallPos(ball_t * ball_p, uint8_t k) {
+void updateBallPos(ball_t * ball_p) {
     if ((*ball_p).active) {
-        (*ball_p).x = (*ball_p).x + (*ball_p).vX * k;
-        (*ball_p).y = (*ball_p).y + (*ball_p).vY * k;
+        (*ball_p).x = (*ball_p).x + (*ball_p).vX;
+        (*ball_p).y = (*ball_p).y + (*ball_p).vY;
     }
 }
 
