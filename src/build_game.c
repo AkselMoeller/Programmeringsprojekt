@@ -75,15 +75,14 @@ void center(uint8_t * centerPressed_p, uint8_t * bossKey_p, uint8_t * menuOpen_p
     }
 }
 
-void ballWallsCollision(ball_t * ball_p, striker_t * striker_p,
-                        , int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
+void ballWallsCollision(ball_t * ball_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
     if ((*ball_p).x <= FIX14_left(x1 + 1) && (*ball_p).vX < 0) { //Ball colliding with left side
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).x >= FIX14_left(x2 - 1) && (*ball_p).vX > 0) { //Ball colliding with right side
         (*ball_p).vX = -(*ball_p).vX;
     } else if ((*ball_p).y <= FIX14_left(y1 + 1) && (*ball_p).vY < 0) { //Ball colliding with top horizontal side
         (*ball_p).vY = -(*ball_p).vY;
-    } else if ((*ball_p).y >= FIX14_left(y2 - 1) && (*k_p)) { //Ball is not caught by player
+    } else if ((*ball_p).y >= FIX14_left(y2 - 1)) { //Ball is not caught by player
         deleteBall((*ball_p));
         (*ball_p).vY = -(*ball_p).vY;
         (*ball_p).active = 0;
@@ -121,7 +120,7 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
         }
 }
 
-void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
+void ballStrikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
         && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker

@@ -11,7 +11,6 @@
 int main(void) {
     //Variables
     int32_t x1 = 1, y1 = 1, x2 = 100, y2 = 42; //Window size
-    uint8_t k = 1; //Controlling speed of ball
     uint16_t strikerCounter = 0;
     uint16_t strikerMaxCount = 5000; //Affects striker speed
     uint8_t bossKey = 0;
@@ -94,24 +93,24 @@ int main(void) {
 
             //Updating ball-position
             deleteBall(ball);
-            updateBallPos(&ball, k);
+            updateBallPos(&ball);
             drawBall(ball);
 
             deleteBall(ball2);
-            updateBallPos(&ball2, k);
+            updateBallPos(&ball2);
             drawBall(ball2);
 
             //Making ball bounce on walls
-            ballWallsCollision(&ball, &striker, &k, x1, y1, x2, y2);
-            ballWallsCollision(&ball2, &striker, &k, x1, y1, x2, y2);
+            ballWallsCollision(&ball, &striker, x1, y1, x2, y2);
+            ballWallsCollision(&ball2, &striker, x1, y1, x2, y2);
 
             if (!ball.active && !ball2.active) {
-                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2, &level);
+                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &gameIsDone, x1, y1, x2, y2, &level);
             }
 
             //Making ball bounce on striker
-            strikerCollision(&ball, striker, boxMatrix, &score, x2);
-            strikerCollision(&ball2, striker, boxMatrix, &score, x2);
+            ballStrikerCollision(&ball, striker, boxMatrix, &score, x2);
+            ballStrikerCollision(&ball2, striker, boxMatrix, &score, x2);
 
             //Making ball bounce on boxes
             boxesAlive = 0;
