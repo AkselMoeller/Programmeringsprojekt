@@ -94,11 +94,11 @@ int main(void) {
 
             //Updating ball-position
             deleteBall(ball);
-            updateBallPos(&ball, k);
+            updateBallPos(&ball);
             drawBall(ball);
 
             deleteBall(ball2);
-            updateBallPos(&ball2, k);
+            updateBallPos(&ball2);
             drawBall(ball2);
 
             //Making ball bounce on walls
@@ -106,7 +106,7 @@ int main(void) {
             ballWallsCollision(&ball2, &striker, &k, x1, y1, x2, y2);
 
             if (!ball.active && !ball2.active) {
-                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &k, &gameIsDone, x1, y1, x2, y2, &level);
+                playerDead(&ball, &striker, &playerLives, &inGameStart, &menuOpen, &gameIsDone, x1, y1, x2, y2, &level);
             }
 
             //Making ball bounce on striker
