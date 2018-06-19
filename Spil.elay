@@ -6,24 +6,14 @@
 			<Cursor1 position="247" topLine="0" />
 		</Cursor>
 	</File>
-<<<<<<< HEAD
 	<File name="inc\build_game.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="1438" topLine="0" />
-=======
-	<File name="inc\build_game.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="851" topLine="0" />
->>>>>>> 17b1b800377b68a9c1ce91e9ea15d7658e88f53f
 		</Cursor>
 	</File>
 	<File name="inc\draw_objects.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="1521" topLine="0" />
-=======
-			<Cursor1 position="696" topLine="0" />
->>>>>>> 17b1b800377b68a9c1ce91e9ea15d7658e88f53f
+			<Cursor1 position="1521" topLine="23" />
 		</Cursor>
 	</File>
 	<File name="inc\hardware_control.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -41,53 +31,29 @@
 			<Cursor1 position="94" topLine="0" />
 		</Cursor>
 	</File>
-<<<<<<< HEAD
 	<File name="src\build_game.c" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3800" topLine="41" />
-=======
-	<File name="src\build_game.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4544" topLine="53" />
->>>>>>> 17b1b800377b68a9c1ce91e9ea15d7658e88f53f
+			<Cursor1 position="805" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\draw_objects.c" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
-			<Cursor1 position="6143" topLine="165" />
-=======
-			<Cursor1 position="2" topLine="0" />
->>>>>>> 17b1b800377b68a9c1ce91e9ea15d7658e88f53f
+			<Cursor1 position="12398" topLine="380" />
 		</Cursor>
 	</File>
 	<File name="src\hardware_control.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-<<<<<<< HEAD
 			<Cursor1 position="6584" topLine="90" />
 		</Cursor>
 	</File>
-	<File name="src\main.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\main.c" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3433" topLine="70" />
+			<Cursor1 position="5813" topLine="130" />
 		</Cursor>
 	</File>
-	<File name="src\startup_stm32f30x.S" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="3768" topLine="131" />
-=======
-			<Cursor1 position="7417" topLine="129" />
-		</Cursor>
-	</File>
-	<File name="src\main.c" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1155" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="src\startup_stm32f30x.S" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3021" topLine="125" />
->>>>>>> 17b1b800377b68a9c1ce91e9ea15d7658e88f53f
 		</Cursor>
 	</File>
 </EmBitz_layout_file>

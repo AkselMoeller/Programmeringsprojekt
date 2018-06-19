@@ -864,14 +864,14 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1529410528 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
+1529415684 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\draw_objects.c
 	<stdio.h>
 	"draw_objects.h"
 	"ansi.h"
 	<string.h>
 	"hardware_control.h"
 
-1529410528 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
+1529415683 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\draw_objects.h
 
 1528466802 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\game_control.c
 	"game_control.h"
@@ -937,9 +937,9 @@
 
 1529412138 c:\users\aksel\onedrive\dokumenter\program. pro\øvelser\spil\inc\build_game.h
 
-1529410528 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
+1529415848 c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\inc\build_game.h
 
-1529410528 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
+1529415839 source:c:\users\hunt4\onedrive\dokumenter\programmeringsprojekt\github\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
