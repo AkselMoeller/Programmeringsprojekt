@@ -33,7 +33,7 @@ int main(void) {
     uint16_t lastVal = 0;
 
     //Initialization
-    init_usb_uart(115200);
+    init_usb_uart(576000);
     initJoyStick();
     initPotentiometer();
     initTemperature();
@@ -118,10 +118,10 @@ int main(void) {
 
             if (!boxesAlive){ //When all boxes are "dead" (level-up!)
                 level++;
-                ball2.active = 0;
                 makeLevel(boxMatrix, &ball, &ball2, &striker, x1, y1, x2, y2, level);
                 drawLevelLabel(level, x2);
                 inGameStart = 1;
+                drawBall(ball);
             }
             if (!inGameStart) {
                 TIM2->CR1 = 0x0001; //Enabling timer
