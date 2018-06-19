@@ -158,8 +158,11 @@ int main(void) {
                 }
                 break;
             case 16 : //Center
-                center(&centerPressed, &bossKey, &menuOpen, &inGameStart, &scoreboardSelected, &newHighScore, scoreboardX, scoreboardY, startX, startY, helpX,
-                       helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, &writtenToScoreboard, playerLives, boxMatrix, &ball, &striker, &gameIsDone, &ball2);
+                if (!centerPressed) {
+                    center(&bossKey, &menuOpen, &inGameStart, &scoreboardSelected, &newHighScore, scoreboardX, scoreboardY, startX, startY, helpX,
+                        helpY, &startSelected, &helpSelected, score, level, x1, x2, y1, y2, &writtenToScoreboard, playerLives, boxMatrix, &ball, &striker, &gameIsDone, &ball2);
+                    centerPressed = 1;
+                }
                 break;
 
             default : //When a button on the joystick is released
