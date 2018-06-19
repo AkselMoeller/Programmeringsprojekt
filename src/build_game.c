@@ -120,7 +120,7 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
         }
 }
 
-void ballStrikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
+void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], uint16_t * score_p, int32_t x2) {
     if (FIX14_right((*ball_p).y) == striker.y - 1
         && FIX14_right((*ball_p).x + 0x2000) <= striker.x + striker.length
         && FIX14_right((*ball_p).x + 0x2000) >= striker.x) { //conditions for ball hitting the striker
@@ -149,8 +149,9 @@ void ballStrikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MA
                     if (boxMatrix[i][j].powerUp.style == 1) { //powerUp for extra ball
                         (*ball_p).active = 1;
                     } else if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra points
-                        *score_p += 2;
+                        *score_p += 5;
                         drawScoreLabel(*score_p, x2);
+                        boxMatrix[i][j].powerUp.style = 0;
                     }
                 }
             }
