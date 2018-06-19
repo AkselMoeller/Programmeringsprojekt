@@ -138,11 +138,11 @@ void strikerCollision(ball_t * ball_p, striker_t striker, box_t boxMatrix[MAX_CO
     }
     for (uint8_t i = 0; i < MAX_COLUMNS; i++) {
         for (uint8_t j = 0; j < MAX_ROWS; j++) {
-            if (boxMatrix[i][j].powerUp.hit) { // checking only for moving powerUps
+            if (boxMatrix[i][j].powerUp.hit) { //checking only for moving powerUps
                 if (FIX14_right(boxMatrix[i][j].powerUp.y) == striker.y - 1
                     && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) <= striker.x + striker.length
                     && FIX14_right(boxMatrix[i][j].powerUp.x + 0x2000) >= striker.x) {//conditions for powerUp hitting the striker
-                    // stuff for hitting powerUp
+                    //stuff for hitting powerUp
                     if (boxMatrix[i][j].powerUp.style == 1) { //powerUp for extra ball
                         (*ball_p).active = 1;
                     } else if (boxMatrix[i][j].powerUp.style == 2) { //powerUp for extra points
