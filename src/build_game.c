@@ -362,7 +362,6 @@ void initBall(ball_t * ball_p, striker_t striker) {
     (*ball_p).vX = 0x00000000;
     (*ball_p).vY = -(0x00001000); //-0.25 - 0xFFFFF000
     (*ball_p).active = 0;
-    drawBall(*ball_p);
 }
 
 //Writes a value to data set, while swapping it with the next
