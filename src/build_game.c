@@ -3,7 +3,6 @@
 #include "hardware_control.h"
 #include "draw_objects.h"
 #include "build_game.h"
-#include "ansi.h"
 
 void center(uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, uint8_t * scoreboardSelected_p, uint8_t * newHighscore_p,
             uint8_t scoreboardX, uint8_t scoreboardY, uint8_t startX, uint8_t startY, uint8_t helpX, uint8_t helpY,
@@ -20,7 +19,7 @@ void center(uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, 
             drawPlayerLivesLabel(playerLives, x2);
             (*inGameStart_p) = 0;
             (*menuOpen_p) = 0;
-            TIM2->CR1 = 0x0001;
+            enableTimer();
         } else if (*helpSelected_p) { //Show help
             deleteMenuLabels(scoreboardX, scoreboardY, startX, startY, helpX, helpY);
             (*menuOpen_p) = 3;
@@ -37,7 +36,7 @@ void center(uint8_t * bossKey_p, uint8_t * menuOpen_p, uint8_t * inGameStart_p, 
         drawPlayerLivesLabel(playerLives, x2);
         drawStriker((*striker_p));
         drawBall(*ball_p);
-        TIM2->CR1 = 0x0001;
+        enableTimer();
         (*bossKey_p) = 0;
         (*newHighscore_p) = 0;
     } else if (((*bossKey_p) || (*gameIsDone_p)) && (*menuOpen_p)) { //When the menu-page should be opened
@@ -109,7 +108,7 @@ void playerDead(ball_t * ball_p, striker_t * striker_p,
             (*playerLives_p) = 3;
             (*gameIsDone_p) = 1;
             (*menuOpen_p) = 1;
-            TIM2->CR1 = 0x0000;
+            disableTimer();
             (*inGameStart_p) = 0;
         } else {
             (*inGameStart_p) = 1;
@@ -230,7 +229,7 @@ void ballBoxesCollision(ball_t * ball_p, box_t boxMatrix[MAX_COLUMNS][MAX_ROWS],
 }
 
 void makeLevel(box_t boxMatrix[MAX_COLUMNS][MAX_ROWS], ball_t * ball_p, ball_t * ball2_p, striker_t * striker_p, int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint8_t level) {
-    TIM2->CR1 = 0x0000;
+    disableTimer();
     deleteBall(*ball_p);
     deleteStriker(*striker_p);
 

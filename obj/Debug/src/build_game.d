@@ -11,5 +11,4 @@ obj\debug\src\build_game.o: src\build_game.c inc/stm32f30x_conf.h \
  SPL\inc/stm32f30x_rcc.h SPL\inc/stm32f30x_rtc.h SPL\inc/stm32f30x_spi.h \
  SPL\inc/stm32f30x_tim.h SPL\inc/stm32f30x_usart.h \
  SPL\inc/stm32f30x_wwdg.h SPL\inc/stm32f30x_misc.h inc/30010_io.h \
- inc/hardware_control.h inc/draw_objects.h inc/build_game.h inc/ansi.h \
- inc/30010_io.h
+ inc/hardware_control.h inc/draw_objects.h inc/build_game.h

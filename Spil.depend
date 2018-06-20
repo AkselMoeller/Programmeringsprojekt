@@ -463,11 +463,11 @@
 	"stm32f30x_conf.h"
 	"30010_io.h"
 
-1529401874 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
+1529488343 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\hardware_control.c
 	"30010_io.h"
 	"hardware_control.h"
 
-1529401874 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
+1529488281 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\hardware_control.h
 
 1528449106 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\lut-sin.c
 	"lut-sin.h"
@@ -492,7 +492,7 @@
 
 1528466860 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\game_control.h
 
-1529416612 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
+1529488396 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\main.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
@@ -915,13 +915,12 @@
 
 1528883562 8aa56449e2fb2613f6cf70b20306acad80858
 
-1529416074 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
+1529488595 source:\\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\src\build_game.c
 	"stm32f30x_conf.h"
 	"30010_io.h"
 	"hardware_control.h"
 	"draw_objects.h"
 	"build_game.h"
-	"ansi.h"
 
 1529416074 \\mac\home\documents\dtu\2. semester\programmeringsprojekt (f2018)\spil\inc\build_game.h
 

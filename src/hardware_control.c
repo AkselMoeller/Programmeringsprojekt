@@ -17,6 +17,14 @@ void TIM2_IRQHandler() {
     TIM2->SR &= ~0x0001; //Clear interrupt bit
 }
 
+void enableTimer() {
+    TIM2->CR1 = 0x0001; //Enabling timer
+}
+
+void disableTimer() {
+    TIM2->CR1 = 0x0000; //Disabling timer
+}
+
 void initJoyStick() {
     RCC->AHBENR |= RCC_AHBPeriph_GPIOA; // Enable clock for GPIO Port A
     RCC->AHBENR |= RCC_AHBPeriph_GPIOB; // Enable clock for GPIO Port B

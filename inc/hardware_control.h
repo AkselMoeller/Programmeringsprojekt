@@ -6,7 +6,8 @@ uint8_t flag; //A global variable is needed i order to have a flag in TIM2_TRQHa
 
 void initTimer();
 void TIM2_IRQHandler();
-
+void enableTimer();
+void disableTimer();
 
 void initJoyStick();
 uint8_t readJoyStick();

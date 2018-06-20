@@ -89,7 +89,7 @@ int main(void) {
 
     while(1) {
         if (flag && !menuOpen) { //Everything in this if-statement is executed once every 1/64 second (64 Hz refresh-rate)
-            TIM2->CR1 = 0x0000; //Disabling timer
+            disableTimer();
 
             //Updating ball-position
             deleteBall(ball);
@@ -125,7 +125,7 @@ int main(void) {
                 drawBall(ball);
             }
             if (!inGameStart) {
-                TIM2->CR1 = 0x0001; //Enabling timer
+                enableTimer();
             }
             flag = 0;
         }
@@ -136,7 +136,7 @@ int main(void) {
                 break;
             case 2 : //Down
                 if (!bossKey) { //Pause game (boss key)
-                    TIM2->CR1 = 0x0000;
+                    disableTimer();
                     printBossKey(score, level, playerLives);
                     bossKey = 1;
                 }
@@ -166,7 +166,6 @@ int main(void) {
                     centerPressed = 1;
                 }
                 break;
-
             default : //When a button on the joystick is released
                 centerPressed = 0;
                 break;
